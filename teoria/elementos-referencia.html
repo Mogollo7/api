@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elementos de referencia</title>
+<style>
+@font-face { font-family: "Aquire"; src: url("fonts/Aquire-BW0ox.otf") format("opentype"); font-weight: 400; }
+@font-face { font-family: "Aquire"; src: url("fonts/AquireBold-8Ma60.otf") format("opentype"); font-weight: 700; }
+:root { --negro: #0b0d12; --lima: #dfff04; --papel: #ffffff; --tinta: #000; --gris: #9a9a9a; }
+* { box-sizing: border-box; }
+body { margin: 0; padding: 32px 16px 72px; background: #15171d; color: #eee; font: 15px/1.5 system-ui, sans-serif; }
+.ancho { max-width: 1240px; margin: 0 auto; }
+h1 { font: 700 30px/1.1 "Aquire", system-ui, sans-serif; color: var(--lima); margin: 0 0 8px; }
+p.desc { color: #bbb; max-width: 820px; margin: 0 0 22px; }
+h2 { font: 700 17px/1.2 "Aquire", system-ui, sans-serif; color: #fff; letter-spacing: .05em; margin: 48px 0 14px; }
+.rejilla { display: grid; gap: 18px; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
+.pieza { background: #1e2129; border-radius: 14px; padding: 12px; display: flex; flex-direction: column; gap: 10px; }
+.pieza .muestra { position: relative; height: 130px; border-radius: 10px; overflow: hidden; background: #fff; display: grid; place-items: center; }
+.pieza .muestra.negro { background: var(--negro); }
+.pieza .muestra.lima { background: var(--lima); }
+.num { position: absolute; left: 8px; top: 8px; width: 28px; height: 28px; border-radius: 50%; background: #ff2d6f; color: #fff; font: 700 13px/28px system-ui, sans-serif; text-align: center; z-index: 2; }
+.pieza b { font: 700 13px "Aquire", system-ui, sans-serif; color: var(--lima); letter-spacing: .04em; }
+.pieza span { color: #aaa; font-size: 13px; }
+.pieza code { color: #ddd; font-size: 12px; }
+svg.ico { width: 100%; height: 100%; }
+
+/* ----- Hoja negra · apertura (de identidad.html) ----- */
+.hoja { position: relative; width: 100%; aspect-ratio: 595 / 842; background: var(--negro); overflow: hidden; container-type: inline-size; color: #fff; }
+.hoja .t { position: absolute; font: 700 30cqw/0.8 "Aquire", system-ui, sans-serif; color: var(--lima); left: 7%; top: 14%; }
+.hoja h2.g { position: absolute; left: 7%; top: 52%; margin: 0; font: 700 7cqw/1.05 "Aquire", system-ui, sans-serif; color: #fff; }
+.hoja .s { position: absolute; left: 7%; top: 75%; width: 86%; margin: 0; font: 600 2.6cqw/1.3 system-ui, sans-serif; color: #cfd2d6; }
+.hoja .hud { position: absolute; left: 7%; top: 4%; font: 700 1.6cqw/1 "JetBrains Mono", monospace; letter-spacing: .08em; text-transform: uppercase; color: #fff; }
+.hoja .chips { position: absolute; left: 7%; top: 88%; display: flex; gap: 1.2cqw; }
+.hoja .chips span { padding: .6cqw 2cqw; border: .3cqw solid #fff; border-radius: 99px; font: 700 1.6cqw "JetBrains Mono", monospace; color: #fff; }
+.hoja .chips span.on { background: var(--lima); border-color: var(--lima); color: #000; }
+
+/* ----- Tablas y bloques ----- */
+.tabla { display: grid; gap: 22px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+.tabla .ficha { background: #1e2129; border-radius: 14px; padding: 14px; }
+.tabla .ficha h3 { margin: 0 0 6px; font: 700 14px "Aquire", system-ui, sans-serif; color: var(--lima); }
+.tabla .ficha p { margin: 0; font-size: 13px; color: #aaa; }
+.tabla .ficha .origen { font-size: 12px; color: #888; margin-top: 6px; }
+</style>
+</head>
+<body>
+<div class="ancho">
+
+<h1>Elementos de referencia</h1>
+<p class="desc">Piezas sacadas de las imágenes que mandaste, numeradas y con nombre para pedirlas después. Cada una se traduce a la paleta negro, lima y papel. El número rojo es el de la pieza; el origen indica la imagen de la que sale.</p>
+
+<h2>A · Forma, bloques y esquinas</h2>
+<div class="rejilla" id="forma"></div>
+
+<h2>B · Chevrons, flechas y bandas</h2>
+<div class="rejilla" id="bandas"></div>
+
+<h2>C · Glifos, puntos y rejillas</h2>
+<div class="rejilla" id="glifos"></div>
+
+<h2>D · Datos y códigos</h2>
+<div class="rejilla" id="datos"></div>
+
+<h2>E · Círculos y marcas</h2>
+<div class="rejilla" id="marcas"></div>
+
+<h2>F · Hoja negra · apertura (portada de referencia)</h2>
+<div class="rejilla">
+  <div class="pieza" style="grid-column: span 2; max-width: 520px;">
+    <div class="muestra negro" style="height:auto;aspect-ratio:595/842;display:block">
+      <div class="hoja">
+        <span class="hud">SP-01 · CAP 02 · DATOS</span>
+        <span class="t">02</span>
+        <h2 class="g">LOS DATOS<br>PESAN MÁS<br>QUE EL MODELO</h2>
+        <p class="s">Fuentes, equilibrio entre especies y cómo separar entrenamiento y prueba.</p>
+        <div class="chips"><span>INATURALIST</span><span>GBIF</span><span class="on">LICENCIAS</span></div>
+      </div>
+    </div>
+    <b>Hoja negra · apertura</b>
+    <span>Cómo se ve en la identidad: número de capítulo en lima, título en blanco, chips de los temas. Fondo de glifos casi invisible.</span>
+  </div>
+</div>
+
+</div>
+
+<script>
+var NUM = 0;
+function pieza(zona, nombre, nota, origen, svg, fondo) {
+  NUM++;
+  return '<div class="pieza"><div class="muestra ' + (fondo || "") + '"><span class="num">' + NUM + '</span>' + svg + '</div><b>' + nombre + '</b><span>' + nota + '</span><span class="origen">' + origen + '</span></div>';
+}
+function svgIn(vb, cont) { return '<svg class="ico" viewBox="' + vb + '" preserveAspectRatio="xMidYMid meet" aria-hidden="true">' + cont + '</svg>'; }
+
+// A · Forma
+var A = [
+  pieza("", "forma-lima", "Bloques fusionados con esquinas interiores cóncavas.", "4.jpg (HUD cyber_system)", svgIn("0 0 200 120", '<path fill="#000" d="M10 10H150V30H190V110H10Z"/>' + '<path fill="#000" d="M150 30 A12 12 0 0 1 162 42"/>')),
+  pieza("", "muesca", "Hueco de extremo semicircular en el borde de un bloque.", "4.jpg (HUD)", svgIn("0 0 200 120", '<path fill="#000" d="M10 10H190V60H160A20 20 0 0 0 160 100H190V110H10Z"/>'), "lima"),
+  pieza("", "pestaña", "Bloque que sobresale arriba y da altura al conjunto.", "5.jpg (lookup pack)", svgIn("0 0 200 120", '<path fill="#000" d="M10 40H120V10H190V110H10Z"/>')),
+  pieza("", "bloque con radio", "Esquina exterior redondeada del mismo radio que la interior.", "9.jpg (futuro #002)", svgIn("0 0 200 120", '<rect x="20" y="20" width="160" height="80" rx="30" fill="#000"/>')),
+  pieza("", "tira de cuadros", "Dos cuadrados con esquina quebrada; módulo repetible.", "4.jpg (HUD, módulos)", svgIn("0 0 200 120", '<path fill="#000" d="M20 20H90V60H20Z"/><path fill="#000" d="M100 20H180V100H100Z"/>')),
+  pieza("", "tramo lima", "Bloque lima con sombra de bloques negros debajo.", "10.jpg (glifos sobre lima)", svgIn("0 0 200 120", '<rect x="20" y="10" width="120" height="50" fill="#dfff04"/><rect x="20" y="60" width="160" height="50" fill="#000"/>'))
+].join("");
+document.getElementById("forma").innerHTML = A;
+
+// B · Bandas
+var B = [
+  pieza("", "chevron doble", "Dos chevrons alineados: avance o dirección.", "4.jpg (flechas)", svgIn("0 0 200 120", '<path fill="#000" d="M20 20L60 60L20 100L40 100L80 60L40 20Z M80 20L120 60L80 100L100 100L140 60L100 20Z"/>')),
+  pieza("", "banda rayada", "Franja diagonal de trazos: separador o estado.", "4.jpg (rayas)", svgIn("0 0 200 120", '<path fill="#000" d="M10 40H190V80H10Z"/><path fill="#fff" d="M30 40L50 40L30 80L10 80Z M70 40L90 40L70 80L50 80Z M110 40L130 40L110 80L90 80Z M150 40L170 40L150 80L130 80Z"/>')),
+  pieza("", "flecha de cuatro", "Cuatro puntas hacia fuera: expandir o ampliar.", "4.jpg (arriba)", svgIn("0 0 200 120", '<path fill="#000" d="M100 20L120 50H80Z M100 100L80 70H120Z M30 60L60 40V80Z M170 60L140 80V40Z"/>')),
+  pieza("", "barra de carga", "Cuatro barras inclinadas, la última más ancha.", "5.jpg (lookup pack)", svgIn("0 0 200 120", '<path fill="#000" d="M30 40L45 40L35 80L20 80Z M60 40L75 40L65 80L50 80Z M90 40L105 40L95 80L80 80Z M130 40L165 40L155 80L120 80Z"/>')),
+  pieza("", "tarjeta de 3 barras", "Tres barras dentro de una franja, con marco abierto.", "4.jpg (cajón de datos)", svgIn("0 0 200 120", '<path fill="none" stroke="#000" stroke-width="6" d="M20 30H180V90H20Z"/><path fill="#000" d="M50 45H70V75H50Z M90 45H110V75H90Z M130 45H150V75H130Z"/>')),
+  pieza("", "triángulo apilado", "Dos triángulos apuntando al mismo lado; señal de alerta.", "4.jpg (arriba derecha)", svgIn("0 0 200 120", '<path fill="#000" d="M100 15L150 60L100 105L50 60Z"/><path fill="#fff" d="M100 35L125 60L100 85L75 60Z"/>'))
+].join("");
+document.getElementById("bandas").innerHTML = B;
+
+// C · Glifos
+var G = [
+  pieza("", "glifos mixtos", "Anillos, cuadros y equis en una tira; la base del fondo.", "10.jpg (campo de glifos)", svgIn("0 0 200 120", '<g fill="none" stroke="#000" stroke-width="3"><circle cx="30" cy="30" r="10"/><rect x="60" y="20" width="20" height="20"/><path d="M110 20L130 40M130 20L110 40"/></g><circle cx="165" cy="30" r="3" fill="#000"/>')),
+  pieza("", "rejilla de puntos", "Cuadrícula de puntos sueltos. Ya no es el fondo principal.", "5.jpg (grid de puntos)", svgIn("0 0 200 120", Array.from({length:6}).map((_,y)=>Array.from({length:10}).map((_,x)=>'<circle cx="'+(15+x*18)+'" cy="'+(15+y*18)+'" r="3" fill="#000"/>').join("")).join(""))),
+  pieza("", "onda de muestreo", "Curva sinusoidal con marcas: señal o frecuencia.", "5.jpg (onda)", svgIn("0 0 200 120", '<path d="M10 60 Q30 20 50 60 T90 60 T130 60 T170 60" fill="none" stroke="#000" stroke-width="4"/>')),
+  pieza("", "cuadrícula distorsionada", "Malla que se curva: distorsión o profundidad.", "4.jpg (retícula)", svgIn("0 0 200 120", '<path fill="none" stroke="#000" stroke-width="2" d="M20 20 Q60 40 100 20 T180 20 M20 60 Q60 80 100 60 T180 60 M20 100 Q60 120 100 100 T180 100 M40 10 Q60 60 40 110 M100 10 Q120 60 100 110 M160 10 Q180 60 160 110"/>')),
+  pieza("", "píxeles de ruido", "Bloques pixelados parciales: datos corruptos o transición.", "4.jpg (pixel)", svgIn("0 0 200 120", '<path fill="#000" d="M20 40h20v20h-20z M40 60h20v20h-20z M60 20h20v20h-20z M80 40h20v20h-20z M100 80h20v20h-20z M120 60h20v20h-20z"/>')),
+  pieza("", "damero", "Cuadros alternados: marcador de estado o cambio.", "4.jpg (damero)", svgIn("0 0 200 120", '<g fill="#000">' + Array.from({length:4}).map((_,y)=>Array.from({length:6}).map((_,x)=>((x+y)%2===0?'<rect x="'+(20+x*28)+'" y="'+(10+y*26)+'" width="22" height="20"/>':'')).join("")).join("") + '</g>'))
+].join("");
+document.getElementById("glifos").innerHTML = G;
+
+// D · Datos
+var D = [
+  pieza("", "código de barras", "Barras de grosor variable para serie o pie.", "4.jpg (código de barras)", svgIn("0 0 200 120", Array.from({length:30}).map((_,i)=>'<rect x="'+(12+i*6)+'" y="30" width="'+(1+(i*7%3))+'" height="60" fill="#000"/>').join(""))),
+  pieza("", "cifra gigante", "Número grande en display: capítulo o dato clave.", "4.jpg (05)", svgIn("0 0 200 120", '<text x="100" y="95" text-anchor="middle" font-family="Aquire, sans-serif" font-weight="700" font-size="92" fill="#000">05</text>')),
+  pieza("", "tablero de tres bloques", "Tres bloques de distinta altura: comparación.", "7.jpg (dashboard MBTI)", svgIn("0 0 200 120", '<rect x="20" y="60" width="40" height="40" fill="#000"/><rect x="80" y="30" width="40" height="70" fill="#dfff04"/><rect x="140" y="50" width="40" height="50" fill="#000"/>'), "lima"),
+  pieza("", "etiqueta de sello", "Cabecera con un cuadrado de logo y líneas: marca de serie.", "9.jpg (sello)", svgIn("0 0 200 120", '<rect x="20" y="20" width="160" height="80" fill="none" stroke="#000" stroke-width="4"/><rect x="30" y="30" width="30" height="30" fill="#000"/><path d="M70 40H170M70 60H150M70 80H130" stroke="#000" stroke-width="4"/>')),
+  pieza("", "chips en contorno", "Píldoras con una activa en relleno: categorías.", "7.jpg (MBTI)", svgIn("0 0 200 120", '<rect x="10" y="20" width="60" height="22" rx="11" fill="none" stroke="#000" stroke-width="3"/><rect x="80" y="20" width="60" height="22" rx="11" fill="#000"/><rect x="10" y="60" width="100" height="22" rx="11" fill="none" stroke="#000" stroke-width="3"/>')),
+  pieza("", "bocadillo", "Globo con cola: detalle extra que dice la mascota.", "7.jpg (globo)", svgIn("0 0 200 120", '<rect x="20" y="20" width="160" height="60" rx="18" fill="#dfff04"/><path d="M50 80L60 100L70 80Z" fill="#dfff04"/><path d="M40 40H160M40 55H130" stroke="#000" stroke-width="4"/>'))
+].join("");
+document.getElementById("datos").innerHTML = D;
+
+// E · Marcas
+var E = [
+  pieza("", "diana", "Aro con punto y cuatro marcas: foco de una imagen.", "4.jpg (marca)", svgIn("0 0 200 120", '<circle cx="100" cy="60" r="34" fill="none" stroke="#000" stroke-width="7"/><circle cx="100" cy="60" r="8" fill="#000"/><path d="M100 10V24M100 96V110M50 60H64M136 60H150" stroke="#000" stroke-width="5"/>')),
+  pieza("", "sello con muescas", "Aro grueso con cuatro muescas: cierre de la esquina.", "5.jpg (cierre)", svgIn("0 0 200 120", '<circle cx="100" cy="60" r="30" fill="none" stroke="#000" stroke-width="13"/><path d="M100 14L108 28H92Z M100 106L92 92H108Z M54 60L68 52V68Z M146 60L132 68V52Z" fill="#000"/>')),
+  pieza("", "anillo de órbita", "Elipse con anillo: planeta, órbita o escala.", "8.jpg (planeta)", svgIn("0 0 200 120", '<ellipse cx="100" cy="60" rx="80" ry="22" fill="none" stroke="#000" stroke-width="5"/><circle cx="100" cy="60" r="30" fill="#000"/>')),
+  pieza("", "cruz de ocho", "Cuatro puntas con barras: marca de expansión.", "5.jpg (cruz)", svgIn("0 0 200 120", '<path fill="#000" d="M100 20L110 50L140 60L110 70L100 100L90 70L60 60L90 50Z"/>')),
+  pieza("", "esfera de malla", "Esfera con meridianos: globo o mapa.", "5.jpg (globo)", svgIn("0 0 200 120", '<circle cx="100" cy="60" r="44" fill="none" stroke="#000" stroke-width="4"/><ellipse cx="100" cy="60" rx="20" ry="44" fill="none" stroke="#000" stroke-width="3"/><path d="M56 60H144M60 40H140M60 80H140" stroke="#000" stroke-width="3"/>')),
+  pieza("", "cabeza de pensamiento", "Silueta con círculo de ideas: icono de modelo o idea.", "5.jpg (mind)", svgIn("0 0 200 120", '<rect x="60" y="10" width="80" height="100" rx="16" fill="none" stroke="#000" stroke-width="5"/><circle cx="100" cy="50" r="16" fill="none" stroke="#000" stroke-width="5"/>'))
+].join("");
+document.getElementById("marcas").innerHTML = E;
+</script>
+</body>
+</html>

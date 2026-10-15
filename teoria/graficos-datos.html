@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tablero de datos Anura</title>
+<style>
+@font-face{font-family:Aquire;src:url("fonts/Aquire-BW0ox.otf")}
+:root{--ink:#0b0d12;--lime:#dfff04;--paper:#fff;--g:#8a929c;--gl:#2c3138;--t:#e8eaed;--m:#a3a9b1}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ink);color:var(--t);font:14px/1.5 system-ui,sans-serif;padding:24px 16px}
+h1{font:700 28px Aquire,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin:0 0 4px}
+.sub{color:var(--m);font:12px ui-monospace,Consolas,monospace;text-transform:uppercase;margin-bottom:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:16px;max-width:1200px}
+.card{background:#12151c;border:1px solid var(--gl);border-radius:16px;padding:16px}
+.card h2{font:700 15px Aquire,sans-serif;letter-spacing:.05em;text-transform:uppercase;margin:0 0 2px}
+.tag{font:11px ui-monospace,Consolas,monospace;color:var(--m);text-transform:uppercase}
+.tag b{color:var(--lime)}
+.cap{color:var(--m);font-size:12px;margin:6px 0 0}
+svg{width:100%;height:auto;display:block}
+svg text{fill:var(--t);font:11px system-ui,sans-serif}
+svg .mu{fill:var(--m)}
+svg .ax{stroke:var(--gl);stroke-width:1}
+.sim{outline:1px dashed var(--lime)}
+.leg{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--m);margin-top:6px}
+.leg i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+details{margin-top:8px;font-size:12px;color:var(--m)} table{border-collapse:collapse;width:100%} td,th{border-bottom:1px solid var(--gl);padding:2px 6px;text-align:left}
+</style>
+</head>
+<body>
+<h1>Tablero de datos · Anura</h1>
+<div class="sub">Cifras de anura-hallazgos.md Parte B y guia.md §8 · [BD] [CALC] medidas · [SIM] simulación</div>
+<div class="grid" id="g"></div>
+<svg width="0" height="0"><defs><pattern id="h" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#12151c"/><rect width="2.5" height="6" fill="#dfff04"/></pattern></defs></svg>
+<script>
+const L='#dfff04',G='#8a929c',W=360,PL=44,PR=16,PT=24,PB=34;
+const f=n=>String(n).replace('.',',');
+function card(title,tag,svg,cap,rows,sim,leg){
+  const d=document.createElement('div');d.className='card'+(sim?' sim':'');
+  d.innerHTML=`<h2>${title}</h2><div class="tag">${tag}</div>${svg}${leg?`<div class="leg">${leg}</div>`:''}<p class="cap">${cap}</p><details><summary>Ver tabla</summary><table>${rows.map((r,i)=>`<tr>${r.map(c=>i?`<td>${c}</td>`:`<th>${c}</th>`).join('')}</tr>`).join('')}</table></details>`;
+  document.getElementById('g').appendChild(d);
+}
+// barras verticales: items {l,v,hi,hatch,err}
+function vbars(items,max,unit='%',H=220){
+  const w=W-PL-PR,h=H-PT-PB,bw=w/items.length*.6,gap=w/items.length;
+  let s=`<svg viewBox="0 0 ${W} ${H}" role="img">`;
+  for(const t of [0,.5,1]){const y=PT+h-h*t;s+=`<line class="ax" x1="${PL}" x2="${W-PR}" y1="${y}" y2="${y}"/><text class="mu" x="${PL-6}" y="${y+4}" text-anchor="end">${f(max*t)}</text>`}
+  items.forEach((it,i)=>{const x=PL+gap*i+(gap-bw)/2,bh=h*it.v/max,y=PT+h-bh;
+    s+=`<rect x="${x}" y="${y}" width="${bw}" height="${bh}" rx="4" fill="${it.hatch?'url(#h)':it.hi?L:G}"${it.hatch?` stroke="${L}"`:''}/>`;
+    if(it.err){const e=h*it.err/max,cx=x+bw/2;s+=`<path d="M${cx} ${y-e}V${y+e}M${cx-5} ${y-e}H${cx+5}M${cx-5} ${y+e}H${cx+5}" stroke="#fff" stroke-width="1.5" fill="none"/>`}
+    s+=`<text x="${x+bw/2}" y="${y-(it.err?h*it.err/max:0)-5}" text-anchor="middle" font-weight="600">${f(it.v)}${unit}</text><text class="mu" x="${x+bw/2}" y="${H-PB+14}" text-anchor="middle">${it.l}</text>`;
+    if(it.l2)s+=`<text class="mu" x="${x+bw/2}" y="${H-PB+26}" text-anchor="middle">${it.l2}</text>`});
+  return s+'</svg>';
+}
+// barras horizontales
+function hbars(items,max){
+  const rh=24,H=items.length*rh+20,lw=170;let s=`<svg viewBox="0 0 ${W} ${H}" role="img">`;
+  items.forEach((it,i)=>{const y=8+i*rh,bw=(W-lw-40)*it.v/max;
+    s+=`<text x="${lw-6}" y="${y+13}" text-anchor="end">${it.l}</text><rect x="${lw}" y="${y+2}" width="${bw}" height="14" rx="4" fill="${it.hi?L:G}"/><text x="${lw+bw+6}" y="${y+13}" font-weight="600">${it.v}</text>`});
+  return s+'</svg>';
+}
+function line(pts,xr,yr,xl,yl,H=230){
+  const w=W-PL-PR,h=H-PT-PB,X=v=>PL+w*(v-xr[0])/(xr[1]-xr[0]),Y=v=>PT+h-h*(v-yr[0])/(yr[1]-yr[0]);
+  let s=`<svg viewBox="0 0 ${W} ${H}" role="img">`;
+  for(let k=0;k<=4;k++){const v=yr[0]+(yr[1]-yr[0])*k/4,y=Y(v);s+=`<line class="ax" x1="${PL}" x2="${W-PR}" y1="${y}" y2="${y}"/><text class="mu" x="${PL-6}" y="${y+4}" text-anchor="end">${f(Math.round(v))}</text>`}
+  s+=`<path d="${pts.map((p,i)=>(i?'L':'M')+X(p[0])+' '+Y(p[1])).join('')}" stroke="${L}" stroke-width="2" fill="none"/>`;
+  pts.forEach(p=>{s+=`<circle cx="${X(p[0])}" cy="${Y(p[1])}" r="4" fill="${L}" stroke="#12151c" stroke-width="2"/><text x="${X(p[0])}" y="${Y(p[1])-9}" text-anchor="middle">${f(p[1])}</text><text class="mu" x="${X(p[0])}" y="${H-PB+14}" text-anchor="middle">${p[2]??p[0]}</text>`});
+  s+=`<text class="mu" x="${W/2}" y="${H-4}" text-anchor="middle">${xl}</text><text class="mu" x="6" y="10">${yl}</text>`;
+  return s+'</svg>';
+}
+const T=(a,b)=>[[a,b],...[]];
+// 1
+card('Acierto con 56 especies','[CALC] test v5 · 864 fotos',vbars([{l:'TOP-1',v:62.85,hi:1,err:3.2},{l:'TOP-3',v:86.11},{l:'TOP-5',v:91.09}],100),
+ 'Mostrar tres candidatas sube el acierto 23 puntos. Barra blanca: intervalo 95 % [STAT] de top-1, ±3,2 pp.',
+ [['Métrica','Valor %'],['Top-1','62,85'],['Top-3','86,11'],['Top-5','91,09']],0,`<span><i style="background:${L}"></i>Top-1</span><span><i style="background:${G}"></i>Top-3 y top-5</span>`);
+// 2
+card('Más especies, menos acierto','[BD] validación · lotes distintos',line([[5,87.3],[18,78.2],[26,76.0,""],[28,74.3],[31,68.6],[56,64.4]],[0,60],[60,100],'especies en el modelo','% entre aceptadas'),
+ 'Tendencia real, pero la validación cambia entre lotes: no es un experimento controlado.',
+ [['Especies','Acierto entre aceptadas %'],['5','87,3'],['18','78,2'],['26','76,0'],['28','74,3'],['31','68,6'],['56','64,4']]);
+// 3
+card('Quitar el fondo empeora','[Parte A] 150 imágenes pareadas · BioCLIP',vbars([{l:'COMPLETA',v:60.7,hi:1},{l:'RECORTE',v:50.7},{l:'FONDO NEGRO',v:44.7}],100),
+ 'Segmentar no ayudó con el modelo entrenado en imagen completa. Reentrenar sobre recortes: sin probar.',
+ [['Entrada','Top-1 %'],['Completa','60,7'],['Recorte','50,7'],['Fondo negro','44,7']],0,`<span><i style="background:${L}"></i>Imagen completa (referencia)</span><span><i style="background:${G}"></i>Con recorte o fondo negro</span>`);
+// 4
+card('Paquete regional frente a global','[CALC] Sinú · 493 fotos test',vbars([{l:'GLOBAL',v:73.83,hi:1,err:3.9},{l:'REGIONAL',v:70.99,err:4.0}],100),
+ 'Las barras blancas se solapan: el centroide regional no mejora, pero tampoco se puede decir que empeore [STAT].',
+ [['Centroides','Top-1 %','± pp'],['Globales','73,83','3,9'],['Regionales','70,99','4,0']]);
+// 5
+card('Rechazar ranas ajenas','[BD] Sinú · coseno + Weibull',line([[78.5,61.3],[81.5,68.2],[86.4,75.1],[95.3,91.6],[98.8,97.6]].map(p=>[p[0],p[1],f(p[0])]),[75,100],[40,100],'KAR medido (% de conocidas aceptadas)','FAR % (ranas ajenas)'),
+ 'Aceptar más conocidas deja pasar más ajenas: de 90 a 95 % de KAR, el FAR sube ~16 puntos. Operación elegida: 95 % (FAR 91,6 %).',
+ [['KAR %','FAR %'],['78,5','61,3'],['81,5','68,2'],['86,4','75,1'],['95,3','91,6'],['98,8','97,6'],['99,2','98,4']]);
+// 6
+card('AUROC del rechazo','[BD] 0,5 = azar',vbars([{l:'SABANAS',l2:'MAHAL.',v:.576},{l:'SABANAS',l2:'COSENO+W.',v:.826,hi:1},{l:'SINÚ',l2:'MAHAL.',v:.578},{l:'SINÚ',l2:'COSENO+W.',v:.665,hi:1}].map(x=>({...x,v:Math.round(x.v*1000)/1000})),1,'').replace(/>(\d),(\d+)</g,'>$1,$2<'),
+ 'Coseno + Weibull separa mejor que Mahalanobis, pero en Sinú sigue débil (0,665).',
+ [['Subregión','Método','AUROC'],['Sabanas','Mahalanobis','0,576'],['Sabanas','Coseno+Weibull','0,826'],['Sinú','Mahalanobis','0,578'],['Sinú','Coseno+Weibull','0,665']],0,`<span><i style="background:${L}"></i>Coseno + Weibull</span><span><i style="background:${G}"></i>Mahalanobis</span>`);
+// 7
+card('Errores entre especies parecidas','[CALC] top-1 equivocado · test',hbars([
+ {l:'D. bogerti → D. microcephalus',v:8,hi:1},{l:'R. marina → R. horribilis',v:7,hi:1},{l:'H. tatayoi → E. prosoblepon',v:5},{l:'D. columbianus → D. bogerti',v:5},{l:'C. metriosistus → C. raniformis',v:5},{l:'O. taurinus → T. macrotis',v:4},{l:'N. grandisonae → E. prosoblepon',v:4},{l:'R. humboldti → R. beebei',v:4}],9),
+ 'Casi todos son del mismo género. Cuanto más cerca está la especie vecina, peor el acierto (correlación −0,62).',
+ [['Par','Errores'],['D. bogerti → D. microcephalus','8'],['R. marina → R. horribilis','7'],['H. tatayoi → E. prosoblepon','5'],['D. columbianus → D. bogerti','5'],['C. metriosistus → C. raniformis','5'],['O. taurinus → T. macrotis','4'],['N. grandisonae → E. prosoblepon','4'],['R. humboldti → R. beebei','4']]);
+// 8
+card('BioCLIP 1, 2 y 2.5','[FUENTE] zero-shot, media de 10 tareas',vbars([{l:'BIOCLIP 1',l2:'512-d',v:37.6},{l:'BIOCLIP 2',l2:'768-d',v:55.6},{l:'BIOCLIP 2.5',l2:'1024-d',v:61.3,hi:1}],100,''),
+ 'Benchmarks de las fichas de Hugging Face, no son tus especies. Con ranas parecidas se espera menos ganancia.',
+ [['Modelo','Media zero-shot'],['BioCLIP 1','37,6'],['BioCLIP 2','55,6'],['BioCLIP 2.5','61,3']]);
+// 9
+card('Top-1 con BioCLIP 2.5 · SIMULACIÓN','[SIM] supuestos +3, +6 y +10 pp · no es medición',vbars([{l:'REAL',l2:'BIOCLIP 1',v:62.85,hi:1},{l:'CONSERV.',v:65.9,hatch:1},{l:'MEDIO',v:68.9,hatch:1},{l:'OPTIMISTA',v:72.9,hatch:1}],100),
+ 'Barras rayadas = supuesto, no resultado. Medir BioCLIP 2.5 sobre las 56 especies sustituye esta gráfica.',
+ [['Escenario','Top-1 % [SIM]'],['Real (BioCLIP 1)','62,85'],['Conservador','65,9'],['Medio','68,9'],['Optimista','72,9']],1);
+</script>
+</body>
+</html>
