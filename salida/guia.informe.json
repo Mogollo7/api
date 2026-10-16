@@ -1,0 +1,151 @@
+{
+ "estado": "con_avisos",
+ "errores": [],
+ "avisos": [
+  {
+   "bloque": "pares/rhinella_horribilis_1.jpg",
+   "causa": "imagen usada sin fila en creditos.csv",
+   "ajuste": "añade autor y licencia al CSV"
+  }
+ ],
+ "auditoria": {},
+ "imagenes_necesarias": [
+  {
+   "src": null,
+   "need": "Macro de larva I y larva II de *Frankliniella* sobre hoja o flor, con regla milimétrica visible"
+  },
+  {
+   "src": null,
+   "need": "Macro de adulto de *Frankliniella* sobre flor de crisantemo, con escala visible"
+  }
+ ],
+ "secciones": [
+  {
+   "id": "s01",
+   "n": "01",
+   "pagina": 3
+  },
+  {
+   "id": "s02",
+   "n": "02",
+   "pagina": 5
+  },
+  {
+   "id": "s03",
+   "n": "03",
+   "pagina": 7
+  },
+  {
+   "id": "s04",
+   "n": "04",
+   "pagina": 9
+  },
+  {
+   "id": "s05",
+   "n": "05",
+   "pagina": 12
+  },
+  {
+   "id": "s06",
+   "n": "06",
+   "pagina": 15
+  },
+  {
+   "id": "s07",
+   "n": "07",
+   "pagina": 19
+  },
+  {
+   "id": "s08",
+   "n": "08",
+   "pagina": 23
+  },
+  {
+   "id": "s09",
+   "n": "09",
+   "pagina": 25
+  },
+  {
+   "id": "s10",
+   "n": "10",
+   "pagina": 28
+  },
+  {
+   "id": "s11",
+   "n": "11",
+   "pagina": 31
+  },
+  {
+   "id": "s12",
+   "n": "12",
+   "pagina": 34
+  },
+  {
+   "id": "s13",
+   "n": "13",
+   "pagina": 39
+  },
+  {
+   "id": "s14",
+   "n": "14",
+   "pagina": 42
+  },
+  {
+   "id": "s15",
+   "n": "15",
+   "pagina": 46
+  },
+  {
+   "id": "s16",
+   "n": "16",
+   "pagina": 49
+  },
+  {
+   "id": "s17",
+   "n": "17",
+   "pagina": 51
+  },
+  {
+   "id": "s18",
+   "n": "18",
+   "pagina": 54
+  },
+  {
+   "id": "s19",
+   "n": "19",
+   "pagina": 56
+  },
+  {
+   "id": "s20",
+   "n": "20",
+   "pagina": 59
+  },
+  {
+   "id": "s21",
+   "n": "21",
+   "pagina": 63
+  },
+  {
+   "id": "s22",
+   "n": "22",
+   "pagina": 65
+  },
+  {
+   "id": "s23",
+   "n": "23",
+   "pagina": 67
+  },
+  {
+   "id": "s24",
+   "n": "24",
+   "pagina": 68
+  },
+  {
+   "id": "creditos",
+   "n": "25",
+   "pagina": 70
+  }
+ ],
+ "paginas": 70,
+ "segundos": 7.3
+}

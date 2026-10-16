@@ -1,0 +1,80 @@
+{
+  "_marca": "[CLAUDE-CONSTRUCTOR] Manifiesto creado por Claude como constructor. Traduce el sistema de diseño ANURA (artifact 23sPATA5AWXcd7YeXNuYtc) a reglas medibles para el motor. Los colores, fuentes y medidas son los de tokens.json / README del sistema; no se inventó ninguno.",
+  "id": "anura",
+  "name": "ANURA · brutalista",
+  "version": "0.1.0",
+  "formats": ["pdf-a4"],
+  "palette": {
+    "roles": {
+      "negro": "#121212",
+      "bosque": "#10291F",
+      "hoja": "#214D3C",
+      "vivo": "#2ECC5F",
+      "ocre": "#D4A72C",
+      "crema": "#F8F5EE",
+      "arena": "#EDE8D8"
+    },
+    "pares_texto_permitidos": [
+      ["crema", "negro"], ["crema", "bosque"], ["vivo", "negro"], ["ocre", "negro"],
+      ["negro", "crema"], ["negro", "arena"], ["negro", "ocre"], ["negro", "vivo"],
+      ["bosque", "crema"], ["bosque", "arena"], ["hoja", "crema"], ["crema", "hoja"]
+    ],
+    "min_contraste_texto": 4.5,
+    "min_contraste_texto_grande": 3.0
+  },
+  "fonts": [
+    {"family": "Anton", "file": "fonts/Anton-Regular.woff2", "weight": "400"},
+    {"family": "Archivo", "file": "fonts/Archivo-Variable.woff2", "weight": "100 900", "stretch": "62% 125%"},
+    {"family": "IBM Plex Mono", "file": "fonts/IBMPlexMono-Regular.woff2", "weight": "400"},
+    {"family": "IBM Plex Mono", "file": "fonts/IBMPlexMono-SemiBold.woff2", "weight": "600"}
+  ],
+  "page": {
+    "unit": "cqw",
+    "width": 100,
+    "height": 141.4,
+    "cont_top": 13.5,
+    "cont_bottom": 12,
+    "cont_side": 5,
+    "gap": 3
+  },
+  "templates": {
+    "cover": {
+      "image": "ranas/rana-ojos-grandes-negro-ocre.png",
+      "symbols": [
+        {"left": 26, "top": 25.5, "size": 4.5, "color": "crema"},
+        {"left": 87, "top": 81, "size": 6, "color": "ocre"},
+        {"left": 88, "top": 15, "size": 5, "color": "vivo"}
+      ],
+      "foot_symbol": {"size": 3.6, "color": "ocre"}
+    },
+    "divider": {
+      "A": {"image": "ranas/rana-ojos-rojos-negro-ocre.png", "head_symbol": "g01", "loose": {"left": 36, "top": 122, "size": 6, "color": "ocre", "id": "g22"}},
+      "B": {"image": "ranas/rana-dardo-azul-bosque-vivo.png", "head_symbol": "g57", "loose": {"left": 86, "top": 104, "size": 6, "color": "vivo", "id": "g79"}},
+      "C": {"image": "ranas/rana-ojos-rojos-negro-crema.png", "head_symbol": "g84", "loose": {"left": 5, "top": 122, "size": 7, "color": "ocre", "id": "g35"}},
+      "D": {"image": "ranas/rana-dardo-azul-negro-ocre.png", "head_symbol": "g64", "loose": {"left": 5, "top": 124, "size": 6, "color": "ocre", "id": "g55"}}
+    },
+    "light": {
+      "head_symbol_pool": ["g01", "g16", "g22", "g67", "g68", "g75", "g79", "g86", "g87", "g97", "g02", "g25", "g45", "g47", "g48", "g50", "g64", "g66", "g72", "g76", "g03", "g05", "g08", "g12", "g09", "g10", "g13", "g11", "g15", "g17", "g32", "g35", "g46", "g49", "g54", "g55", "g56"]
+    }
+  },
+  "blocks": {
+    "vocabulario": ["p", "h", "list", "table", "chart", "kpi", "big", "callout", "image", "flow", "ladder", "ranks", "timeline", "compare", "toc"],
+    "chart_types": ["bar", "hbar", "line", "stack"],
+    "limites": {"texto_p": 1400, "items_lista": 14, "filas_tabla": 40, "puntos_grafico": 14}
+  },
+  "image_treatments": {
+    "ocre": [["#121212"], ["#D4A72C"]],
+    "crema": [["#121212"], ["#F8F5EE"]],
+    "verde": [["#10291F"], ["#2ECC5F"]],
+    "negroverde": [["#121212"], ["#2ECC5F"]]
+  },
+  "reglas_medibles": {
+    "R03_margen_lateral_cqw": 5,
+    "R05_vivo_ocre_nunca_texto_sobre_crema": true,
+    "R08_sin_texto_sobre_foto": true,
+    "R09_simbolos_por_portada": [3, 5],
+    "radio": 0,
+    "sin_degradados": true,
+    "sin_sombras_suaves": true
+  }
+}

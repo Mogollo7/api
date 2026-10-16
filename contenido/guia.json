@@ -1,0 +1,3234 @@
+{
+ "contract": "0.1",
+ "design": "anura",
+ "format": "pdf-a4",
+ "palette": "default",
+ "options": {
+  "seed": 7
+ },
+ "meta": {
+  "title": "Guía de IA: cómo hacer que un modelo distinga animales",
+  "date": "Octubre 2026",
+  "version": "Vol. 01 · v0.1",
+  "header_left": [
+   "Guía para estudiantes",
+   "Teoría de identificación con IA"
+  ],
+  "footer": "GUÍA DE IA · PARA ESTUDIANTES"
+ },
+ "document": {
+  "cover": {
+   "vertical": "GUÍA IA",
+   "title": "Cómo hacer que un modelo distinga animales",
+   "text": "Teoría para desarrollar un modelo que identifique especie, etapa, sexo y salud usando contexto. Caso conductor: Frankliniella."
+  },
+  "parts": [
+   {
+    "id": "p1",
+    "title": "Fundamentos",
+    "desc": "Qué se le puede preguntar a una foto, qué rango taxonómico elegir y por qué una especie no tiene una sola apariencia.",
+    "sections": [
+     {
+      "id": "s01",
+      "title": "Índice y cómo leer esta guía",
+      "tema": "Índice",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "Esta guía explica cómo desarrollar un modelo de inteligencia artificial que identifique **especie, etapa de vida, sexo y estado de salud** de un animal a partir de una foto, usando también el contexto (lugar, fecha, planta hospedera). Está escrita para estudiantes. El caso que la recorre es el de los trips del género *Frankliniella*."
+       },
+       {
+        "type": "toc"
+       },
+       {
+        "type": "h",
+        "text": "¿Se puede aplicar a cualquier especie?"
+       },
+       {
+        "type": "p",
+        "text": "Respuesta honesta: **hoy, solo en parte**. Lo medido sale de un caso real con anuros de Colombia; para otros grupos hay literatura, no pruebas propias."
+       },
+       {
+        "type": "table",
+        "head": [
+         "Pregunta",
+         "¿La guía la cubre?",
+         "Evidencia"
+        ],
+        "widths": [
+         3,
+         2,
+         5
+        ],
+        "rows": [
+         [
+          "¿Qué especie es? (animal)",
+          {
+           "t": "Sí",
+           "tone": "f"
+          },
+          "Medido en 56 especies de anuros: top-1 62,85 %, top-3 86,1 %"
+         ],
+         [
+          "¿Qué género o familia, si la especie no se puede?",
+          {
+           "t": "Sí",
+           "tone": "f"
+          },
+          "Supercentroides y cascada taxonómica medidos"
+         ],
+         [
+          "¿Qué especie es? (planta)",
+          {
+           "t": "Parcial",
+           "tone": "p"
+          },
+          "Solo literatura (Pl@ntNet, PlantNet-300K)"
+         ],
+         [
+          "¿En qué etapa está?",
+          {
+           "t": "Parcial",
+           "tone": "p"
+          },
+          "Teoría y tablas por grupo; sin dato propio"
+         ],
+         [
+          "¿Qué edad tiene?",
+          {
+           "t": "No",
+           "tone": "l"
+          },
+          "No se lee en una foto; se usan clases de edad"
+         ],
+         [
+          "¿Cuál es su sexo?",
+          {
+           "t": "Parcial",
+           "tone": "p"
+          },
+          "Posible en algunos grupos, imposible en otros"
+         ],
+         [
+          "¿Está enferma?",
+          {
+           "t": "Parcial",
+           "tone": "p"
+          },
+          "La foto da pistas, no diagnóstico"
+         ],
+         [
+          "¿Qué método uso con mi organismo?",
+          {
+           "t": "Sí",
+           "tone": "f"
+          },
+          "Tabla de decisión organismo × pregunta"
+         ]
+        ]
+       },
+       {
+        "type": "callout",
+        "tone": "nota",
+        "label": "Cómo leer las marcas",
+        "paras": [
+         "[FUENTE] verificado en un paper o ficha. [CALC] calculado a partir de datos reales. [INF] inferencia de la guía, sin fuente. [SIN FUENTE] no se encontró respaldo. [SIM] simulación: nunca es una medición.",
+         "Cuando falta una cifra se escribe «dato pendiente»; nunca se inventa."
+        ]
+       }
+      ]
+     },
+     {
+      "id": "s02",
+      "title": "Qué se puede preguntar a una foto",
+      "tema": "Preguntas a una foto",
+      "kind": "clave",
+      "lead": "Una foto responde cinco preguntas, cada una con una fiabilidad distinta. La guía debe devolver el nivel que la evidencia sostiene, ni más ni menos.",
+      "blocks": [
+       {
+        "type": "table",
+        "head": [
+         "Pregunta",
+         "Qué evidencia visual usa",
+         "Fiabilidad típica"
+        ],
+        "widths": [
+         2,
+         4,
+         4
+        ],
+        "rows": [
+         [
+          "Especie, género o familia",
+          "Forma, color, patrón",
+          {
+           "t": "Alta con datos; baja en especies gemelas",
+           "tone": "n"
+          }
+         ],
+         [
+          "Etapa de vida",
+          "Cambios de forma (larva → adulto), fenología",
+          {
+           "t": "Media; depende del grupo",
+           "tone": "n"
+          }
+         ],
+         [
+          "Sexo",
+          "Dimorfismo: tamaño, color, estructuras",
+          {
+           "t": "Solo si la especie lo tiene y es visible",
+           "tone": "n"
+          }
+         ],
+         [
+          "Edad",
+          "Casi nada fiable en una foto",
+          {
+           "t": "Baja; se usan clases de edad (cría, joven, adulto)",
+           "tone": "n"
+          }
+         ],
+         [
+          "Salud",
+          "Lesiones visibles",
+          {
+           "t": "Pistas inespecíficas; no es diagnóstico",
+           "tone": "n"
+          }
+         ]
+        ]
+       },
+       {
+        "type": "h",
+        "text": "Cómo se ve una buena respuesta"
+       },
+       {
+        "type": "list",
+        "items": [
+         "«Familia Hylidae, género probable *Boana*, especie no determinable» vale más que una especie equivocada.",
+         "«Adulto, sexo no determinable» es una respuesta correcta.",
+         "«Signos compatibles con una enfermedad de la piel; requiere confirmación» en lugar de un diagnóstico."
+        ]
+       },
+       {
+        "type": "callout",
+        "tone": "ojo",
+        "text": "Una foto muestra **síntomas**, no **causa**. El modelo propone; un experto confirma."
+       }
+      ]
+     },
+     {
+      "id": "s03",
+      "title": "Elegir el rango taxonómico",
+      "tema": "Rango y alcance",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "Antes de entrenar hay que decidir **qué grupo se quiere separar** de sus vecinos. Un buen punto de partida es un rango (orden, familia o género) cuyo límite con los vecinos sea visible y estable. Por ejemplo, los anuros se distinguen del resto de anfibios porque no tienen cola: el nombre *Anura* significa «sin cola»."
+       },
+       {
+        "type": "ranks",
+        "head": [
+         "Ejemplo: rana",
+         "Ejemplo: planta"
+        ],
+        "rows": [
+         {
+          "rank": "Reino",
+          "v": [
+           "Animalia",
+           "Plantae"
+          ]
+         },
+         {
+          "rank": "Filo",
+          "v": [
+           "Chordata",
+           "Tracheophyta"
+          ]
+         },
+         {
+          "rank": "Clase",
+          "v": [
+           "Amphibia",
+           "Liliopsida"
+          ]
+         },
+         {
+          "rank": "Orden",
+          "v": [
+           "Anura",
+           "Poales"
+          ]
+         },
+         {
+          "rank": "Familia",
+          "v": [
+           "Bufonidae",
+           "Poaceae"
+          ]
+         },
+         {
+          "rank": "Género",
+          "v": [
+           "*Rhinella*",
+           "*Zea*"
+          ]
+         },
+         {
+          "rank": "Especie",
+          "v": [
+           "*Rhinella marina*",
+           "*Zea mays*"
+          ]
+         }
+        ]
+       },
+       {
+        "type": "p",
+        "text": "Los ejemplos de rangos son del autor del documento [INF]. Se lee de lo general a lo particular."
+       },
+       {
+        "type": "kpi",
+        "items": [
+         {
+          "v": "0,987–0,992",
+          "l": "AUROC «no es una rana» frente a «rana»",
+          "note": "[CALC] casi perfecto"
+         },
+         {
+          "v": "0,665",
+          "l": "AUROC de una rana frente a otra rana (Sinú)",
+          "note": "[CALC] débil"
+         }
+        ]
+       },
+       {
+        "type": "p",
+        "text": "Lo fácil se resuelve con un umbral; lo difícil (especie contra especie del mismo género) se resuelve con datos y contexto. Los falsos positivos de «no es rana» fueron los vecinos más parecidos: reptiles 23 % y salamandras 15 %."
+       },
+       {
+        "type": "callout",
+        "tone": "ojo",
+        "title": "Cuidado: el rasgo diagnóstico depende de la etapa",
+        "text": "Los renacuajos **sí** tienen cola. «Sin cola» vale solo para el adulto. Por eso etapa y rango taxonómico no se resuelven por separado."
+       },
+       {
+        "type": "h",
+        "text": "Para un grupo nuevo"
+       },
+       {
+        "type": "list",
+        "ordered": true,
+        "items": [
+         "Escribe los rasgos que separan al grupo de sus vecinos más parecidos.",
+         "Comprueba que esos rasgos se ven en una foto, en todas las etapas que te interesan.",
+         "En trips, el orden Thysanoptera se reconoce por alas con flecos y tamaño menor de 2 mm [INF]; la especie *no* se reconoce en foto."
+        ]
+       }
+      ]
+     },
+     {
+      "id": "s04",
+      "title": "Una especie no es una sola apariencia",
+      "tema": "Especie × etapa × sexo",
+      "kind": "clave",
+      "lead": "Un individuo tiene un rango taxonómico, pero también una etapa de crecimiento y un sexo, y ambos cambian su apariencia. El modelo tiene que saberlo.",
+      "blocks": [
+       {
+        "type": "image",
+        "ratio": "21/9",
+        "pos": "50% 60%",
+        "src": "renacuajos/ciclo_vida_rana_ilustracion.jpg",
+        "treatment": "crema",
+        "caption": "Una misma especie: huevo, larva con branquias, renacuajo y metamorfosis."
+       },
+       {
+        "type": "p",
+        "text": "Una sola etiqueta «especie» mezcla apariencias muy distintas (renacuajo y adulto, macho y hembra, larva y adulto). Un único prototipo (centroide) por especie queda en el medio y no representa a ninguna. Anura ya aplica la idea con los **morfos**: no se promedian morfos opuestos y cada morfo con al menos 3 individuos tiene centroide propio; sin medición todavía."
+       },
+       {
+        "type": "image",
+        "items": [
+         {
+          "src": "dimorfismo/rana_arvalis_macho_azul.jpg",
+          "caption": "Macho en celo: azul."
+         },
+         {
+          "src": "dimorfismo/rana_arvalis_hembra.jpg",
+          "caption": "Hembra de la misma especie: parda."
+         }
+        ],
+        "ratio": "4/3"
+       },
+       {
+        "type": "h",
+        "text": "Esquema de etiqueta recomendado"
+       },
+       {
+        "type": "table",
+        "head": [
+         "Campo",
+         "Valores",
+         "Si no se puede saber"
+        ],
+        "widths": [
+         2,
+         6,
+         3
+        ],
+        "rows": [
+         [
+          "Taxón",
+          "familia / género / especie (el más fino que se confirme)",
+          "no_determinable + rango alcanzado"
+         ],
+         [
+          "Etapa",
+          "las del grupo: huevo, larva I, larva II, prepupa, pupa, adulto; renacuajo, juvenil, adulto; BBCH en plantas",
+          "no_determinable"
+         ],
+         [
+          "Sexo",
+          "macho / hembra / indiferenciado",
+          "no_determinable"
+         ],
+         [
+          "Morfo",
+          "variante declarada por un experto",
+          "vacío"
+         ],
+         [
+          "Salud",
+          "sano / síntoma observado (texto)",
+          "no_determinable"
+         ],
+         [
+          "Calidad",
+          "nítida / borrosa / parcial; escala visible (sí/no)",
+          "—"
+         ],
+         [
+          "Individuo, sitio, fecha, observador",
+          "identificadores",
+          "—"
+         ]
+        ]
+       },
+       {
+        "type": "h",
+        "text": "Cómo modelarlo, de simple a complejo"
+       },
+       {
+        "type": "flow",
+        "cols": 3,
+        "steps": [
+         {
+          "title": "Etiqueta compuesta",
+          "text": "Una clase «especie-etapa». Sencillo, pero multiplica las clases."
+         },
+         {
+          "title": "Cabezas separadas",
+          "text": "Un vector común y una cabeza ligera por pregunta: taxón, etapa, sexo."
+         },
+         {
+          "title": "Prototipos por subclase",
+          "text": "Especie × etapa × sexo, con préstamo del global si hay menos de 3 individuos.",
+          "on": true
+         }
+        ]
+       },
+       {
+        "type": "callout",
+        "tone": "nota",
+        "paras": [
+         "Elige según cuántas fotos haya por celda. BioCLIP 2 reporta que la variación dentro de una especie (etapas, sexos) queda separada de la variación entre especies, pero los autores dicen que no está probado de forma formal [FUENTE].",
+         "**División de datos:** por individuo y por sitio, y comprueba que cada etapa aparece en train, val y test."
+        ]
+       }
+      ]
+     },
+     {
+      "id": "s05",
+      "title": "Taxonomía y cómo identifican los expertos",
+      "tema": "Taxonomía",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "El **nombre binomial** es género más epíteto (*Rhinella marina*). Un **taxón** es cualquier grupo con nombre; un **clado**, un grupo con un ancestro común y todos sus descendientes; un **complejo de especies**, un grupo de especies casi iguales [definiciones estándar, INF]."
+       },
+       {
+        "type": "callout",
+        "tone": "ojo",
+        "title": "Los nombres cambian y rompen datasets",
+        "paras": [
+         "En Anura, *D. labialis* = *D. molitor* contaminó una evaluación; *R. horribilis* se separó de *R. marina* en 2016 y *R. bella* se describió en 2024 [FUENTE]. En una leguminosa, un listado añadió 30.456 nombres a GBIF y 61.235 registros cambiaron de etiqueta [FUENTE].",
+         "Por eso la taxonomía se versiona y se guardan los sinónimos."
+        ]
+       },
+       {
+        "type": "h",
+        "text": "Cómo identifican los expertos"
+       },
+       {
+        "type": "list",
+        "items": [
+         "**Morfología y claves dicotómicas:** dos opciones por paso hasta llegar al nombre, con caracteres diagnósticos.",
+         "**ADN (código de barras):** en animales, el gen COI de 648 pares de bases (Hebert 2003); en plantas, rbcL + matK y a veces ITS2 [FUENTE].",
+         "**Sonido:** cantos de ranas y aves (Xeno-canto, Merlin Sound ID).",
+         "**Ciencia ciudadana:** iNaturalist «grado de investigación» exige al menos 2 identificaciones y más de 2/3 de acuerdo; las fuentes discrepan sobre si el umbral es especie o género [FUENTE]."
+        ]
+       },
+       {
+        "type": "h",
+        "text": "Ruta habitual por grupo"
+       },
+       {
+        "type": "table",
+        "head": [
+         "Grupo",
+         "Ruta habitual",
+         "Pista de apoyo"
+        ],
+        "widths": [
+         2,
+         4,
+         3
+        ],
+        "rows": [
+         [
+          "Anfibios (anuros)",
+          "Foto de cuerpo entero y vientre; canto",
+          "Altitud, región, hora"
+         ],
+         [
+          "Reptiles",
+          "Escamas, color, borde del cuello",
+          "Región, microhábitat"
+         ],
+         [
+          "Aves",
+          "Foto y canto",
+          "Fecha y lugar (eBird)"
+         ],
+         [
+          "Mamíferos",
+          "Cámaras trampa",
+          "Detector primero"
+         ],
+         [
+          "Insectos",
+          "Foto y estadio (huevo, larva, pupa, adulto)",
+          "Planta hospedera"
+         ],
+         [
+          "Plantas",
+          "Hoja, flor, fruto",
+          "Región, altitud"
+         ],
+         [
+          "Hongos",
+          "Cuerpo fructífero; ADN",
+          "Sustrato (el uso de ITS no tiene fuente confirmada)"
+         ]
+        ]
+       },
+       {
+        "type": "callout",
+        "tone": "nota",
+        "label": "Cuándo la foto no basta",
+        "text": "Especies crípticas, partes que no se ven (vientre translúcido) y estadios distintos. Mostrar género o familia es mejor que adivinar."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "p2",
+    "title": "Método",
+    "desc": "De la pregunta al modelo: BioCLIP, la ruta paso a paso, etiquetas, ajuste fino, pocas imágenes y datos.",
+    "sections": [
+     {
+      "id": "s06",
+      "title": "BioCLIP 1, 2 y 2.5",
+      "tema": "BioCLIP",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "**BioCLIP** es un modelo de visión y lenguaje para el árbol de la vida (Imageomics, Ohio State; CVPR 2024, arXiv 2311.18803; licencia MIT) [FUENTE]. Es contrastivo imagen–texto, como CLIP: acerca el vector de una foto al vector del texto que la describe. Parte de los pesos de OpenAI CLIP y sigue entrenando con datos biológicos."
+       },
+       {
+        "type": "callout",
+        "tone": "clave",
+        "title": "La idea clave: el texto lleva el árbol taxonómico",
+        "paras": [
+         "Cada foto se empareja con un texto que puede ser nombre común, nombre científico o la cadena completa (reino → filo → clase → orden → familia → género → especie). Los vectores de especies del mismo género quedan cerca, y por eso funciona con especies raras y no vistas [FUENTE]."
+        ]
+       },
+       {
+        "type": "callout",
+        "tone": "ojo",
+        "text": "BioCLIP **no devuelve por sí solo** reino, familia, género y especie. En Anura, género y familia salen de los supercentroides y cabezas jerárquicas que construyó el proyecto."
+       },
+       {
+        "type": "chart",
+        "title": "Zero-shot, media de 10 tareas",
+        "tag": "[FUENTE] paper de BioCLIP 1",
+        "chart": {
+         "type": "bar",
+         "data": {
+          "max": 50,
+          "unit": "",
+          "items": [
+           {
+            "l": "CLIP",
+            "v": 21.9
+           },
+           {
+            "l": "OpenCLIP",
+            "v": 20.4
+           },
+           {
+            "l": "BioCLIP 1",
+            "v": 39.4,
+            "hi": true
+           }
+          ]
+         }
+        },
+        "caption": "Con 1 foto por clase, BioCLIP 1 llega a 50,3 y con 5 fotos a 68,8 (centroide más cercano, media de 10 tareas). Debilidades: Plankton 6,1; PlantDoc casi no mejora a CLIP."
+       },
+       {
+        "type": "h",
+        "text": "BioCLIP 1 frente a 2 y 2.5"
+       },
+       {
+        "type": "table",
+        "head": [
+         "",
+         "BioCLIP 1",
+         "BioCLIP 2",
+         "BioCLIP 2.5 «Huge»"
+        ],
+        "widths": [
+         3,
+         3,
+         3,
+         3
+        ],
+        "rows": [
+         [
+          "Torre de imagen",
+          "ViT-B/16",
+          "ViT-L/14",
+          "ViT-H/14"
+         ],
+         [
+          "Embedding",
+          "512",
+          "768",
+          "1024"
+         ],
+         [
+          "Datos",
+          "TreeOfLife-10M (~10,4 M de imágenes)",
+          "TreeOfLife-200M (214 M) + 26 M de LAION-2B",
+          "dato pendiente"
+         ],
+         [
+          "Parámetros [CALC]",
+          "~150 M",
+          "~428 M",
+          "~986 M"
+         ],
+         [
+          "Tamaño fp32 / fp16 [CALC]",
+          "0,60 / 0,30 GB",
+          "1,71 / 0,86 GB",
+          "3,94 / 1,97 GB"
+         ],
+         [
+          "Zero-shot, 10 tareas de especies",
+          "37,6",
+          "55,6",
+          {
+           "t": "61,3",
+           "hi": true
+          }
+         ],
+         [
+          "Licencia",
+          "MIT",
+          "dato pendiente",
+          "MIT"
+         ]
+        ]
+       },
+       {
+        "type": "p",
+        "text": "BioCLIP 2.5 existe (`imageomics/bioclip-2.5-vith14`). Con el protocolo nuevo de las fichas, BioCLIP 1 marca 37,6: no contradice el 39,4 del paper, cambia el protocolo. Excepción: en Plankton BioCLIP 1 (6,1) supera a 2.5 (5,2) [FUENTE]."
+       },
+       {
+        "type": "callout",
+        "tone": "nota",
+        "title": "Corrección: «512 frente a 1024»",
+        "text": "Las dimensiones son correctas, pero la mejora no viene solo de ellas: BioCLIP 2 es un modelo ~6,6 veces más grande y usa ~20 veces más datos que BioCLIP 1 [CALC]. Los tres factores juntos explican la mejora."
+       },
+       {
+        "type": "h",
+        "text": "Cuándo usar cada uno"
+       },
+       {
+        "type": "table",
+        "head": [
+         "Caso",
+         "Elegir",
+         "Razón"
+        ],
+        "widths": [
+         3,
+         3,
+         5
+        ],
+        "rows": [
+         [
+          "Móvil sin internet",
+          "BioCLIP 1, solo torre de imagen en ONNX fp16 (165,6 MB medidos en Anura)",
+          "Ligero; 2.5 en fp16 son ~2 GB [CALC]"
+         ],
+         [
+          "Servidor con GPU",
+          "BioCLIP 2.5",
+          "Mayor precisión zero-shot; sin límite de tamaño"
+         ],
+         [
+          "Compromiso",
+          "BioCLIP 2",
+          "ViT-L/14"
+         ],
+         [
+          "Cualquier caso",
+          "Medir primero con tus fotos",
+          "Los benchmarks no son tus especies"
+         ]
+        ]
+       },
+       {
+        "type": "h",
+        "text": "Otras opciones y con qué compararlo"
+       },
+       {
+        "type": "table",
+        "head": [
+         "Modelo",
+         "Qué es",
+         "Límite"
+        ],
+        "widths": [
+         2,
+         5,
+         4
+        ],
+        "rows": [
+         [
+          "CLIP / OpenCLIP",
+          "Visión y lenguaje general; base de comparación",
+          "21,9 y 20,4 frente a 39,4 de BioCLIP 1"
+         ],
+         [
+          "DINO / DINOv2",
+          "Visión autosupervisada, vectores sin texto",
+          "El paper solo compara con DINO v1; DINOv2 y SigLIP: dato pendiente"
+         ],
+         [
+          "BioTrove (BT-CLIP)",
+          "CLIP biológico, 161,9 M de imágenes y ~366,6 mil especies (arXiv 2406.17720)",
+          "Comparación directa con BioCLIP: dato pendiente"
+         ],
+         [
+          "SpeciesNet (Google)",
+          "Más de 2.000 etiquetas, Apache-2.0, usa MegaDetector",
+          "Cerrado a su catálogo"
+         ],
+         [
+          "MegaDetector",
+          "Detecta animal, persona y vehículo",
+          "No da especie"
+         ],
+         [
+          "Pl@ntNet",
+          "Plantas; modelo propietario",
+          "Imágenes devueltas por lo general CC BY-SA"
+         ],
+         [
+          "Merlin",
+          "Usa ubicación y fecha de eBird; funciona sin conexión",
+          "Modelo cerrado; referencia de diseño"
+         ]
+        ]
+       },
+       {
+        "type": "callout",
+        "tone": "pend",
+        "text": "FLOPs, VRAM, tiempos de carga y soporte de `pybioclip` para 2.5: dato pendiente (ninguna fuente los da). Top-1 de Anura con 2.5: simulado entre 65,9 y 72,9 % [SIM]; medido: dato pendiente."
+       }
+      ]
+     },
+     {
+      "id": "s07",
+      "title": "Ruta de método, paso 0 a 5",
+      "tema": "Ruta de método",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "Con el stack disponible, saber qué ruta seguir, qué método probar primero y qué resultado esperar, sea un animal, una planta, un objeto o una pieza de máquina."
+       },
+       {
+        "type": "flow",
+        "cols": 3,
+        "steps": [
+         {
+          "n": "Paso 0",
+          "title": "Define la pregunta",
+          "text": "Qué se distingue, cuántas clases, dónde corre y qué error es peor."
+         },
+         {
+          "n": "Paso 1",
+          "title": "Mira los datos",
+          "text": "Cuántas imágenes por clase decide la ruta."
+         },
+         {
+          "n": "Paso 2",
+          "title": "Escalera de métodos",
+          "text": "De lo más simple a lo más complejo; sube solo si hace falta."
+         },
+         {
+          "n": "Paso 3",
+          "title": "Evalúa siempre igual",
+          "text": "Top-1, top-5, F1 por clase, matriz de confusión."
+         },
+         {
+          "n": "Paso 4",
+          "title": "Resultados esperables",
+          "text": "Orientativos: mídelos antes de prometer un número."
+         },
+         {
+          "n": "Paso 5",
+          "title": "Despliegue",
+          "text": "Según el dispositivo: móvil, web o servidor.",
+          "on": true
+         }
+        ]
+       },
+       {
+        "type": "h",
+        "text": "Paso 0 · Define la pregunta"
+       },
+       {
+        "type": "table",
+        "head": [
+         "Pregunta",
+         "Ejemplo"
+        ],
+        "widths": [
+         3,
+         6
+        ],
+        "rows": [
+         [
+          "¿Qué se distingue?",
+          "Especie, raza, pieza, estado (sano o dañado)"
+         ],
+         [
+          "¿Cuántas clases?",
+          "5, 50, 5.000 o «abierto»"
+         ],
+         [
+          "¿Dónde corre?",
+          "Móvil, web, servidor, sin conexión"
+         ],
+         [
+          "¿Qué error es peor?",
+          "Confundir dos clases parecidas, o no reconocer nada"
+         ]
+        ]
+       },
+       {
+        "type": "h",
+        "text": "Paso 1 · Mira los datos antes de elegir modelo"
+       },
+       {
+        "type": "table",
+        "head": [
+         "Situación",
+         "Ruta recomendada"
+        ],
+        "widths": [
+         4,
+         7
+        ],
+        "rows": [
+         [
+          "Menos de 50 imágenes por clase",
+          "Embeddings preentrenados + vecino más cercano, sin entrenar. Empieza aquí."
+         ],
+         [
+          "50 a 500 imágenes por clase",
+          "Transferencia: congelar el backbone y entrenar la última capa."
+         ],
+         [
+          "Más de 500 por clase y buen equilibrio",
+          "Ajuste fino de todo el modelo, con aumentos."
+         ],
+         [
+          "Clases que aparecen o cambian a menudo",
+          "Búsqueda por similitud sobre embeddings; se añaden clases sin reentrenar."
+         ],
+         [
+          "Sin etiquetas",
+          "Clustering de embeddings y etiquetado asistido."
+         ],
+         [
+          "Pregunta en lenguaje natural o sin ejemplos",
+          "Modelo multimodal en modo zero-shot, como línea base."
+         ]
+        ]
+       },
+       {
+        "type": "h",
+        "text": "Paso 2 · Escalera de métodos"
+       },
+       {
+        "type": "ladder",
+        "items": [
+         {
+          "title": "Línea base sin entrenar",
+          "text": "Embeddings de un modelo preentrenado + distancia coseno. Mide el techo fácil."
+         },
+         {
+          "title": "Clasificador lineal",
+          "text": "Regresión logística sobre esos embeddings."
+         },
+         {
+          "title": "Transferencia, última capa",
+          "text": "MobileNet o ResNet, pocas épocas."
+         },
+         {
+          "title": "Ajuste fino completo",
+          "text": "Solo si el paso 3 se queda corto y hay datos."
+         },
+         {
+          "title": "Detección + clasificación",
+          "text": "Si hay varios animales o la especie ocupa poca imagen: detector primero, clasificador después."
+         },
+         {
+          "title": "Ensamble o modelo grande en servidor",
+          "text": "Solo para cerrar el último punto de precisión."
+         }
+        ]
+       },
+       {
+        "type": "callout",
+        "tone": "regla",
+        "text": "Pasa al siguiente escalón solo si el actual no alcanza el objetivo de métrica **y** el coste (datos, tiempo, tamaño) lo justifica."
+       },
+       {
+        "type": "h",
+        "text": "Paso 3 · Evalúa siempre igual"
+       },
+       {
+        "type": "list",
+        "items": [
+         "**Top-1 y top-5**, F1 por clase y matriz de confusión. La exactitud global engaña si hay clases dominantes.",
+         "Conjunto de prueba separado **por observación**: la misma foto nunca en train y test.",
+         "Prueba en campo con fotos nuevas, no solo con el conjunto de prueba.",
+         "Un umbral de confianza: por debajo, «no sé» y pedir otra foto."
+        ]
+       },
+       {
+        "type": "h",
+        "text": "Paso 4 · Qué esperar (orientativo)"
+       },
+       {
+        "type": "table",
+        "head": [
+         "Método",
+         "Cuándo sale bien",
+         "Riesgo principal"
+        ],
+        "widths": [
+         3,
+         4,
+         4
+        ],
+        "rows": [
+         [
+          "Vecino más cercano",
+          "Pocas imágenes, clases bien separadas",
+          "Falla con clases parecidas"
+         ],
+         [
+          "Transferencia (última capa)",
+          "Dataset mediano, buena calidad",
+          "Sesgo del dataset de origen"
+         ],
+         [
+          "Ajuste fino",
+          "Mucho dato, equilibrado",
+          "Sobreajuste si hay poco dato"
+         ],
+         [
+          "Detección + clasificación",
+          "Animal pequeño o varios en la foto",
+          "Dos modelos que mantener"
+         ],
+         [
+          "Multimodal zero-shot",
+          "Sin datos, prototipo rápido",
+          "Menos preciso que uno entrenado"
+         ]
+        ]
+       },
+       {
+        "type": "callout",
+        "tone": "nota",
+        "label": "Paso 5 · Despliegue",
+        "text": "**Móvil:** modelo ligero en ONNX, cuantizado a fp16 y medido en el dispositivo real. **Web:** en el navegador si pesa poco; si no, servidor con cola. Muestra siempre las tres mejores opciones con su porcentaje y el aviso de límite."
+       }
+      ]
+     },
+     {
+      "id": "s08",
+      "title": "Etiquetar bien es lo más importante",
+      "tema": "Etiquetado",
+      "blocks": [
+       {
+        "type": "kpi",
+        "items": [
+         {
+          "v": "3,3 %",
+          "l": "errores de etiqueta, media de 10 conjuntos de prueba",
+          "note": "[FUENTE] Northcutt et al. 2021"
+         },
+         {
+          "v": "≥ 6 %",
+          "l": "errores en la validación de ImageNet",
+          "note": "[FUENTE] mismo estudio"
+         },
+         {
+          "v": "65 %",
+          "l": "«grado de investigación» correcto en insectos de iNaturalist",
+          "note": "[FUENTE] débil: post informal de 2019"
+         }
+        ]
+       },
+       {
+        "type": "p",
+        "text": "En insectos las etiquetas públicas son las menos fiables. Para detectar etiquetas sospechosas existe *confident learning* (cleanlab, código abierto) [FUENTE]."
+       },
+       {
+        "type": "h",
+        "text": "Errores reales de Anura"
+       },
+       {
+        "type": "list",
+        "items": [
+         "Siete correcciones de nomenclatura y carpetas con errores de tipeo (`acanthinus` frente a `achatinus`).",
+         "*D. labialis* = *D. molitor*: 34 de 43 observaciones (79,1 %) eran la misma observación de iNaturalist y contaminaron una evaluación.",
+         "El `individual_id` era el `observation_id` de iNaturalist, no un animal verificado.",
+         "La búsqueda de «negativos difíciles» elige una y otra vez el error cuando hay etiquetas sucias."
+        ]
+       },
+       {
+        "type": "h",
+        "text": "Protocolo mínimo"
+       },
+       {
+        "type": "list",
+        "ordered": true,
+        "items": [
+         "Guía de anotación escrita, con ejemplos de cada valor y de cada `no_determinable`.",
+         "Ante la duda entre marcar algo y `no_determinable`, gana `no_determinable`; ante desacuerdo en una escala ordinal, el valor más conservador.",
+         "Dos anotadores sobre una muestra y medir el acuerdo (kappa de Cohen: procedimiento estándar, sin fuente verificada aquí).",
+         "Un experto para la etiqueta de especie (en trips, identificación al microscopio).",
+         "Versionar la taxonomía y guardar sinónimos.",
+         "Detectar duplicados por hash (pHash/dHash) **y** por observación.",
+         "Revisar con cleanlab los casos con mayor pérdida antes de reentrenar.",
+         "Congelar el test antes de mirar resultados."
+        ]
+       },
+       {
+        "type": "callout",
+        "tone": "ojo",
+        "title": "Si no se hace",
+        "text": "Métricas infladas (la Fase 13 de Anura tenía el 100 % de sus imágenes KNOWN dentro de TRAIN) o modelos que aprenden el error."
+       }
+      ]
+     },
+     {
+      "id": "s09",
+      "title": "Fine-tuning o encoder congelado",
+      "tema": "Ajuste fino",
+      "kind": "clave",
+      "lead": "Usa BioCLIP 1 congelado por defecto y ajusta solo si se demuestra la necesidad. Añadir una especie o una etapa nueva es calcular un vector, sin reentrenar.",
+      "blocks": [
+       {
+        "type": "compare",
+        "left": {
+         "title": "Congelado",
+         "sub": "Vectores + centroides o kNN",
+         "items": [
+          "Añadir una clase = calcular un vector",
+          "Más barato, determinista y reproducible",
+          "No necesita GPU para mantenerlo",
+          "Los paquetes regionales dependen de que el encoder no cambie"
+         ]
+        },
+        "right": {
+         "title": "Ajuste fino",
+         "sub": "Todos los pesos",
+         "items": [
+          "~2 % más dentro de distribución",
+          "~7 % menos fuera de distribución [FUENTE]",
+          "Con pocas fotos por clase, memoriza",
+          "Cambiar el encoder obliga a recalcular todos los vectores"
+         ]
+        },
+        "verdict": "Medido en Anura: el ajuste fino no superó a los vectores congelados."
+       },
+       {
+        "type": "chart",
+        "title": "Anura: ajuste fino de BioCLIP 1",
+        "tag": "Fase 4 de Anura · 28 especies · test",
+        "chart": {
+         "type": "bar",
+         "data": {
+          "items": [
+           {
+            "l": "Sin entrenar",
+            "v": 70.4,
+            "hi": true
+           },
+           {
+            "l": "Ajuste fino",
+            "v": 69.2
+           },
+           {
+            "l": "Config. mala",
+            "v": 19.7
+           }
+          ]
+         }
+        },
+        "caption": "El ajuste fino memorizó: pérdida de train de 0,92 a 0,01 con 28,7 M de parámetros descongelados y ~2.200 imágenes. Con la normalización mal configurada cayó a 19,7 %."
+       },
+       {
+        "type": "h",
+        "text": "Qué se entrena en cada opción"
+       },
+       {
+        "type": "table",
+        "head": [
+         "Opción",
+         "Efecto típico"
+        ],
+        "widths": [
+         3,
+         8
+        ],
+        "rows": [
+         [
+          "Zero-shot",
+          "Línea base; BioCLIP 1: media 39,4 en 10 tareas"
+         ],
+         [
+          "Congelado + centroides o kNN",
+          "Protocolo few-shot de BioCLIP: Rare Species 1-shot 44,9 (CLIP 28,5), 5-shot 65,7 (CLIP 46,0) [FUENTE]"
+         ],
+         [
+          "Linear probe",
+          "En 101 especies de polillas, sobre BioCLIP 2 congelado: 88,3 % sin datos del objetivo y 91,6 % con 50 % (arXiv 2508.20089) [FUENTE]"
+         ],
+         [
+          "Ajuste fino completo",
+          "Las capas bajas se mueven mientras se aprende una cabeza al azar y eso distorsiona las características (Kumar et al. 2022)"
+         ],
+         [
+          "LP-FT (primero lineal, luego todo)",
+          "~1 % más dentro y ~10 % más fuera que el ajuste fino completo [FUENTE]"
+         ],
+         [
+          "WiSE-FT (promediar pesos)",
+          "+4–6 pp bajo cambio de distribución (resumen; otras fuentes dan cifras distintas) [FUENTE]"
+         ],
+         [
+          "LoRA / adaptadores",
+          "«Aprende menos y olvida menos»: resultado de modelos de lenguaje, no de CLIP [FUENTE, otro dominio]"
+         ]
+        ]
+       },
+       {
+        "type": "callout",
+        "tone": "regla",
+        "title": "Si aun así hace falta ajustar",
+        "text": "Primero linear probe; luego LP-FT con tasa de aprendizaje baja, o WiSE-FT. Valida fuera de distribución (sitios nuevos), recalcula todos los vectores, versiona y conserva el encoder anterior hasta comprobar. Ajuste fino completo solo con más de 500 imágenes por clase y buen equilibrio."
+       }
+      ]
+     },
+     {
+      "id": "s10",
+      "title": "Pocas imágenes: aumentación y alternativas",
+      "tema": "Pocas imágenes",
+      "kind": "tablero",
+      "blocks": [
+       {
+        "type": "kpi",
+        "items": [
+         {
+          "v": "50,3",
+          "l": "1 foto por clase, media de 10 tareas",
+          "note": "[FUENTE] BioCLIP 1"
+         },
+         {
+          "v": "68,8",
+          "l": "5 fotos por clase",
+          "note": "[FUENTE] BioCLIP 1"
+         },
+         {
+          "v": "70",
+          "l": "individuos: umbral de aumentación agresiva",
+          "note": "regla de Anura"
+         },
+         {
+          "v": "5.100–6.000",
+          "l": "desde 550 originales de train",
+          "note": "[DOC] planificado"
+         }
+        ]
+       },
+       {
+        "type": "h",
+        "text": "Escalera si no hay suficientes imágenes"
+       },
+       {
+        "type": "ladder",
+        "items": [
+         {
+          "title": "1–10 fotos por clase",
+          "text": "Vectores congelados + centroide o kNN; zero-shot como línea base.",
+          "cost": "costo: muy bajo"
+         },
+         {
+          "title": "10–70 fotos",
+          "text": "Lo anterior + aumentación moderada, solo en train y al vuelo.",
+          "cost": "costo: bajo"
+         },
+         {
+          "title": "Clases desbalanceadas",
+          "text": "Oversampling con aumentación agresiva solo en las repeticiones; pesos de clase amortiguados (raíz cuadrada).",
+          "cost": "costo: bajo"
+         },
+         {
+          "title": "Variantes difíciles",
+          "text": "CutMix, CoarseDropout o RandomErasing, copy-paste. Anura prohíbe mezclar con CutMix entre especies del mismo género.",
+          "cost": "costo: medio"
+         },
+         {
+          "title": "Más fotos de verdad",
+          "text": "iNaturalist, GBIF, EOL; luego fotos propias con protocolo. Las etapas casi nunca están etiquetadas: hay que etiquetarlas.",
+          "cost": "costo: alto"
+         },
+         {
+          "title": "Etapas difíciles de fotografiar",
+          "text": "Fotos propias dirigidas (macro, con escala) o fusionar clases (larva I y II; prepupa y pupa) y reportar a ese nivel.",
+          "cost": "costo: alto"
+         },
+         {
+          "title": "Fotos sin etiqueta",
+          "text": "Etiquetado asistido: el modelo propone y un experto confirma [INF].",
+          "cost": "costo: medio"
+         },
+         {
+          "title": "Imágenes sintéticas",
+          "text": "Último recurso y nunca en val ni test. Stable Diffusion se clasificó bien solo ~14 % sobre 50 clases de iNaturalist (26 % con su método): evidencia débil.",
+          "cost": "costo: alto"
+         }
+        ]
+       },
+       {
+        "type": "h",
+        "text": "Lo que se probó en Anura"
+       },
+       {
+        "type": "table",
+        "head": [
+         "Nivel",
+         "Aumentación"
+        ],
+        "widths": [
+         2,
+         9
+        ],
+        "rows": [
+         [
+          "Moderada (individuos reales)",
+          "RandomResizedCrop 224 (escala 0,6–1,0), volteo horizontal p=0,5 y vertical p=0,3, rotación ±20°, brillo y contraste 0,25, saturación 0,15, **matiz 0,05**, desenfoque suave, RandomErasing p=0,2"
+         ],
+         [
+          "Agresiva (especies con <70 individuos)",
+          "Escala 0,4–1,0, rotación ±30°, brillo y contraste 0,35, saturación 0,25, **matiz 0,05 (igual)**, RandomErasing p=0,35"
+         ],
+         [
+          "Reglas de proceso",
+          "Solo en train y al vuelo, nunca antes de dividir; todas las tomas de un individuo en el mismo grupo; fondos variados para evitar que la red asocie especie con fondo"
+         ]
+        ]
+       },
+       {
+        "type": "callout",
+        "tone": "ojo",
+        "title": "Qué no romper al aumentar",
+        "paras": [
+         "**Color diagnóstico:** matiz de ±10 a 15° como máximo. En trips, el color de larva y adulto puede ser parte de la pista de etapa [INF].",
+         "**Tamaño y proporciones:** si la etapa se distingue por tamaño, evita zoom y deformaciones fuertes, o pon una escala visible [INF].",
+         "**Fondo:** incluye hoja, trampa pegajosa y mano para que no aprenda el fondo."
+        ]
+       },
+       {
+        "type": "callout",
+        "tone": "nota",
+        "text": "La herramienta importa menos que **comprobar la normalización** y **probar la aumentación sola** antes de entrenar: Albumentations mal normalizado hundió la identificación a 19,7 %."
+       }
+      ]
+     },
+     {
+      "id": "s11",
+      "title": "Datos: cuántos, de dónde, cómo dividirlos",
+      "tema": "Datos",
+      "blocks": [
+       {
+        "type": "h",
+        "text": "Cuántos hacen falta (reglas del proyecto Anura)"
+       },
+       {
+        "type": "table",
+        "head": [
+         "Nivel de centroide",
+         "Fotos",
+         "Individuos"
+        ],
+        "widths": [
+         4,
+         3,
+         3
+        ],
+        "rows": [
+         [
+          "Mínimo viable",
+          "10–15",
+          "3–5"
+         ],
+         [
+          "Recomendado",
+          "30–50",
+          "8–12"
+         ],
+         [
+          "Robusto",
+          "80–100 o más",
+          "15 o más"
+         ]
+        ]
+       },
+       {
+        "type": "p",
+        "text": "Para identificación, el proyecto pide al menos 70 individuos por especie. **Lo que estabiliza el centroide es la variación entre individuos**, no el número de fotos del mismo animal. En el dataset medido, con 38 o más individuos más fotos no ayudaron."
+       },
+       {
+        "type": "h",
+        "text": "De dónde"
+       },
+       {
+        "type": "list",
+        "items": [
+         "**Fuentes abiertas:** iNaturalist, GBIF, Wikimedia Commons; revisa siempre la licencia y guarda la fuente de cada imagen.",
+         "**Variedad:** distintos ángulos, luz, fondos, edades, estaciones. Propuesta de Anura: 60 % dorsolateral, 25 % dorsal, 15 % cabeza o vientre; con flash nocturno y luz diurna; seca y mojada.",
+         "**Equilibrio:** intenta al menos 100 imágenes por especie; evita 3.000 en una y 40 en otra."
+        ]
+       },
+       {
+        "type": "callout",
+        "tone": "regla",
+        "title": "Cómo dividirlos",
+        "text": "Entrenamiento, validación y prueba **por individuo u observación**, no al azar. Si la misma foto o el mismo animal aparece en train y test, la métrica miente. Congela el test antes de mirar resultados."
+       },
+       {
+        "type": "h",
+        "text": "El dataset medido (v5 de Anura)"
+       },
+       {
+        "type": "table",
+        "head": [
+         "Dato",
+         "Valor"
+        ],
+        "widths": [
+         5,
+         6
+        ],
+        "rows": [
+         [
+          "Especies / fotos / observaciones",
+          "56 / 5.818 / 3.240 [BD]"
+         ],
+         [
+          "Fotos por especie (mín / mediana / máx)",
+          "85 / 100 / 191 [CALC]"
+         ],
+         [
+          "Partición por individuo (70/15/15)",
+          "train 4.087 · val 861 · test 864 fotos [BD]"
+         ],
+         [
+          "Piso para entrar a un paquete regional",
+          "al menos 80 fotos activas y 10 individuos"
+         ],
+         [
+          "Fotos «no rana» con vector",
+          "1.229: reptil 184, salamandra 186, otro animal 178, insecto 27, persona 179, objeto 193, fondo 55, otro 227 [BD]"
+         ],
+         [
+          "Evolución",
+          "v3: 28 especies · v4: 31 · v5: 56"
+         ]
+        ]
+       },
+       {
+        "type": "callout",
+        "tone": "nota",
+        "text": "Las cifras de la Parte A de Anura (28 y 41 especies) y las de la Parte B (56 especies) no son comparables: otras especies, otro split, otra versión."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "p3",
+    "title": "Evidencia",
+    "desc": "Resultados medidos con anuros de Colombia, los errores que costaron tiempo, el contexto dinámico y las especies casi idénticas.",
+    "sections": [
+     {
+      "id": "s12",
+      "title": "Resultados de un caso real",
+      "tema": "Anuros de Colombia",
+      "kind": "tablero",
+      "blocks": [
+       {
+        "type": "big",
+        "value": "62,9",
+        "unit": "%",
+        "caption": "Acierto top-1 en 864 fotos de prueba"
+       },
+       {
+        "type": "kpi",
+        "items": [
+         {
+          "v": "86,1 %",
+          "l": "top-3",
+          "note": "[CALC] +23 puntos sobre top-1"
+         },
+         {
+          "v": "91,1 %",
+          "l": "top-5",
+          "note": "[CALC]"
+         },
+         {
+          "v": "56",
+          "l": "especies · 5.818 fotos",
+          "note": "[BD] v5, partición por individuo"
+         }
+        ]
+       },
+       {
+        "type": "chart",
+        "half": true,
+        "title": "Acierto con 56 especies",
+        "tag": "[CALC] test v5 · 864 fotos",
+        "chart": {
+         "type": "bar",
+         "data": {
+          "items": [
+           {
+            "l": "Top-1",
+            "v": 62.85,
+            "hi": true,
+            "err": 3.2
+           },
+           {
+            "l": "Top-3",
+            "v": 86.11
+           },
+           {
+            "l": "Top-5",
+            "v": 91.09
+           }
+          ]
+         }
+        },
+        "caption": "Mostrar tres candidatas sube el acierto 23 puntos. Intervalo 95 % de top-1: ±3,2 pp [STAT]."
+       },
+       {
+        "type": "chart",
+        "half": true,
+        "title": "Más especies, menos acierto",
+        "tag": "[BD] validación por lotes",
+        "chart": {
+         "type": "line",
+         "data": {
+          "points": [
+           [
+            5,
+            87.3
+           ],
+           [
+            18,
+            78.2
+           ],
+           [
+            28,
+            74.3
+           ],
+           [
+            31,
+            68.6
+           ],
+           [
+            56,
+            64.4
+           ]
+          ],
+          "xrange": [
+           0,
+           60
+          ],
+          "yrange": [
+           60,
+           100
+          ],
+          "xlabel": "especies en el modelo",
+          "ylabel": "% entre aceptadas"
+         }
+        },
+        "caption": "Tendencia real, pero la validación cambia entre lotes: no es un experimento controlado."
+       },
+       {
+        "type": "chart",
+        "half": true,
+        "title": "Paquete regional frente a global",
+        "tag": "[CALC] Sinú · 493 fotos",
+        "chart": {
+         "type": "bar",
+         "data": {
+          "items": [
+           {
+            "l": "Global",
+            "v": 73.83,
+            "hi": true,
+            "err": 3.9
+           },
+           {
+            "l": "Regional",
+            "v": 70.99,
+            "err": 4.0
+           }
+          ]
+         }
+        },
+        "caption": "Los intervalos se solapan: el centroide regional no mejora, pero no se puede afirmar que empeore [STAT]."
+       },
+       {
+        "type": "chart",
+        "half": true,
+        "title": "Quitar el fondo empeora",
+        "tag": "150 imágenes pareadas · BioCLIP",
+        "chart": {
+         "type": "bar",
+         "data": {
+          "items": [
+           {
+            "l": "Completa",
+            "v": 60.7,
+            "hi": true
+           },
+           {
+            "l": "Recorte",
+            "v": 50.7
+           },
+           {
+            "l": "Fondo negro",
+            "v": 44.7
+           }
+          ]
+         }
+        },
+        "caption": "Segmentar no ayudó con el modelo entrenado en imagen completa. Reentrenar sobre recortes: sin probar."
+       },
+       {
+        "type": "chart",
+        "title": "Rechazar ranas ajenas",
+        "tag": "[BD] Sinú · coseno + Weibull",
+        "chart": {
+         "type": "line",
+         "data": {
+          "points": [
+           [
+            78.5,
+            61.3,
+            "78,5"
+           ],
+           [
+            81.5,
+            68.2,
+            "81,5"
+           ],
+           [
+            86.4,
+            75.1,
+            "86,4"
+           ],
+           [
+            95.3,
+            91.6,
+            "95,3"
+           ],
+           [
+            98.8,
+            97.6,
+            "98,8"
+           ]
+          ],
+          "xrange": [
+           75,
+           100
+          ],
+          "yrange": [
+           40,
+           100
+          ],
+          "xlabel": "KAR medido (% de conocidas aceptadas)",
+          "ylabel": "FAR %"
+         }
+        },
+        "caption": "Aceptar más conocidas deja pasar más ajenas: de 90 a 95 % de KAR, el FAR sube ~16 puntos. Operación elegida: 95 % (FAR 91,6 %). El rechazo de desconocidos sigue sin resolverse."
+       },
+       {
+        "type": "chart",
+        "title": "Errores entre especies parecidas",
+        "tag": "[CALC] top-1 equivocado · test",
+        "chart": {
+         "type": "hbar",
+         "data": {
+          "max": 9,
+          "items": [
+           {
+            "l": "D. bogerti → D. microcephalus",
+            "v": 8,
+            "hi": true
+           },
+           {
+            "l": "R. marina → R. horribilis",
+            "v": 7,
+            "hi": true
+           },
+           {
+            "l": "H. tatayoi → E. prosoblepon",
+            "v": 5
+           },
+           {
+            "l": "D. columbianus → D. bogerti",
+            "v": 5
+           },
+           {
+            "l": "C. metriosistus → C. raniformis",
+            "v": 5
+           },
+           {
+            "l": "O. taurinus → T. macrotis",
+            "v": 4
+           },
+           {
+            "l": "N. grandisonae → E. prosoblepon",
+            "v": 4
+           },
+           {
+            "l": "R. humboldti → R. beebei",
+            "v": 4
+           }
+          ]
+         }
+        },
+        "caption": "Casi todos son del mismo género. Cuanto más cerca está la especie vecina, peor el acierto (correlación −0,62)."
+       },
+       {
+        "type": "chart",
+        "half": true,
+        "title": "BioCLIP 1, 2 y 2.5",
+        "tag": "[FUENTE] zero-shot, 10 tareas",
+        "chart": {
+         "type": "bar",
+         "data": {
+          "unit": "",
+          "items": [
+           {
+            "l": "BioCLIP 1 (512)",
+            "v": 37.6
+           },
+           {
+            "l": "BioCLIP 2 (768)",
+            "v": 55.6
+           },
+           {
+            "l": "BioCLIP 2.5 (1024)",
+            "v": 61.3,
+            "hi": true
+           }
+          ]
+         }
+        },
+        "caption": "Benchmarks de las fichas de Hugging Face, no son tus especies."
+       },
+       {
+        "type": "chart",
+        "half": true,
+        "sim": true,
+        "title": "Top-1 con BioCLIP 2.5",
+        "tag": "SIMULACIÓN · supuestos +3, +6 y +10 pp",
+        "chart": {
+         "type": "bar",
+         "data": {
+          "items": [
+           {
+            "l": "Real (BioCLIP 1)",
+            "v": 62.85,
+            "hi": true
+           },
+           {
+            "l": "Conservador",
+            "v": 65.9,
+            "hatch": true
+           },
+           {
+            "l": "Medio",
+            "v": 68.9,
+            "hatch": true
+           },
+           {
+            "l": "Optimista",
+            "v": 72.9,
+            "hatch": true
+           }
+          ]
+         }
+        },
+        "caption": "Barras rayadas = supuesto, no resultado. Medir BioCLIP 2.5 en las 56 especies sustituye esta gráfica [SIM]."
+       },
+       {
+        "type": "callout",
+        "tone": "nota",
+        "text": "Una referencia histórica, no un rendimiento actual: 97,19 % en validación con 11 clases (10 especies + «no rana») con ajuste fino; ese entrenador fue eliminado. Con 56 especies el top-1 (62,9 %) no alcanza las metas de diseño (90 % en distinguibles, 85 % en las 10 más comunes del Valle de Aburrá). El top-3 (86,1 %) supera la cifra de 85 %, pero se midió en las 56 especies, no en las 10 más comunes."
+       }
+      ]
+     },
+     {
+      "id": "s13",
+      "title": "Errores y lecciones",
+      "tema": "Qué falló",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "Lo que falló enseña tanto como lo que funcionó. Estas son las lecciones del caso Anura, con la cifra que las respalda."
+       },
+       {
+        "type": "table",
+        "head": [
+         "Qué",
+         "Qué pasó",
+         "Lección"
+        ],
+        "widths": [
+         3,
+         4,
+         5
+        ],
+        "rows": [
+         [
+          "Destilación a MobileNetV3-S",
+          "57,7 → 24,3 % (−33,4 pp)",
+          "Alumno con rana en solo ~10 % del encuadre; necesita entrada de calidad y brecha pequeña. La coherencia taxonómica sí se transfirió (79,7 frente a 83,4 %)"
+         ],
+         [
+          "INT8 en el ViT",
+          "0,2–51 % en cinco intentos",
+          "Los ViT no se cuantizan a INT8 sin reentrenar; FP16 es el límite práctico. Consulta la literatura antes de optimizar"
+         ],
+         [
+          "Albumentations",
+          "19,7 % (−50,7 pp)",
+          "Normalización incompatible; prueba la aumentación sola antes de entrenar"
+         ],
+         [
+          "Ajuste fino completo",
+          "Val 72,7 % → test 69,2 %",
+          "Memorizó con 28,7 M de parámetros y ~2.200 imágenes; techo de ~70 % con imagen completa"
+         ],
+         [
+          "Mahalanobis con covarianza compartida",
+          "AUROC 0,69 → 0,59",
+          "Covarianza de 512×512 estimada con 798 imágenes de 10 especies"
+         ],
+         [
+          "Rechazo de desconocidos",
+          "FAR entre 52 % y 94 %",
+          "El cuello de botella son pares de especies hermanas casi idénticas en el embedding"
+         ],
+         [
+          "Fuga en la evaluación",
+          "100 % de KNOWN dentro de TRAIN",
+          "Un score «perfecto» suele ser una trampa; Mahalanobis en muestra dio AUROC 1,0"
+         ],
+         [
+          "Exportación ONNX",
+          "Archivo de 1,2 MB sin error",
+          "La exportación falla en silencio; valida tamaño y predicciones idénticas"
+         ],
+         [
+          "Documentación",
+          "«BlockClip» (no existe), «BioCLIP 2.5 no existe» (sí existe)",
+          "La documentación se desincroniza; fecha cada afirmación"
+         ]
+        ]
+       },
+       {
+        "type": "h",
+        "text": "Quitar el fondo: qué cifras hay"
+       },
+       {
+        "type": "table",
+        "head": [
+         "Prueba",
+         "Resultado"
+        ],
+        "widths": [
+         6,
+         5
+        ],
+        "rows": [
+         [
+          "BioCLIP sin entrenar, 848 imágenes: completa → recortada",
+          "51,5 → 42,5 % (−9,1 pp)"
+         ],
+         [
+          "150 imágenes pareadas: completa → recorte → fondo negro",
+          "60,7 → 50,7 → 44,7 %"
+         ],
+         [
+          "Segmentador DeepLabV3+ResNet50",
+          "IoU val 87,4 %, test 83,3 % (entrenado con 9 especies, usado en 41)"
+         ],
+         [
+          "Tamaño de la rana en el encuadre",
+          "6–18 %"
+         ]
+        ]
+       },
+       {
+        "type": "callout",
+        "tone": "nota",
+        "paras": [
+         "Los modelos extraen señal del fondo: fondos adversariales rompen hasta el 87,5 % de los aciertos en primer plano (Xiao et al., arXiv 2006.09994) [FUENTE]. Que BioCLIP empeore con fondo negro encaja con un cambio de dominio, porque nunca vio fondos artificiales [INF].",
+         "**Lo que quedó:** la segmentación *explica después*, no decide. El clasificador ve la imagen completa. Experimento pendiente: reentrenar sobre recortes."
+        ]
+       },
+       {
+        "type": "callout",
+        "tone": "ojo",
+        "title": "Destilación: un ejemplo seguro",
+        "text": "Los modelos *DeepSeek-R1-Distill* son modelos Qwen2.5 y Llama ajustados con ~800 mil muestras generadas por R1 [FUENTE]. No se afirma que DeepSeek destiló a ChatGPT: es una acusación de OpenAI sin indicios publicados."
+       }
+      ]
+     },
+     {
+      "id": "s14",
+      "title": "El contexto dinámico",
+      "tema": "Lugar, altitud, fecha, hospedero",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "Cuando la imagen ya no alcanza (especies casi idénticas, foto mala), se suman variables para **reordenar** candidatas: lugar, altitud, fecha, hora, hábitat, canto, talla, planta hospedera. El prior geográfico y los demás datos deben ser **dinámicos** para no generalizar una ubicación: hay especies endémicas y otras presentes en muchos lugares."
+       },
+       {
+        "type": "kpi",
+        "items": [
+         {
+          "v": "+24,9",
+          "l": "pp con el prior en el test completo",
+          "note": "medido en Anura"
+         },
+         {
+          "v": "+15,3",
+          "l": "pp en sitios aislados",
+          "note": "medido en Anura"
+         },
+         {
+          "v": "72,7 %",
+          "l": "top-1 en iNat2018 con prior; 60,2 % sin él",
+          "note": "[FUENTE] Mac Aodha et al. 2019"
+         }
+        ]
+       },
+       {
+        "type": "callout",
+        "tone": "ojo",
+        "text": "El prior solo **reordena**. Aplicado a la decisión oficial volteó una *D. bogerti* bien identificada. La especie oficial sale del voto visual."
+       },
+       {
+        "type": "chart",
+        "title": "Perfiles de peso: imagen · lugar · otros",
+        "tag": "Anura, perfiles editables por especie",
+        "chart": {
+         "type": "stack",
+         "data": {
+          "series": [
+           "Imagen",
+           "Lugar",
+           "Otros"
+          ],
+          "rows": [
+           {
+            "l": "Generalista",
+            "v": [
+             80,
+             10,
+             10
+            ]
+           },
+           {
+            "l": "Microendémica",
+            "v": [
+             30,
+             60,
+             10
+            ]
+           },
+           {
+            "l": "Par críptico",
+            "v": [
+             35,
+             35,
+             30
+            ]
+           },
+           {
+            "l": "De quebrada",
+            "v": [
+             50,
+             20,
+             30
+            ]
+           }
+          ]
+         },
+         "legend": [
+          [
+           "Imagen",
+           "hi"
+          ],
+          [
+           "Lugar",
+           "gold"
+          ],
+          [
+           "Otros datos",
+           "w"
+          ]
+         ]
+        },
+        "caption": "Una microendémica pesa más el lugar (σ de altitud ~120 m); una generalista casi no (~1.000 m). Los cortes entre perfiles son terciles de los propios datos, no umbrales fijos."
+       },
+       {
+        "type": "h",
+        "text": "Diseño dinámico recomendado [propuesta propia]"
+       },
+       {
+        "type": "list",
+        "ordered": true,
+        "items": [
+         "**Escala por especie calculada de los datos**: endémica = prior estrecho y fuerte; amplia = prior ancho y débil.",
+         "Perfiles de peso editables, con tres valores visibles: calculado, manual y efectivo. El sistema nunca pisa el manual.",
+         "Suavizado hacia lo uniforme cuando hay pocas observaciones (Laplace): P(s|z) = (N+α)/(N(z)+α·K).",
+         "**Prior acotado**: multiplicador entre 0,5 y 1,5; nunca elimina una especie.",
+         "«No observado» no es «ausente»: tres estados.",
+         "Recalcular en cada versión del dataset y evaluarlo por distancia, sin usar la especie real como entrada (oráculo)."
+        ]
+       },
+       {
+        "type": "callout",
+        "tone": "ojo",
+        "title": "Sesgos a vigilar",
+        "text": "Donde hay más observadores hay más registros (ciudades, carreteras); coordenadas imprecisas (en Anura se descartaron observaciones con hasta 7.270 km de imprecisión); especies invasoras o que cambian de rango (*R. marina*, *Frankliniella*); coordenadas ofuscadas de especies amenazadas."
+       },
+       {
+        "type": "callout",
+        "tone": "clave",
+        "title": "Contexto como cadena causal",
+        "paras": [
+         "Los insectos pueden traer enfermedades a la planta. Pista contextual: «insecto vector + síntomas de la planta ⇒ más probable la enfermedad que transmite».",
+         "Ejemplo: los trips *Frankliniella occidentalis* transmiten el virus del bronceado del tomate (TSWV). **Solo las larvas adquieren el virus y los adultos lo transmiten**; el trips es infectante 3–10 días después de adquirirlo [FUENTE, EPPO y Univ. de Maryland]. La etapa importa para el riesgo, no solo para el remedio."
+        ]
+       },
+       {
+        "type": "h",
+        "text": "Bases útiles para cualquier región"
+       },
+       {
+        "type": "table",
+        "head": [
+         "Base",
+         "Qué aporta",
+         "Cifra"
+        ],
+        "widths": [
+         3,
+         4,
+         4
+        ],
+        "rows": [
+         [
+          "GBIF",
+          "Registros de presencia",
+          "dato pendiente"
+         ],
+         [
+          "iNaturalist",
+          "Fotos y observaciones verificadas",
+          "dato pendiente"
+         ],
+         [
+          "AmphibiaWeb",
+          "Anfibios",
+          "9.081 especies (7 ago 2026) [FUENTE]"
+         ],
+         [
+          "SiB Colombia",
+          "Biodiversidad de Colombia",
+          "más de 34 millones de registros [FUENTE]"
+         ],
+         [
+          "EPPO · CABI · Plantwise",
+          "Hospederos, distribución y diagnóstico por síntomas",
+          "EPPO: ~98.500 especies y más de 1.900 plagas reguladas [FUENTE]"
+         ],
+         [
+          "Xeno-canto",
+          "Sonidos",
+          "dato pendiente"
+         ]
+        ]
+       }
+      ]
+     },
+     {
+      "id": "s15",
+      "title": "Especies casi idénticas",
+      "tema": "Especies gemelas",
+      "kind": "clave",
+      "lead": "Muchas especies de anuros se ven casi iguales aunque sean distintas. Ahí es donde más ayudan los datos de contexto, y donde más falla un modelo que solo mira la foto.",
+      "blocks": [
+       {
+        "type": "image",
+        "items": [
+         {
+          "src": "dimorfismo/rhinella_marina_macho.jpg",
+          "caption": "*Rhinella marina* (sapo de caña)."
+         },
+         {
+          "src": "pares/rhinella_horribilis_1.jpg",
+          "caption": "*Rhinella horribilis*, separada de *R. marina* en 2016."
+         }
+        ],
+        "ratio": "4/3"
+       },
+       {
+        "type": "kpi",
+        "items": [
+         {
+          "v": "0,980",
+          "l": "coseno entre los centroides de *R. horribilis* y *R. marina*",
+          "note": "[BD] el par más cercano"
+         },
+         {
+          "v": "8.011",
+          "l": "anuros en 57 familias y 504 géneros",
+          "note": "[FUENTE] AmphibiaWeb, 7 ago 2026"
+         }
+        ]
+       },
+       {
+        "type": "p",
+        "text": "Funk et al. 2012 encontraron que *Engystomops* pasa de 2 especies a 5–7 y *Hypsiboas* (hoy *Boana*) de 2 a 6–9; Fouquet et al. 2007 estiman que la diversidad de anuros de Amazonia–Guayanas podría ser el doble de la reconocida [FUENTE]. No hay un recuento global de especies crípticas: no cites un porcentaje."
+       },
+       {
+        "type": "h",
+        "text": "Qué datos desempatan"
+       },
+       {
+        "type": "list",
+        "items": [
+         "Localidad, altitud, canto, color de una estructura diagnóstica, comportamiento, hora y microhábitat.",
+         "En Anura, *R. marina* (25–2.500 m) y *R. horribilis* (4,5–2.467 m) se solapan en altitud: ni la geografía ni la altitud bastan.",
+         "Hasta el 50 % de las imágenes de *P. erythropleura* quedan más cerca de otra especie que de la propia."
+        ]
+       },
+       {
+        "type": "callout",
+        "tone": "pend",
+        "text": "Color oculto, iris y membranas como separadores de anuros crípticos: [SIN FUENTE]. Los caracteres que separan pares concretos: dato pendiente."
+       },
+       {
+        "type": "callout",
+        "tone": "nota",
+        "text": "Si hace falta mostrar que el problema no es exclusivo de ranas: los lagartos *Anolis* tienen casos crípticos documentados, y el abanico de la garganta es diagnóstico solo para pares concretos [FUENTE]."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "p4",
+    "title": "Etapa y salud",
+    "desc": "Etapa, sexo, edad y enfermedad por grupo; qué se traslada del animal a la flora y qué método sirve para cada organismo.",
+    "sections": [
+     {
+      "id": "s16",
+      "title": "Etapa, sexo y edad por grupo",
+      "tema": "Etapa, sexo y edad",
+      "blocks": [
+       {
+        "type": "image",
+        "items": [
+         {
+          "src": "renacuajos/bufo_03_renacuajos_patas_traseras.jpg",
+          "caption": "Renacuajos con patas traseras."
+         },
+         {
+          "src": "renacuajos/bufo_04_metamorfo_con_cola.jpg",
+          "caption": "Metamorfo con cuatro patas y resto de cola."
+         },
+         {
+          "src": "renacuajos/bufo_05_juvenil.jpg",
+          "caption": "Juvenil recién metamorfoseado."
+         }
+        ],
+        "ratio": "1/1"
+       },
+       {
+        "type": "h",
+        "text": "Etapa de vida"
+       },
+       {
+        "type": "table",
+        "head": [
+         "Grupo",
+         "Etapas",
+         "Cómo se ve en foto"
+        ],
+        "widths": [
+         2,
+         4,
+         6
+        ],
+        "rows": [
+         [
+          "**Anuros**",
+          "Puesta → renacuajo (46 estadios de Gosner, 1960) → metamorfosis → juvenil → adulto",
+          "Renacuajos: la especie es difícil de identificar solo por morfología en el Neotrópico; se apoya en ADN (16S). Más útil para etapa: estadios 26–38 [RESUMEN]"
+         ],
+         [
+          "**Insectos**",
+          "Huevo, larva o ninfa, pupa, adulto",
+          "La especie en larva suele ser difícil; el daño (agallas, minas, excrementos) a veces es la pista [SIN FUENTE]"
+         ],
+         [
+          "**Plantas**",
+          "Escala BBCH: germinación, crecimiento, floración, fruto, senescencia",
+          "Por órganos visibles; la lista 0–9 no se leyó en la monografía: verifícala antes de citarla"
+         ],
+         [
+          "**Aves**",
+          "Pollo, juvenil, inmaduro, adulto; muda y plumaje",
+          "Plumaje por edad y sexo (guía de Pyle)"
+         ],
+         [
+          "**Mamíferos**",
+          "Cría, joven, adulto",
+          "Tamaño, astas, melena; en ML solo hay casos aislados"
+         ],
+         [
+          "**Peces**",
+          "Alevín, juvenil, adulto",
+          "Estadios en foto: [SIN FUENTE]"
+         ]
+        ]
+       },
+       {
+        "type": "h",
+        "text": "Sexo"
+       },
+       {
+        "type": "list",
+        "items": [
+         "**Anuros:** las hembras suelen ser más grandes (una fuente da ~10 % y otra ~5 %: discrepan). Rasgos útiles: saco vocal o garganta oscura, almohadillas nupciales, tímpano en algunas especies, amplexo. Dependen de la especie y de la época reproductiva. Especies sin dimorfismo externo: [SIN FUENTE].",
+         "**Aves:** ~60 % son monomórficas y solo se sexan por PCR del gen CHD [RESUMEN].",
+         "**Mamíferos:** en ciervo rojo desde cámara trampa, edad 90,77 % y sexo 96,15 % (un sitio, 4.352 recortes) [RESUMEN]. No lo generalices.",
+         "**Reptiles:** en serpientes el sexo se determina por sondeo o eversión de hemipenes, no por foto.",
+         "**Plantas:** algunas son dioicas; las fuentes encontradas son de baja calidad: cita solo el principio."
+        ]
+       },
+       {
+        "type": "h",
+        "text": "Edad"
+       },
+       {
+        "type": "callout",
+        "tone": "ojo",
+        "text": "En anuros la edad **no se lee en una foto**. Lo estándar es contar líneas de crecimiento (LAGs) en falanges: funciona bien hasta ~8 años y subestima a los más viejos; la talla no es un proxy fiable [RESUMEN]. Lo que sí puede ofrecer una guía es una **clase de edad** (cría, joven, adulto), avisando de que no son años."
+       }
+      ]
+     },
+     {
+      "id": "s17",
+      "title": "Enfermedad en fauna y flora",
+      "tema": "Enfermedad",
+      "blocks": [
+       {
+        "type": "callout",
+        "tone": "clave",
+        "title": "Principio",
+        "text": "Un buen resultado dice: «lesión compatible con X, otras causas posibles Y, confirmar con Z»."
+       },
+       {
+        "type": "h",
+        "text": "Fauna"
+       },
+       {
+        "type": "table",
+        "head": [
+         "Grupo",
+         "Signos visibles",
+         "Confirmación",
+         "ML publicado"
+        ],
+        "widths": [
+         2,
+         6,
+         2,
+         3
+        ],
+        "rows": [
+         [
+          "**Anuros**",
+          "Letargo, muda anormal, enrojecimiento, edema: inespecíficos; se confunden quitridiomicosis, ranavirus y «pata roja» (*Aeromonas*). Malformaciones por el trematodo *Ribeiroia ondatrae*",
+          "qPCR, histología o cultivo",
+          "Ninguno encontrado"
+         ],
+         [
+          "**Aves**",
+          "Viruela aviar, conjuntivitis micoplásmica del pinzón doméstico, salmonelosis",
+          "Laboratorio",
+          "No evaluado aquí"
+         ],
+         [
+          "**Mamíferos**",
+          "Sarna; síndrome de la nariz blanca en murciélagos",
+          "Desgaste crónico: solo post mortem",
+          "CNN para sarna: [SIN FUENTE]"
+         ],
+         [
+          "**Peces**",
+          "Puntos blancos de ich",
+          "Microscopio",
+          "~82–90 % en acuicultura [RESUMEN]"
+         ],
+         [
+          "**Ganado**",
+          "Dermatosis nodular, fiebre aftosa (lesiones)",
+          "Veterinario / laboratorio",
+          "89–99 % [RESUMEN], sin validación de campo"
+         ],
+         [
+          "**Abejas**",
+          "Varroa, loque, cría de tiza",
+          "Laboratorio",
+          "Varroa: F1 0,874 (abejas) y 0,714 (ácaro)"
+         ]
+        ]
+       },
+       {
+        "type": "callout",
+        "tone": "nota",
+        "text": "Algunas enfermedades de animales son de **notificación obligatoria** (lista de WOAH); la norma nacional: dato pendiente."
+       },
+       {
+        "type": "h",
+        "text": "Flora"
+       },
+       {
+        "type": "kpi",
+        "items": [
+         {
+          "v": "99,35 %",
+          "l": "en el test del laboratorio (PlantVillage)",
+          "note": "[FUENTE] Mohanty 2016, 54.306 imágenes"
+         },
+         {
+          "v": "31,4 %",
+          "l": "con imágenes en otras condiciones",
+          "note": "[FUENTE] mismo estudio"
+         }
+        ]
+       },
+       {
+        "type": "list",
+        "items": [
+         "**Síntomas:** manchas, clorosis, marchitez, roya, mildiu, deficiencias, daño de plagas.",
+         "**Qué ayuda:** clasificar lesiones individuales subió la exactitud media un 12 % (Barbedo 2019; segmentación aún manual); varias fotos y varios órganos; contexto de lugar y cultivo.",
+         "**PlantDoc:** BioCLIP 2 saca 40,4 ± 3,7 y BioCLIP 1 apenas mejora a CLIP (28,4 frente a 26,1): los modelos de biodiversidad no sustituyen a uno de enfermedades de plantas.",
+         "**Plagas:** IP102 (75.222 imágenes, 102 clases), ResNet-50 con ajuste fino 49,4 % [RESUMEN].",
+         "**Hongos:** la foto es insegura para decidir si algo es comestible: la mejor de tres apps acertó 49 % en 78 ejemplares [RESUMEN]."
+        ]
+       },
+       {
+        "type": "h",
+        "text": "Cuando la foto es mala (cascada propuesta [INF])"
+       },
+       {
+        "type": "flow",
+        "cols": 3,
+        "steps": [
+         {
+          "title": "Otra foto",
+          "text": "Otro ángulo, más cerca, con escala."
+         },
+         {
+          "title": "Otro órgano",
+          "text": "Hoja, flor, fruto; el vientre de la rana."
+         },
+         {
+          "title": "Otra pregunta",
+          "text": "De «qué plaga» a «estado de la rama o de la planta»."
+         },
+         {
+          "title": "Más contexto",
+          "text": "Lugar, altitud, fecha, cultivo, hospedero."
+         },
+         {
+          "title": "Bajar de rango",
+          "text": "Especie → género → familia."
+         },
+         {
+          "title": "No determinable",
+          "text": "Decirlo es una respuesta válida.",
+          "on": true
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "s18",
+      "title": "Del animal a la flora",
+      "tema": "Puente a la flora",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "La guía es de animales; si hace falta, la **teoría** se aplica a plantas con esta tabla, y la ruta de método es la misma."
+       },
+       {
+        "type": "table",
+        "head": [
+         "En animales",
+         "En flora",
+         "Particularidad"
+        ],
+        "widths": [
+         3,
+         4,
+         4
+        ],
+        "rows": [
+         [
+          "Rango taxonómico fácil de separar",
+          "Familia o género con un rasgo visible (hoja, flor)",
+          "Las claves botánicas usan flor y fruto; varios órganos ayudan"
+         ],
+         [
+          "Etapa (renacuajo, larva, adulto)",
+          "BBCH: germinación, crecimiento, floración, fruto, senescencia",
+          "Verifica la lista 0–9 antes de citarla"
+         ],
+         [
+          "Sexo",
+          "Flores masculinas, femeninas o hermafroditas; plantas dioicas",
+          "Fuentes de baja calidad: solo el principio"
+         ],
+         [
+          "Edad",
+          "Anillos (requiere muestra)",
+          "No sale de una foto"
+         ],
+         [
+          "Salud",
+          "Síntomas en hoja, rama o planta",
+          "Modelo de laboratorio 99,35 % → 31,4 % en campo"
+         ],
+         [
+          "Foto mala → pedir otra",
+          "Pedir otro órgano o cambiar a «estado de la rama o la mata»",
+          "Cascada de la sección anterior"
+         ],
+         [
+          "Prior de lugar",
+          "Región, altitud y cultivo u hospedero",
+          "EPPO, CABI, Plantwise"
+         ],
+         [
+          "Plaga como contexto",
+          "Insecto vector → enfermedad",
+          "Un insecto en la planta eleva la sospecha de lo que transmite"
+         ],
+         [
+          "Pocas imágenes",
+          "Mismos métodos",
+          "PlantNet-300K y PlantVillage como fuente de datos"
+         ]
+        ]
+       },
+       {
+        "type": "callout",
+        "tone": "nota",
+        "text": "Para plantas, los modelos de biodiversidad ayudan menos que uno de enfermedades: BioCLIP 2 saca 40,4 en PlantDoc. Conjuntos de referencia: IP102 (75.222 imágenes), PlantDoc (2.598), Pl@ntNet-300K (306.146 imágenes, 1.081 especies), PlantVillage (54.306) [FUENTE]."
+       }
+      ]
+     },
+     {
+      "id": "s19",
+      "title": "Método por organismo y por pregunta",
+      "tema": "Tabla de decisión",
+      "kind": "tablero",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "**F** = factible desde una foto · **P** = parcial (depende de la especie o de la foto) · **L** = requiere laboratorio · **—** = sin evidencia encontrada. Las celdas con juicio propio son [INF]; las demás tienen respaldo en las secciones anteriores."
+       },
+       {
+        "type": "table",
+        "head": [
+         "Organismo",
+         "Especie",
+         "Etapa",
+         "Sexo",
+         "Edad",
+         "Salud"
+        ],
+        "widths": [
+         3,
+         2,
+         2,
+         2,
+         2,
+         2
+        ],
+        "rows": [
+         [
+          "**Anuros**",
+          {
+           "t": "F",
+           "tone": "f"
+          },
+          {
+           "t": "P",
+           "tone": "p"
+          },
+          {
+           "t": "P",
+           "tone": "p"
+          },
+          {
+           "t": "L",
+           "tone": "l"
+          },
+          {
+           "t": "P / L",
+           "tone": "p"
+          }
+         ],
+         [
+          "**Aves**",
+          {
+           "t": "F",
+           "tone": "f"
+          },
+          {
+           "t": "F",
+           "tone": "f"
+          },
+          {
+           "t": "P / L",
+           "tone": "p"
+          },
+          {
+           "t": "P",
+           "tone": "p"
+          },
+          {
+           "t": "P",
+           "tone": "p"
+          }
+         ],
+         [
+          "**Mamíferos**",
+          {
+           "t": "F",
+           "tone": "f"
+          },
+          {
+           "t": "P",
+           "tone": "p"
+          },
+          {
+           "t": "P",
+           "tone": "p"
+          },
+          {
+           "t": "P",
+           "tone": "p"
+          },
+          {
+           "t": "P / L",
+           "tone": "p"
+          }
+         ],
+         [
+          "**Reptiles**",
+          {
+           "t": "P",
+           "tone": "p"
+          },
+          {
+           "t": "P",
+           "tone": "p"
+          },
+          {
+           "t": "P / L",
+           "tone": "p"
+          },
+          {
+           "t": "L",
+           "tone": "l"
+          },
+          {
+           "t": "—",
+           "tone": "n"
+          }
+         ],
+         [
+          "**Peces**",
+          {
+           "t": "P",
+           "tone": "p"
+          },
+          {
+           "t": "—",
+           "tone": "n"
+          },
+          {
+           "t": "—",
+           "tone": "n"
+          },
+          {
+           "t": "—",
+           "tone": "n"
+          },
+          {
+           "t": "P",
+           "tone": "p"
+          }
+         ],
+         [
+          "**Insectos**",
+          {
+           "t": "P",
+           "tone": "p"
+          },
+          {
+           "t": "F",
+           "tone": "f"
+          },
+          {
+           "t": "P",
+           "tone": "p"
+          },
+          {
+           "t": "—",
+           "tone": "n"
+          },
+          {
+           "t": "—",
+           "tone": "n"
+          }
+         ],
+         [
+          "**Plantas**",
+          {
+           "t": "F",
+           "tone": "f"
+          },
+          {
+           "t": "F",
+           "tone": "f"
+          },
+          {
+           "t": "P",
+           "tone": "p"
+          },
+          {
+           "t": "L",
+           "tone": "l"
+          },
+          {
+           "t": "P / L",
+           "tone": "p"
+          }
+         ],
+         [
+          "**Hongos**",
+          {
+           "t": "P",
+           "tone": "p"
+          },
+          {
+           "t": "P",
+           "tone": "p"
+          },
+          {
+           "t": "—",
+           "tone": "n"
+          },
+          {
+           "t": "—",
+           "tone": "n"
+          },
+          {
+           "t": "—",
+           "tone": "n"
+          }
+         ]
+        ]
+       },
+       {
+        "type": "table",
+        "head": [
+         "Organismo",
+         "Método principal",
+         "Apoyo de contexto"
+        ],
+        "widths": [
+         2,
+         6,
+         4
+        ],
+        "rows": [
+         [
+          "**Anuros**",
+          "Embeddings + centroides, paquete regional (62,9 % top-1; 86,1 % top-3)",
+          "Lugar, altitud, canto"
+         ],
+         [
+          "**Aves**",
+          "Foto + canto (Merlin); ~60 % son monomórficas",
+          "Fecha y lugar (eBird)"
+         ],
+         [
+          "**Mamíferos**",
+          "MegaDetector → clasificador (ciervo: edad y sexo sí)",
+          "Sitio"
+         ],
+         [
+          "**Reptiles**",
+          "Foto + ficha de caracteres",
+          "Localidad"
+         ],
+         [
+          "**Peces**",
+          "Foto en acuario o cultivo",
+          "Hábitat"
+         ],
+         [
+          "**Insectos**",
+          "Foto + planta hospedera (adulto F; larva P)",
+          "EPPO / CABI"
+         ],
+         [
+          "**Plantas**",
+          "Foto de varios órganos (Pl@ntNet)",
+          "Región"
+         ],
+         [
+          "**Hongos**",
+          "Foto + ADN (ITS). **No usar para comestibilidad**",
+          "Sustrato"
+         ]
+        ]
+       },
+       {
+        "type": "h",
+        "text": "Cómo elegir el método"
+       },
+       {
+        "type": "flow",
+        "cols": 3,
+        "steps": [
+         {
+          "title": "¿Qué quieres saber?",
+          "text": "Especie, etapa, sexo, edad o salud."
+         },
+         {
+          "title": "¿Es visible?",
+          "text": "Si no (edad, ADN, diagnóstico) → laboratorio o clase de edad."
+         },
+         {
+          "title": "¿Cuántas clases y fotos?",
+          "text": "Sigue la ruta de método, pasos 0 a 5."
+         },
+         {
+          "title": "¿La foto alcanza?",
+          "text": "Si no → cascada: otra foto, otro órgano, otra pregunta."
+         },
+         {
+          "title": "¿Hay especies gemelas?",
+          "text": "Documenta los pares, usa contexto acotado y baja de rango.",
+          "on": true
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "p5",
+    "title": "Trips y cierre",
+    "desc": "El caso conductor Frankliniella, el diseño multi-pregunta, el despliegue, los límites y el glosario.",
+    "sections": [
+     {
+      "id": "s20",
+      "title": "Caso conductor: Frankliniella",
+      "tema": "Frankliniella (trips)",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "Contexto para los estudiantes, no un diseño. Meta: **reconocer en qué etapa de vida está el insecto en una foto y orientar el remedio adecuado**. El usuario escribió «franquinela»; se interpretó como *Frankliniella* (trips) y se confirmó el 2026-10-15."
+       },
+       {
+        "type": "h",
+        "text": "Línea de vida a 27 °C"
+       },
+       {
+        "type": "timeline",
+        "items": [
+         {
+          "code": "H",
+          "label": "Huevo",
+          "days": 3.1,
+          "vis": "h",
+          "photo": "Casi nunca: dentro del tejido; ~200 µm"
+         },
+         {
+          "code": "L1",
+          "label": "Larva I",
+          "days": 1.8,
+          "vis": "v",
+          "photo": "Sí, con macro"
+         },
+         {
+          "code": "L2",
+          "label": "Larva II",
+          "days": 2.4,
+          "vis": "v",
+          "photo": "Sí, con macro"
+         },
+         {
+          "code": "PP",
+          "label": "Prepupa",
+          "days": 1.0,
+          "vis": "x",
+          "photo": "Difícil: suelo u hojarasca"
+         },
+         {
+          "code": "P",
+          "label": "Pupa",
+          "days": 2.0,
+          "vis": "x",
+          "photo": "Difícil: suelo u hojarasca"
+         }
+        ],
+        "adult": {
+         "code": "A",
+         "label": "Adulto",
+         "days": "< 2 mm",
+         "photo": "Sí, con macro; flores y hojas"
+        },
+        "legend": [
+         [
+          "v",
+          "Se ve en foto con macro"
+         ],
+         [
+          "h",
+          "Casi nunca se ve"
+         ],
+         [
+          "x",
+          "Difícil de ver"
+         ],
+         [
+          "a",
+          "Adulto"
+         ]
+        ],
+        "caption": "Huevo a adulto: 10,2 días a 27 °C (UF/IFAS, repollo); la suma de etapas da 10,3 por redondeo. Huevo a huevo: 44,1; 22,4; 18,2 y 15 días a 15, 20, 25 y 30 °C (EPPO) [FUENTE]. Tamaños de larva, prepupa y pupa en mm: dato pendiente."
+       },
+       {
+        "type": "callout",
+        "tone": "ojo",
+        "text": "EPPO llama «estadios larvales» también a prepupa y pupa: es solo terminología. Esperable [INF]: muchas fotos de adultos y pocas de huevo, prepupa y pupa (ocultos). Es un caso claro de clases escasas y desbalanceadas."
+       },
+       {
+        "type": "image",
+        "ratio": "16/7",
+        "need": "Macro de larva I y larva II de *Frankliniella* sobre hoja o flor, con regla milimétrica visible",
+        "caption": "Larvas de trips en la planta."
+       },
+       {
+        "type": "image",
+        "ratio": "16/7",
+        "need": "Macro de adulto de *Frankliniella* sobre flor de crisantemo, con escala visible",
+        "caption": "Adulto de trips (< 2 mm)."
+       },
+       {
+        "type": "h",
+        "text": "Identificación"
+       },
+       {
+        "type": "list",
+        "items": [
+         "**Especie:** requiere adultos montados en lámina al microscopio (setas del pronoto y ocelar III, sensilas del metanoto, peine del tergito VIII); los caracteres de las setas varían dentro de una especie. **No se encontró ninguna fuente que identifique la especie por foto.** Larvas, prepupas y pupas «normalmente no se identifican» (UF).",
+         "**Consecuencia:** el rango alcanzable por foto es **género o grupo («trips»)**. La especie se etiqueta con confirmación de laboratorio y el modelo de etapa debe ser **independiente de la especie**: primero etapa, luego género.",
+         "**Sexo:** las hembras son más grandes que los machos; haplodiploidía y proporciones: [SIN FUENTE].",
+         "**Visión por computador existente:** solo trampas pegajosas amarillas para especie (Laekeman et al. 2025: mAP@50 de 90 % o más en el test interno y 79–89 % en el externo). **No hay trabajos ni conjunto público de etapas**: los estudiantes tendrán que crearlo.",
+         "**Cómo fotografiar [INF]:** lente macro, escala visible (regla milimétrica), fondo neutro, luz uniforme; trampa azul o amarilla para adultos."
+        ]
+       },
+       {
+        "type": "h",
+        "text": "Etapa → remedio (principios, no dosis)"
+       },
+       {
+        "type": "table",
+        "head": [
+         "Etapa",
+         "Dónde está",
+         "¿Llega un tratamiento foliar?"
+        ],
+        "widths": [
+         2,
+         5,
+         4
+        ],
+        "rows": [
+         [
+          "Huevo",
+          "Dentro del tejido vegetal",
+          {
+           "t": "No",
+           "tone": "l"
+          }
+         ],
+         [
+          "Larva I y II",
+          "En hojas y flores, expuestas",
+          {
+           "t": "Sí",
+           "tone": "f"
+          }
+         ],
+         [
+          "Prepupa y pupa",
+          "Suelo u hojarasca; no se alimentan",
+          {
+           "t": "No",
+           "tone": "l"
+          }
+         ],
+         [
+          "Adulto",
+          "Flores y hojas",
+          {
+           "t": "Sí",
+           "tone": "f"
+          }
+         ]
+        ]
+       },
+       {
+        "type": "p",
+        "text": "La etapa decide **qué control llega** [INF a partir de la biología, parcialmente en EPPO y UF]. Opciones habituales (fuentes secundarias): control cultural; biológico (ácaros depredadores *Amblyseius*, chinche *Orius*, hongos entomopatógenos *Beauveria* y *Metarhizium*, nematodos contra pupas del suelo); y químico, con **resistencia a insecticidas documentada en *F. occidentalis***."
+       },
+       {
+        "type": "callout",
+        "tone": "ojo",
+        "title": "Siempre: agrónomo y norma local",
+        "paras": [
+         "En cultivos de exportación colombianos el umbral de trips es **0** por reglas de cuarentena; no se halló un estudio que relacione capturas en trampa con infestación de la planta (Silva-Castaño y Brochero 2021). Norma específica del ICA para *F. occidentalis*: dato pendiente.",
+         "*F. occidentalis* domina en la Sabana de Bogotá (crisantemo), Medellín (crisantemo, aster), Piendamó (crisantemo) y La Ceja (bouvardia); la rosa es hospedero documentado. *F. fusca*, *F. tritici*, *F. schultzei* y el tomate en Colombia: [SIN FUENTE]. Esta guía no receta."
+        ]
+       },
+       {
+        "type": "h",
+        "text": "Resumen operativo para un estudiante"
+       },
+       {
+        "type": "flow",
+        "cols": 3,
+        "steps": [
+         {
+          "n": "1",
+          "title": "Fija el alcance",
+          "text": "Género *Frankliniella* o trips en general, con un rasgo visible."
+         },
+         {
+          "n": "2",
+          "title": "Esquema de etiquetas",
+          "text": "Etapa, sexo, sitio e individuo, y protocolo de etiquetado."
+         },
+         {
+          "n": "3",
+          "title": "Línea base",
+          "text": "BioCLIP congelado sin entrenar; comprueba si separa las etapas."
+         },
+         {
+          "n": "4",
+          "title": "Pocas fotos de una etapa",
+          "text": "Escalera de imágenes y fusión: larva / prepupa-pupa / adulto."
+         },
+         {
+          "n": "5",
+          "title": "Contexto dinámico",
+          "text": "Cultivo, región, época, síntomas en la planta, vector de virus."
+         },
+         {
+          "n": "6",
+          "title": "Devuelve",
+          "text": "Etapa + confianza + remedio general; pide otra foto o un experto.",
+          "on": true
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "s21",
+      "title": "Diseño multi-pregunta, abstención y calibración",
+      "tema": "Multi-pregunta",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "Para responder varias preguntas a la vez (especie, etapa, sexo, salud) se recomienda **una sola base de vectores** (BioCLIP) y **cabezas ligeras** por pregunta. Es una hipótesis razonable, no un resultado probado en Anura."
+       },
+       {
+        "type": "callout",
+        "tone": "nota",
+        "text": "El resumen de BioCLIP 2 (arXiv 2505.23883) afirma que etapa y sexo se conservan en subespacios ortogonales a la especie; no menciona salud y no hay resultados zero-shot con prompts de atributos [RESUMEN]. Zero-shot con texto («foto de una rana macho adulta de X»): sin evidencia encontrada."
+       },
+       {
+        "type": "h",
+        "text": "Abstención y calibración"
+       },
+       {
+        "type": "list",
+        "items": [
+         "**Calibración:** que «90 % de confianza» acierte cerca del 90 %. Escalado de temperatura (Guo 2017).",
+         "**Clasificación selectiva** (Geifman y El-Yaniv 2017) y línea base de máxima probabilidad softmax (Hendrycks y Gimpel 2016).",
+         "**Conjunto abierto** (Vaze 2021): reconocer lo que no se conoce. SpeciesNet ya sube a taxón superior.",
+         "**Evaluación:** separa por individuo y por sitio; reporta con condiciones; AUROC para rechazo; calibración (ECE)."
+        ]
+       },
+       {
+        "type": "h",
+        "text": "Cámaras trampa y lesiones"
+       },
+       {
+        "type": "list",
+        "items": [
+         "Primero detector (MegaDetector detecta animal, persona y vehículo, no la especie) y después clasificador; el rendimiento cae en sitios nuevos (Beery 2018).",
+         "Segmentación de lesiones: SAM y MedSAM existen, pero ningún estudio encontrado los evalúa en lesiones de plantas o animales."
+        ]
+       },
+       {
+        "type": "callout",
+        "tone": "pend",
+        "text": "Datos para etapa, sexo y salud: solo hay dos ejemplos publicados (ciervo rojo; PlantVillage). Mínimo de imágenes por clase, acuerdo entre anotadores y manejo de enfermedades raras: [SIN FUENTE]. Hay que medirlos, igual que se hizo con la especie."
+       }
+      ]
+     },
+     {
+      "id": "s22",
+      "title": "Despliegue: FP16, ONNX y caché",
+      "tema": "Despliegue",
+      "blocks": [
+       {
+        "type": "h",
+        "text": "De FP32 a FP16: cómo se optimizó el encoder"
+       },
+       {
+        "type": "flow",
+        "cols": 3,
+        "steps": [
+         {
+          "n": "1",
+          "title": "Extraer la torre de imagen",
+          "text": "Se descarta la torre de texto."
+         },
+         {
+          "n": "2",
+          "title": "Exportar a ONNX",
+          "text": "`torch.onnx.export` (dynamo), opset 18, batch fijo = 1, pesos en un solo archivo."
+         },
+         {
+          "n": "3",
+          "title": "Convertir a FP16",
+          "text": "`convert_float_to_float16`, con `keep_io_types` para dejar E/S en fp32."
+         },
+         {
+          "n": "4",
+          "title": "Validar",
+          "text": "Predicciones idénticas al original y coseno entre embeddings."
+         },
+         {
+          "n": "5",
+          "title": "Medir en el dispositivo",
+          "text": "Tamaño, RAM y latencia reales.",
+          "on": true
+         }
+        ]
+       },
+       {
+        "type": "kpi",
+        "items": [
+         {
+          "v": "165,6 MB",
+          "l": "ONNX fp16, la mitad del fp32",
+          "note": "medido en Anura"
+         },
+         {
+          "v": "≈ 405 MB",
+          "l": "RAM",
+          "note": "medido en Anura"
+         },
+         {
+          "v": "0,999999",
+          "l": "coseno entre embeddings",
+          "note": "64 imágenes, 100 % idénticas"
+         }
+        ]
+       },
+       {
+        "type": "p",
+        "text": "No hay ganancia de velocidad en CPU: el motor de CPU de ONNX Runtime no ejecuta operaciones fp16 de forma nativa y las pasa a fp32 [FUENTE + medido]. Latencia en el teléfono: ≈0,3–0,6 s con 4 hilos [SIM]; real: dato pendiente."
+       },
+       {
+        "type": "callout",
+        "tone": "ojo",
+        "title": "Por qué no INT8",
+        "text": "Los ViT tienen valores atípicos en las activaciones tras LayerNorm y tras softmax/GELU que una escala entera no representa (PTQ4ViT, arXiv 2111.12293; RepQ-ViT, arXiv 2212.08254) [FUENTE]. En Anura, cinco intentos dieron entre 0,2 y 51 %."
+       },
+       {
+        "type": "h",
+        "text": "Contrato de embedding"
+       },
+       {
+        "type": "p",
+        "text": "Preprocesado idéntico siempre: 224×224 RGB y media y desviación de `open_clip`. El contrato fija `encoder_sha256`, dimensión, preprocesado y normalización. Cambiar el encoder deja los vectores viejos incomparables."
+       },
+       {
+        "type": "h",
+        "text": "Caché de BioCLIP 2.5"
+       },
+       {
+        "type": "list",
+        "items": [
+         "Descargar el modelo una vez (≈3,9 GB en fp32) a una carpeta fija con `HF_HOME`.",
+         "En producción, `HF_HUB_OFFLINE=1` para que no consulte la red.",
+         "Mantener el proceso cargado (servidor «caliente») y precalcular los vectores de texto de las especies.",
+         "Marcado [INF], sin verificar contra la documentación."
+        ]
+       },
+       {
+        "type": "callout",
+        "tone": "pend",
+        "text": "El mensaje exacto del error de arranque y la máquina donde ocurre: dato pendiente. Sin él no se puede decir que la caché lo resuelve."
+       }
+      ]
+     },
+     {
+      "id": "s23",
+      "title": "Límites, ética y notificación",
+      "tema": "Límites y responsabilidad",
+      "kind": "clave",
+      "lead": "El resultado de un modelo es una sugerencia con un porcentaje. No sustituye a un especialista y nunca es un diagnóstico.",
+      "blocks": [
+       {
+        "type": "list",
+        "items": [
+         "**No es un diagnóstico.** Enfermedad, edad y sexo dudosos se devuelven como «compatible con…».",
+         "**Hongos comestibles:** no uses una foto para decidir qué se come.",
+         "**Especies amenazadas:** oculta las coordenadas (iNaturalist lo hace con taxones amenazados).",
+         "**Enfermedades de notificación obligatoria:** avisa a la autoridad (lista de WOAH); norma nacional: dato pendiente.",
+         "**Datos sensibles:** las observaciones privadas se quedan en el servidor del usuario."
+        ]
+       },
+       {
+        "type": "h",
+        "text": "Limitaciones que hay que explicar en cualquier trabajo"
+       },
+       {
+        "type": "list",
+        "items": [
+         "**Sesgo geográfico:** si el dataset es de Europa, falla en Colombia.",
+         "**Especies raras:** pocos ejemplos, peor rendimiento. «No identificado» es mejor que adivinar.",
+         "**Confusión de especies similares:** crípticas y con mimetismo.",
+         "**Los números medidos** son todos de anuros de Colombia; para otros grupos solo hay literatura."
+        ]
+       }
+      ]
+     },
+     {
+      "id": "s24",
+      "title": "Glosario, fuentes y pendientes",
+      "tema": "Glosario y fuentes",
+      "blocks": [
+       {
+        "type": "h",
+        "text": "Glosario"
+       },
+       {
+        "type": "table",
+        "head": [
+         "Término",
+         "Qué significa"
+        ],
+        "widths": [
+         3,
+         8
+        ],
+        "rows": [
+         [
+          "Embedding",
+          "Vector que resume una imagen o un texto; imágenes parecidas quedan cerca."
+         ],
+         [
+          "Centroide",
+          "Vector medio de las fotos de una clase; se compara contra él con distancia coseno."
+         ],
+         [
+          "Zero-shot",
+          "Clasificar sin entrenar con ejemplos de esas clases, solo con el modelo preentrenado."
+         ],
+         [
+          "Top-1 / top-3 / top-5",
+          "La respuesta correcta es la primera, está entre las tres o entre las cinco primeras."
+         ],
+         [
+          "F1",
+          "Equilibrio entre precisión y exhaustividad, por clase."
+         ],
+         [
+          "AUROC",
+          "Qué tan bien separa dos grupos (0,5 = azar, 1 = perfecto)."
+         ],
+         [
+          "KAR / FAR",
+          "Conocidas aceptadas / ajenas aceptadas: el costo de rechazar desconocidos."
+         ],
+         [
+          "Linear probe",
+          "Entrenar solo una capa lineal sobre vectores congelados."
+         ],
+         [
+          "LP-FT",
+          "Primero linear probe, luego ajuste de todo el modelo."
+         ],
+         [
+          "Prior",
+          "Probabilidad previa según el contexto (lugar, fecha); acotada, solo reordena."
+         ],
+         [
+          "Calibración",
+          "Que la confianza declarada coincida con el acierto real."
+         ],
+         [
+          "Rollup jerárquico",
+          "Subir de rango cuando no se puede decidir: especie → género → familia."
+         ],
+         [
+          "Morfo",
+          "Variante de apariencia dentro de una especie, declarada por un experto."
+         ]
+        ]
+       },
+       {
+        "type": "h",
+        "text": "Fuentes principales"
+       },
+       {
+        "type": "list",
+        "items": [
+         "BioCLIP: Stevens et al., CVPR 2024, arXiv 2311.18803. BioCLIP 2: arXiv 2505.23883. BioCLIP 2.5: ficha en Hugging Face `imageomics/bioclip-2.5-vith14`.",
+         "Ajuste fino: Kumar et al., arXiv 2202.10054; WiSE-FT, arXiv 2109.01903.",
+         "Prior geográfico: Mac Aodha et al. 2019; SINR, Cole et al. 2023.",
+         "Etiquetas: Northcutt et al. 2021. Fondos: Xiao et al., arXiv 2006.09994.",
+         "Crípticas: Funk et al. 2012, *Proc. R. Soc. B* 279:1806–1814; Fouquet et al. 2007.",
+         "Enfermedad en plantas: Mohanty et al. 2016 (PlantVillage); Barbedo 2019.",
+         "Trips: EPPO Global Database; UF/IFAS; Laekeman et al. 2025; Silva-Castaño y Brochero 2021.",
+         "Casi todas las fuentes se leyeron desde resúmenes de búsqueda; las marcadas [RESUMEN] deben verificarse en el texto completo antes de citarlas."
+        ]
+       },
+       {
+        "type": "callout",
+        "tone": "pend",
+        "title": "Qué queda pendiente",
+        "paras": [
+         "Cultivo y región objetivo de los estudiantes; cuántas fotos por etapa creen tener; si habrá microscopio para confirmar género o especie; hasta dónde llega el «remedio».",
+         "Tamaños de larva, prepupa y pupa de trips; norma ICA para *F. occidentalis*; haplodiploidía; FLOPs de BioCLIP; antecedente de gráficos nuevos.",
+         "Fotos de síntomas y de trips; *R. marina* con imagen propia. Las imágenes marcadas «imagen necesaria» siguen sin conseguirse."
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}
