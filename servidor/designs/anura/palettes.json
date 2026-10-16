@@ -17,5 +17,14 @@
   "ocre": "#F5EAE4",
   "crema": "#F5EAE4",
   "arena": "#EBDCD2"
+ },
+ "pitb": {
+  "negro": "#121A1B",
+  "bosque": "#121A1B",
+  "hoja": "#505039",
+  "vivo": "#A7AA63",
+  "ocre": "#A7AA63",
+  "crema": "#EAE6D2",
+  "arena": "#EAE6D2"
  }
 }
