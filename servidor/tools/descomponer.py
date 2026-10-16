@@ -194,17 +194,33 @@ def main():
         dr.rectangle((x0, y0, x0 + 26, y0 + 16), fill=cols.get(t["kind"], "#000"))
         dr.text((x0 + 3, y0 + 2), str(t["id"]), fill="white")
     ann.save(out / "anotada.png", optimize=True)
-    (out / "atomos.json").write_text(json.dumps({"hoja_px": [W, H], "paleta": [{"hex": h, "pct": p} for h, p, _ in pal], "atomos": atoms}, ensure_ascii=False, indent=1))
+    # contenedores: los bloques de color continuo y las fotos son contenedores; texto y símbolos pertenecen al que los contiene (o al papel)
+    conts = [t for t in atoms if t["kind"] in ("bloque", "foto")]
+    inside = lambda c, a: (c["caja_cqw"]["x"] - 0.5 <= a["caja_cqw"]["x"] + a["caja_cqw"]["w"] / 2 <= c["caja_cqw"]["x"] + c["caja_cqw"]["w"] + 0.5
+                           and c["caja_cqw"]["y"] - 0.5 <= a["caja_cqw"]["y"] + a["caja_cqw"]["h"] / 2 <= c["caja_cqw"]["y"] + c["caja_cqw"]["h"] + 0.5)
+    for t in atoms:
+        if t["kind"] in ("texto", "titular", "simbolo", "regla", "codigo"):
+            owner = [c for c in conts if inside(c, t)]
+            owner.sort(key=lambda c: c["caja_cqw"]["w"] * c["caja_cqw"]["h"])
+            t["dentro_de"] = owner[0]["id"] if owner else "papel"
+    tree = {"papel": {"color": bg_hex, "hijos": [t["id"] for t in atoms if t.get("dentro_de") == "papel"]}}
+    for c in conts:
+        tree[c["id"]] = {"tipo": c["kind"], "color": c.get("relleno", c["color"]), "caja_cqw": c["caja_cqw"], "hijos": [t["id"] for t in atoms if t.get("dentro_de") == c["id"]]}
+    (out / "atomos.json").write_text(json.dumps({"hoja_px": [W, H], "paleta": [{"hex": h, "pct": p} for h, p, _ in pal], "contenedores": tree, "atomos": atoms}, ensure_ascii=False, indent=1))
     # guías: ejes de alineación y jerarquía
     lefts = sorted({round(t["caja_cqw"]["x"]) for t in atoms if t["kind"] in ("texto", "bloque", "foto")})
     sizes = sorted({t["altura_letra_cqw"] for t in atoms if t.get("altura_letra_cqw")}, reverse=True)
+    CONT = ["## Contenedores (color continuo; el contenido va dentro, los símbolos dentro o fuera)"]
+    for cid, c in tree.items():
+        kids = [f"#{k} {next(a for a in atoms if a['id']==k)['kind']}" for k in c["hijos"]]
+        CONT.append(f"- {'PAPEL (fondo)' if cid=='papel' else '#%s %s %s' % (cid, c['tipo'], c['color'])}: " + (", ".join(kids) if kids else "vacío"))
     L = [f"# Descomposición de {src.name}", f"Hoja {W}×{H}px (relación {H/W:.3f}). Medidas en cqw (% del ancho).", "",
          "## Paleta", ", ".join(f"{h} {p}%" for h, p, _ in pal), "",
          f"## Ejes de alineación a la izquierda (x en cqw)\n{lefts}", "",
-         f"## Jerarquía de alturas de letra (cqw, de mayor a menor)\n{sizes[:12]}", "", "## Átomos"]
+         f"## Jerarquía de alturas de letra (cqw, de mayor a menor)\n{sizes[:12]}", "", *CONT, "", "## Átomos"]
     for t in atoms:
         c = t["caja_cqw"]
-        L.append(f"- #{t['id']} {t['kind']} · x{c['x']} y{c['y']} w{c['w']} h{c['h']} · {t['zona']} · alinea {t['alinea']} · {t.get('relleno', t['color'])}" + (f" · letra {t['altura_letra_cqw']}cqw" if t.get('altura_letra_cqw') else "") + (" · SVG" if t.get("svg") else ""))
+        L.append(f"- #{t['id']} {t['kind']} · x{c['x']} y{c['y']} w{c['w']} h{c['h']} · {t['zona']} · alinea {t['alinea']} · {t.get('relleno', t['color'])}" + (f" · en {t['dentro_de']}" if t.get("dentro_de") else "") + (f" · letra {t['altura_letra_cqw']}cqw" if t.get('altura_letra_cqw') else "") + (" · SVG" if t.get("svg") else ""))
     (out / "guias.md").write_text("\n".join(L) + "\n", encoding="utf-8")
     cnt = {}
     for t in atoms:

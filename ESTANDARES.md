@@ -78,6 +78,11 @@ rodean el nodo por la derecha. Para pasos lineales sin ramas usa `flow` (tarjeta
 3. **Auditoría** (`engine/audit.js`) en 794 px impresión, 1300 y 400: superposiciones, texto fuera de hoja, cortado, contenido sobre el pie.
 4. **Contacto en grises** (`pdftoppm -gray`): mirar una sola imagen de todas las hojas.
 
+## 6b. Anti-redundancia
+Un texto aparece **una sola vez por hoja** (README de ANURA). `engine/redundancia.py` compara raíces de palabras de los titulares y etiquetas: la cabecera nunca repite el titular, un subtítulo
+que repite el titular se omite, un título de figura que repite el titular se omite, y la auditoría informa lo que quede (`redundancia`). Un subtítulo de una palabra dentro de un titular largo
+(«Fauna» en «Enfermedad en fauna y flora») es legítimo y no se toca.
+
 ## 7. Variantes y aprobación
 
 `servidor/designs/anura/variantes.json` registra cada plantilla con id, nivel atómico y estado (`propuesta` | `aprobada` | `rechazada`).

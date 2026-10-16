@@ -15,7 +15,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 
-from engine import assets, blocks, contract, layout, pages, paleta, variants  # noqa: E402
+from engine import assets, blocks, contract, layout, pages, paleta, redundancia, variants  # noqa: E402
 from engine.text import esc, inline, plain  # noqa: E402
 
 AUDIT_JS = (HERE / "engine/audit.js").read_text()
@@ -39,7 +39,18 @@ def section_units(sec, ctx, gap_pair=True):
     units = [heading_unit(sec, 0)]
     if sec.get("kind") == "clave" and sec.get("lead"):
         units.append({"html": blocks.callout({"tone": "clave", "text": sec["lead"]}, ctx), "label": f"{sec['id']}.clave"})
-    bl = sec.get("blocks", [])
+    bl = [dict(b) for b in sec.get("blocks", [])]
+    keep = []
+    for k, b in enumerate(bl):
+        t = b.get("type")
+        if t == "h" and redundancia.similar(b.get("text", ""), sec["title"], laxo=(k == 0)):
+            ctx.warn.append({"bloque": f"{sec['id']}.b{k}", "causa": f"subtítulo «{plain(b['text'])[:40]}» repite el titular", "ajuste": "se omitió (redundancia)"})
+            continue
+        if t in ("chart", "figure", "flowchart") and b.get("title") and redundancia.similar(b["title"], sec["title"]):
+            ctx.warn.append({"bloque": f"{sec['id']}.b{k}", "causa": f"título de figura «{plain(b['title'])[:40]}» repite el titular", "ajuste": "se omitió el título de la figura (redundancia)"})
+            b["title"] = ""
+        keep.append(b)
+    bl = keep
     i = 0
     while i < len(bl):
         b = bl[i]
@@ -229,8 +240,15 @@ def run(doc_path, out_pdf, images_root):
                     inner = inner.replace(old, toc_new)
                 sid = pool[(seed + n_lp * 7) % len(pool)]
                 n_lp += 1
-                tope = f"{parts[pi]['title']} · {plain(sec.get('tema') or sec['title'])}"
-                tope = f"{sec['n']} · " + (tope if len(tope) <= 54 else tope[:53] + "…")
+                tema = plain(sec.get("tema") or "")
+                heads = [sec["title"]] + [x.get("text", "") for x in sec.get("blocks", []) if x.get("type") == "h"] + [x.get("title", "") for x in sec.get("blocks", []) if x.get("title")]
+                # la cabecera es una miga de pan: «NN · Parte» y, solo si aporta algo nuevo, el tema. Nunca repite lo que ya dice la hoja.
+                partt = parts[pi]["title"]
+                tope = partt if not redundancia.similar(partt, sec["title"], True) else ""
+                if tema and not redundancia.similar(tema, partt, True) and not any(redundancia.similar(tema, h_, True) for h_ in heads):
+                    tope = f"{tope} · {tema}" if tope else tema
+                tope = f"{sec['n']}" + (f" · {tope}" if tope else "")
+                tope = tope if len(tope) <= 54 else tope[:53] + "…"
                 body.append(pages.light(inner, tope, meta.get("footer", "Documento"), item[2], sym, sid,
                                         f"{plain(sec['title'])} · {item[2]}", sec.get("kind") == "clave"))
         drip = (HERE / "designs/anura/drip.svg.txt").read_text()

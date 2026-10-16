@@ -10,7 +10,7 @@ sys.path.insert(0, str(HERE.parent))
 sys.path.insert(0, str(HERE.parent / "tools"))
 
 import render  # noqa: E402
-from engine import blocks, charts, contract, diagram, paleta, text, variants  # noqa: E402
+from engine import blocks, charts, contract, diagram, paleta, redundancia, text, variants  # noqa: E402
 
 DD = HERE.parent / "designs/anura"
 M = json.loads((DD / "manifest.json").read_text())
@@ -134,6 +134,26 @@ class Render(unittest.TestCase):
         self.assertTrue(rep["correcciones_contraste"])
         for c in rep["correcciones_contraste"]:
             self.assertGreaterEqual(c["ratio_despues"], 3)
+
+
+class Redundancia(unittest.TestCase):
+    def test_similar(self):
+        self.assertTrue(redundancia.similar("Glosario, fuentes y pendientes", "Fuentes y pendientes"))
+        self.assertTrue(redundancia.similar("Glosario, fuentes", "Glosario", laxo=True))
+        self.assertFalse(redundancia.similar("Enfermedad en fauna y flora", "Fauna"))   # subtítulo legítimo de una palabra
+        self.assertFalse(redundancia.similar("Histograma de las calificaciones", "Nota vs. valoración pública"))
+
+    def test_el_servidor_omite_lo_repetido(self):
+        d = json.loads(EJ.read_text())
+        sec = d["document"]["parts"][0]["sections"][1]
+        sec["title"], sec["tema"] = "Gráficos y tablas de muestra", "Gráficos y tablas"
+        sec["blocks"].insert(0, {"type": "h", "text": "Gráficos y tablas"})
+        with tempfile.TemporaryDirectory() as t:
+            p = Path(t) / "d.json"
+            p.write_text(json.dumps(d))
+            rep = render.run(p, Path(t) / "x.pdf", IMG)
+        self.assertTrue(any("redundancia" in a["ajuste"] for a in rep["avisos"]))
+        self.assertEqual([x for x in rep["auditoria"].get("794-print", []) if x.get("tipo") == "redundancia"], [])
 
 
 class Comons(unittest.TestCase):

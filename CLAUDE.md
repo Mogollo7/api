@@ -16,10 +16,15 @@ Lee primero `CODIGO_CREADO.md` (qué es código mío y qué es contenido), `ESTA
    `contacto.png`. No abras las páginas una por una. Los colores del PDF son los vectoriales (p. ej. `#fe0032`), no los de la imagen renderizada (el grano los aclara).
 2. **Imagen** → `python servidor/tools/descomponer.py img.jpg -o referencias/<nombre>`; verifica con `anotada.png` (una imagen) y lee `guias.md`. Es heurística: bloques de color, foto,
    texto pequeño, símbolos y códigos salen bien; titulares gigantes salen a medias. Corrige a mano lo que veas mal y anota las coordenadas medidas.
-3. **Divide en átomos** (regla, chip, símbolo, franja, código, bloque de acento, titular apilado, foto en dos tintas…) y anota: posición en cqw, alineación (izquierda / centro),
+3. **Contenedores primero, átomos después.** Un contenedor es una región de **color continuo** (bloque de acento, foto, papel). Los **textos van dentro** de un contenedor (o sobre el papel) y los
+   **símbolos dentro o fuera**; `descomponer.py` lo escribe en `guias.md` («Contenedores») y en `atomos.json` (`dentro_de`). Luego divide en átomos (regla, chip, símbolo, franja, código, bloque de acento, titular apilado, foto en dos tintas…) y anota: posición en cqw, alineación (izquierda / centro),
    jerarquía de tamaños, qué se repite. Símbolos y reglas se vectorizan (SVG con `currentColor`); las fotos se tramean con el filtro duotono, no se vectorizan.
 4. **Construye** como variante (`CV-n`, `DV-n`, `TB-n`…), mide con `render.py`, mira `salida/*.informe.json` y un contacto en grises.
 5. **Galería** → `python servidor/galeria.py --imagenes teoria/imagenes`; el usuario aprueba y `aprobar.py` aplica.
+
+## Regla anti-redundancia (obligatoria)
+El mismo texto, o casi, **no se repite en una hoja**: ni el titular en la cabecera, ni el título de la figura debajo del titular, ni un subtítulo que repite el titular, ni la fecha o la versión dos veces.
+La cabecera es una miga de pan («NN · Parte»); el tema solo entra si aporta palabras nuevas. El servidor omite lo repetido (con aviso) y `audit.js` informa `redundancia`; escribe el contenido sin repetir.
 
 ## Revisión (protocolo en grises, ya automático en cada render)
 Paleta (contraste + L*) → corrección de contraste (rol parecido o oscurecer/aclarar por pasos) → auditoría a 794/1300/400 px → contacto en grises.

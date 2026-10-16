@@ -1,7 +1,18 @@
 {
- "estado": "ok",
+ "estado": "con_avisos",
  "errores": [],
- "avisos": [],
+ "avisos": [
+  {
+   "bloque": "c4.b0",
+   "causa": "título de figura «Diagrama de caja de la calificación pers» repite el titular",
+   "ajuste": "se omitió el título de la figura (redundancia)"
+  },
+  {
+   "bloque": "c7.b0",
+   "causa": "título de figura «Matriz de correlación de Pearson» repite el titular",
+   "ajuste": "se omitió el título de la figura (redundancia)"
+  }
+ ],
  "auditoria": {},
  "imagenes_necesarias": [],
  "secciones": [

@@ -56,6 +56,23 @@
       const last = cont.lastElementChild;
       if (last) { const lb = last.getBoundingClientRect(), pb = pie.getBoundingClientRect(); if (lb.bottom > pb.top - 1) out.push({hoja: name, tipo: 'contenido invade el pie', sobra_cqw: +((lb.bottom - pb.top) / (P.width / 100)).toFixed(1)}); }
     }
+    // redundancia: el mismo texto (o casi) en dos titulares/etiquetas de la misma hoja
+    {
+      const STOP = new Set(['para','como','esta','este','esos','esas','entre','sobre','desde','hasta','donde','cuando','los','las','una','uno','del','con','por','que','sus','son']);
+      const stems = t => new Set((t.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').match(/[a-z0-9]+/g) || []).filter(w => w.length >= 4 && !STOP.has(w) && !/^\d+$/.test(w)).map(w => w.slice(0, 6)));
+      const sel = s => [...pg.querySelectorAll(s)].filter(e => !e.closest('.pie') && e.textContent.trim().length > 3);
+      const prim = sel('h3,.ttl,.tope-txt,.cv-tit h2,.cv-v,.cv3-t,.cv2-row,.cv4-row,.cv4-k b');
+      const sec = sel('.lead,.ct,.sh,.fh,.bh,.co .lb');
+      const seenR = new Set();
+      const pares = []; prim.forEach((x, i) => { prim.slice(i + 1).forEach(y => pares.push([x, y])); sec.forEach(y => pares.push([x, y])); });
+      for (const [x, y] of pares) {
+        if (x.contains(y) || y.contains(x)) continue;
+        const A = stems(x.textContent), B = stems(y.textContent); if (!A.size || !B.size) continue;
+        let sh = 0; A.forEach(v => { if (B.has(v)) sh++; });
+        const igual = sh === A.size && sh === B.size;
+        if (sh >= 1 && (sh >= 2 || igual) && sh / Math.min(A.size, B.size) >= 0.75) { const k = x.textContent.trim().slice(0, 24) + '|' + y.textContent.trim().slice(0, 24); if (!seenR.has(k)) { seenR.add(k); out.push({hoja: name, tipo: 'redundancia', a: x.textContent.trim().slice(0, 40), b: y.textContent.trim().slice(0, 40)}); } }
+      }
+    }
     // contraste de texto (pares de color)
     if (!pg.classList.contains('cover')) {
       const bad = new Set();

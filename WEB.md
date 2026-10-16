@@ -27,3 +27,12 @@ Kit: `servidor/web/web.css` (capas `.a-` átomos → `.m-` moléculas → `.o-` 
 
 ## Qué hacer con lo no estándar
 Igual que en PDF (ver `ESTANDARES.md` §1): un bloque sin equivalente web se muestra como nota con su texto y se anota en `avisos`.
+
+## Frontend de la biblioteca (adaptación a páginas web)
+| Página | Plantilla | Organismos |
+|---|---|---|
+| Biblioteca | rejilla `.t-grid` | cabecera fija, tarjetas de diseño (`.m-callout` + imagen), filtros (`.a-btn.s`) |
+| Detalle de diseño | 7/3 `.t-split` | héroe con portada, tabla de variantes (`.m-table`), paletas (muestras de los 7 roles) |
+| Generador de prompt | una columna | formulario `.o-form` (formato, variante, paleta), vista previa, botón primario «Generar prompt» |
+| Galería de trabajos / aprobación | rejilla | tarjeta con selector de estado (ya hecho en `galeria.py`) |
+La vista previa usa el mismo motor que el render final. Una sola acción primaria (`.a-btn`, `vivo`) por pantalla.

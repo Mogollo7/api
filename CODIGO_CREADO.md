@@ -6,7 +6,7 @@ Lo que no la lleva no es código mío.
 | Papel | Qué produjo | Líneas de código |
 |---|---|---|
 | **Agente externo** (como lo haría ChatGPT con el prompt) | `contenido/guia.json`, `contenido/cine_ejemplo.json`, `servidor/tests/*.json`: solo datos, sin HTML/CSS/scripts | **0** |
-| **Constructor del servidor** | La tabla de abajo | ~4428 |
+| **Constructor del servidor** | La tabla de abajo | ~4528 |
 
 No edité ningún archivo preexistente (`teoria/`, `research_notes/`, `PROMPT_PDF.md`) ni el artifact del sistema de diseño (solo lo leí).
 
@@ -14,13 +14,13 @@ No edité ningún archivo preexistente (`teoria/`, `research_notes/`, `PROMPT_PD
 
 | Archivo | Líneas | Para qué sirve |
 |---|---|---|
-| `servidor/render.py` | 300 | Tubería PDF: contrato → bloques → medir → paginar → PDF → corrección de contraste → auditoría → informe |
+| `servidor/render.py` | 318 | Tubería PDF: contrato → bloques → medir → paginar → PDF → corrección de contraste → auditoría → informe |
 | `servidor/api.py` | 80 | API local mínima (biblioteca estándar) |
 | `servidor/web.py` | 164 | Salida web y guía de estilo atómica del mismo contrato |
 | `servidor/galeria.py` | 211 | Galería de variantes con el motor real, con aprobación y exportación |
 | `servidor/aprobar.py` | 49 | Aplica las aprobaciones al registro de variantes |
 | `servidor/engine/contract.py` | 52 | Contrato: errores solo estructurales; lo demás, avisos |
-| `servidor/engine/blocks.py` | 357 | Bloques → HTML, con degradación segura y bloque custom saneado |
+| `servidor/engine/blocks.py` | 358 | Bloques → HTML, con degradación segura y bloque custom saneado |
 | `servidor/engine/charts.py` | 395 | Gráficos estándar: bar, hbar, line, stack, hist, box, scatter, heat, map |
 | `servidor/engine/diagram.py` | 133 | Diagrama de flujo estándar por capas |
 | `servidor/engine/layout.py` | 116 | Maquetación de flujo y paginación (reduce bloques gigantes) |
@@ -30,21 +30,22 @@ No edité ningún archivo preexistente (`teoria/`, `research_notes/`, `PROMPT_PD
 | `servidor/engine/variants.py` | 54 | Registro de variantes y aprobación |
 | `servidor/engine/paleta.py` | 41 | Revisión de paleta: contraste y claridad en grises |
 | `servidor/engine/text.py` | 61 | Texto en línea seguro |
-| `servidor/engine/audit.js` | 73 | Auditoría de hojas (superposición, desborde, contraste) |
+| `servidor/engine/redundancia.py` | 28 | Regla anti-redundancia de titulares y etiquetas |
+| `servidor/engine/audit.js` | 90 | Auditoría de hojas (superposición, desborde, contraste) |
 | `servidor/engine/contrast_fix.js` | 32 | Protocolo en grises: corrige texto que no se distingue |
 | `servidor/engine/fit.js` | 19 | Ajuste de títulos (ancho, alto, rellenar) |
 | `servidor/tools/leer_pdf.py` | 189 | Lector eficiente de PDF de referencia: resumen, paleta exacta y contacto |
-| `servidor/tools/descomponer.py` | 222 | Descompone una imagen en átomos, con recortes y SVG |
+| `servidor/tools/descomponer.py` | 238 | Descompone una imagen en átomos, con recortes y SVG |
 | `servidor/tools/commons.py` | 72 | Búsqueda en Wikimedia Commons con licencia (para tu PC) |
 | `servidor/designs/anura/manifest.json` | 354 | Reglas medibles del diseño |
 | `servidor/designs/anura/extras.css` | 288 | Estilos de bloques y plantillas (solo tokens ANURA) |
 | `servidor/designs/anura/palettes.json` | 21 | Paletas por roles: anura y cine |
 | `servidor/designs/anura/variantes.json` | 595 | Registro de variantes con estado |
 | `servidor/web/web.css` | 71 | Kit web atómico |
-| `servidor/tests/test_motor.py` | 151 | 15 pruebas |
+| `servidor/tests/test_motor.py` | 171 | 15 pruebas |
 
 ## Documentos míos (no son código)
-`CLAUDE.md` (contrato para futuras sesiones), `ESTANDARES.md` (gráfico, mapa y diagrama de flujo estándar, y qué pasa con lo no estándar), `WEB.md` (reglas web y diseño atómico),
+`CLAUDE.md` (contrato para futuras sesiones), `ESTADO_MOTOR_PDF.md` (cuándo está completo), `PLAN_PPTX.md`, `ESTANDARES.md` (gráfico, mapa y diagrama de flujo estándar, y qué pasa con lo no estándar), `WEB.md` (reglas web y diseño atómico),
 `referencias/` (lecturas de las referencias), `servidor/README.md`, este archivo.
 
 ## Copiado sin cambios del sistema de diseño ANURA (no es código mío)

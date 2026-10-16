@@ -143,7 +143,8 @@ def chart(b, c):
     tag = f'<div class="tg">{inline(b["tag"])}</div>' if b.get("tag") else ""
     leg = charts.legend(ch)
     cap = f"<figcaption>{inline(b['caption'])}</figcaption>" if b.get("caption") else ""
-    return f'<figure class="{cls}"><p class="ct">{inline(b["title"])}</p>{tag}{svg}{leg}{cap}</figure>'
+    title = f'<p class="ct">{inline(b["title"])}</p>' if b.get("title") else ""
+    return f'<figure class="{cls}">{title}{tag}{svg}{leg}{cap}</figure>'
 
 
 def stats(b, c):
