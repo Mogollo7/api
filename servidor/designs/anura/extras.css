@@ -286,3 +286,26 @@ code{font-family:var(--font-mono);font-size:.84em;background:var(--arena);paddin
 .stats div b{line-height:1.05;margin-bottom:.6cqw}
 .dE .arco{width:44cqw;height:53cqw;border-radius:22cqw 22cqw 0 0}
 .dE .arco{height:50cqw}
+
+/* ======== v0.3: cita, código, referencias, notas, sublistas, índice con enlaces ======== */
+.bq{margin:0;border-left:1.4cqw solid var(--vivo);padding:1cqw 0 1cqw 3cqw}
+.bq p{margin:0;font-family:var(--font-body);font-weight:800;font-size:3.4cqw;line-height:1.2}
+.bq cite{display:block;margin-top:1.4cqw;font-family:var(--font-mono);font-style:normal;font-size:1.8cqw;letter-spacing:.08em;text-transform:uppercase}
+.cdb{border:.5cqw solid var(--negro);background:var(--arena);position:relative}
+.cdb pre{margin:0;padding:2cqw 2.4cqw;font-family:var(--font-mono);font-size:1.85cqw;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere}
+.cdb code{border:0;background:none;padding:0;font-size:1em}
+.cdb .cl{position:absolute;right:0;top:0;background:var(--negro);color:var(--crema);font-family:var(--font-mono);font-weight:600;font-size:1.5cqw;letter-spacing:.1em;padding:.4cqw 1.4cqw;text-transform:uppercase}
+.bl.sub{margin:.4cqw 0 0;font-size:.92em}
+.bl.sub li::before{width:.9cqw;height:.9cqw;background:none;border:.25cqw solid var(--negro);margin-top:1.1cqw}
+.bl.refs,.bl.fnotes{font-size:1.9cqw;line-height:1.38}
+.bl.refs li,.bl.fnotes li{grid-template-columns:5cqw 1fr}
+.bl.refs li::before,.bl.fnotes li::before{content:counter(n);counter-increment:n;width:auto;height:auto;background:none;font-family:var(--font-mono);font-weight:600;font-size:1.7cqw;margin-top:.3cqw}
+.bl.fnotes{counter-reset:n}
+sup.fn{font-family:var(--font-mono);font-weight:600;font-size:.62em;vertical-align:.55em;line-height:0;padding:0 .15em}
+.toc a.ro{color:inherit;text-decoration:none}
+.cv4-k b{overflow:visible;text-overflow:clip}
+.dE .ttl[data-fit]{max-width:46cqw}
+.bl li>ul.sub{grid-column:2}
+.bl.refs li::before{counter-increment:none}
+.bl.fnotes li::before{content:attr(value);counter-increment:none}
+.kpis.n4 .kpi b{font-size:5.2cqw;white-space:nowrap}

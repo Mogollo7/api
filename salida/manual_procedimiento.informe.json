@@ -1,0 +1,49 @@
+{
+ "estado": "ok",
+ "errores": [],
+ "avisos": [],
+ "auditoria": {},
+ "imagenes_necesarias": [],
+ "secciones": [
+  {
+   "id": "m1",
+   "n": "01",
+   "pagina": 3
+  },
+  {
+   "id": "m2",
+   "n": "02",
+   "pagina": 4
+  },
+  {
+   "id": "m3",
+   "n": "03",
+   "pagina": 8
+  },
+  {
+   "id": "m4",
+   "n": "04",
+   "pagina": 9
+  },
+  {
+   "id": "m5",
+   "n": "05",
+   "pagina": 12
+  }
+ ],
+ "correcciones_contraste": [],
+ "variantes_usadas": [
+  "CV-2",
+  "DV-A",
+  "DV-C",
+  "DV-F"
+ ],
+ "variantes_no_aprobadas": [
+  "CV-2",
+  "DV-A",
+  "DV-C",
+  "DV-F"
+ ],
+ "paginas": 12,
+ "segundos": 3.8
+}

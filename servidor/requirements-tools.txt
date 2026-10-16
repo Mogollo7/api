@@ -1,0 +1,5 @@
+# opcionales para servidor/tools/descomponer.py y leer_pdf.py
+scipy
+potracer
+opencv-python-headless
+pdfplumber

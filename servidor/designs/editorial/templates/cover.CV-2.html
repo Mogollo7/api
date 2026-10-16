@@ -1,0 +1,6 @@
+<article class="page cover ed-c2" aria-label="Portada">
+  <div class="ed-top"><span class="micro">{{&header_html}}</span><span class="caja">{{meta.version}}</span></div>
+  <div class="ed-words">{{#each words}}<div class="ed-row" data-fit="f" data-maxh="{{mh}}"><span>{{text}}</span></div>{{/each}}</div>
+  {{&syms}}
+  <div class="ed-blk"><h2 data-fit="w">{{cover.title}}</h2><p class="micro">{{cover.text}}</p><div class="ed-foot micro"><span>{{meta.date}}</span>{{&foot_sym}}</div></div>
+</article>

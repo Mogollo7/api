@@ -1,0 +1,28 @@
+{
+ "contract": "1.0", "design": "editorial", "format": "pdf-a4", "palette": "editorial", "options": {"seed": 4},
+ "meta": {"title": "Informe trimestral de ventas · Cafetería Ejemplo", "author": "Equipo de análisis", "subject": "Prueba de aceptación: informe", "keywords": ["ventas", "informe", "muestra"],
+          "date": "Octubre 2026", "version": "Q3 · muestra", "header_left": ["Cafetería Ejemplo", "Informe trimestral"], "footer": "Cafetería Ejemplo · Informe Q3 (datos de muestra)"},
+ "document": {
+  "cover": {"variant": "CV-1", "vertical": "VENTAS Q3", "title": "Informe trimestral de ventas", "text": "Documento de aceptación con datos de muestra: ninguna cifra es real."},
+  "parts": [
+   {"id": "p1", "title": "Resumen", "desc": "Las cifras clave del trimestre y su lectura en una página.", "divider": "DV-A", "sections": [
+    {"id": "v1", "title": "El trimestre en cuatro cifras", "tema": "Resumen", "kind": "clave", "lead": "Las ventas suben, pero el margen se estrecha. Todas las cifras de este informe son **datos de muestra** [SIM].", "blocks": [
+      {"type": "kpi", "items": [{"v": "$ 128 M", "l": "ventas del trimestre", "note": "[SIM]"}, {"v": "+9,4 %", "l": "frente al trimestre anterior", "note": "[SIM]"}, {"v": "31 %", "l": "margen bruto", "note": "[SIM]"}, {"v": "4,2 %", "l": "devoluciones", "note": "[SIM]"}]},
+      {"type": "chart", "title": "Ventas por trimestre", "tag": "SIMULACIÓN · millones de pesos", "sim": true, "chart": {"type": "bar", "data": {"categories": ["T1", "T2", "T3", "T4"], "series": [{"name": "2025", "values": [92, 101, 117, 125]}, {"name": "2026", "values": [103, 117, 128, 0]}]}}, "caption": "Figura 1. T4 de 2026 aún sin datos: dato pendiente."},
+      {"type": "callout", "tone": "ojo", "text": "El margen cae 2 puntos aunque las ventas crecen: revisar costos de insumos antes de abrir un nuevo punto."}
+    ]},
+    {"id": "v2", "title": "Cómo se reparte la venta", "tema": "Canales", "blocks": [
+      {"type": "chart", "half": true, "title": "Por canal", "tag": "SIMULACIÓN", "sim": true, "chart": {"type": "pie", "data": {"donut": true, "items": [{"l": "Mostrador", "v": 52}, {"l": "Domicilio", "v": 28}, {"l": "Aplicación", "v": 14}, {"l": "Eventos", "v": 6}]}}},
+      {"type": "chart", "half": true, "title": "Evolución mensual", "tag": "SIMULACIÓN", "sim": true, "chart": {"type": "line", "data": {"series": [{"name": "Mostrador", "points": [["2026-07", 18], ["2026-08", 20], ["2026-09", 21]]}, {"name": "Domicilio", "points": [["2026-07", 9], ["2026-08", 10], ["2026-09", 11]]}], "ylabel": "M de pesos"}}},
+      {"type": "table", "head": ["Canal", "Ventas (M)", "Variación", "Nota"], "widths": [3, 2, 2, 5], "rows": [["**Mostrador**", "66,6", "+5,1 %", "Estable; domingos suben."], ["**Domicilio**", "35,8", "+14,2 %", "Crece con la promoción de lunes."], ["**Aplicación**", "17,9", "+31,0 %", "Base pequeña: leer con cuidado[^1]."], ["**Eventos**", "7,7", "−3,0 %", "Dos eventos cancelados."]], "variant": "compact"}
+    ], "notes": [{"n": 1, "text": "Con una base pequeña, un cambio de pocas ventas mueve mucho el porcentaje."}]}
+   ]},
+   {"id": "p2", "title": "Detalle", "desc": "Márgenes, devoluciones y próximos pasos.", "divider": "DV-B", "sections": [
+    {"id": "v3", "title": "Márgenes y devoluciones", "tema": "Detalle", "blocks": [
+      {"type": "figure", "chart": {"type": "hbar", "data": {"max": 40, "items": [{"l": "Café en grano", "v": 38, "hi": true}, {"l": "Bebidas calientes", "v": 33}, {"l": "Repostería", "v": 29}, {"l": "Bebidas frías", "v": 26}]}}, "title": "Margen bruto por línea", "caption": "Figura 2. Datos de muestra [SIM].", "sim": true, "side": [{"v": "31 %", "l": "margen promedio"}, {"v": "−2 pp", "l": "frente al trimestre anterior"}]},
+      {"type": "list", "ordered": true, "items": ["Renegociar el precio del grano con el proveedor principal.", {"t": "Reducir devoluciones de repostería:", "items": ["ajustar la producción de la tarde", "revisar el empaque de domicilio"]}, "Medir de nuevo en cuatro semanas."]},
+      {"type": "quote", "text": "Lo que no se mide en la caja se pierde en la merma.", "by": "Dicho de la casa (muestra)"}
+    ]}
+   ]}
+  ]}
+}

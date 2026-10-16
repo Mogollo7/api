@@ -1,0 +1,571 @@
+{
+ "contract": "1.0",
+ "design": "editorial",
+ "format": "pdf-a4",
+ "palette": "default",
+ "options": {
+  "seed": 5
+ },
+ "meta": {
+  "title": "Documento de muestra",
+  "date": "Mes 2026",
+  "version": "Vol. 01 · v0.1",
+  "header_left": [
+   "Título de muestra",
+   "Subtítulo"
+  ],
+  "footer": "MUESTRA · lista de revisión"
+ },
+ "document": {
+  "cover": {
+   "variant": "auto",
+   "vertical": "MUESTRA",
+   "title": "Título del documento de muestra",
+   "text": "Contexto del documento de muestra, en pocas líneas."
+  },
+  "parts": [
+   {
+    "id": "p1",
+    "title": "Parte uno",
+    "desc": "Descripción de muestra.",
+    "divider": "auto",
+    "sections": [
+     {
+      "id": "m0",
+      "title": "Muestra TB-1",
+      "tema": "Muestra",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "Texto de muestra para comprobar el flujo, la paginación y los saltos de línea."
+       },
+       {
+        "type": "table",
+        "head": [
+         "Variable",
+         "Rango",
+         "Tipo"
+        ],
+        "rows": [
+         [
+          "variable_a",
+          "0 a 100",
+          "int8"
+         ],
+         [
+          "variable_b",
+          "1972 a 2024",
+          "int16"
+         ],
+         [
+          "variable_c",
+          "texto",
+          "category"
+         ]
+        ]
+       }
+      ]
+     },
+     {
+      "id": "m6",
+      "title": "Muestra AV-nota",
+      "tema": "Muestra",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "Texto de muestra para comprobar el flujo, la paginación y los saltos de línea."
+       },
+       {
+        "type": "callout",
+        "tone": "nota",
+        "title": "Título de muestra",
+        "text": "Texto de muestra del aviso, con una frase corta."
+       }
+      ]
+     },
+     {
+      "id": "m12",
+      "title": "Muestra CF-1",
+      "tema": "Muestra",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "Texto de muestra para comprobar el flujo, la paginación y los saltos de línea."
+       },
+       {
+        "type": "kpi",
+        "items": [
+         {
+          "v": "12",
+          "l": "etiqueta A",
+          "note": "nota"
+         },
+         {
+          "v": "34 %",
+          "l": "etiqueta B"
+         },
+         {
+          "v": "56",
+          "l": "etiqueta C"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "m15",
+      "title": "Muestra FG-1",
+      "tema": "Muestra",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "Texto de muestra para comprobar el flujo, la paginación y los saltos de línea."
+       },
+       {
+        "type": "chart",
+        "title": "Título del gráfico",
+        "tag": "etiqueta · muestra",
+        "chart": {
+         "type": "bar",
+         "data": {
+          "max": 100,
+          "items": [
+           {
+            "l": "A",
+            "v": 40,
+            "hi": true
+           },
+           {
+            "l": "B",
+            "v": 62
+           },
+           {
+            "l": "C",
+            "v": 85
+           }
+          ]
+         }
+        },
+        "caption": "Figura 1. Pie de muestra."
+       }
+      ]
+     },
+     {
+      "id": "m18",
+      "title": "Muestra GR-bar",
+      "tema": "Muestra",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "Texto de muestra para comprobar el flujo, la paginación y los saltos de línea."
+       },
+       {
+        "type": "chart",
+        "title": "Barras",
+        "tag": "estándar",
+        "chart": {
+         "type": "bar",
+         "data": {
+          "max": 100,
+          "items": [
+           {
+            "l": "A",
+            "v": 40,
+            "hi": true
+           },
+           {
+            "l": "B",
+            "v": 62
+           },
+           {
+            "l": "C",
+            "v": 85
+           }
+          ]
+         }
+        }
+       }
+      ]
+     },
+     {
+      "id": "m27",
+      "title": "Muestra FL-1",
+      "tema": "Muestra",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "Texto de muestra para comprobar el flujo, la paginación y los saltos de línea."
+       },
+       {
+        "type": "flow",
+        "cols": 3,
+        "steps": [
+         {
+          "title": "Paso uno",
+          "text": "Descripción corta."
+         },
+         {
+          "title": "Paso dos",
+          "text": "Descripción corta."
+         },
+         {
+          "title": "Paso tres",
+          "text": "Descripción corta.",
+          "on": true
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "m28",
+      "title": "Muestra FL-2",
+      "tema": "Muestra",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "Texto de muestra para comprobar el flujo, la paginación y los saltos de línea."
+       },
+       {
+        "type": "flowchart",
+        "title": "Diagrama de flujo",
+        "nodes": [
+         {
+          "id": "a",
+          "label": "Inicio",
+          "kind": "start"
+         },
+         {
+          "id": "b",
+          "label": "Leer datos",
+          "kind": "io"
+         },
+         {
+          "id": "c",
+          "label": "¿Datos válidos?",
+          "kind": "decision"
+         },
+         {
+          "id": "d",
+          "label": "Procesar"
+         },
+         {
+          "id": "e",
+          "label": "Corregir"
+         },
+         {
+          "id": "f",
+          "label": "Fin",
+          "kind": "end"
+         }
+        ],
+        "edges": [
+         {
+          "from": "a",
+          "to": "b"
+         },
+         {
+          "from": "b",
+          "to": "c"
+         },
+         {
+          "from": "c",
+          "to": "d",
+          "label": "sí"
+         },
+         {
+          "from": "c",
+          "to": "e",
+          "label": "no"
+         },
+         {
+          "from": "d",
+          "to": "f"
+         },
+         {
+          "from": "e",
+          "to": "b"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "m33",
+      "title": "Muestra FM-1",
+      "tema": "Muestra",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "Texto de muestra para comprobar el flujo, la paginación y los saltos de línea."
+       },
+       {
+        "type": "form",
+        "title": "Datos del estudiante",
+        "rows": [
+         "Nombre completo",
+         "Ficha / grupo",
+         "Fecha de entrega"
+        ]
+       }
+      ]
+     },
+     {
+      "id": "e_p",
+      "title": "Bloque p",
+      "tema": "Ejemplo",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "Texto con **negrita**, *Nombre científico* y una marca [FUENTE]."
+       }
+      ]
+     },
+     {
+      "id": "e_h",
+      "title": "Bloque h",
+      "tema": "Ejemplo",
+      "blocks": [
+       {
+        "type": "h",
+        "text": "Interpretación"
+       }
+      ]
+     },
+     {
+      "id": "e_list",
+      "title": "Bloque list",
+      "tema": "Ejemplo",
+      "blocks": [
+       {
+        "type": "list",
+        "ordered": true,
+        "items": [
+         "Primero",
+         {
+          "t": "Segundo",
+          "items": [
+           "detalle a",
+           "detalle b"
+          ]
+         },
+         "Tercero"
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "p2",
+    "title": "Parte dos",
+    "desc": "Descripción de muestra.",
+    "divider": "auto",
+    "sections": [
+     {
+      "id": "e_table",
+      "title": "Bloque table",
+      "tema": "Ejemplo",
+      "blocks": [
+       {
+        "type": "table",
+        "head": [
+         "Variable",
+         "Tipo"
+        ],
+        "rows": [
+         [
+          "edad",
+          "int8"
+         ],
+         [
+          "año",
+          "int16"
+         ]
+        ]
+       }
+      ]
+     },
+     {
+      "id": "e_stats",
+      "title": "Bloque stats",
+      "tema": "Ejemplo",
+      "blocks": [
+       {
+        "type": "stats",
+        "items": [
+         {
+          "v": "9,0",
+          "l": "moda"
+         },
+         {
+          "v": "8,0",
+          "l": "mediana"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "e_big",
+      "title": "Bloque big",
+      "tema": "Ejemplo",
+      "blocks": [
+       {
+        "type": "big",
+        "value": "62,9",
+        "unit": "%",
+        "caption": "Acierto top-1"
+       }
+      ]
+     },
+     {
+      "id": "e_callout",
+      "title": "Bloque callout",
+      "tema": "Ejemplo",
+      "blocks": [
+       {
+        "type": "callout",
+        "tone": "ojo",
+        "text": "Advertencia breve."
+       }
+      ]
+     },
+     {
+      "id": "e_image",
+      "title": "Bloque image",
+      "tema": "Ejemplo",
+      "blocks": [
+       {
+        "type": "image",
+        "src": null,
+        "ratio": "16/9",
+        "caption": "Pie de la imagen.",
+        "need": "Imagen de muestra"
+       }
+      ]
+     },
+     {
+      "id": "e_ladder",
+      "title": "Bloque ladder",
+      "tema": "Ejemplo",
+      "blocks": [
+       {
+        "type": "ladder",
+        "items": [
+         {
+          "title": "Simple",
+          "text": "…",
+          "cost": "costo: bajo"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "e_ranks",
+      "title": "Bloque ranks",
+      "tema": "Ejemplo",
+      "blocks": [
+       {
+        "type": "ranks",
+        "head": [
+         "Rana",
+         "Planta"
+        ],
+        "rows": [
+         {
+          "rank": "Reino",
+          "v": [
+           "Animalia",
+           "Plantae"
+          ]
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "e_timeline",
+      "title": "Bloque timeline",
+      "tema": "Ejemplo",
+      "blocks": [
+       {
+        "type": "timeline",
+        "items": [
+         {
+          "code": "H",
+          "label": "Huevo",
+          "days": 3,
+          "vis": "h",
+          "photo": "casi nunca"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "e_compare",
+      "title": "Bloque compare",
+      "tema": "Ejemplo",
+      "blocks": [
+       {
+        "type": "compare",
+        "left": {
+         "title": "A",
+         "items": [
+          "…"
+         ]
+        },
+        "right": {
+         "title": "B",
+         "items": [
+          "…"
+         ]
+        },
+        "verdict": "A gana."
+       }
+      ]
+     },
+     {
+      "id": "e_quote",
+      "title": "Bloque quote",
+      "tema": "Ejemplo",
+      "blocks": [
+       {
+        "type": "quote",
+        "text": "Feo es poderoso.",
+        "by": "Manifiesto"
+       }
+      ]
+     },
+     {
+      "id": "e_code",
+      "title": "Bloque code",
+      "tema": "Ejemplo",
+      "blocks": [
+       {
+        "type": "code",
+        "lang": "python",
+        "code": "df.info()"
+       }
+      ]
+     },
+     {
+      "id": "e_refs",
+      "title": "Bloque refs",
+      "tema": "Ejemplo",
+      "blocks": [
+       {
+        "type": "refs",
+        "items": [
+         "Autor (2024). Título. Revista."
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

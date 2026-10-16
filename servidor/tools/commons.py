@@ -62,8 +62,9 @@ def main():
             name = re.sub(r"[^\w.-]+", "_", it["titulo"])[:80]
             if not name.lower().endswith((".jpg", ".jpeg", ".png")):
                 name += ".jpg"
-            req = urllib.request.Request(it["thumb"], headers=UA)
-            (dest / name).write_bytes(urllib.request.urlopen(req, timeout=60).read())
+            if not (dest / name).exists():       # caché: no se vuelve a descargar
+                req = urllib.request.Request(it["thumb"], headers=UA)
+                (dest / name).write_bytes(urllib.request.urlopen(req, timeout=60).read())
             w.writerow([f"{dest.name}/{name}", a.consulta, it["descripcion"], it["url_commons"], it["autor"], it["licencia"]])
             print("ok", name, it["licencia"])
 

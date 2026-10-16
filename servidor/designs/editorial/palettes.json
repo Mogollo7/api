@@ -1,0 +1,12 @@
+{
+ "_marca": "[CLAUDE-CONSTRUCTOR] Paletas del diseño editorial.",
+ "editorial": {
+  "negro": "#0B0B0B",
+  "bosque": "#14183A",
+  "hoja": "#2A3B8F",
+  "vivo": "#2D5BFF",
+  "ocre": "#FFD400",
+  "crema": "#FAFAF7",
+  "arena": "#ECECE6"
+ }
+}

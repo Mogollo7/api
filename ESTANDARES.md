@@ -31,7 +31,7 @@ Prueba automática: `servidor/tests/no_estandar.json` (todo lo anterior junto; d
 - **Marcas**: relleno `hoja` (serie), `vivo` (resalte), `arena` (neutro), **siempre con borde negro**. Una sola serie resaltada por gráfico.
 - **Referencias**: media = `vivo` continua; mediana = negra discontinua; tendencia = `vivo` 3,2; atípicos = círculo `vivo` con borde negro.
 - **Escala de grises**: el resalte y la serie deben diferir en claridad (L*) ≥ 12; el servidor lo comprueba en la paleta.
-- **Límites** (`charts.LIMITES`): bar 14 · hbar 20 · line 14 · stack 8 · hist 40 · box 40 · scatter 400 · heat 12 · map 60.
+- **Límites** (`charts.LIMITES`): pie 7 · bar 14 · hbar 20 · line 14 · stack 8 · hist 40 · box 40 · scatter 400 · heat 12 · map 60.
 - **Con cifras laterales** (`figure` con `side`): figura 7/10 + columna de cifras 3/10 con regla vertical.
 
 | Tipo | Datos que manda el agente | Cuándo |
@@ -44,6 +44,9 @@ Prueba automática: `servidor/tests/no_estandar.json` (todo lo anterior junto; d
 | `box` | `groups:[{l,lo,q1,med,q3,hi,out:[]}]` | dispersión y atípicos por grupo |
 | `scatter` | `points`, `trend:"auto"` o `{slope,intercept,label}` | relación entre dos variables |
 | `heat` | `labels`, `matrix`, `range` | correlaciones (divergente hoja ↔ crema ↔ vivo) |
+| `pie` | `items:[{l,v}]`, `donut` | partes de un todo (≤ 7) |
+| `bar` series | `categories`, `series:[{name,values}]`, `mode:'grouped'|'stacked'` | comparar grupos; leyenda automática |
+| `line` series | `series:[{name,points}]`, x texto o fecha ISO | varias series en el tiempo |
 | `map` | `outline`, `points:[{lon,lat,label,v}]` | ubicar puntos |
 
 ## 3. Mapa estándar

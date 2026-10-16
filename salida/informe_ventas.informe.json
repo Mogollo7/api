@@ -1,0 +1,46 @@
+{
+ "estado": "ok",
+ "errores": [],
+ "avisos": [],
+ "auditoria": {},
+ "imagenes_necesarias": [],
+ "secciones": [
+  {
+   "id": "v1",
+   "n": "01",
+   "pagina": 3
+  },
+  {
+   "id": "v2",
+   "n": "02",
+   "pagina": 5
+  },
+  {
+   "id": "v3",
+   "n": "03",
+   "pagina": 7
+  }
+ ],
+ "correcciones_contraste": [
+  {
+   "texto": "frente al trimestre anterior",
+   "de": "#0b0b0b",
+   "a": "#fafaf7",
+   "via": "rol crema",
+   "ratio_antes": 3.8,
+   "ratio_despues": 4.96
+  }
+ ],
+ "variantes_usadas": [
+  "CV-1",
+  "DV-A",
+  "DV-B"
+ ],
+ "variantes_no_aprobadas": [
+  "CV-1",
+  "DV-A",
+  "DV-B"
+ ],
+ "paginas": 7,
+ "segundos": 2.9
+}

@@ -1,0 +1,30 @@
+{
+ "contract": "1.0", "design": "editorial", "format": "pdf-a4", "palette": "editorial", "options": {"seed": 13},
+ "meta": {"title": "Ficha de proyecto · Monitoreo de anfibios (muestra)", "author": "Equipo de campo", "subject": "Prueba de aceptación: ficha de proyecto", "keywords": ["proyecto", "monitoreo", "muestra"],
+          "date": "Octubre 2026", "version": "Ficha · muestra", "header_left": ["Ficha de proyecto", "Monitoreo de anfibios"], "footer": "Ficha de proyecto · datos de muestra"},
+ "document": {
+  "cover": {"variant": "CV-2", "vertical": "ANFIBIOS", "title": "Monitoreo de anfibios", "text": "Ficha de proyecto con datos de muestra: lugares, etapas, cronograma y riesgos."},
+  "parts": [
+   {"id": "p1", "title": "El proyecto", "desc": "Dónde, cuándo y con qué método.", "divider": "DV-B", "sections": [
+    {"id": "f1", "title": "Dónde se muestrea", "tema": "Sitios", "blocks": [
+      {"type": "chart", "title": "Sitios de muestreo", "tag": "coordenadas reales de ciudades · contorno esquemático", "chart": {"type": "map", "data": {"outline": "colombia", "size": true, "points": [{"lon": -74.07, "lat": 4.71, "label": "Bogotá", "v": 4}, {"lon": -75.57, "lat": 6.24, "label": "Medellín", "v": 3}, {"lon": -76.53, "lat": 3.45, "label": "Cali", "v": 2}, {"lon": -73.12, "lat": 7.12, "label": "Bucaramanga", "v": 1}]}}, "caption": "Figura 1. Número de salidas por ciudad (muestra)."},
+      {"type": "stats", "title": "Cifras de muestra", "items": [{"v": "4", "l": "ciudades"}, {"v": "10", "l": "salidas"}], "note": "[SIM] valores de ejemplo."}
+    ]},
+    {"id": "f2", "title": "Etapas que se registran", "tema": "Etapas", "blocks": [
+      {"type": "timeline", "items": [{"code": "H", "label": "Huevo", "days": 3, "vis": "h", "photo": "casi nunca"}, {"code": "L", "label": "Larva", "days": 5, "vis": "v", "photo": "sí, con macro"}, {"code": "M", "label": "Metamorfo", "days": 2, "vis": "x", "photo": "difícil"}], "adult": {"code": "A", "label": "Adulto", "days": "—", "photo": "sí"}, "legend": [["v", "se ve"], ["h", "oculta"], ["x", "difícil"]], "caption": "Duraciones de muestra [SIM]."},
+      {"type": "ranks", "head": ["Rana", "Planta"], "rows": [{"rank": "Orden", "v": ["Anura", "Poales"]}, {"rank": "Familia", "v": ["Bufonidae", "Poaceae"]}, {"rank": "Especie", "v": ["*Rhinella marina*", "*Zea mays*"]}]}
+    ]}
+   ]},
+   {"id": "p2", "title": "Plan", "desc": "Opciones, cronograma y riesgos.", "divider": "DV-A", "sections": [
+    {"id": "f3", "title": "Opciones de método", "tema": "Método", "blocks": [
+      {"type": "compare", "left": {"title": "Foto + vectores", "sub": "sin entrenar", "items": ["Rápido de empezar", "Añadir una clase es calcular un vector"]}, "right": {"title": "Ajuste fino", "sub": "todos los pesos", "items": ["Más lento", "Riesgo de memorizar con pocas fotos"]}, "verdict": "Empezar sin entrenar y ajustar solo si hace falta."},
+      {"type": "ladder", "items": [{"title": "Línea base", "text": "Vectores congelados y distancia coseno.", "cost": "costo: bajo"}, {"title": "Capa lineal", "text": "Regresión logística sobre los vectores.", "cost": "costo: bajo"}, {"title": "Ajuste fino", "text": "Solo con muchos datos.", "cost": "costo: alto"}]},
+      {"type": "image", "need": "Foto de campo de un anuro en su hábitat, con regla de escala", "caption": "Ejemplo de foto necesaria."}
+    ]},
+    {"id": "f4", "title": "Relación entre variables", "tema": "Correlación", "blocks": [
+      {"type": "figure", "chart": {"type": "heat", "data": {"labels": ["altitud", "temperatura", "lluvia", "hora"], "matrix": [[1, -0.7, 0.2, 0.05], [-0.7, 1, -0.1, 0.3], [0.2, -0.1, 1, -0.2], [0.05, 0.3, -0.2, 1]]}}, "caption": "Figura 2. Correlaciones de muestra [SIM].", "sim": true, "side": [{"v": "−0,70", "l": "altitud y temperatura: la más negativa"}, {"v": "0,30", "l": "temperatura y hora"}]},
+      {"type": "big", "value": "0,70", "caption": "la correlación más fuerte de la muestra"}
+    ]}
+   ]}
+  ]}
+}

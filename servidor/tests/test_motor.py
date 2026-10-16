@@ -10,7 +10,7 @@ sys.path.insert(0, str(HERE.parent))
 sys.path.insert(0, str(HERE.parent / "tools"))
 
 import render  # noqa: E402
-from engine import blocks, charts, contract, diagram, paleta, redundancia, text, variants  # noqa: E402
+from engine import blocks, charts, contract, diagram, muestras, paleta, prompt, redundancia, spec, text, tpl, variants  # noqa: E402
 
 DD = HERE.parent / "designs/anura"
 M = json.loads((DD / "manifest.json").read_text())
@@ -109,6 +109,14 @@ class Render(unittest.TestCase):
             html = (Path(t) / "x.html").read_text(encoding="utf-8") if (Path(t) / "x.html").exists() else ""
             return rep, html
 
+    def test_metadatos_y_etiquetado(self):
+        import subprocess
+        with tempfile.TemporaryDirectory() as t:
+            render.run(EJ, Path(t) / "x.pdf", IMG)
+            info = subprocess.run(["pdfinfo", str(Path(t) / "x.pdf")], capture_output=True, text=True).stdout
+        self.assertIn("Ejemplo mínimo", info)
+        self.assertIn("Tagged:          yes", info)
+
     def test_minimo_sin_problemas(self):
         rep, _ = self.run_doc(EJ)
         self.assertEqual(rep["errores"], [])
@@ -154,6 +162,66 @@ class Redundancia(unittest.TestCase):
             rep = render.run(p, Path(t) / "x.pdf", IMG)
         self.assertTrue(any("redundancia" in a["ajuste"] for a in rep["avisos"]))
         self.assertEqual([x for x in rep["auditoria"].get("794-print", []) if x.get("tipo") == "redundancia"], [])
+
+
+class Plantillas(unittest.TestCase):
+    def test_tpl(self):
+        self.assertEqual(tpl.render("{{a}}|{{&b}}|{{#if c}}Sí{{else}}No{{/if}}|{{#each l}}[{{x}}]{{/each}}", {"a": "<", "b": "<", "c": 0, "l": [1, {"x": "z"}], "x": "o"}), "&lt;|<|No|[o][z]")
+
+    def test_cada_diseno_trae_plantillas(self):
+        for d in ("anura", "editorial"):
+            self.assertTrue(list((HERE.parent / "designs" / d / "templates").glob("cover.*.html")), d)
+            self.assertTrue(list((HERE.parent / "designs" / d / "templates").glob("divider.*.html")), d)
+
+
+class Spec(unittest.TestCase):
+    def test_schema_y_ejemplos(self):
+        sc = spec.json_schema()
+        self.assertEqual(sc["properties"]["contract"]["const"], spec.CONTRACT_VERSION)
+        for name, b in spec.BLOCKS.items():
+            w = []
+            spec.validate_block(b["example"], name, w)
+            self.assertEqual(w, [], name)
+
+    def test_prompt_maestro(self):
+        for d in ("anura", "editorial"):
+            for corto in (False, True):
+                p = prompt.prompt_maestro(d, corto=corto)
+                for k in ("agente de contenido", "Anti-redundancia", "dato pendiente", "{{CONTENIDO}}", "flowchart"):
+                    self.assertIn(k, p)
+        self.assertLess(len(prompt.prompt_maestro("anura", corto=True)), len(prompt.prompt_maestro("anura")))
+
+    def test_muestra_valida(self):
+        d = muestras.doc_muestra("anura")
+        self.assertEqual(contract.validate(d, M, []), [])
+
+
+class BloquesNuevos(unittest.TestCase):
+    R = M["palette"]["roles"]
+
+    def ctx(self):
+        return blocks.Ctx(M, self.R, IMG, {}, HERE.parent / ".cache", [], DD)
+
+    def test_cita_codigo_refs_sublista(self):
+        c = self.ctx()
+        self.assertIn("<blockquote", blocks.render({"type": "quote", "text": "x", "by": "y"}, c))
+        h = blocks.render({"type": "code", "code": "a<b", "lang": "py"}, c)
+        self.assertIn("a&lt;b", h)
+        self.assertIn("ul class=\"bl sub\"", blocks.render({"type": "list", "items": [{"t": "a", "items": ["b"]}]}, c))
+        self.assertIn('class="fn"', text.inline("dato[^1]"))
+
+    def test_graficos_nuevos(self):
+        d = {"pie": {"items": [{"l": "a", "v": 1}, {"l": "b", "v": 3}]}, "bar": {"categories": ["a", "b"], "series": [{"name": "s", "values": [1, 2]}, {"name": "t", "values": [2, 1]}], "mode": "stacked"},
+             "line": {"series": [{"name": "s", "points": [["2026-01", 1], ["2026-02", 3]]}]}}
+        for t, data in d.items():
+            self.assertTrue(charts.draw({"type": t, "data": data}, self.R).startswith("<svg"), t)
+
+
+class Diseno(unittest.TestCase):
+    def test_validar_editorial_rapido(self):
+        import subprocess
+        r = subprocess.run([sys.executable, str(HERE.parent / "validar_diseno.py"), "editorial", "--rapido"], capture_output=True, text=True)
+        self.assertEqual(r.returncode, 0, r.stdout[-800:])
 
 
 class Comons(unittest.TestCase):

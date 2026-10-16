@@ -1,0 +1,17 @@
+<article class="page cover cv4 grainm" aria-label="Portada">
+  <div class="cv4-k"><b data-fit="w">{{kicker}}</b><span>{{&kicker_rest_html}}</span><i></i></div>
+  <div class="cv4-badge"><p>{{&badge_lines_html}}</p><i></i>{{&atoms.globe}}{{#if badge.tag}}<div class="tag">{{badge.tag}}</div>{{/if}}</div>
+  <div class="cv4-stack">{{#each stack_rows}}<div class="cv4-row" data-fit="f" data-maxh="{{mh}}" style="height:{{h}}cqw"><span>{{text}}</span></div>{{/each}}</div>
+  <div class="cv4-foto">{{#if img}}<img src="{{&img}}" alt="{{alt}}">{{/if}}</div>
+  <div class="cv4-quote"><p>{{&quote_html}}</p><i></i></div>
+  {{#each note_items}}<div class="cv4-note" style="top:{{y}}cqw">{{text}}<i></i></div>{{/each}}
+  <div class="cv4-xb">{{&atoms.xbox}}{{&atoms.hazard}}</div>
+  <div class="cv4-strip">{{&strip_html}}</div>
+  <div class="cv4-num">{{cover.number}}</div>
+  <ul class="cv4-list">{{#each list_items}}<li>{{.}}</li>{{/each}}</ul>
+  <div class="cv4-x">{{&atoms.big_x}}</div>
+  <div class="cv4-tagl">{{cover.tagline_l}}</div>
+  <div class="cv4-code">{{&atoms.barcode}}<small>{{cover.code}}</small><em>{{cover.text}}</em></div>
+  <div class="cv4-title">{{cover.title}}</div>
+  {{&atoms.cross1}}{{&atoms.cross2}}
+</article>

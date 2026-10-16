@@ -27,7 +27,7 @@
           const base = r.top + m.fontBoundingBoxAscent * (r.height / (m.fontBoundingBoxAscent + m.fontBoundingBoxDescent));
           y = base - m.actualBoundingBoxAscent; h = m.actualBoundingBoxAscent + m.actualBoundingBoxDescent;
         }
-        items.push({el, t: n.textContent.trim().slice(0, 28), x: r.left, y, w: r.width, h, bleed: !!el.closest('.num,.cv-b2')});
+        items.push({el, t: n.textContent.trim().slice(0, 28), x: r.left, y, w: r.width, h, bleed: !!el.closest('.num,.cv-b2,[data-bleed]')});
       }
     }
     const clip = (el, r) => { let a = el.parentElement; let x0 = r.left, y0 = r.top, x1 = r.right, y1 = r.bottom;
@@ -48,7 +48,7 @@
       if (!a.bleed && (a.x < P.left - 1 || a.y < P.top - 1 || a.x + a.w > P.right + 1 || a.y + a.h > P.bottom + 1)) out.push({hoja: name, tipo: 'fuera de hoja', a: a.t});
     }
     const v = pg.querySelector('.cv-v'); if (v && v.scrollHeight > v.clientHeight + 2) out.push({hoja: name, tipo: 'título vertical no cabe', a: v.scrollHeight + '>' + v.clientHeight});
-    pg.querySelectorAll('*').forEach(el => { if (el.closest('.cv-b2,.num')) return;
+    pg.querySelectorAll('*').forEach(el => { if (el.closest('.cv-b2,.num,[data-bleed]')) return;
       if (el.textContent.trim() && el.children.length === 0 && el.scrollWidth > el.clientWidth + 2 && getComputedStyle(el).overflow !== 'visible') out.push({hoja: name, tipo: 'texto cortado', a: el.textContent.trim().slice(0, 28)}); });
     // desborde del área de contenido (hoja clara): el contenido no debe invadir el pie
     const cont = pg.querySelector('.cont'), pie = pg.querySelector('.pie');
@@ -81,7 +81,7 @@
         if (it.el.closest('svg')) { const sv = it.el.closest('svg'); if (sv) { /* el SVG de gráficos se pinta sobre crema */ } }
         const bg = bgOf(it.el); const L1 = lum(fg.r, fg.g, fg.b) + .05, L2 = lum(bg.r, bg.g, bg.b) + .05;
         const ratio = Math.max(L1, L2) / Math.min(L1, L2);
-        const px = parseFloat(st.fontSize); const big = px >= 24 || (px >= 18.66 && +st.fontWeight >= 700);
+        const px = parseFloat(st.fontSize) * 794 / P.width; const big = px >= 24 || (px >= 18.66 && +st.fontWeight >= 700);
         if (ratio < (big ? 3 : 4.5) && !it.bleed) { const k = it.t + '|' + ratio.toFixed(1); if (!bad.has(k)) { bad.add(k); out.push({hoja: name, tipo: 'contraste', a: it.t, ratio: +ratio.toFixed(2)}); } }
       });
     }

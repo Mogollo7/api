@@ -24,6 +24,7 @@ _TAGS = {
 
 def inline(s: str) -> str:
     s = html.escape(str(s), quote=False)
+    s = re.sub(r"\[\^(\w{1,3})\]", r'<sup class="fn">\1</sup>', s)
     s = re.sub(r"`([^`]+)`", r"<code>\1</code>", s)
     s = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", s)
     s = re.sub(r"(?<![\w*])\*(?!\s)(.+?)(?<!\s)\*(?![\w*])", r"<em>\1</em>", s)
@@ -42,7 +43,8 @@ def inline(s: str) -> str:
 
 def plain(s: str) -> str:
     """Texto sin marcas (para índices, créditos, atributos)."""
-    s = re.sub(r"`([^`]+)`", r"\1", str(s))
+    s = re.sub(r"\[\^\w{1,3}\]", "", str(s))
+    s = re.sub(r"`([^`]+)`", r"\1", s)
     s = re.sub(r"\*\*(.+?)\*\*", r"\1", s)
     s = re.sub(r"(?<![\w*])\*(?!\s)(.+?)(?<!\s)\*(?![\w*])", r"\1", s)
     return re.sub(r"\[[A-ZÁÉÍÓÚ ]{2,14}\]", "", s).strip()

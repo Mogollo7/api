@@ -32,7 +32,7 @@ def heading_unit(sec, n):
     t = plain(sec["title"])
     cls = "sec" if len(t) <= 18 else "sec m" if len(t) <= 36 else "sec s"
     lead = f'<p class="lead">{inline(sec["lead"])}</p>' if sec.get("lead") and sec.get("kind") != "clave" else ""
-    return {"html": f'<h3 class="{cls}">{inline(sec["title"])}</h3>{lead}', "label": f"{sec['id']}.titulo", "keep_next": True}
+    return {"html": f'<h3 class="{cls}" id="sec-{esc(sec["id"])}">{inline(sec["title"])}</h3>{lead}', "label": f"{sec['id']}.titulo", "keep_next": True}
 
 
 def section_units(sec, ctx, gap_pair=True):
@@ -60,11 +60,21 @@ def section_units(sec, ctx, gap_pair=True):
             units.append({"html": f'<div class="row2">{a}{c2}</div>', "label": f"{label}+b{i+1}"})
             i += 2
             continue
+        if b["type"] == "refs":
+            rb = {"type": "list", "ordered": True, "items": b["items"], "cls": "refs"}
+            if b.get("title"):
+                units.append({"html": blocks.h({"text": b["title"]}, ctx), "label": f"{sec['id']}.b{i}:refs-h", "keep_next": True})
+            units.append({"html": blocks.render(rb, ctx), "label": label, "split": "list", "block": rb})
+            i += 1
+            continue
         if b["type"] in ("table", "list"):
             units.append({"html": blocks.render(b, ctx), "label": label, "split": b["type"], "block": b})
         else:
             units.append({"html": blocks.render(b, ctx), "label": label, "keep_next": b["type"] == "h"})
         i += 1
+    if sec.get("notes"):
+        items = "".join(f'<li value="{esc(n.get("n", k+1))}"><span>{inline(n["text"])}</span></li>' for k, n in enumerate(sec["notes"]))
+        units.append({"html": f'<div class="bh">Notas</div><ol class="bl fnotes">{items}</ol>', "label": f"{sec['id']}.notas"})
     return units
 
 
@@ -90,11 +100,12 @@ def credits_section(ctx):
     ]}
 
 
-def make_head(doc, design_dir, m, roles):
+def make_head(doc, design_dir, m, roles, ph=141.4):
     meta = doc.get("meta", {})
     css = "\n".join([
         assets.font_css(design_dir, m), assets.root_css(roles),
         (design_dir / "bundle.css").read_text(), (design_dir / "extras.css").read_text(),
+        f".page{{aspect-ratio:1/{ph/100:.4f}}}@page{{size:{(m.get('formats_dims') or {}).get(doc.get('format'), {}).get('pdf', 'A4')};margin:0}}",
         ".page.measure{aspect-ratio:auto;height:auto;overflow:visible;border:0;box-shadow:none}"
         ".page.measure .cont{margin:0 5cqw;width:90cqw}",
     ])
@@ -140,7 +151,12 @@ def run(doc_path, out_pdf, images_root):
     meta, d = doc.get("meta", {}), doc["document"]
     parts = [dict(p_) for p_ in d["parts"]]
     pg = m["page"]
-    capacity = 141.4 - pg["cont_top"] - pg["cont_bottom"]
+    fmt = doc.get("format", "pdf-a4")
+    dims = (m.get("formats_dims") or {}).get(fmt) or {"ph": 141.4, "pdf": "A4"}
+    if fmt not in ("pdf-a4",) and fmt not in (m.get("formats_dims") or {}):
+        report["avisos"].append({"bloque": "format", "causa": f"el diseño no declara '{fmt}'", "ajuste": "se usó pdf-a4"})
+    ph = dims["ph"]
+    capacity = ph - pg["cont_top"] - pg["cont_bottom"]
     gap = pg["gap"]
 
     # numeración continua de secciones (1..N, como la tabla de contenido) y TOC provisional
@@ -160,10 +176,10 @@ def run(doc_path, out_pdf, images_root):
             if part.get("_aux"):
                 continue
             out.append({"number": f"{pi+1:02d}", "title": part["title"], "page": (pages_of or {}).get(("p", pi), "00"),
-                        "sections": [{"n": s_["n"], "title": s_["title"], "page": (pages_of or {}).get(("s", s_["id"]), "00")} for s_ in part["sections"]]})
+                        "sections": [{"n": s_["n"], "id": s_["id"], "title": s_["title"], "page": (pages_of or {}).get(("s", s_["id"]), "00")} for s_ in part["sections"] if s_.get("toc", True)]})
         if has_cred:
             out.append({"number": "··", "title": "Créditos", "page": (pages_of or {}).get(("s", "creditos"), "00"),
-                        "sections": [{"n": parts[-1]["sections"][0]["n"], "title": "Créditos de imágenes", "page": (pages_of or {}).get(("s", "creditos"), "00")}]})
+                        "sections": [{"n": parts[-1]["sections"][0]["n"], "id": "creditos", "title": "Créditos de imágenes", "page": (pages_of or {}).get(("s", "creditos"), "00")}]})
         return out
 
     ctx = blocks.Ctx(m, roles, images_root, credits, HERE / ".cache", toc_struct(), design_dir)
@@ -187,7 +203,7 @@ def run(doc_path, out_pdf, images_root):
     toc_old = {u["html"] for _, _, us in secs for u in us if u.get("label", "").endswith(":toc")}
 
     from playwright.sync_api import sync_playwright
-    head = make_head(doc, design_dir, m, roles)
+    head = make_head(doc, design_dir, m, roles, ph)
     shell = head + "<script>" + FIT_JS + "</script>%%MEASURE%%</body></html>"
     flat = [u for _, _, us in secs for u in us]
     with sync_playwright() as p:
@@ -251,7 +267,7 @@ def run(doc_path, out_pdf, images_root):
                 tope = tope if len(tope) <= 54 else tope[:53] + "…"
                 body.append(pages.light(inner, tope, meta.get("footer", "Documento"), item[2], sym, sid,
                                         f"{plain(sec['title'])} · {item[2]}", sec.get("kind") == "clave"))
-        drip = (HERE / "designs/anura/drip.svg.txt").read_text()
+        drip = ((design_dir / "defs.svg.txt").read_text() if (design_dir / "defs.svg.txt").exists() else "")
         defs = sym.defs().replace("</svg>", drip + "</svg>")
         final = head + defs + "".join(body) + "<script>" + FIT_JS + "</script></body></html>"
         out_pdf = Path(out_pdf)
@@ -267,11 +283,24 @@ def run(doc_path, out_pdf, images_root):
         page2.wait_for_timeout(800)
         page2.evaluate("window.__fit()")
         report["correcciones_contraste"] = page2.evaluate(FIX_JS)
-        kw = dict(path=str(out_pdf), format="A4", print_background=True, margin={"top": "0", "bottom": "0", "left": "0", "right": "0"})
+        kw = dict(path=str(out_pdf), format=dims["pdf"], print_background=True, margin={"top": "0", "bottom": "0", "left": "0", "right": "0"})
         try:
             page2.pdf(**kw, tagged=True, outline=True)
         except TypeError:
             page2.pdf(**kw)
+        try:
+            import pikepdf
+            with pikepdf.open(str(out_pdf), allow_overwriting_input=True) as pdf:
+                pdf.docinfo["/Title"] = plain(meta.get("title", ""))
+                pdf.docinfo["/Author"] = meta.get("author", "")
+                pdf.docinfo["/Subject"] = meta.get("subject", "")
+                pdf.docinfo["/Keywords"] = ", ".join(meta.get("keywords", []))
+                pdf.docinfo["/Creator"] = f"servidor de documentos · diseño {m['id']} {m['version']}"
+                pdf.Root.Lang = pikepdf.String("es")
+                pdf.Root.ViewerPreferences = pikepdf.Dictionary(DisplayDocTitle=True)
+                pdf.save()
+        except Exception as e:  # noqa: BLE001
+            report["avisos"].append({"bloque": "metadatos", "causa": f"no se pudieron escribir ({type(e).__name__})", "ajuste": "instala pikepdf"})
         for label, width, media in (("794-print", 794, "print"), ("1300", 1300, "screen"), ("400", 400, "screen")):
             page2.set_viewport_size({"width": width, "height": 1123})
             page2.emulate_media(media=media)

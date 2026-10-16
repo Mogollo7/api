@@ -1,22 +1,192 @@
 {
-  "contract": "0.1", "design": "anura", "format": "pdf-a4", "palette": "default", "options": {"seed": 7},
-  "meta": {"title": "Ejemplo mínimo", "date": "Octubre 2026", "version": "Vol. 01 · v0.1", "header_left": ["Documento de prueba", "Servidor ligero"], "footer": "EJEMPLO · prueba del motor"},
-  "document": {
-    "cover": {"vertical": "PRUEBA", "title": "Documento de prueba del motor", "text": "Un documento corto con un bloque de cada tipo para verificar la maquetación sin escribir código."},
-    "parts": [{"id": "p1", "title": "Bloques", "desc": "Un ejemplo de cada bloque del vocabulario cerrado.", "sections": [
-      {"id": "s1", "title": "Índice y texto", "tema": "Índice", "blocks": [
-        {"type": "toc"},
-        {"type": "p", "text": "Un párrafo con **negrita**, *Frankliniella occidentalis* y una etiqueta [FUENTE] y otra [INF]. Hay un dato pendiente aquí."},
-        {"type": "list", "items": ["Uno", "Dos con *cursiva*", "Tres"]},
-        {"type": "callout", "tone": "ojo", "text": "Un aviso."}
-      ]},
-      {"id": "s2", "title": "Gráficos y tablas", "tema": "Gráficos", "kind": "tablero", "blocks": [
-        {"type": "kpi", "items": [{"v": "62,9 %", "l": "top-1", "note": "864 fotos"}, {"v": "86,1 %", "l": "top-3"}, {"v": "91,1 %", "l": "top-5"}]},
-        {"type": "chart", "half": true, "title": "Acierto", "tag": "[CALC] test v5", "chart": {"type": "bar", "data": {"items": [{"l": "TOP-1", "v": 62.85, "hi": true, "err": 3.2}, {"l": "TOP-3", "v": 86.11}, {"l": "TOP-5", "v": 91.09}]}}, "caption": "Mostrar tres candidatas sube 23 puntos."},
-        {"type": "chart", "half": true, "title": "Más especies", "chart": {"type": "line", "data": {"points": [[5, 87.3], [18, 78.2], [28, 74.3], [56, 64.4]], "xrange": [0, 60], "yrange": [60, 100], "xlabel": "especies", "ylabel": "%"}}},
-        {"type": "table", "head": ["Organismo", "Especie", "Etapa"], "rows": [["Anuros", {"t": "F", "tone": "f"}, {"t": "P", "tone": "p"}], ["Aves", {"t": "F", "tone": "f"}, {"t": "L", "tone": "l"}]]},
-        {"type": "image", "src": "no-existe.jpg", "need": "Foto macro de una larva de trips sobre hoja, con regla milimétrica", "caption": "Larva de trips"}
-      ]}
-    ]}]
-  }
+ "contract": "1.0",
+ "design": "anura",
+ "format": "pdf-a4",
+ "palette": "default",
+ "options": {
+  "seed": 7
+ },
+ "meta": {
+  "title": "Ejemplo mínimo",
+  "date": "Octubre 2026",
+  "version": "Vol. 01 · v0.1",
+  "header_left": [
+   "Documento de prueba",
+   "Servidor ligero"
+  ],
+  "footer": "EJEMPLO · prueba del motor"
+ },
+ "document": {
+  "cover": {
+   "vertical": "PRUEBA",
+   "title": "Documento de prueba del motor",
+   "text": "Un documento corto con un bloque de cada tipo para verificar la maquetación sin escribir código."
+  },
+  "parts": [
+   {
+    "id": "p1",
+    "title": "Bloques",
+    "desc": "Un ejemplo de cada bloque del vocabulario cerrado.",
+    "sections": [
+     {
+      "id": "s1",
+      "title": "Índice y texto",
+      "tema": "Índice",
+      "blocks": [
+       {
+        "type": "toc"
+       },
+       {
+        "type": "p",
+        "text": "Un párrafo con **negrita**, *Frankliniella occidentalis* y una etiqueta [FUENTE] y otra [INF]. Hay un dato pendiente aquí."
+       },
+       {
+        "type": "list",
+        "items": [
+         "Uno",
+         "Dos con *cursiva*",
+         "Tres"
+        ]
+       },
+       {
+        "type": "callout",
+        "tone": "ojo",
+        "text": "Un aviso."
+       }
+      ]
+     },
+     {
+      "id": "s2",
+      "title": "Gráficos y tablas",
+      "tema": "Gráficos",
+      "kind": "tablero",
+      "blocks": [
+       {
+        "type": "kpi",
+        "items": [
+         {
+          "v": "62,9 %",
+          "l": "top-1",
+          "note": "864 fotos"
+         },
+         {
+          "v": "86,1 %",
+          "l": "top-3"
+         },
+         {
+          "v": "91,1 %",
+          "l": "top-5"
+         }
+        ]
+       },
+       {
+        "type": "chart",
+        "half": true,
+        "title": "Acierto",
+        "tag": "[CALC] test v5",
+        "chart": {
+         "type": "bar",
+         "data": {
+          "items": [
+           {
+            "l": "TOP-1",
+            "v": 62.85,
+            "hi": true,
+            "err": 3.2
+           },
+           {
+            "l": "TOP-3",
+            "v": 86.11
+           },
+           {
+            "l": "TOP-5",
+            "v": 91.09
+           }
+          ]
+         }
+        },
+        "caption": "Mostrar tres candidatas sube 23 puntos."
+       },
+       {
+        "type": "chart",
+        "half": true,
+        "title": "Más especies",
+        "chart": {
+         "type": "line",
+         "data": {
+          "points": [
+           [
+            5,
+            87.3
+           ],
+           [
+            18,
+            78.2
+           ],
+           [
+            28,
+            74.3
+           ],
+           [
+            56,
+            64.4
+           ]
+          ],
+          "xrange": [
+           0,
+           60
+          ],
+          "yrange": [
+           60,
+           100
+          ],
+          "xlabel": "especies",
+          "ylabel": "%"
+         }
+        }
+       },
+       {
+        "type": "table",
+        "head": [
+         "Organismo",
+         "Especie",
+         "Etapa"
+        ],
+        "rows": [
+         [
+          "Anuros",
+          {
+           "t": "F",
+           "tone": "f"
+          },
+          {
+           "t": "P",
+           "tone": "p"
+          }
+         ],
+         [
+          "Aves",
+          {
+           "t": "F",
+           "tone": "f"
+          },
+          {
+           "t": "L",
+           "tone": "l"
+          }
+         ]
+        ]
+       },
+       {
+        "type": "image",
+        "src": "no-existe.jpg",
+        "need": "Foto macro de una larva de trips sobre hoja, con regla milimétrica",
+        "caption": "Larva de trips"
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ }
 }

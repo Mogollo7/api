@@ -14,7 +14,7 @@ from .text import esc, num
 
 W = 360
 PL, PR, PT, PB = 46, 14, 26, 38
-LIMITES = {"bar": 14, "hbar": 20, "line": 14, "stack": 8, "hist": 40, "box": 40, "scatter": 400, "heat": 12, "map": 60}
+LIMITES = {"pie": 7, "bar": 14, "hbar": 20, "line": 14, "stack": 8, "hist": 40, "box": 40, "scatter": 400, "heat": 12, "map": 60}
 
 N = "fill:var(--negro)"
 S = "fill:var(--hoja)"
@@ -104,7 +104,7 @@ def _open(H):
 
 
 # ---------------- barras / líneas / apiladas ----------------
-def bar(d, roles=None, H=230):
+def bar_simple(d, roles=None, H=230):
     items = d["items"]
     vmax = d.get("max", 100)
     w, h = W - PL - PR, H - PT - PB
@@ -149,7 +149,7 @@ def hbar(d, roles=None):
     return "".join(s) + "</svg>"
 
 
-def line(d, roles=None, H=240):
+def line_simple(d, roles=None, H=240):
     pts = d["points"]
     xs = [p[0] for p in pts]
     xr = d.get("xrange") or [0, max(xs) * 1.05]
@@ -327,11 +327,11 @@ def geo_map(d, roles=None, outlines=None, H=None):
     x0, x1, y0, y1 = min(lons) - 0.5, max(lons) + 0.5, min(lats) - 0.5, max(lats) + 0.5
     k = math.cos(math.radians((y0 + y1) / 2))
     wd, ht = (x1 - x0) * k, (y1 - y0)
-    Wm = 300
-    scale = Wm / wd
+    scale = min(300 / wd, 215 / ht)
+    Wm = wd * scale
     Hm = ht * scale
     H = Hm + 40
-    ox, oy = 30, 14
+    ox, oy = 30 + (300 - Wm) / 2, 14
     X = lambda lon: ox + (lon - x0) * k * scale
     Y = lambda lat: oy + (y1 - lat) * scale
     s = [f'<svg viewBox="0 0 {W} {H:.0f}" role="img">{DEFS}']
@@ -349,20 +349,145 @@ def geo_map(d, roles=None, outlines=None, H=None):
         p = "".join(("L" if i else "M") + f"{X(a):.1f} {Y(b):.1f}" for i, (a, b) in enumerate(poly)) + "Z"
         s.append(f'<path d="{p}" style="{A};stroke:var(--negro);stroke-width:2;stroke-linejoin:miter"/>')
     vmax = max([p.get("v", 1) for p in pts] or [1])
+    placed = []
     for i, p in enumerate(pts):
-        r = 4 + 7 * (p.get("v", 1) / vmax) ** 0.5 if d.get("size") else 5
+        r = 3 + 4.5 * (p.get("v", 1) / vmax) ** 0.5 if d.get("size") else 5
         s.append(f'<rect x="{X(p["lon"])-r:.1f}" y="{Y(p["lat"])-r:.1f}" width="{2*r:.1f}" height="{2*r:.1f}" style="{R};{STK}"/>')
         lab = p.get("label")
         if lab and len(pts) <= 14:
-            s.append(f'<text class="bold" x="{X(p["lon"])+r+3:.1f}" y="{Y(p["lat"])+4:.1f}" style="font-size:10.5px">{esc(lab)}</text>')
+            wl = 6.4 * len(str(lab))
+            hit = lambda x, y, an: any(abs(y - by_) < 12 and (x < bx + bw and x + wl > bx if an == "start" else x - wl < bx + bw and x > bx) for bx, by_, bw in placed)
+            bx0, by0 = X(p["lon"]), Y(p["lat"]) + 4
+            cands = [(bx0 + r + 3, by0, "start"), (bx0 - r - 3, by0, "end"), (bx0 + r + 3, by0 + 12, "start"), (bx0 - r - 3, by0 + 12, "end"), (bx0 + r + 3, by0 - 12, "start")]
+            lx, ly, anc = next(((x, y, an) for x, y, an in cands if not hit(x, y, an) and (x + wl <= 358 if an == "start" else x - wl >= 2)), cands[0])
+            placed.append((lx if anc == "start" else lx - wl, ly, wl))
+            s.append(f'<text class="bold" x="{lx:.1f}" y="{ly:.1f}" text-anchor="{anc}" style="font-size:10.5px">{esc(lab)}</text>')
     s.append(f'<rect x="{ox}" y="{oy}" width="{Wm:.1f}" height="{Hm:.1f}" style="fill:none;stroke:var(--negro);stroke-width:1.8"/>')
     # norte y escala gráfica
     s.append(f'<path d="M{W-24} {oy+30}V{oy+6}M{W-24} {oy+6}l-5 9M{W-24} {oy+6}l5 9" style="fill:none;stroke:var(--negro);stroke-width:2"/><text class="bold" x="{W-24}" y="{oy+42}" text-anchor="middle">N</text>')
     return "".join(s) + "</svg>"
 
 
+SERIES = ["fill:var(--hoja)", "fill:var(--vivo)", "fill:var(--negro)", "fill:var(--arena)", "fill:url(#hch)"]
+SKEYS = ["s", "hi", "k", "n", "hatch"]
+SERIES_TXT = ["var(--crema)", "var(--negro)", "var(--crema)", "var(--negro)", "var(--negro)"]
+
+
+def auto_legend(ch):
+    """Leyenda automática para gráficos de varias series o de pastel."""
+    d = ch.get("data", {})
+    if ch.get("type") in ("bar", "line") and d.get("series"):
+        return [(sr.get("name", f"Serie {i+1}"), SKEYS[i % 5]) for i, sr in enumerate(d["series"])]
+    return None
+
+
+def bar(d, roles=None, H=230):
+    if not d.get("series"):
+        return bar_simple(d, roles, H)
+    cats, ser = d["categories"], d["series"]
+    stacked = d.get("mode") == "stacked"
+    n, m = len(cats), len(ser)
+    tot = [sum(sr["values"][i] for sr in ser) for i in range(n)]
+    vmax = d.get("max") or ticks(0, max(tot) if stacked else max(v for sr in ser for v in sr["values"]) * 1.1)[-1]
+    w, h = W - PL - PR, H - PT - PB
+    gap = w / n
+    gw = gap * 0.74
+    ax, X, Y = _axes([0, n], [0, vmax], "", d.get("ylabel", ""), H, x_is_cat=True, w=w, h=h)
+    s = [_open(H), ax]
+    for i in range(n):
+        x0 = PL + gap * i + (gap - gw) / 2
+        base = 0
+        for j, sr in enumerate(ser):
+            v = sr["values"][i]
+            if stacked:
+                y1, y0 = Y(base + v), Y(base)
+                bx, bw = x0, gw
+                base += v
+            else:
+                bw = gw / m
+                bx = x0 + bw * j
+                y1, y0 = Y(v), Y(0)
+            s.append(f'<rect x="{bx:.1f}" y="{y1:.1f}" width="{bw:.1f}" height="{y0-y1:.1f}" style="{SERIES[j % 5]};{STK}"/>')
+            if not stacked and m <= 3 and bw > 16:
+                s.append(f'<text class="bold" x="{bx+bw/2:.1f}" y="{y1-4:.1f}" text-anchor="middle" style="font-size:10px">{fmt(v)}</text>')
+        fs = 10.5 if n >= 5 else 12
+        for k, ln in enumerate(_wrap(cats[i], max(5, int(gap / (0.6 * fs))))):
+            s.append(f'<text class="mu" x="{PL+gap*i+gap/2:.1f}" y="{H-PB+14+(fs+5)*k:.1f}" text-anchor="middle" style="font-size:{fs}px">{esc(ln)}</text>')
+    return "".join(s) + "</svg>"
+
+
+def line(d, roles=None, H=240):
+    series = d.get("series")
+    pts0 = d.get("points")
+    if not series:
+        if pts0 and any(isinstance(p[0], str) for p in pts0):
+            series = [{"name": "", "points": pts0}]
+        else:
+            return line_simple(d, roles, H)
+    # eje x categórico (texto o fechas ISO) o numérico
+    allx = [p[0] for sr in series for p in sr["points"]]
+    cat = any(isinstance(x, str) for x in allx)
+    xs = sorted(set(allx)) if cat else None
+    if cat:
+        xr = [0, max(len(xs) - 1, 1)]
+        pos = lambda x: xs.index(x)
+    else:
+        xr = d.get("xrange") or [min(allx), max(allx)]
+        pos = lambda x: x
+    ally = [p[1] for sr in series for p in sr["points"]]
+    yr = d.get("yrange") or [min(0, min(ally)), ticks(0, max(ally) * 1.08)[-1]]
+    ax, X, Y = _axes(xr, yr, d.get("xlabel", ""), d.get("ylabel", ""), H, x_is_cat=cat, h=H - PT - PB - 12)
+    s = [_open(H), ax]
+    if cat:
+        step = max(1, len(xs) // 7)
+        for i, x in enumerate(xs):
+            if i % step == 0:
+                s.append(f'<text class="mu" x="{X(i):.1f}" y="{H-PB-12+19}" text-anchor="middle" style="font-size:10.5px">{esc(x)}</text>')
+    for j, sr in enumerate(series):
+        col = ["var(--hoja)", "var(--vivo)", "var(--negro)", "var(--arena)", "var(--negro)"][j % 5]
+        dash = "stroke-dasharray:7 4;" if j % 5 == 4 else ""
+        path = "".join(("L" if i else "M") + f"{X(pos(p[0])):.1f} {Y(p[1]):.1f}" for i, p in enumerate(sr["points"]))
+        s.append(f'<path d="{path}" style="fill:none;stroke:var(--negro);stroke-width:5.2"/><path d="{path}" style="fill:none;stroke:{col};stroke-width:2.6;{dash}"/>')
+        for p in sr["points"]:
+            s.append(f'<rect x="{X(pos(p[0]))-4:.1f}" y="{Y(p[1])-4:.1f}" width="8" height="8" style="{SERIES[j % 5]};{STK}"/>')
+        if len(series) == 1:
+            for p in sr["points"]:
+                s.append(f'<text class="bold" x="{X(pos(p[0])):.1f}" y="{Y(p[1])-9:.1f}" text-anchor="middle" style="font-size:10px">{fmt(p[1])}</text>')
+    return "".join(s) + "</svg>"
+
+
+def pie(d, roles=None):
+    items = d["items"]
+    tot = sum(i["v"] for i in items)
+    cx, cy, r = 105, 108, 88
+    ri = 48 if d.get("donut") else 0
+    H = 216
+    s = [_open(H)]
+    a0 = -math.pi / 2
+    for k, it in enumerate(items):
+        frac = it["v"] / tot
+        a1 = a0 + frac * 2 * math.pi
+        large = 1 if a1 - a0 > math.pi else 0
+        x0, y0, x1, y1 = cx + r * math.cos(a0), cy + r * math.sin(a0), cx + r * math.cos(a1), cy + r * math.sin(a1)
+        if ri:
+            xi1, yi1, xi0, yi0 = cx + ri * math.cos(a1), cy + ri * math.sin(a1), cx + ri * math.cos(a0), cy + ri * math.sin(a0)
+            path = f"M{x0:.1f} {y0:.1f}A{r} {r} 0 {large} 1 {x1:.1f} {y1:.1f}L{xi1:.1f} {yi1:.1f}A{ri} {ri} 0 {large} 0 {xi0:.1f} {yi0:.1f}Z"
+        else:
+            path = f"M{cx} {cy}L{x0:.1f} {y0:.1f}A{r} {r} 0 {large} 1 {x1:.1f} {y1:.1f}Z" if frac < 0.999 else f"M{cx-r} {cy}a{r} {r} 0 1 0 {2*r} 0a{r} {r} 0 1 0 {-2*r} 0Z"
+        s.append(f'<path d="{path}" style="{SERIES[k % 5]};stroke:var(--negro);stroke-width:2;stroke-linejoin:miter"/>')
+        if frac >= 0.09:
+            am = (a0 + a1) / 2
+            rr = (r + ri) / 2 if ri else r * 0.62
+            s.append(f'<text class="bold" x="{cx+rr*math.cos(am):.1f}" y="{cy+rr*math.sin(am)+4:.1f}" text-anchor="middle" style="fill:{SERIES_TXT[k % 5]};font-size:11px">{fmt(frac*100, 0)} %</text>')
+        a0 = a1
+    for k, it in enumerate(items):
+        y = 24 + k * 24
+        s.append(f'<rect x="218" y="{y-10}" width="14" height="14" style="{SERIES[k % 5]};{STK}"/><text x="238" y="{y+2}" style="font-size:11px">{esc(str(it["l"])[:20])}</text>')
+    return "".join(s) + "</svg>"
+
+
 def legend(ch):
-    kind = ch.get("legend")
+    kind = ch.get("legend") or auto_legend(ch)
     if not kind:
         return ""
     out = []
@@ -375,7 +500,7 @@ def legend(ch):
 
 def _check(t, d):
     lim = LIMITES.get(t)
-    n = {"bar": len(d.get("items", [])), "hbar": len(d.get("items", [])), "line": len(d.get("points", [])), "stack": len(d.get("rows", [])),
+    n = {"pie": len(d.get("items", [])), "bar": len(d.get("items", [])) or len(d.get("categories", [])), "hbar": len(d.get("items", [])), "line": len(d.get("points", [])) or max([len(sr.get("points", [])) for sr in d.get("series", []) if isinstance(sr, dict)] or [0]), "stack": len(d.get("rows", [])),
          "hist": len(d.get("bars", [])), "box": len(d.get("groups", [])), "scatter": len(d.get("points", [])),
          "heat": len(d.get("labels", [])), "map": len(d.get("points", []))}.get(t, 0)
     if n == 0:
@@ -389,7 +514,7 @@ def draw(ch: dict, roles: dict, outlines=None) -> str:
     if t not in LIMITES:
         raise ChartError(f"tipo de gráfico '{t}' no es estándar")
     _check(t, d)
-    f = {"bar": bar, "hbar": hbar, "line": line, "stack": stack, "hist": hist, "box": box, "scatter": scatter, "heat": heat}
+    f = {"pie": pie, "bar": bar, "hbar": hbar, "line": line, "stack": stack, "hist": hist, "box": box, "scatter": scatter, "heat": heat}
     if t == "map":
         return geo_map(d, roles, outlines)
     return f[t](d, roles)

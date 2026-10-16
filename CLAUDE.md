@@ -30,9 +30,14 @@ La cabecera es una miga de pan («NN · Parte»); el tema solo entra si aporta p
 Paleta (contraste + L*) → corrección de contraste (rol parecido o oscurecer/aclarar por pasos) → auditoría a 794/1300/400 px → contacto en grises.
 Si algo «no se distingue», la medida es la de `contrast_fix.js`: letra gris sobre fondo claro se oscurece.
 
+## Diseños, prompt y regresión (cierre del motor)
+- **Diseño nuevo:** `python servidor/crear_diseno.py <id> --base anura` → editar `designs/<id>/` (guía en `servidor/designs/LEEME.md`) → `python servidor/validar_diseno.py <id>` hasta que todo sea ✔ → `galeria.py --design <id>`.
+- **Prompt Maestro y skill:** `python servidor/prompt.py <id> [--corto] [--modo A|B] --skill salida/skills`. Se generan de `engine/spec.py` + manifiesto: **un bloque nuevo se define solo en `spec.py`** (y su renderizador).
+- **Regresión visual:** `python servidor/regresion.py --comprobar`; tras un cambio intencional y revisado, `--actualizar`.
+
 ## Comandos
 ```bash
-pip install -r servidor/requirements.txt scipy potracer opencv-python-headless   # los 3 últimos solo para tools/descomponer.py
+pip install -r servidor/requirements.txt -r servidor/requirements-tools.txt   # los 3 últimos solo para tools/descomponer.py
 python servidor/render.py contenido/guia.json -o salida/guia.pdf --imagenes teoria/imagenes
 python servidor/web.py contenido/guia.json -o salida/web/index.html --imagenes teoria/imagenes --estilo
 python servidor/galeria.py --imagenes teoria/imagenes --pdf
@@ -46,5 +51,7 @@ python -m unittest discover -s servidor/tests
 - La auditoría trata el texto SVG como línea de caja: separar líneas ≥ `fs+5`; el texto rotado (`transform`) se excluye del cruce texto/texto.
 - Una palabra larga no se parte: el título se reduce (R12) y, si aun así no cabe, se recorta con «…».
 - En la nube **no hay acceso a Wikimedia** (el proxy lo rechaza): `servidor/tools/commons.py` se usa en el PC del usuario; aquí se usan las fotos de `teoria/imagenes`.
+- Un nombre de clase CSS nuevo puede chocar con otro (`.cd` del bloque de código pintó los códigos de la línea de vida): prefija las clases de bloques nuevos.
+- Con `pikepdf` los metadatos quedan limpios; con `pypdf` se perdía el etiquetado o salían avisos de xref.
 - Lectura de assets de un artifact: `read` con `path` **de uno en uno**; con `paths` falla.
 - Chromium: `/opt/pw-browsers/chromium` (o `CHROMIUM_PATH`); no correr `playwright install` en la nube.

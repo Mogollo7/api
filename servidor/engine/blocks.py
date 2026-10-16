@@ -48,11 +48,18 @@ def h(b, c):
 
 
 def _li(items):
-    return "".join(f"<li><span>{inline(t)}</span></li>" for t in items)
+    out = []
+    for t in items:
+        if isinstance(t, dict):
+            sub = "".join(f"<li><span>{inline(x)}</span></li>" for x in t.get("items", []))
+            out.append(f'<li><span>{inline(t.get("t", ""))}</span>' + (f'<ul class="bl sub">{sub}</ul>' if sub else "") + "</li>")
+        else:
+            out.append(f"<li><span>{inline(t)}</span></li>")
+    return "".join(out)
 
 
 def list_part(b, i0, i1):
-    cls = "bl num" if b.get("ordered") else "bl"
+    cls = ("bl num" if b.get("ordered") else "bl") + (f" {b['cls']}" if b.get("cls") else "")
     start = f' style="counter-reset:n {i0}"' if b.get("ordered") and i0 else ""
     return f'<ul class="{cls}"{start}>{_li(b["items"][i0:i1])}</ul>'
 
@@ -108,7 +115,7 @@ def big(b, c):
 def kpi(b, c):
     items = b["items"]
     cards = "".join(
-        f'<div class="kpi"><b>{esc(i["v"])}</b><span>{inline(i["l"])}</span>'
+        f'<div class="kpi"><b data-fit="w">{esc(i["v"])}</b><span>{inline(i["l"])}</span>'
         + (f'<i>{inline(i["note"])}</i>' if i.get("note") else "") + "</div>"
         for i in items
     )
@@ -148,7 +155,7 @@ def chart(b, c):
 
 
 def stats(b, c):
-    items = "".join(f'<div><b>{esc(i["v"])}</b><span>{inline(i["l"])}</span></div>' for i in b["items"])
+    items = "".join(f'<div><b data-fit="w">{esc(i["v"])}</b><span>{inline(i["l"])}</span></div>' for i in b["items"])
     note = f'<p class="sn">{inline(b["note"])}</p>' if b.get("note") else ""
     head = f'<div class="sh">{inline(b["title"])}</div>' if b.get("title") else ""
     return f'<aside class="stats">{head}{items}{note}</aside>'
@@ -223,6 +230,8 @@ def _one_image(it, c, ratio):
     src = it.get("src")
     cap = it.get("caption", "")
     path = (c.images_root / src) if src else None
+    if not (it.get("alt") or cap) and src:
+        c.warn.append({"bloque": str(src), "causa": "imagen sin `alt` ni pie", "ajuste": "añade `caption` o `alt` (accesibilidad)"})
     if path and path.exists():
         treat = it.get("treatment") or ["ocre", "crema", "verde", "negroverde"][c.img_i % 4]
         c.img_i += 1
@@ -237,11 +246,11 @@ def _one_image(it, c, ratio):
         if cr:
             who = cr.get("autor") or "autor no indicado"
             credit = f' <span class="cr">Foto: {esc(who)} · {esc(cr.get("licencia",""))} · Wikimedia Commons</span>'
-        else:
+        elif not it.get("nocredit"):
             c.no_credit.append(src)
             credit = ' <span class="cr">Crédito: <span class="pend">dato pendiente</span></span>'
         return (f'<figure class="im"><div class="foto" style="aspect-ratio:{ratio}"><img src="data:image/png;base64,{data}" '
-                f'alt="{esc(plain(cap))}" style="object-position:{pos}"></div>'
+                f'alt="{esc(it.get("alt") or plain(cap))}" style="object-position:{pos}"></div>'
                 f'<figcaption>{inline(cap)}{credit}</figcaption></figure>')
     c.missing.append({"src": src, "need": it.get("need") or cap})
     need = it.get("need") or cap or "describe la imagen"
@@ -326,13 +335,62 @@ def toc(b, c):
     for part in c.toc:
         out.append(f'<div class="pt"><span>{esc(part["number"])} · {esc(part["title"])}</span><small>pág. {part["page"]}</small></div>')
         for s in part["sections"]:
-            out.append(f'<div class="ro"><i>{esc(s["n"])}</i><span>{inline(s["title"])}</span><b>{s["page"]}</b></div>')
+            out.append(f'<a class="ro" href="#sec-{esc(s.get("id",""))}"><i>{esc(s["n"])}</i><span>{inline(s["title"])}</span><b>{s["page"]}</b></a>')
     return f'<div class="toc">{"".join(out)}</div>'
+
+
+def quote(b, c):
+    by = f"<cite>— {inline(b['by'])}</cite>" if b.get("by") else ""
+    return f'<blockquote class="bq"><p>{inline(b["text"])}</p>{by}</blockquote>'
+
+
+def code(b, c):
+    lang = f'<span class="cl">{esc(b["lang"])}</span>' if b.get("lang") else ""
+    cap = f'<div class="k" style="margin-top:1cqw">{inline(b["caption"])}</div>' if b.get("caption") else ""
+    return f'<div class="cdb">{lang}<pre><code>{esc(b["code"])}</code></pre>{cap}</div>'
+
+
+def _frame0(path: Path, cache: Path):
+    """Primer fotograma de un GIF o de un video (ffmpeg). Devuelve una ruta o None."""
+    cache.mkdir(parents=True, exist_ok=True)
+    out = cache / f"{path.stem}_f0.png"
+    if out.exists():
+        return out
+    try:
+        if path.suffix.lower() in (".gif", ".png", ".jpg", ".jpeg", ".webp"):
+            from PIL import Image
+            Image.open(path).convert("RGB").save(out)
+            return out
+        import subprocess
+        subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", str(path), "-vframes", "1", str(out)], check=True, timeout=60)
+        return out if out.exists() else None
+    except Exception:  # noqa: BLE001
+        return None
+
+
+def media(b, c):
+    """PDF: no reproduce. Imprime el póster (o el primer fotograma) en dos tintas, con la marca ▶, el pie, el crédito y el enlace."""
+    kind = b.get("kind", "video")
+    src = c.images_root / b["src"] if b.get("src") else None
+    poster = (c.images_root / b["poster"]) if b.get("poster") else None
+    if not (poster and poster.exists()) and src and src.exists():
+        poster = _frame0(src, c.cache)
+    item = {"src": str(poster) if poster and poster.exists() else None, "need": f"Póster del {kind} «{b.get('src','')}»", "caption": "", "alt": b.get("alt", ""), "nocredit": True}
+    if not (b.get("alt") or b.get("caption")):
+        c.warn.append({"bloque": b.get("src", "media"), "causa": "media sin `alt` ni pie", "ajuste": "añade alt"})
+    html = _one_image(item, c, b.get("ratio", "16/9"))
+    chip = f'<span class="et f">{"▶ VIDEO" if kind == "video" else "GIF"}</span> '
+    cap = chip + inline(b.get("caption", b.get("alt", "")))
+    if b.get("credit"):
+        cap += f' <span class="cr">{esc(b["credit"])}</span>'
+    if b.get("url"):
+        cap += f' <span class="cr">{esc(b["url"])}</span>'
+    return html.replace("<figcaption></figcaption>", f"<figcaption>{cap}</figcaption>", 1) if "<figcaption></figcaption>" in html else html
 
 
 RENDER = {
     "p": p, "h": h, "callout": callout, "big": big, "kpi": kpi, "chart": chart, "image": image, "figure": figure, "stats": stats,
-    "form": form, "flowchart": flowchart, "custom": custom,
+    "form": form, "flowchart": flowchart, "custom": custom, "quote": quote, "code": code, "media": media,
     "flow": flow, "ladder": ladder, "ranks": ranks, "timeline": timeline, "compare": compare, "toc": toc,
 }
 

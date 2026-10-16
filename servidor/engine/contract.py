@@ -1,5 +1,6 @@
 # [CLAUDE-CONSTRUCTOR] Código creado por Claude como constructor del servidor. El agente de contenido no lo escribe ni lo edita.
-"""Validación del contrato de entrada. Devuelve errores con formato fijo: bloque, causa, ajuste sugerido."""
+"""Validación del contrato de entrada (reglas en engine/spec.py). Errores con formato fijo: bloque, causa, ajuste sugerido."""
+from . import spec
 
 LIM = {"p": 1400, "items": 14, "rows": 40, "points": 14}
 
@@ -12,6 +13,8 @@ def validate(doc: dict, manifest: dict, warns: list = None) -> list:
     """Errores = el documento no se puede construir (se rechaza). Todo lo demás que no sea estándar se degrada y va a `warns`."""
     errs = []
     warns = warns if warns is not None else []
+    if doc.get("contract") != spec.CONTRACT_VERSION:
+        warns.append(_e("contract", f"versión de contrato '{doc.get('contract')}' (vigente {spec.CONTRACT_VERSION})", f"pon \"contract\": \"{spec.CONTRACT_VERSION}\""))
     vocab = set(manifest["blocks"]["vocabulario"])
     charts = set(manifest["blocks"]["chart_types"])
     if doc.get("design") != manifest["id"]:
@@ -31,6 +34,7 @@ def validate(doc: dict, manifest: dict, warns: list = None) -> list:
             for bi, b in enumerate(sec.get("blocks", [])):
                 w = f"{sid}.b{bi}"
                 t = b.get("type")
+                spec.validate_block(b, w, warns)
                 if t not in vocab:
                     warns.append(_e(w, f"tipo de bloque '{t}' fuera del vocabulario", "se mostrará como nota; usa un bloque del vocabulario"))
                     continue

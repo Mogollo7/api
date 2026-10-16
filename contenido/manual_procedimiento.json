@@ -1,0 +1,255 @@
+{
+ "contract": "1.0",
+ "design": "anura",
+ "format": "pdf-a4",
+ "palette": "default",
+ "options": {
+  "seed": 9
+ },
+ "meta": {
+  "title": "Procedimiento de revisión de un informe de datos",
+  "author": "Equipo de análisis",
+  "subject": "Prueba de aceptación: manual",
+  "keywords": [
+   "procedimiento",
+   "datos",
+   "revisión"
+  ],
+  "date": "Octubre 2026",
+  "version": "Manual · v1",
+  "header_left": [
+   "Manual de procedimiento",
+   "Revisión de datos"
+  ],
+  "footer": "Procedimiento de revisión · v1"
+ },
+ "document": {
+  "cover": {
+   "variant": "CV-2",
+   "vertical": "REVISAR",
+   "title": "Cómo revisar un informe de datos",
+   "text": "Pasos, decisiones y comprobaciones para entregar un análisis que se pueda defender."
+  },
+  "parts": [
+   {
+    "id": "p1",
+    "title": "Antes de empezar",
+    "desc": "Qué necesitas y qué decisión se toma en cada paso.",
+    "divider": "DV-F",
+    "sections": [
+     {
+      "id": "m1",
+      "title": "Índice y alcance",
+      "tema": "Alcance",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "Este manual describe cómo revisar un informe de datos antes de entregarlo[^1]. Sirve para análisis exploratorios con tablas, gráficos y conclusiones escritas."
+       },
+       {
+        "type": "toc"
+       },
+       {
+        "type": "form",
+        "title": "Ficha de la revisión",
+        "rows": [
+         "Informe revisado",
+         "Revisor o revisora",
+         "Fecha"
+        ]
+       }
+      ],
+      "notes": [
+       {
+        "n": 1,
+        "text": "Un informe se entrega cuando todas las comprobaciones del paso 3 están marcadas."
+       }
+      ]
+     },
+     {
+      "id": "m2",
+      "title": "Flujo de decisión",
+      "tema": "Flujo",
+      "blocks": [
+       {
+        "type": "flowchart",
+        "title": "Qué hacer con un dato raro",
+        "nodes": [
+         {
+          "id": "a",
+          "label": "Dato atípico",
+          "kind": "start"
+         },
+         {
+          "id": "b",
+          "label": "¿Es imposible?",
+          "kind": "decision"
+         },
+         {
+          "id": "c",
+          "label": "Corregir o eliminar"
+         },
+         {
+          "id": "d",
+          "label": "Documentar la decisión"
+         },
+         {
+          "id": "e",
+          "label": "Informe listo",
+          "kind": "end"
+         }
+        ],
+        "edges": [
+         {
+          "from": "a",
+          "to": "b"
+         },
+         {
+          "from": "b",
+          "to": "c",
+          "label": "sí"
+         },
+         {
+          "from": "b",
+          "to": "d",
+          "label": "no"
+         },
+         {
+          "from": "c",
+          "to": "d"
+         },
+         {
+          "from": "d",
+          "to": "e"
+         }
+        ],
+        "caption": "Figura 1. Un atípico solo está lejos de su grupo; no es necesariamente un error."
+       },
+       {
+        "type": "callout",
+        "tone": "regla",
+        "text": "Nunca se elimina un dato sin escribir por qué."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "p2",
+    "title": "Pasos",
+    "desc": "Los cuatro pasos de la revisión, con ejemplos.",
+    "divider": "DV-C",
+    "sections": [
+     {
+      "id": "m3",
+      "title": "Los cuatro pasos",
+      "tema": "Pasos",
+      "blocks": [
+       {
+        "type": "list",
+        "ordered": true,
+        "items": [
+         "Abrir el archivo y mirar su forma.",
+         {
+          "t": "Comprobar la calidad:",
+          "items": [
+           "valores faltantes",
+           "filas duplicadas",
+           "tipos de dato"
+          ]
+         },
+         "Mirar la distribución de cada variable.",
+         "Escribir conclusiones que no digan más que los datos."
+        ]
+       },
+       {
+        "type": "code",
+        "lang": "python",
+        "code": "import pandas as pd\ndf = pd.read_csv('datos.csv')\nprint(df.shape)\nprint(df.isna().sum())\nprint(df.duplicated().sum())",
+        "caption": "Ejemplo de las tres primeras comprobaciones."
+       },
+       {
+        "type": "table",
+        "variant": "ficha",
+        "head": [
+         "Comprobación",
+         "Criterio"
+        ],
+        "widths": [
+         3,
+         6
+        ],
+        "rows": [
+         [
+          "Faltantes",
+          "Cero, o una decisión escrita para cada columna con faltantes."
+         ],
+         [
+          "Duplicados",
+          "Cero filas repetidas, o una razón por la que se conservan."
+         ],
+         [
+          "Tipos",
+          "Cada columna con el tipo más pequeño que contiene su rango."
+         ]
+        ]
+       }
+      ]
+     },
+     {
+      "id": "m4",
+      "title": "Video de apoyo",
+      "tema": "Video",
+      "blocks": [
+       {
+        "type": "media",
+        "kind": "video",
+        "src": "medios/demo.mp4",
+        "alt": "Demostración de la revisión de un archivo",
+        "caption": "Video 1. Demostración (muestra).",
+        "credit": "Contenido de muestra",
+        "url": "ejemplo.org/video-1"
+       },
+       {
+        "type": "media",
+        "kind": "gif",
+        "src": "medios/demo.gif",
+        "alt": "Animación de muestra",
+        "caption": "Animación 1 (muestra)."
+       },
+       {
+        "type": "quote",
+        "text": "Los datos no hablan solos: alguien los interpreta.",
+        "by": "Máxima de taller"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "p3",
+    "title": "Cierre",
+    "desc": "Referencias y glosario.",
+    "divider": "DV-A",
+    "sections": [
+     {
+      "id": "m5",
+      "title": "Referencias",
+      "tema": "Referencias",
+      "toc": true,
+      "blocks": [
+       {
+        "type": "refs",
+        "items": [
+         "Tukey, J. W. (1977). *Exploratory Data Analysis*. Addison-Wesley.",
+         "Documentación de pandas: `DataFrame.info()`, `DataFrame.duplicated()`.",
+         "Referencia de muestra de la prueba de aceptación."
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

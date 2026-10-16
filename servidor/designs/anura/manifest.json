@@ -73,23 +73,27 @@
     {
       "family": "Anton",
       "file": "fonts/Anton-Regular.woff2",
-      "weight": "400"
+      "weight": "400",
+      "licencia": "SIL Open Font License 1.1"
     },
     {
       "family": "Archivo",
       "file": "fonts/Archivo-Variable.woff2",
       "weight": "100 900",
-      "stretch": "62% 125%"
+      "stretch": "62% 125%",
+      "licencia": "SIL Open Font License 1.1"
     },
     {
       "family": "IBM Plex Mono",
       "file": "fonts/IBMPlexMono-Regular.woff2",
-      "weight": "400"
+      "weight": "400",
+      "licencia": "SIL Open Font License 1.1"
     },
     {
       "family": "IBM Plex Mono",
       "file": "fonts/IBMPlexMono-SemiBold.woff2",
-      "weight": "600"
+      "weight": "600",
+      "licencia": "SIL Open Font License 1.1"
     }
   ],
   "page": {
@@ -127,6 +131,48 @@
       "foot_symbol": {
         "size": 3.6,
         "color": "ocre"
+      },
+      "symbols_by_variant": {
+        "CV-2": [
+          {
+            "left": 66,
+            "top": 10.4,
+            "size": 3.6,
+            "color": "crema"
+          },
+          {
+            "left": 88.5,
+            "top": 91.6,
+            "size": 3.8,
+            "color": "crema"
+          },
+          {
+            "left": 48,
+            "top": 10.4,
+            "size": 3.2,
+            "color": "vivo"
+          }
+        ],
+        "CV-3": [
+          {
+            "left": 88,
+            "top": 10.6,
+            "size": 3.6,
+            "color": "crema"
+          },
+          {
+            "left": 92,
+            "top": 91.8,
+            "size": 3.4,
+            "color": "crema"
+          },
+          {
+            "left": 46,
+            "top": 10.6,
+            "size": 3.2,
+            "color": "vivo"
+          }
+        ]
       }
     },
     "divider": {
@@ -271,20 +317,24 @@
       "list",
       "table",
       "chart",
+      "figure",
       "kpi",
+      "stats",
       "big",
       "callout",
       "image",
+      "media",
       "flow",
       "ladder",
       "ranks",
       "timeline",
       "compare",
       "toc",
-      "figure",
-      "stats",
       "form",
       "flowchart",
+      "quote",
+      "code",
+      "refs",
       "custom"
     ],
     "chart_types": [
@@ -292,6 +342,7 @@
       "hbar",
       "line",
       "stack",
+      "pie",
       "hist",
       "box",
       "scatter",
@@ -350,5 +401,20 @@
     "radio": 0,
     "sin_degradados": true,
     "sin_sombras_suaves": true
+  },
+  "reglas_texto": {
+    "idioma": "español neutro, frases cortas, coma decimal",
+    "titulos": "se escriben en minúsculas normales; el diseño los pone en mayúsculas",
+    "titular_max": 60,
+    "parte_max": 34,
+    "un_dato_una_vez": true
+  },
+  "plantillas_requeridas": {
+    "portada": [
+      "CV-1"
+    ],
+    "divisor": [
+      "DV-A"
+    ]
   }
 }

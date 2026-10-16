@@ -1,0 +1,64 @@
+{
+ "estado": "ok",
+ "errores": [],
+ "avisos": [],
+ "auditoria": {},
+ "imagenes_necesarias": [
+  {
+   "src": null,
+   "need": "Foto de campo de un anuro en su hábitat, con regla de escala"
+  }
+ ],
+ "secciones": [
+  {
+   "id": "f1",
+   "n": "01",
+   "pagina": 3
+  },
+  {
+   "id": "f2",
+   "n": "02",
+   "pagina": 5
+  },
+  {
+   "id": "f3",
+   "n": "03",
+   "pagina": 7
+  },
+  {
+   "id": "f4",
+   "n": "04",
+   "pagina": 9
+  }
+ ],
+ "correcciones_contraste": [
+  {
+   "texto": "5 d",
+   "de": "#0b0b0b",
+   "a": "#fafaf7",
+   "via": "rol crema",
+   "ratio_antes": 3.8,
+   "ratio_despues": 4.96
+  },
+  {
+   "texto": "Empezar sin entrenar y ajustar",
+   "de": "#0b0b0b",
+   "a": "#fafaf7",
+   "via": "rol crema",
+   "ratio_antes": 3.8,
+   "ratio_despues": 4.96
+  }
+ ],
+ "variantes_usadas": [
+  "CV-2",
+  "DV-A",
+  "DV-B"
+ ],
+ "variantes_no_aprobadas": [
+  "CV-2",
+  "DV-A",
+  "DV-B"
+ ],
+ "paginas": 10,
+ "segundos": 3.0
+}

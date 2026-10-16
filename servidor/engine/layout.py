@@ -25,7 +25,7 @@ MEASURE_JS = r"""
     }
     const ul = u.querySelector('ul.bl');
     if (ul && u.dataset.split === 'list') {
-      r.rows = [...ul.querySelectorAll('li')].map(t => t.getBoundingClientRect().height / scale);
+      r.rows = [...ul.querySelectorAll(':scope > li')].map(t => t.getBoundingClientRect().height / scale);
       r.total = u.getBoundingClientRect().height / scale;
     }
     out.push(r);

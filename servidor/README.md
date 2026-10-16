@@ -44,3 +44,8 @@ página de cada sección. Estado `ok` = sin nada que corregir.
 - Salida web: `python servidor/web.py contenido/guia.json -o salida/web/index.html --imagenes teoria/imagenes --estilo` (reglas en `../WEB.md`).
 - Lectura de referencias: `servidor/tools/leer_pdf.py` y `servidor/tools/descomponer.py` (ver `../CLAUDE.md`).
 - Pruebas: 15 (`python -m unittest discover -s servidor/tests`), incluida `no_estandar.json`.
+
+## v0.3 (cierre del motor de PDF)
+Contrato v1.0 con JSON Schema (`contrato.schema.json`), diseños declarativos (`designs/LEEME.md`, `crear_diseno.py`, `validar_diseno.py`), Prompt Maestro y skill (`prompt.py`),
+bloques `quote`, `code`, `refs`, `media`, listas anidadas y notas al pie, gráficos pie/agrupadas/multiserie/fechas, regresión visual (`regresion.py`), API con idempotencia y `Dockerfile`.
+Estado y pendientes: `../ESTADO_MOTOR_PDF.md`.

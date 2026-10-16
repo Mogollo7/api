@@ -1,0 +1,1069 @@
+{
+ "$schema": "http://json-schema.org/draft-07/schema#",
+ "title": "Contrato de documentos v1.0",
+ "type": "object",
+ "required": [
+  "contract",
+  "design",
+  "format",
+  "meta",
+  "document"
+ ],
+ "properties": {
+  "contract": {
+   "const": "1.0"
+  },
+  "design": {
+   "type": "string",
+   "description": "Id del diseño."
+  },
+  "format": {
+   "type": "string",
+   "description": "pdf-a4 | pptx-16x9 | web-1col."
+  },
+  "palette": {
+   "type": "string",
+   "description": "Nombre de paleta, 'default' o {rol:#hex}."
+  },
+  "options": {
+   "type": "object",
+   "description": "{seed}"
+  },
+  "meta": {
+   "type": "object",
+   "required": [
+    "title"
+   ],
+   "properties": {
+    "title": {
+     "type": "string",
+     "description": "Título para metadatos."
+    },
+    "author": {
+     "type": "string",
+     "description": "Autor."
+    },
+    "subject": {
+     "type": "string",
+     "description": "Asunto."
+    },
+    "keywords": {
+     "type": "array",
+     "description": "Palabras clave."
+    },
+    "date": {
+     "type": "string",
+     "description": "Fecha: «Mes AAAA»."
+    },
+    "version": {
+     "type": "string",
+     "description": "Versión o etiqueta de la caja de la portada."
+    },
+    "header_left": {
+     "type": "array",
+     "description": "Dos líneas de la cabecera de portada."
+    },
+    "footer": {
+     "type": "string",
+     "description": "Pie de las hojas."
+    }
+   }
+  },
+  "document": {
+   "type": "object",
+   "required": [
+    "cover",
+    "parts"
+   ],
+   "properties": {
+    "cover": {
+     "type": "object",
+     "required": [
+      "title",
+      "vertical",
+      "text"
+     ],
+     "properties": {
+      "title": {
+       "type": "string",
+       "maxLength": 70,
+       "description": "Título del documento (una sola vez; no lo repitas en otros campos)."
+      },
+      "vertical": {
+       "type": "string",
+       "maxLength": 20,
+       "description": "Palabra gigante de la portada."
+      },
+      "text": {
+       "type": "string",
+       "maxLength": 220,
+       "description": "Descripción de 1–3 líneas."
+      },
+      "variant": {
+       "type": "string",
+       "description": "CV-1…"
+      },
+      "image": {
+       "type": "string",
+       "description": "Foto."
+      },
+      "treatment": {
+       "type": "string",
+       "description": "Tinta."
+      },
+      "tint": {
+       "type": "array",
+       "description": "[rol oscuro, rol claro]."
+      },
+      "alt": {
+       "type": "string",
+       "description": "Texto alternativo de la foto."
+      },
+      "stack": {
+       "type": "array",
+       "description": "Filas del titular apilado (CV-4)."
+      },
+      "badge": {
+       "type": "object",
+       "description": "{lines, tag} (CV-4)."
+      },
+      "quote": {
+       "type": "array",
+       "description": "Líneas (CV-4)."
+      },
+      "strip": {
+       "type": "array",
+       "description": "Palabras (CV-4)."
+      },
+      "number": {
+       "type": "string",
+       "description": "Número (CV-4)."
+      },
+      "list": {
+       "type": "array",
+       "description": "Líneas (CV-4)."
+      },
+      "notes": {
+       "type": "array",
+       "description": "Notas (CV-4)."
+      }
+     }
+    },
+    "parts": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "required": [
+       "id",
+       "title",
+       "desc",
+       "sections"
+      ],
+      "properties": {
+       "id": {
+        "type": "string",
+        "description": "Identificador."
+       },
+       "title": {
+        "type": "string",
+        "maxLength": 34,
+        "description": "Título corto (≤ 34)."
+       },
+       "desc": {
+        "type": "string",
+        "maxLength": 200,
+        "description": "Descripción de 1–2 líneas."
+       },
+       "divider": {
+        "type": "string",
+        "description": "Variante de divisor o 'auto'."
+       },
+       "bg": {
+        "type": "string",
+        "description": "Rol de fondo."
+       },
+       "num_color": {
+        "type": "string",
+        "description": "Rol del número."
+       },
+       "title_color": {
+        "type": "string",
+        "description": "Rol del título."
+       },
+       "image": {
+        "type": "string",
+        "description": "Foto del divisor."
+       },
+       "tint": {
+        "type": "array",
+        "description": "[rol oscuro, rol claro]."
+       },
+       "sections": {
+        "type": "array",
+        "items": {
+         "type": "object",
+         "required": [
+          "id",
+          "title",
+          "blocks"
+         ],
+         "properties": {
+          "id": {
+           "type": "string",
+           "description": "Identificador único."
+          },
+          "title": {
+           "type": "string",
+           "maxLength": 90,
+           "description": "Titular de la hoja (≤ 60 caracteres)."
+          },
+          "tema": {
+           "type": "string",
+           "description": "Tema de la cabecera: solo si aporta palabras que el titular no tiene."
+          },
+          "kind": {
+           "type": "string",
+           "enum": [
+            "normal",
+            "clave"
+           ],
+           "description": "normal | clave."
+          },
+          "lead": {
+           "type": "string",
+           "description": "Idea principal (en `clave` va en la tarjeta)."
+          },
+          "blocks": {
+           "type": "array",
+           "items": {
+            "oneOf": [
+             {
+              "type": "object",
+              "title": "p",
+              "description": "Párrafo de texto.",
+              "required": [
+               "type",
+               "text"
+              ],
+              "properties": {
+               "type": {
+                "const": "p"
+               },
+               "text": {
+                "type": "string",
+                "maxLength": 1400,
+                "description": "Texto del párrafo."
+               },
+               "half": {
+                "type": "boolean"
+               },
+               "label": {
+                "type": "string"
+               }
+              }
+             },
+             {
+              "type": "object",
+              "title": "h",
+              "description": "Subtítulo de sección (etiqueta con regla). No repitas el titular de la sección.",
+              "required": [
+               "type",
+               "text"
+              ],
+              "properties": {
+               "type": {
+                "const": "h"
+               },
+               "text": {
+                "type": "string",
+                "maxLength": 80,
+                "description": "Subtítulo corto."
+               },
+               "half": {
+                "type": "boolean"
+               },
+               "label": {
+                "type": "string"
+               }
+              }
+             },
+             {
+              "type": "object",
+              "title": "list",
+              "description": "Lista con viñetas o numerada; un ítem puede llevar sublista {t, items}.",
+              "required": [
+               "type",
+               "items"
+              ],
+              "properties": {
+               "type": {
+                "const": "list"
+               },
+               "items": {
+                "type": "array",
+                "maxItems": 14,
+                "description": "Ítems (texto o {t, items:[…]})."
+               },
+               "ordered": {
+                "type": "boolean",
+                "description": "Numerada."
+               },
+               "half": {
+                "type": "boolean"
+               },
+               "label": {
+                "type": "string"
+               }
+              }
+             },
+             {
+              "type": "object",
+              "title": "table",
+              "description": "Tabla; se parte por filas entre hojas repitiendo la cabecera.",
+              "required": [
+               "type",
+               "rows"
+              ],
+              "properties": {
+               "type": {
+                "const": "table"
+               },
+               "head": {
+                "type": "array",
+                "description": "Encabezados."
+               },
+               "rows": {
+                "type": "array",
+                "maxItems": 40,
+                "description": "Filas: listas de celdas (texto, número o {t,tone:'f|p|l|n',hi})."
+               },
+               "widths": {
+                "type": "array",
+                "description": "Anchos relativos."
+               },
+               "caption": {
+                "type": "string",
+                "description": "Pie de tabla."
+               },
+               "variant": {
+                "type": "string",
+                "enum": [
+                 "compact",
+                 "ficha"
+                ],
+                "description": "Variante."
+               },
+               "half": {
+                "type": "boolean"
+               },
+               "label": {
+                "type": "string"
+               }
+              }
+             },
+             {
+              "type": "object",
+              "title": "chart",
+              "description": "Gráfico estándar en marco con título y pie. Ver tipos.",
+              "required": [
+               "type",
+               "chart"
+              ],
+              "properties": {
+               "type": {
+                "const": "chart"
+               },
+               "title": {
+                "type": "string",
+                "maxLength": 70,
+                "description": "Título del gráfico (no repitas el titular de la hoja)."
+               },
+               "tag": {
+                "type": "string",
+                "description": "Etiqueta mono: fuente o tipo de dato."
+               },
+               "chart": {
+                "type": "object",
+                "description": "{type, data[, legend]}"
+               },
+               "caption": {
+                "type": "string",
+                "description": "Pie: «Figura N. …»."
+               },
+               "sim": {
+                "type": "boolean",
+                "description": "Datos simulados (marco punteado)."
+               },
+               "half": {
+                "type": "boolean"
+               },
+               "label": {
+                "type": "string"
+               }
+              }
+             },
+             {
+              "type": "object",
+              "title": "figure",
+              "description": "Figura (gráfico o imagen) con columna de cifras laterales (7/10 + 3/10).",
+              "required": [
+               "type"
+              ],
+              "properties": {
+               "type": {
+                "const": "figure"
+               },
+               "chart": {
+                "type": "object",
+                "description": "Como en chart."
+               },
+               "image": {
+                "type": "object",
+                "description": "Como en image."
+               },
+               "title": {
+                "type": "string",
+                "description": "Título."
+               },
+               "caption": {
+                "type": "string",
+                "description": "Pie."
+               },
+               "side": {
+                "type": "array",
+                "description": "Cifras: [{v,l}]."
+               },
+               "side_note": {
+                "type": "string",
+                "description": "Nota bajo las cifras."
+               },
+               "side_title": {
+                "type": "string",
+                "description": "Rótulo de la columna."
+               },
+               "half": {
+                "type": "boolean"
+               },
+               "label": {
+                "type": "string"
+               }
+              }
+             },
+             {
+              "type": "object",
+              "title": "kpi",
+              "description": "2 a 4 tarjetas con cifra grande.",
+              "required": [
+               "type",
+               "items"
+              ],
+              "properties": {
+               "type": {
+                "const": "kpi"
+               },
+               "items": {
+                "type": "array",
+                "maxItems": 4,
+                "description": "[{v, l, note?}]"
+               },
+               "half": {
+                "type": "boolean"
+               },
+               "label": {
+                "type": "string"
+               }
+              }
+             },
+             {
+              "type": "object",
+              "title": "stats",
+              "description": "Cifras en columna con regla vertical.",
+              "required": [
+               "type",
+               "items"
+              ],
+              "properties": {
+               "type": {
+                "const": "stats"
+               },
+               "items": {
+                "type": "array",
+                "description": "[{v,l}]"
+               },
+               "title": {
+                "type": "string",
+                "description": "Rótulo."
+               },
+               "note": {
+                "type": "string",
+                "description": "Nota."
+               },
+               "half": {
+                "type": "boolean"
+               },
+               "label": {
+                "type": "string"
+               }
+              }
+             },
+             {
+              "type": "object",
+              "title": "big",
+              "description": "Una cifra gigante con su leyenda.",
+              "required": [
+               "type",
+               "value",
+               "caption"
+              ],
+              "properties": {
+               "type": {
+                "const": "big"
+               },
+               "value": {
+                "type": "string",
+                "description": "Cifra."
+               },
+               "unit": {
+                "type": "string",
+                "description": "Unidad."
+               },
+               "caption": {
+                "type": "string",
+                "description": "Leyenda."
+               },
+               "half": {
+                "type": "boolean"
+               },
+               "label": {
+                "type": "string"
+               }
+              }
+             },
+             {
+              "type": "object",
+              "title": "callout",
+              "description": "Aviso con etiqueta.",
+              "required": [
+               "type"
+              ],
+              "properties": {
+               "type": {
+                "const": "callout"
+               },
+               "tone": {
+                "type": "string",
+                "enum": [
+                 "nota",
+                 "clave",
+                 "ojo",
+                 "sim",
+                 "pend",
+                 "regla",
+                 "slate",
+                 "hueco"
+                ],
+                "description": "Tono."
+               },
+               "label": {
+                "type": "string"
+               },
+               "title": {
+                "type": "string",
+                "description": "Título."
+               },
+               "text": {
+                "type": "string",
+                "description": "Texto."
+               },
+               "paras": {
+                "type": "array",
+                "description": "Varios párrafos."
+               },
+               "half": {
+                "type": "boolean"
+               }
+              }
+             },
+             {
+              "type": "object",
+              "title": "image",
+              "description": "Foto en dos tintas con pie y crédito. Si no tienes la imagen, escribe `need` y el servidor dibuja «IMAGEN NECESARIA».",
+              "required": [
+               "type"
+              ],
+              "properties": {
+               "type": {
+                "const": "image"
+               },
+               "src": {
+                "type": "string",
+                "description": "Ruta relativa a la carpeta de imágenes."
+               },
+               "need": {
+                "type": "string",
+                "description": "Qué imagen hace falta si no existe."
+               },
+               "caption": {
+                "type": "string",
+                "description": "Pie (sirve de texto alternativo)."
+               },
+               "alt": {
+                "type": "string",
+                "description": "Texto alternativo."
+               },
+               "ratio": {
+                "type": "string",
+                "description": "Proporción, p. ej. 16/9."
+               },
+               "treatment": {
+                "type": "string",
+                "enum": [
+                 "ocre",
+                 "crema",
+                 "verde",
+                 "negroverde",
+                 "acento",
+                 "claro",
+                 "calido",
+                 "rojo"
+                ],
+                "description": "Tinta."
+               },
+               "items": {
+                "type": "array",
+                "maxItems": 3,
+                "description": "Hasta 3 imágenes en fila: [{src,caption,…}]"
+               },
+               "half": {
+                "type": "boolean"
+               },
+               "label": {
+                "type": "string"
+               }
+              }
+             },
+             {
+              "type": "object",
+              "title": "media",
+              "description": "GIF o video. PDF imprime el póster con «▶»; web reproduce; PPTX lo incrusta.",
+              "required": [
+               "type",
+               "kind",
+               "src",
+               "alt"
+              ],
+              "properties": {
+               "type": {
+                "const": "media"
+               },
+               "kind": {
+                "type": "string",
+                "enum": [
+                 "gif",
+                 "video"
+                ],
+                "description": "gif | video."
+               },
+               "src": {
+                "type": "string",
+                "description": "Archivo."
+               },
+               "poster": {
+                "type": "string",
+                "description": "Imagen de póster."
+               },
+               "caption": {
+                "type": "string",
+                "description": "Pie."
+               },
+               "credit": {
+                "type": "string",
+                "description": "Autor y licencia."
+               },
+               "alt": {
+                "type": "string",
+                "description": "Texto alternativo."
+               },
+               "url": {
+                "type": "string",
+                "description": "Enlace al video."
+               },
+               "half": {
+                "type": "boolean"
+               },
+               "label": {
+                "type": "string"
+               }
+              }
+             },
+             {
+              "type": "object",
+              "title": "flow",
+              "description": "Pasos en tarjetas (proceso lineal).",
+              "required": [
+               "type",
+               "steps"
+              ],
+              "properties": {
+               "type": {
+                "const": "flow"
+               },
+               "steps": {
+                "type": "array",
+                "maxItems": 9,
+                "description": "[{title,text?,n?,on?}]"
+               },
+               "cols": {
+                "type": "number",
+                "description": "Columnas 2–4."
+               },
+               "half": {
+                "type": "boolean"
+               },
+               "label": {
+                "type": "string"
+               }
+              }
+             },
+             {
+              "type": "object",
+              "title": "ladder",
+              "description": "Escalera de opciones de simple a complejo.",
+              "required": [
+               "type",
+               "items"
+              ],
+              "properties": {
+               "type": {
+                "const": "ladder"
+               },
+               "items": {
+                "type": "array",
+                "maxItems": 9,
+                "description": "[{title,text,cost?}]"
+               },
+               "half": {
+                "type": "boolean"
+               },
+               "label": {
+                "type": "string"
+               }
+              }
+             },
+             {
+              "type": "object",
+              "title": "ranks",
+              "description": "Embudo de rangos con dos columnas de ejemplo.",
+              "required": [
+               "type",
+               "rows"
+              ],
+              "properties": {
+               "type": {
+                "const": "ranks"
+               },
+               "head": {
+                "type": "array",
+                "description": "Rótulos de columnas."
+               },
+               "rows": {
+                "type": "array",
+                "description": "[{rank, v:[a,b]}]"
+               },
+               "half": {
+                "type": "boolean"
+               },
+               "label": {
+                "type": "string"
+               }
+              }
+             },
+             {
+              "type": "object",
+              "title": "timeline",
+              "description": "Línea de vida: etapas con duración.",
+              "required": [
+               "type",
+               "items"
+              ],
+              "properties": {
+               "type": {
+                "const": "timeline"
+               },
+               "items": {
+                "type": "array",
+                "description": "[{code,label,days,vis:'v|h|x',photo}]"
+               },
+               "adult": {
+                "type": "object",
+                "description": "Etapa final sin duración."
+               },
+               "legend": {
+                "type": "array",
+                "description": "[[clase,texto]]"
+               },
+               "caption": {
+                "type": "string",
+                "description": "Pie."
+               },
+               "half": {
+                "type": "boolean"
+               },
+               "label": {
+                "type": "string"
+               }
+              }
+             },
+             {
+              "type": "object",
+              "title": "compare",
+              "description": "Dos opciones enfrentadas con veredicto.",
+              "required": [
+               "type",
+               "left",
+               "right"
+              ],
+              "properties": {
+               "type": {
+                "const": "compare"
+               },
+               "left": {
+                "type": "object",
+                "description": "{title,sub?,items}"
+               },
+               "right": {
+                "type": "object",
+                "description": "{title,sub?,items}"
+               },
+               "verdict": {
+                "type": "string",
+                "description": "Veredicto."
+               },
+               "half": {
+                "type": "boolean"
+               },
+               "label": {
+                "type": "string"
+               }
+              }
+             },
+             {
+              "type": "object",
+              "title": "toc",
+              "description": "Índice automático con páginas y enlaces (solo uno por documento).",
+              "required": [
+               "type"
+              ],
+              "properties": {
+               "type": {
+                "const": "toc"
+               },
+               "half": {
+                "type": "boolean"
+               },
+               "label": {
+                "type": "string"
+               }
+              }
+             },
+             {
+              "type": "object",
+              "title": "form",
+              "description": "Ficha de datos con filas para completar.",
+              "required": [
+               "type",
+               "rows"
+              ],
+              "properties": {
+               "type": {
+                "const": "form"
+               },
+               "title": {
+                "type": "string",
+                "description": "Título."
+               },
+               "rows": {
+                "type": "array",
+                "description": "Etiquetas."
+               },
+               "half": {
+                "type": "boolean"
+               },
+               "label": {
+                "type": "string"
+               }
+              }
+             },
+             {
+              "type": "object",
+              "title": "flowchart",
+              "description": "Diagrama de flujo estándar (≤ 14 nodos, ≤ 3 por capa).",
+              "required": [
+               "type",
+               "nodes"
+              ],
+              "properties": {
+               "type": {
+                "const": "flowchart"
+               },
+               "nodes": {
+                "type": "array",
+                "maxItems": 14,
+                "description": "[{id,label,kind:'start|process|decision|io|end'}]"
+               },
+               "edges": {
+                "type": "array",
+                "description": "[{from,to,label?}]"
+               },
+               "title": {
+                "type": "string",
+                "description": "Título."
+               },
+               "caption": {
+                "type": "string",
+                "description": "Pie."
+               },
+               "half": {
+                "type": "boolean"
+               },
+               "label": {
+                "type": "string"
+               }
+              }
+             },
+             {
+              "type": "object",
+              "title": "quote",
+              "description": "Cita destacada con autor.",
+              "required": [
+               "type",
+               "text"
+              ],
+              "properties": {
+               "type": {
+                "const": "quote"
+               },
+               "text": {
+                "type": "string",
+                "maxLength": 500,
+                "description": "Cita."
+               },
+               "by": {
+                "type": "string",
+                "description": "Autor o fuente."
+               },
+               "half": {
+                "type": "boolean"
+               },
+               "label": {
+                "type": "string"
+               }
+              }
+             },
+             {
+              "type": "object",
+              "title": "code",
+              "description": "Bloque de código o texto monoespaciado (no se interpreta).",
+              "required": [
+               "type",
+               "code"
+              ],
+              "properties": {
+               "type": {
+                "const": "code"
+               },
+               "code": {
+                "type": "string",
+                "maxLength": 1500,
+                "description": "Código."
+               },
+               "lang": {
+                "type": "string",
+                "description": "Lenguaje."
+               },
+               "caption": {
+                "type": "string",
+                "description": "Pie."
+               },
+               "half": {
+                "type": "boolean"
+               },
+               "label": {
+                "type": "string"
+               }
+              }
+             },
+             {
+              "type": "object",
+              "title": "refs",
+              "description": "Referencias o bibliografía numerada.",
+              "required": [
+               "type",
+               "items"
+              ],
+              "properties": {
+               "type": {
+                "const": "refs"
+               },
+               "items": {
+                "type": "array",
+                "maxItems": 40,
+                "description": "Cada referencia como texto."
+               },
+               "title": {
+                "type": "string",
+                "description": "Título."
+               },
+               "half": {
+                "type": "boolean"
+               },
+               "label": {
+                "type": "string"
+               }
+              }
+             },
+             {
+              "type": "object",
+              "title": "custom",
+              "description": "ÚLTIMO RECURSO: fragmento HTML saneado (solo etiquetas y clases permitidas). Úsalo solo si ningún bloque sirve.",
+              "required": [
+               "type",
+               "html"
+              ],
+              "properties": {
+               "type": {
+                "const": "custom"
+               },
+               "html": {
+                "type": "string",
+                "description": "HTML."
+               },
+               "half": {
+                "type": "boolean"
+               },
+               "label": {
+                "type": "string"
+               }
+              }
+             }
+            ]
+           }
+          },
+          "notes": {
+           "type": "array",
+           "description": "Notas al pie: [{n, text}] que se citan en el texto con [^n]."
+          },
+          "toc": {
+           "type": "boolean",
+           "description": "False = no aparece en el índice."
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

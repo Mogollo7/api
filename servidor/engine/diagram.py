@@ -95,19 +95,27 @@ def draw(d):
             pos[i] = (cx, ys[r][0] + ys[r][1] / 2)
     s = [f'<svg viewBox="0 0 {W} {H:.0f}" role="img"><defs><marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" style="fill:var(--negro)"/></marker></defs>']
     edge_svg, label_svg = [], []
+    side_used = {}
     for e in edges:
         a, b = pos[e["from"]], pos[e["to"]]
-        ha = (DH if by[e["from"]].get("kind") == "decision" else BH) / 2
-        hb = (DH if by[e["to"]].get("kind") == "decision" else BH) / 2
-        if (e["from"], e["to"]) in back or rank[e["to"]] <= rank[e["from"]]:
-            x = max(a[0], b[0]) + (DW / 2 + 12)
-            p = f"M{a[0]+ (DW/2 if by[e['from']].get('kind')=='decision' else BW/2):.1f} {a[1]:.1f}H{x:.1f}V{b[1]:.1f}H{b[0]+(DW/2 if by[e['to']].get('kind')=='decision' else BW/2)+2:.1f}"
-            lx, ly = x + 3, (a[1] + b[1]) / 2
+        ka, kb = by[e["from"]].get("kind"), by[e["to"]].get("kind")
+        ha = (DH if ka == "decision" else BH) / 2
+        hb = (DH if kb == "decision" else BH) / 2
+        wa = (DW if ka == "decision" else BW) / 2
+        wb = (DW if kb == "decision" else BW) / 2
+        gap_r = rank[e["to"]] - rank[e["from"]]
+        if (e["from"], e["to"]) in back or gap_r != 1:
+            # arista que cierra un ciclo o salta capas: rodea por el costado derecho
+            n_side = side_used.get(rank[e["from"]], 0)
+            side_used[rank[e["from"]]] = n_side + 1
+            x = max(a[0] + wa, b[0] + wb) + 12 + 9 * n_side
+            p = f"M{a[0]+wa:.1f} {a[1]:.1f}H{x:.1f}V{b[1]:.1f}H{b[0]+wb+2:.1f}"
+            lx, ly = a[0] + wa + 4, a[1] - 5
         else:
             y0, y1 = a[1] + ha, b[1] - hb
             ym = y0 + (y1 - y0) / 2
             p = f"M{a[0]:.1f} {y0:.1f}V{ym:.1f}H{b[0]:.1f}V{y1-1:.1f}" if abs(a[0] - b[0]) > 1 else f"M{a[0]:.1f} {y0:.1f}V{y1-1:.1f}"
-            lx, ly = (a[0] + b[0]) / 2 + 4, ym - 3 if abs(a[0] - b[0]) > 1 else y0 + 12
+            lx, ly = (a[0] + 6, y0 + 13) if abs(a[0] - b[0]) <= 1 else ((a[0] + (b[0] - a[0]) * 0.5 + 4), ym - 4)
         edge_svg.append(f'<path d="{p}" style="fill:none;stroke:var(--negro);stroke-width:2" marker-end="url(#arw)"/>')
         if e.get("label"):
             label_svg.append(f'<rect x="{lx-2:.1f}" y="{ly-10:.1f}" width="{8+7*len(e["label"]):.0f}" height="14" style="fill:var(--crema)"/><text class="bold" x="{lx:.1f}" y="{ly:.1f}" style="font-size:10.5px">{esc(e["label"])}</text>')
@@ -116,7 +124,7 @@ def draw(d):
         cx, cy = pos[n["id"]]
         k = n.get("kind", "process")
         lines = _wrap(n["label"], 13 if k == "decision" else 15)
-        txt = "".join(f'<text x="{cx:.1f}" y="{cy - (len(lines)-1)*6.5 + i*13 + 4:.1f}" text-anchor="middle" style="font-size:10.5px;{"fill:var(--crema)" if k in ("start","end") else ""}">{esc(l)}</text>' for i, l in enumerate(lines))
+        txt = "".join(f'<text x="{cx:.1f}" y="{cy - (len(lines)-1)*7.5 + i*15 + 4:.1f}" text-anchor="middle" style="font-size:10.5px;{"fill:var(--crema)" if k in ("start","end") else ""}">{esc(l)}</text>' for i, l in enumerate(lines))
         if k == "decision":
             pts = f"{cx:.1f},{cy-DH/2:.1f} {cx+DW/2:.1f},{cy:.1f} {cx:.1f},{cy+DH/2:.1f} {cx-DW/2:.1f},{cy:.1f}"
             s.append(f'<polygon points="{pts}" style="fill:var(--vivo);stroke:var(--negro);stroke-width:2"/>{txt}')
