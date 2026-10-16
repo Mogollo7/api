@@ -1,0 +1,75 @@
+{
+ "estado": "ok",
+ "errores": [],
+ "avisos": [],
+ "auditoria": {},
+ "imagenes_necesarias": [],
+ "secciones": [
+  {
+   "id": "c1",
+   "n": "01",
+   "pagina": 3
+  },
+  {
+   "id": "c2",
+   "n": "02",
+   "pagina": 4
+  },
+  {
+   "id": "c3",
+   "n": "03",
+   "pagina": 6
+  },
+  {
+   "id": "c4",
+   "n": "04",
+   "pagina": 8
+  },
+  {
+   "id": "c5",
+   "n": "05",
+   "pagina": 10
+  },
+  {
+   "id": "c6",
+   "n": "06",
+   "pagina": 12
+  },
+  {
+   "id": "c7",
+   "n": "07",
+   "pagina": 13
+  },
+  {
+   "id": "c8",
+   "n": "08",
+   "pagina": 15
+  }
+ ],
+ "correcciones_contraste": [
+  {
+   "texto": "02",
+   "de": "#fe0032",
+   "a": "#ebdcd2",
+   "via": "rol arena",
+   "ratio_antes": 2.65,
+   "ratio_despues": 7.9
+  }
+ ],
+ "variantes_usadas": [
+  "CV-1",
+  "DV-B",
+  "DV-C",
+  "DV-E",
+  "DV-F"
+ ],
+ "variantes_no_aprobadas": [
+  "CV-1",
+  "DV-B",
+  "DV-C",
+  "DV-E",
+  "DV-F"
+ ],
+ "paginas": 15,
+ "segundos": 3.4
+}

@@ -8,8 +8,10 @@ def _e(where, cause, fix):
     return {"bloque": where, "causa": cause, "ajuste": fix}
 
 
-def validate(doc: dict, manifest: dict) -> list:
+def validate(doc: dict, manifest: dict, warns: list = None) -> list:
+    """Errores = el documento no se puede construir (se rechaza). Todo lo demás que no sea estándar se degrada y va a `warns`."""
     errs = []
+    warns = warns if warns is not None else []
     vocab = set(manifest["blocks"]["vocabulario"])
     charts = set(manifest["blocks"]["chart_types"])
     if doc.get("design") != manifest["id"]:
@@ -30,19 +32,21 @@ def validate(doc: dict, manifest: dict) -> list:
                 w = f"{sid}.b{bi}"
                 t = b.get("type")
                 if t not in vocab:
-                    errs.append(_e(w, f"tipo de bloque '{t}' fuera del vocabulario", f"usa uno de {sorted(vocab)}"))
+                    warns.append(_e(w, f"tipo de bloque '{t}' fuera del vocabulario", "se mostrará como nota; usa un bloque del vocabulario"))
                     continue
                 if t == "p" and len(b.get("text", "")) > LIM["p"]:
-                    errs.append(_e(w, f"párrafo de {len(b['text'])} caracteres (máx {LIM['p']})", "divídelo en dos bloques p"))
+                    warns.append(_e(w, f"párrafo de {len(b['text'])} caracteres (máx {LIM['p']})", "divídelo en dos bloques p"))
                 if t == "list" and len(b.get("items", [])) > LIM["items"]:
-                    errs.append(_e(w, f"lista de {len(b['items'])} ítems (máx {LIM['items']})", "divide la lista"))
+                    warns.append(_e(w, f"lista de {len(b['items'])} ítems (máx {LIM['items']})", "divide la lista"))
                 if t == "table" and len(b.get("rows", [])) > LIM["rows"]:
-                    errs.append(_e(w, f"tabla de {len(b['rows'])} filas (máx {LIM['rows']})", "divide la tabla"))
+                    warns.append(_e(w, f"tabla de {len(b['rows'])} filas (máx {LIM['rows']})", "divide la tabla"))
                 if t == "table":
                     n = len(b.get("head", []))
                     for ri, r in enumerate(b.get("rows", [])):
                         if len(r) != n:
-                            errs.append(_e(f"{w}.r{ri}", f"fila con {len(r)} celdas y cabecera con {n}", "iguala el número de celdas"))
-                if t == "chart" and b.get("chart", {}).get("type") not in charts:
-                    errs.append(_e(w, f"gráfico '{b.get('chart', {}).get('type')}' no soportado", f"usa uno de {sorted(charts)}"))
+                            warns.append(_e(f"{w}.r{ri}", f"fila con {len(r)} celdas y cabecera con {n}", "se completó o recortó la fila"))
+                            del r[n:]
+                            r.extend([""] * (n - len(r)))
+                if t in ("chart", "figure") and b.get("chart") and b["chart"].get("type") not in charts:
+                    warns.append(_e(w, f"gráfico '{b['chart'].get('type')}' no es estándar", "se mostrará una tabla con los datos"))
     return errs

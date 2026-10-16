@@ -1,0 +1,362 @@
+{
+ "hoja_px": [
+  735,
+  1041
+ ],
+ "paleta": [
+  {
+   "hex": "#d0cecc",
+   "pct": 17.6
+  },
+  {
+   "hex": "#0e0e0e",
+   "pct": 17.0
+  },
+  {
+   "hex": "#d6d4d2",
+   "pct": 14.5
+  },
+  {
+   "hex": "#080808",
+   "pct": 12.2
+  },
+  {
+   "hex": "#dddbda",
+   "pct": 11.6
+  },
+  {
+   "hex": "#a82727",
+   "pct": 10.5
+  },
+  {
+   "hex": "#1d1b1b",
+   "pct": 10.2
+  },
+  {
+   "hex": "#bab6b5",
+   "pct": 6.5
+  }
+ ],
+ "atomos": [
+  {
+   "id": 1,
+   "kind": "bloque",
+   "caja_cqw": {
+    "x": 76.3,
+    "y": 1.1,
+    "w": 18.2,
+    "h": 29.4
+   },
+   "zona": "arriba-derecha",
+   "alinea": "der",
+   "color": "#cf1c1b",
+   "relleno": "#cf1c1c"
+  },
+  {
+   "id": 2,
+   "kind": "bloque",
+   "caja_cqw": {
+    "x": 66.4,
+    "y": 58.9,
+    "w": 25.3,
+    "h": 26.5
+   },
+   "zona": "centro-derecha",
+   "alinea": "der",
+   "color": "#bf1a19",
+   "relleno": "#c21b1a"
+  },
+  {
+   "id": 3,
+   "kind": "bloque",
+   "caja_cqw": {
+    "x": 3.8,
+    "y": 124.9,
+    "w": 22.9,
+    "h": 15.6
+   },
+   "zona": "abajo-izquierda",
+   "alinea": "izq",
+   "color": "#b31918",
+   "relleno": "#b81b1a"
+  },
+  {
+   "id": 4,
+   "kind": "titular",
+   "caja_cqw": {
+    "x": 1.5,
+    "y": 18.9,
+    "w": 67.1,
+    "h": 109.0
+   },
+   "zona": "centro-centro",
+   "alinea": "izq",
+   "color": "#0e0e0e",
+   "altura_letra_cqw": 109.0,
+   "svg": "recortes/04_titular.svg"
+  },
+  {
+   "id": 5,
+   "kind": "titular",
+   "caja_cqw": {
+    "x": 76.3,
+    "y": 30.2,
+    "w": 23.7,
+    "h": 30.1
+   },
+   "zona": "arriba-derecha",
+   "alinea": "der",
+   "color": "#111111",
+   "altura_letra_cqw": 31.8,
+   "svg": "recortes/05_titular.svg"
+  },
+  {
+   "id": 6,
+   "kind": "titular",
+   "caja_cqw": {
+    "x": 76.3,
+    "y": 72.1,
+    "w": 23.7,
+    "h": 41.0
+   },
+   "zona": "centro-derecha",
+   "alinea": "der",
+   "color": "#171717",
+   "altura_letra_cqw": 43.4,
+   "svg": "recortes/06_titular.svg"
+  },
+  {
+   "id": 7,
+   "kind": "texto",
+   "caja_cqw": {
+    "x": 0.0,
+    "y": 0.0,
+    "w": 19.6,
+    "h": 51.2
+   },
+   "zona": "arriba-izquierda",
+   "alinea": "izq",
+   "color": "#141413",
+   "altura_letra_cqw": 51.6,
+   "svg": "recortes/07_texto.svg"
+  },
+  {
+   "id": 8,
+   "kind": "regla",
+   "caja_cqw": {
+    "x": 76.3,
+    "y": 0.0,
+    "w": 18.1,
+    "h": 1.1
+   },
+   "zona": "arriba-derecha",
+   "alinea": "der",
+   "color": "#d21e1d"
+  },
+  {
+   "id": 9,
+   "kind": "texto",
+   "caja_cqw": {
+    "x": 97.7,
+    "y": 49.5,
+    "w": 2.3,
+    "h": 17.8
+   },
+   "zona": "centro-derecha",
+   "alinea": "der",
+   "color": "#0e0e0e",
+   "altura_letra_cqw": 18.6,
+   "svg": "recortes/09_texto.svg"
+  },
+  {
+   "id": 10,
+   "kind": "texto",
+   "caja_cqw": {
+    "x": 76.3,
+    "y": 54.8,
+    "w": 7.2,
+    "h": 4.1
+   },
+   "zona": "centro-derecha",
+   "alinea": "libre",
+   "color": "#3e3b3c",
+   "altura_letra_cqw": 4.9,
+   "svg": "recortes/10_texto.svg"
+  },
+  {
+   "id": 11,
+   "kind": "simbolo",
+   "caja_cqw": {
+    "x": 43.1,
+    "y": 65.0,
+    "w": 4.2,
+    "h": 10.9
+   },
+   "zona": "centro-centro",
+   "alinea": "libre",
+   "color": "#0f0f0f",
+   "svg": "recortes/11_simbolo.svg"
+  },
+  {
+   "id": 12,
+   "kind": "texto",
+   "caja_cqw": {
+    "x": 51.6,
+    "y": 74.0,
+    "w": 7.3,
+    "h": 7.3
+   },
+   "zona": "centro-centro",
+   "alinea": "libre",
+   "color": "#111110",
+   "altura_letra_cqw": 8.2,
+   "svg": "recortes/12_texto.svg"
+  },
+  {
+   "id": 13,
+   "kind": "texto",
+   "caja_cqw": {
+    "x": 76.3,
+    "y": 91.7,
+    "w": 7.5,
+    "h": 8.4
+   },
+   "zona": "abajo-derecha",
+   "alinea": "libre",
+   "color": "#414040",
+   "altura_letra_cqw": 9.3,
+   "svg": "recortes/13_texto.svg"
+  },
+  {
+   "id": 14,
+   "kind": "texto",
+   "caja_cqw": {
+    "x": 57.0,
+    "y": 93.9,
+    "w": 10.2,
+    "h": 6.9
+   },
+   "zona": "abajo-centro",
+   "alinea": "libre",
+   "color": "#0d0d0d",
+   "altura_letra_cqw": 7.8,
+   "svg": "recortes/14_texto.svg"
+  },
+  {
+   "id": 15,
+   "kind": "codigo",
+   "caja_cqw": {
+    "x": 3.9,
+    "y": 100.7,
+    "w": 6.9,
+    "h": 19.6
+   },
+   "zona": "abajo-izquierda",
+   "alinea": "izq",
+   "color": "#151515",
+   "svg": "recortes/15_codigo.svg"
+  },
+  {
+   "id": 16,
+   "kind": "texto",
+   "caja_cqw": {
+    "x": 86.8,
+    "y": 115.0,
+    "w": 9.3,
+    "h": 9.3
+   },
+   "zona": "abajo-derecha",
+   "alinea": "der",
+   "color": "#c8201f",
+   "altura_letra_cqw": 10.1,
+   "svg": "recortes/16_texto.svg"
+  },
+  {
+   "id": 17,
+   "kind": "simbolo",
+   "caja_cqw": {
+    "x": 20.5,
+    "y": 115.6,
+    "w": 5.2,
+    "h": 4.6
+   },
+   "zona": "abajo-izquierda",
+   "alinea": "libre",
+   "color": "#0a0a0a",
+   "svg": "recortes/17_simbolo.svg"
+  },
+  {
+   "id": 18,
+   "kind": "simbolo",
+   "caja_cqw": {
+    "x": 31.4,
+    "y": 115.6,
+    "w": 5.9,
+    "h": 4.6
+   },
+   "zona": "abajo-centro",
+   "alinea": "libre",
+   "color": "#0a0a0a",
+   "svg": "recortes/18_simbolo.svg"
+  },
+  {
+   "id": 19,
+   "kind": "texto",
+   "caja_cqw": {
+    "x": 43.3,
+    "y": 115.6,
+    "w": 12.5,
+    "h": 4.6
+   },
+   "zona": "abajo-centro",
+   "alinea": "centro",
+   "color": "#0a0a0a",
+   "altura_letra_cqw": 5.4,
+   "svg": "recortes/19_texto.svg"
+  },
+  {
+   "id": 20,
+   "kind": "texto",
+   "caja_cqw": {
+    "x": 0.0,
+    "y": 123.0,
+    "w": 29.3,
+    "h": 18.6
+   },
+   "zona": "abajo-izquierda",
+   "alinea": "izq",
+   "color": "#0c0c0c",
+   "altura_letra_cqw": 19.0,
+   "svg": "recortes/20_texto.svg"
+  },
+  {
+   "id": 21,
+   "kind": "regla",
+   "caja_cqw": {
+    "x": 4.1,
+    "y": 123.0,
+    "w": 25.2,
+    "h": 1.9
+   },
+   "zona": "abajo-izquierda",
+   "alinea": "izq",
+   "color": "#0e0d0d",
+   "svg": "recortes/21_regla.svg"
+  },
+  {
+   "id": 22,
+   "kind": "texto",
+   "caja_cqw": {
+    "x": 78.5,
+    "y": 131.0,
+    "w": 6.7,
+    "h": 6.1
+   },
+   "zona": "abajo-derecha",
+   "alinea": "libre",
+   "color": "#0f0e0e",
+   "altura_letra_cqw": 6.9,
+   "svg": "recortes/22_texto.svg"
+  }
+ ]
+}

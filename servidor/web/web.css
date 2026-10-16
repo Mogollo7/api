@@ -1,0 +1,71 @@
+/* [CLAUDE-CONSTRUCTOR] Kit web brutalista por diseño atómico. Hecho por Claude como constructor. Usa los MISMOS 7 roles de color y 3 familias
+   tipográficas que el PDF (variables --negro … --arena, --font-*), pero con unidades fluidas (rem y clamp), no cqw.
+   Capas: 1 ÁTOMOS (.a-*) → 2 MOLÉCULAS (.m-*) → 3 ORGANISMOS (.o-*) → 4 PLANTILLAS (.t-*) → 5 PÁGINAS (index). Ver WEB.md. */
+
+/* ---------- 0. base ---------- */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--crema);color:var(--negro);font-family:var(--font-body);font-size:clamp(1rem,.95rem + .25vw,1.15rem);line-height:1.55}
+img,svg{max-width:100%;display:block}
+:focus-visible{outline:3px solid var(--vivo);outline-offset:3px}
+a{color:inherit}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+.skip{position:absolute;left:-999px;top:0;background:var(--negro);color:var(--crema);padding:.6rem 1rem;z-index:99}.skip:focus{left:0}
+
+/* ---------- 1. ÁTOMOS ---------- */
+.a-title{font-family:var(--font-display);font-weight:400;text-transform:uppercase;line-height:.92;margin:0}
+.a-mono{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600}
+.a-rule{height:0;border:0;border-top:.35rem solid var(--negro);margin:0}.a-rule.fina{border-top-width:.12rem}
+.a-chip{display:inline-block;font-family:var(--font-mono);font-weight:600;font-size:.72rem;letter-spacing:.05em;padding:.05rem .5rem;border:.14rem solid var(--negro);background:var(--negro);color:var(--crema);text-transform:uppercase;vertical-align:.1em}
+.a-chip.i{background:var(--crema);color:var(--negro)}.a-chip.s{background:var(--ocre);color:var(--negro)}.a-chip.c{background:var(--hoja);border-color:var(--hoja)}
+.a-btn{display:inline-block;font-family:var(--font-body);font-weight:800;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;padding:.75rem 1.3rem;border:.18rem solid var(--negro);background:var(--vivo);color:var(--negro);box-shadow:.35rem .35rem 0 var(--negro);transition:transform .08s}
+.a-btn:hover{transform:translate(-.1rem,-.1rem)}.a-btn:active{transform:translate(.3rem,.3rem);box-shadow:none}
+.a-btn.s{background:var(--crema)}.a-btn.k{background:var(--negro);color:var(--crema);box-shadow:.35rem .35rem 0 var(--vivo)}
+.a-field{display:block;width:100%;font:inherit;padding:.7rem .9rem;border:.18rem solid var(--negro);background:var(--crema);color:var(--negro);border-radius:0}
+.a-label{display:block;font-family:var(--font-mono);font-weight:600;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.35rem}
+.a-sym{width:1.6rem;height:1.6rem;fill:currentColor;display:inline-block}
+.a-code{font-family:var(--font-mono);font-size:.88em;background:var(--arena);border:.1rem solid var(--negro);padding:0 .3em}
+.a-pend{background:var(--ocre);color:var(--negro);padding:0 .3em;font-weight:600}
+
+/* ---------- 2. MOLÉCULAS ---------- */
+.m-stat{border-left:.35rem solid var(--negro);padding-left:1rem}.m-stat b{display:block;font-family:var(--font-display);font-weight:400;font-size:clamp(2.4rem,6vw,4rem);line-height:1;color:var(--hoja)}.m-stat span{font-family:var(--font-mono);font-size:.8rem}
+.m-stats{display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr))}
+.m-kpi{border:.2rem solid var(--negro);padding:1rem 1.2rem;background:var(--arena)}.m-kpi:nth-child(1){background:var(--bosque);color:var(--crema)}.m-kpi:nth-child(2){background:var(--vivo)}
+.m-kpi b{display:block;font-family:var(--font-display);font-weight:400;font-size:clamp(2rem,5vw,3.2rem);line-height:1}.m-kpi span{font-family:var(--font-mono);font-size:.8rem}
+.m-callout{border:.2rem solid var(--negro);background:var(--arena);padding:1.1rem 1.3rem}.m-callout .a-mono{display:block;margin-bottom:.4rem}.m-callout p{margin:.3rem 0 0}
+.m-callout.clave{background:var(--bosque);color:var(--crema);box-shadow:.4rem .4rem 0 var(--negro)}.m-callout.ojo{background:var(--ocre)}.m-callout.regla{background:var(--vivo)}.m-callout.slate{background:var(--hoja);color:var(--crema);border-color:var(--hoja)}
+.m-callout.pend,.m-callout.sim{background:var(--crema);border-style:dashed}
+.m-table{overflow-x:auto;border-bottom:.35rem solid var(--negro)}.m-table table{width:100%;border-collapse:collapse;font-size:.92rem;min-width:30rem}
+.m-table th{background:var(--negro);color:var(--crema);font-family:var(--font-mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;text-align:left;padding:.6rem .8rem}
+.m-table td{padding:.6rem .8rem;border-bottom:.1rem solid var(--negro);vertical-align:top}.m-table td:first-child{font-weight:800}
+.m-figure{margin:0;border:.25rem solid var(--negro);background:var(--crema)}.m-figure h4{font-family:var(--font-display);font-weight:400;font-size:1.5rem;text-transform:uppercase;margin:0;padding:.8rem 1rem 0}.m-figure svg{padding:.4rem 1rem}.m-figure figcaption{border-top:.12rem solid var(--negro);padding:.5rem 1rem;font-family:var(--font-mono);font-size:.78rem}
+.m-figure svg text{font-family:var(--font-mono);font-size:11px;fill:var(--negro)}.m-figure svg .mu{fill:var(--hoja)}.m-figure svg .ax{stroke:var(--negro);opacity:.2}.m-figure svg .bold{font-weight:600}
+.m-list{margin:0;padding:0;list-style:none}.m-list li{display:grid;grid-template-columns:1.2rem 1fr;gap:.6rem;padding:.3rem 0}.m-list li::before{content:"";width:.7rem;height:.7rem;background:var(--negro);margin-top:.5rem}
+.m-step{border:.2rem solid var(--negro);padding:.9rem 1rem;background:var(--crema)}.m-step.on{background:var(--bosque);color:var(--crema)}.m-step b{font-family:var(--font-display);font-weight:400;font-size:1.4rem;text-transform:uppercase;display:block}
+
+/* ---------- 3. ORGANISMOS ---------- */
+.o-header{position:sticky;top:0;z-index:20;background:var(--negro);color:var(--crema);border-bottom:.35rem solid var(--vivo)}
+.o-header .in{display:flex;gap:1rem;align-items:center;justify-content:space-between;padding:.7rem 1.2rem;max-width:80rem;margin:0 auto;flex-wrap:wrap}
+.o-header nav{display:flex;gap:.4rem;flex-wrap:wrap}.o-header nav a{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:.35rem .6rem;border:.14rem solid transparent}.o-header nav a:hover,.o-header nav a:focus-visible{border-color:var(--vivo);color:var(--vivo)}
+.o-hero{background:var(--negro);color:var(--crema);position:relative;overflow:hidden;border-bottom:.35rem solid var(--crema)}
+.o-hero .in{max-width:80rem;margin:0 auto;padding:clamp(1.5rem,5vw,4rem) 1.2rem;display:grid;gap:2rem;grid-template-columns:1fr}
+@media(min-width:56rem){.o-hero .in{grid-template-columns:1.1fr .9fr;align-items:end}}
+.o-hero h1{font-family:var(--font-display);font-weight:400;font-size:clamp(3.4rem,11vw,9rem);line-height:.86;text-transform:uppercase;color:var(--vivo);margin:0}
+.o-hero p{font-family:var(--font-mono);max-width:34rem}.o-hero .pic{border:.35rem solid var(--vivo);background:var(--bosque)}.o-hero .pic img{width:100%;height:auto}
+.o-band{background:var(--negro);color:var(--crema);overflow:hidden}.o-band .in{max-width:80rem;margin:0 auto;padding:2rem 1.2rem;display:grid;gap:1rem;grid-template-columns:1fr auto;align-items:end}
+.o-band .n{font-family:var(--font-display);font-size:clamp(6rem,22vw,16rem);line-height:.78;color:var(--vivo);margin:0}
+.o-band h2{font-family:var(--font-display);font-weight:400;font-size:clamp(2rem,6vw,4.5rem);text-transform:uppercase;margin:0;line-height:.95}
+.o-band p{font-family:var(--font-mono);max-width:32rem;margin:.6rem 0 0}.o-band .pic{width:clamp(7rem,22vw,16rem);aspect-ratio:3/4;border:.3rem solid var(--vivo);border-radius:50% 50% 0 0;overflow:hidden}.o-band .pic img{width:100%;height:100%;object-fit:cover}
+.o-section{max-width:60rem;margin:0 auto;padding:2.5rem 1.2rem;display:grid;gap:1.4rem}
+.o-section>h3{font-family:var(--font-display);font-weight:400;font-size:clamp(2.2rem,6vw,4rem);text-transform:uppercase;line-height:.95;margin:0;border-top:.5rem solid var(--negro);padding-top:.6rem}
+.o-footer{background:var(--negro);color:var(--crema);padding:2rem 1.2rem;font-family:var(--font-mono);font-size:.8rem}.o-footer .in{max-width:80rem;margin:0 auto;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.o-form{display:grid;gap:1rem;border:.25rem solid var(--negro);padding:1.2rem}
+
+/* ---------- 4. PLANTILLAS ---------- */
+.t-article{display:block}
+.t-grid{display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr))}
+.t-split{display:grid;gap:1.2rem;grid-template-columns:1fr}@media(min-width:48rem){.t-split{grid-template-columns:7fr 3fr}}
+.t-steps{display:grid;gap:.8rem;grid-template-columns:repeat(auto-fit,minmax(12rem,1fr))}
+.grain{position:relative}.grain::after{content:"";position:absolute;inset:0;pointer-events:none;mix-blend-mode:screen;opacity:.14;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .8 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+@media print{.o-header{position:static}.a-btn{box-shadow:none}}
+.o-hero h1{margin-bottom:.8rem}

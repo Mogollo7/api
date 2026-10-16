@@ -95,6 +95,12 @@ def pack(units: list, meas: list, capacity: float, gap: float, render_part, warn
                 if r0 < len(rows):
                     flush()
             continue
+        if h > capacity + 0.01 and not u.get("split"):
+            # bloque más alto que una hoja y sin partes: se reduce a la medida (nunca se desborda) y se avisa
+            z = (capacity - 0.5) / h
+            warn.append({"bloque": u.get("label", "?"), "causa": f"mide {h:.1f}cqw y la hoja admite {capacity:.1f}", "ajuste": f"se redujo al {z*100:.0f} %; parte el bloque o acorta el contenido"})
+            u = {**u, "html": f'<div style="zoom:{z:.3f}">{u["html"]}</div>'}
+            h = capacity - 0.5
         need = h
         if keep and i + 1 < n:
             nm = meas[i + 1]

@@ -1,0 +1,21 @@
+{
+ "_marca": "[CLAUDE-CONSTRUCTOR] Paletas por roles. 'anura' = tokens del sistema ANURA. 'cine' = colores EXACTOS leídos de los vectores del PDF de referencia Seguimiento2 (servidor/tools/leer_pdf.py). Los 7 roles son fijos; el diseño solo asigna color.",
+ "anura": {
+  "negro": "#121212",
+  "bosque": "#10291F",
+  "hoja": "#214D3C",
+  "vivo": "#2ECC5F",
+  "ocre": "#D4A72C",
+  "crema": "#F8F5EE",
+  "arena": "#EDE8D8"
+ },
+ "cine": {
+  "negro": "#030B18",
+  "bosque": "#0B1322",
+  "hoja": "#313E60",
+  "vivo": "#FE0032",
+  "ocre": "#F5EAE4",
+  "crema": "#F5EAE4",
+  "arena": "#EBDCD2"
+ }
+}

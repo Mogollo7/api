@@ -146,6 +146,21 @@
    "pagina": 70
   }
  ],
+ "correcciones_contraste": [],
+ "variantes_usadas": [
+  "CV-1",
+  "DV-A",
+  "DV-B",
+  "DV-C",
+  "DV-D"
+ ],
+ "variantes_no_aprobadas": [
+  "CV-1",
+  "DV-A",
+  "DV-B",
+  "DV-C",
+  "DV-D"
+ ],
  "paginas": 70,
- "segundos": 7.3
+ "segundos": 7.4
 }

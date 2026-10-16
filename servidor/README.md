@@ -36,3 +36,11 @@ colocan lado a lado.
 `salida/<nombre>.informe.json` lista solo lo que falla: `errores` del contrato (rechaza), `avisos` de maquetación,
 `auditoria` (superposiciones, desbordes y contraste en 794 impresión, 1300 y 400 px), `imagenes_necesarias` y la
 página de cada sección. Estado `ok` = sin nada que corregir.
+
+
+## Novedades (v0.2)
+- Paletas (`"palette": "cine"`), variantes con registro y aprobación (`galeria.py`, `aprobar.py`), gráficos estándar (hist, box, scatter, heat, map), `flowchart`,
+  `figure` con cifras laterales, `form`, `custom` saneado, degradación segura de lo no estándar y protocolo de grises automático. Ver `../ESTANDARES.md`.
+- Salida web: `python servidor/web.py contenido/guia.json -o salida/web/index.html --imagenes teoria/imagenes --estilo` (reglas en `../WEB.md`).
+- Lectura de referencias: `servidor/tools/leer_pdf.py` y `servidor/tools/descomponer.py` (ver `../CLAUDE.md`).
+- Pruebas: 15 (`python -m unittest discover -s servidor/tests`), incluida `no_estandar.json`.

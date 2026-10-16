@@ -67,8 +67,8 @@ def sym_html(sym: Symbols, sid: str, style: str = "", cls: str = "sym") -> str:
 def duotone(src: Path, treatment: str, roles: dict, treatments: dict, cache: Path, width: int = 1400) -> Path:
     """Filtro de imagen del sistema (imagenes.md): grises, autocontraste, curva dura, grano, tramado Bayer 8x8 y dos tintas.
     Se aplica en el servidor con los colores de la paleta activa; el resultado se guarda en caché."""
-    dark_k, light_k = treatments[treatment]
-    dark, light = dark_k[0], light_k[0]
+    dark_k, light_k = treatments.get(treatment) or treatments["calido"]
+    dark, light = roles.get(dark_k, dark_k), roles.get(light_k, light_k)
     key = hashlib.sha1(f"{src.resolve()}|{src.stat().st_mtime_ns}|{dark}|{light}|{width}".encode()).hexdigest()[:16]
     out = cache / f"{src.stem}_{treatment}_{key}.png"
     if out.exists():
@@ -105,4 +105,31 @@ def load_credits(images_root: Path) -> dict:
         with f.open(encoding="utf-8") as fh:
             for r in csv.DictReader(fh):
                 out[r["archivo"]] = r
+    return out
+
+
+SRC_HEX = {"negro": "#121212", "bosque": "#10291F", "ocre": "#D4A72C", "crema": "#F8F5EE", "vivo": "#2ECC5F"}
+
+
+def recolor(src: Path, roles: dict, cache: Path) -> Path:
+    """Las ranas del sistema vienen en dos tintas fijas (p. ej. negro + ocre). Con otra paleta se repintan por luminancia:
+    el tono oscuro pasa al rol oscuro de la paleta activa y el claro al rol claro. Con la paleta ANURA se devuelve el original."""
+    toks = src.stem.split("-")[-2:]
+    if len(toks) < 2 or toks[0] not in SRC_HEX or toks[1] not in SRC_HEX:
+        return src
+    d0, l0 = SRC_HEX[toks[0]], SRC_HEX[toks[1]]
+    d1, l1 = roles.get(toks[0], d0), roles.get(toks[1], l0)
+    if (d0.lower(), l0.lower()) == (d1.lower(), l1.lower()):
+        return src
+    out = cache / f"{src.stem}_{d1[1:]}_{l1[1:]}.png"
+    if out.exists():
+        return out
+    rgb = lambda h: np.array([int(h[i:i + 2], 16) for i in (1, 3, 5)], float)
+    a = np.asarray(Image.open(src).convert("RGB")).astype(float)
+    lum = lambda c: 0.2126 * c[..., 0] + 0.7152 * c[..., 1] + 0.0722 * c[..., 2]
+    ld, ll = lum(rgb(d0)), lum(rgb(l0))
+    t = np.clip((lum(a) - ld) / (ll - ld), 0, 1)[..., None]
+    res = rgb(d1) * (1 - t) + rgb(l1) * t
+    cache.mkdir(parents=True, exist_ok=True)
+    Image.fromarray(res.astype("uint8")).save(out, optimize=True)
     return out

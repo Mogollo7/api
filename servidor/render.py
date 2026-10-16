@@ -15,11 +15,12 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 
-from engine import assets, blocks, contract, layout, pages  # noqa: E402
+from engine import assets, blocks, contract, layout, pages, paleta, variants  # noqa: E402
 from engine.text import esc, inline, plain  # noqa: E402
 
 AUDIT_JS = (HERE / "engine/audit.js").read_text()
 FIT_JS = (HERE / "engine/fit.js").read_text()
+FIX_JS = (HERE / "engine/contrast_fix.js").read_text()
 
 
 def load_design(design_id: str):
@@ -105,14 +106,23 @@ def run(doc_path, out_pdf, images_root):
     t0 = time.time()
     doc = json.loads(Path(doc_path).read_text(encoding="utf-8"))
     design_dir, m = load_design(doc.get("design", "anura"))
-    errs = contract.validate(doc, m)
-    report = {"estado": "ok", "errores": errs, "avisos": [], "auditoria": {}, "imagenes_necesarias": [], "secciones": []}
+    warns = []
+    errs = contract.validate(doc, m, warns)
+    report = {"estado": "ok", "errores": errs, "avisos": warns, "auditoria": {}, "imagenes_necesarias": [], "secciones": []}
     if errs:
         report["estado"] = "rechazado"
         return report
+    palettes = json.loads((design_dir / "palettes.json").read_text(encoding="utf-8"))
     roles = dict(m["palette"]["roles"])
-    if isinstance(doc.get("palette"), dict):
-        roles.update(doc["palette"])
+    pal = doc.get("palette", "default")
+    if isinstance(pal, dict):
+        roles.update(pal)
+    elif pal in palettes and pal != "_marca":
+        roles.update(palettes[pal])
+    elif pal not in ("default", None):
+        report["avisos"].append({"bloque": "palette", "causa": f"paleta '{pal}' no existe", "ajuste": "se usó la paleta por defecto"})
+    report["avisos"] += paleta.check(roles, m)
+    reg = variants.Registry(design_dir)
     seed = int(doc.get("options", {}).get("seed", 7))
     sym = assets.Symbols(design_dir)
     credits = assets.load_credits(Path(images_root))
@@ -145,7 +155,11 @@ def run(doc_path, out_pdf, images_root):
                         "sections": [{"n": parts[-1]["sections"][0]["n"], "title": "Créditos de imágenes", "page": (pages_of or {}).get(("s", "creditos"), "00")}]})
         return out
 
-    ctx = blocks.Ctx(m, roles, images_root, credits, HERE / ".cache", toc_struct())
+    ctx = blocks.Ctx(m, roles, images_root, credits, HERE / ".cache", toc_struct(), design_dir)
+    pc = pages.PageCtx(design_dir, m, roles, sym, images_root, HERE / ".cache", report["avisos"])
+    cov_alias = lambda w: w if str(w).startswith("CV-") else "CV-" + str(w).lstrip("Vv")
+    div_alias = lambda w: w if str(w).startswith("DV-") else "DV-" + str(w).upper()
+    cover_v = reg.resolve("portada", d["cover"].get("variant"), report["avisos"], cov_alias)
 
     # 1) unidades por sección
     secs = []
@@ -196,7 +210,7 @@ def run(doc_path, out_pdf, images_root):
         toc_new = blocks.toc({}, ctx)
 
         # 3) ensamblar HTML
-        body = [pages.cover(meta, d["cover"], design_dir, m, sym, seed)]
+        body = [pages.cover(pc, meta, d["cover"], cover_v)]
         pool = m["templates"]["light"]["head_symbol_pool"]
         n_lp, part_i, nparts = 0, 0, len([x for x in parts if not x.get("_aux")])
         for item in plan:
@@ -205,8 +219,9 @@ def run(doc_path, out_pdf, images_root):
                 v = part.get("divider", "auto")
                 if v in (None, "auto"):
                     v = "ABCD"[part_i % 4]
+                vid = reg.resolve("divisor", v, report["avisos"], div_alias)
                 part_i += 1
-                body.append(pages.divider(v, f"{item[1]+1:02d}", nparts, part, design_dir, m, sym))
+                body.append(pages.divider(pc, vid[-1], f"{item[1]+1:02d}", nparts, part, ))
             else:
                 pi, sec, htmls = item[1]
                 inner = "".join(f'<div class="u">{h_}</div>' for h_ in htmls)
@@ -233,6 +248,7 @@ def run(doc_path, out_pdf, images_root):
         page2.evaluate("document.fonts.ready")
         page2.wait_for_timeout(800)
         page2.evaluate("window.__fit()")
+        report["correcciones_contraste"] = page2.evaluate(FIX_JS)
         kw = dict(path=str(out_pdf), format="A4", print_background=True, margin={"top": "0", "bottom": "0", "left": "0", "right": "0"})
         try:
             page2.pdf(**kw, tagged=True, outline=True)
@@ -247,6 +263,9 @@ def run(doc_path, out_pdf, images_root):
             if res:
                 report["auditoria"][label] = res[:40] + ([{"mas": len(res) - 40}] if len(res) > 40 else [])
         browser.close()
+    report["avisos"] += ctx.warn
+    report["variantes_usadas"] = sorted(reg.used)
+    report["variantes_no_aprobadas"] = reg.not_approved()
     report["imagenes_necesarias"] = ctx.missing
     for src in sorted(set(ctx.no_credit)):
         report["avisos"].append({"bloque": src, "causa": "imagen usada sin fila en creditos.csv", "ajuste": "añade autor y licencia al CSV"})

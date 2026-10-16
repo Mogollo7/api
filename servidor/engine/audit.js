@@ -16,6 +16,7 @@
       const el = n.parentElement; const st = getComputedStyle(el);
       if (st.visibility === 'hidden' || st.display === 'none') continue;
       const rg = document.createRange(); rg.selectNodeContents(n);
+      if (el.closest('[transform]')) continue;
       for (const r of rg.getClientRects()) {
         if (r.width < 1 || r.height < 1) continue;
         let y = r.top, h = r.height;

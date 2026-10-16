@@ -1,0 +1,325 @@
+{
+ "contract": "0.1",
+ "design": "anura",
+ "format": "pdf-a4",
+ "palette": "neon",
+ "options": {
+  "seed": 3
+ },
+ "meta": {
+  "title": "Prueba de lo no estándar",
+  "date": "Mes 2026",
+  "version": "v0",
+  "header_left": [
+   "No estándar",
+   "Prueba"
+  ],
+  "footer": "PRUEBA · no estándar"
+ },
+ "document": {
+  "cover": {
+   "variant": "CV-9",
+   "vertical": "RARO",
+   "title": "Todo lo no estándar junto",
+   "text": "Ningún elemento debe romper el documento."
+  },
+  "parts": [
+   {
+    "id": "p1",
+    "title": "Una parte con un título larguísimo que no cabe en una línea de ninguna manera",
+    "desc": "Descripción.",
+    "divider": "Z",
+    "sections": [
+     {
+      "id": "n1",
+      "title": "Un título de sección extremadamente largo que ocupa varias líneas y obliga a reducir el tamaño del titular sin romper",
+      "tema": "Tema muy largo para la cabecera de una hoja clara que no cabe",
+      "blocks": [
+       {
+        "type": "video",
+        "text": "Bloque que no existe en el vocabulario"
+       },
+       {
+        "type": "callout",
+        "tone": "fucsia",
+        "text": "Tono desconocido"
+       },
+       {
+        "type": "chart",
+        "title": "Gráfico raro",
+        "chart": {
+         "type": "radar",
+         "data": {
+          "items": [
+           {
+            "l": "a",
+            "v": 1
+           },
+           {
+            "l": "b",
+            "v": 2
+           }
+          ]
+         }
+        }
+       },
+       {
+        "type": "chart",
+        "title": "Barras con demasiados datos",
+        "chart": {
+         "type": "bar",
+         "data": {
+          "items": [
+           {
+            "l": "0",
+            "v": 0
+           },
+           {
+            "l": "1",
+            "v": 1
+           },
+           {
+            "l": "2",
+            "v": 2
+           },
+           {
+            "l": "3",
+            "v": 3
+           },
+           {
+            "l": "4",
+            "v": 4
+           },
+           {
+            "l": "5",
+            "v": 5
+           },
+           {
+            "l": "6",
+            "v": 6
+           },
+           {
+            "l": "7",
+            "v": 7
+           },
+           {
+            "l": "8",
+            "v": 8
+           },
+           {
+            "l": "9",
+            "v": 9
+           },
+           {
+            "l": "10",
+            "v": 10
+           },
+           {
+            "l": "11",
+            "v": 11
+           },
+           {
+            "l": "12",
+            "v": 12
+           },
+           {
+            "l": "13",
+            "v": 13
+           },
+           {
+            "l": "14",
+            "v": 14
+           },
+           {
+            "l": "15",
+            "v": 15
+           },
+           {
+            "l": "16",
+            "v": 16
+           },
+           {
+            "l": "17",
+            "v": 17
+           },
+           {
+            "l": "18",
+            "v": 18
+           },
+           {
+            "l": "19",
+            "v": 19
+           },
+           {
+            "l": "20",
+            "v": 20
+           },
+           {
+            "l": "21",
+            "v": 21
+           },
+           {
+            "l": "22",
+            "v": 22
+           },
+           {
+            "l": "23",
+            "v": 23
+           },
+           {
+            "l": "24",
+            "v": 24
+           },
+           {
+            "l": "25",
+            "v": 25
+           },
+           {
+            "l": "26",
+            "v": 26
+           },
+           {
+            "l": "27",
+            "v": 27
+           },
+           {
+            "l": "28",
+            "v": 28
+           },
+           {
+            "l": "29",
+            "v": 29
+           }
+          ]
+         }
+        }
+       },
+       {
+        "type": "chart",
+        "title": "Mapa sin contorno ni puntos",
+        "chart": {
+         "type": "map",
+         "data": {}
+        }
+       },
+       {
+        "type": "flowchart",
+        "title": "Ciclo con 5 hermanos",
+        "nodes": [
+         {
+          "id": "a",
+          "label": "A"
+         },
+         {
+          "id": "b0",
+          "label": "B0"
+         },
+         {
+          "id": "b1",
+          "label": "B1"
+         },
+         {
+          "id": "b2",
+          "label": "B2"
+         },
+         {
+          "id": "b3",
+          "label": "B3"
+         },
+         {
+          "id": "b4",
+          "label": "B4"
+         }
+        ],
+        "edges": [
+         {
+          "from": "a",
+          "to": "b0"
+         },
+         {
+          "from": "a",
+          "to": "b1"
+         },
+         {
+          "from": "a",
+          "to": "b2"
+         },
+         {
+          "from": "a",
+          "to": "b3"
+         },
+         {
+          "from": "a",
+          "to": "b4"
+         }
+        ]
+       },
+       {
+        "type": "table",
+        "head": [
+         "a",
+         "b",
+         "c"
+        ],
+        "rows": [
+         [
+          "1",
+          "2"
+         ],
+         [
+          "1",
+          "2",
+          "3",
+          "4"
+         ]
+        ]
+       },
+       {
+        "type": "custom",
+        "html": "<p class=\"k\" onclick=\"alert(1)\" style=\"color:red\">Hola <script>alert(1)</script><iframe src=x></iframe><b>negrita</b></p>"
+       },
+       {
+        "type": "image",
+        "src": "no-existe.jpg",
+        "need": "Foto que falta",
+        "caption": "Pie"
+       },
+       {
+        "type": "p",
+        "text": "Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. Texto largo sin interrupciones. "
+       },
+       {
+        "type": "kpi",
+        "items": [
+         {
+          "v": "1",
+          "l": "x"
+         }
+        ]
+       },
+       {
+        "type": "stats",
+        "items": [
+         {
+          "v": "1",
+          "l": "x"
+         }
+        ]
+       },
+       {
+        "type": "figure",
+        "chart": {
+         "type": "hist",
+         "data": {
+          "bars": []
+         }
+        },
+        "title": "Figura vacía"
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

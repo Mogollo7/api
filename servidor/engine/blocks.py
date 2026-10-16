@@ -2,23 +2,40 @@
 """Bloques declarativos -> HTML. El agente no escribe HTML ni CSS: aquí se decide cómo se ve cada bloque."""
 from pathlib import Path
 
-from . import charts
+import json
+from html.parser import HTMLParser
+
+from . import charts, diagram
 from .assets import duotone
 from .text import esc, inline, num, plain
 
-LABELS = {"nota": "Nota", "clave": "Punto clave", "ojo": "Ojo", "sim": "Simulación", "pend": "Dato pendiente", "regla": "Regla"}
+LABELS = {"nota": "Nota", "clave": "Punto clave", "ojo": "Ojo", "sim": "Simulación", "pend": "Dato pendiente", "regla": "Regla",
+          "slate": "Atención", "hueco": "Nota"}
+CALLOUT_TONES = set(LABELS)
 TONES = {"f": "t-f", "p": "t-p", "l": "t-l", "n": "t-n"}
 
 
 class Ctx:
-    def __init__(self, manifest, roles, images_root, credits, cache, toc=None):
+    def __init__(self, manifest, roles, images_root, credits, cache, toc=None, design_dir=None):
         self.manifest, self.roles = manifest, roles
+        self.design_dir = Path(design_dir) if design_dir else None
+        self.warn = []          # degradaciones: bloque no estándar, gráfico inválido, variante desconocida...
+        self._outlines = None
         self.images_root, self.credits, self.cache = Path(images_root), credits, Path(cache)
         self.images_used = []   # (archivo, credit_row) para la página de créditos automática
         self.missing = []       # imágenes marcadas "IMAGEN NECESARIA"
         self.no_credit = []     # imágenes usadas sin fila en creditos.csv
         self.toc = toc or []
         self.img_i = 0
+
+
+    def outlines(self):
+        if self._outlines is None:
+            self._outlines = {}
+            if self.design_dir and (self.design_dir / "geo").exists():
+                for f in (self.design_dir / "geo").glob("*.json"):
+                    self._outlines[f.stem] = json.loads(f.read_text())["poligonos"]
+        return self._outlines
 
 
 # ---------- texto ----------
@@ -64,12 +81,17 @@ def table_part(b, r0, r1, with_head=True):
     th = "<thead><tr>" + "".join(f"<th>{inline(x)}</th>" for x in head) + "</tr></thead>" if head and with_head else ""
     rows = "".join("<tr>" + "".join(_cell(c) for c in r) + "</tr>" for r in b["rows"][r0:r1])
     cap = f'<div class="k" style="margin-top:1cqw">{inline(b["caption"])}</div>' if b.get("caption") and r1 >= len(b["rows"]) else ""
-    return f'<div class="tabw"><table class="tab">{colg}{th}<tbody>{rows}</tbody></table>{cap}</div>'
+    v = b.get("variant")
+    vc = f" v-{v}" if v in ("compact", "ficha") else ""
+    return f'<div class="tabw"><table class="tab{vc}">{colg}{th}<tbody>{rows}</tbody></table>{cap}</div>'
 
 
 # ---------- llamadas, cifras ----------
 def callout(b, c):
     tone = b.get("tone", "nota")
+    if tone not in CALLOUT_TONES:
+        c.warn.append({"bloque": b.get("label", "callout"), "causa": f"tono '{tone}' no estándar", "ajuste": f"se usó 'nota'; estándar: {sorted(CALLOUT_TONES)}"})
+        tone = "nota"
     lab = b.get("label", LABELS.get(tone, "Nota"))
     body = b.get("paras") or [b.get("text", "")]
     ps = "".join(f"<p>{inline(t)}</p>" for t in body)
@@ -93,14 +115,106 @@ def kpi(b, c):
     return f'<div class="kpis n{min(len(items),4)}">{cards}</div>'
 
 
+def _chart_table(ch):
+    """Degradación estándar: los mismos datos en una tabla, sin perder nada."""
+    d = ch.get("data", {})
+    rows, total = [], 0
+    for k in ("items", "bars", "groups", "points", "rows"):
+        total += len(d.get(k, []))
+        for it in d.get(k, [])[:12]:
+            if isinstance(it, dict):
+                rows.append([str(it.get("l", "")), ", ".join(f"{kk}={vv}" for kk, vv in it.items() if kk != "l")[:80]])
+            else:
+                rows.append([str(it[0]) if len(it) else "", ", ".join(str(x) for x in it[1:])])
+    if not rows:
+        return '<p class="bp">Sin datos que mostrar.</p>'
+    cap = f"Se muestran {len(rows)} de {total} filas." if total > len(rows) else ""
+    return table_part({"head": ["Dato", "Valores"], "rows": rows, "caption": cap}, 0, len(rows))
+
+
 def chart(b, c):
     ch = b["chart"]
-    svg = charts.draw(ch)
+    try:
+        svg = charts.draw(ch, c.roles, c.outlines())
+    except Exception as e:  # noqa: BLE001  nada de lo que mande el agente debe romper el documento
+        c.warn.append({"bloque": b.get("title", "gráfico"), "causa": f"gráfico no estándar ({e})", "ajuste": "se muestra una tabla con los mismos datos"})
+        svg = _chart_table(ch)
     cls = "ch sim" if b.get("sim") else "ch"
     tag = f'<div class="tg">{inline(b["tag"])}</div>' if b.get("tag") else ""
     leg = charts.legend(ch)
     cap = f"<figcaption>{inline(b['caption'])}</figcaption>" if b.get("caption") else ""
     return f'<figure class="{cls}"><p class="ct">{inline(b["title"])}</p>{tag}{svg}{leg}{cap}</figure>'
+
+
+def stats(b, c):
+    items = "".join(f'<div><b>{esc(i["v"])}</b><span>{inline(i["l"])}</span></div>' for i in b["items"])
+    note = f'<p class="sn">{inline(b["note"])}</p>' if b.get("note") else ""
+    head = f'<div class="sh">{inline(b["title"])}</div>' if b.get("title") else ""
+    return f'<aside class="stats">{head}{items}{note}</aside>'
+
+
+def figure(b, c):
+    inner = chart(b, c) if b.get("chart") else image(b["image"] if isinstance(b.get("image"), dict) else b, c)
+    if not b.get("side"):
+        return inner
+    side = {"items": b["side"], "note": b.get("side_note"), "title": b.get("side_title")}
+    return f'<div class="figrow">{inner}{stats(side, c)}</div>'
+
+
+def form(b, c):
+    rows = "".join(f"<div><b>{inline(r)}</b><i></i></div>" for r in b["rows"])
+    return f'<div class="form"><div class="fh">{inline(b.get("title", "Datos"))}</div>{rows}</div>'
+
+
+def flowchart(b, c):
+    try:
+        body = diagram.draw(b)
+    except Exception as e:  # noqa: BLE001
+        c.warn.append({"bloque": b.get("title", "flowchart"), "causa": f"diagrama no estándar ({e})", "ajuste": "se muestra una lista numerada"})
+        steps = "".join(f"<li><span>{inline(n['label'])}</span></li>" for n in b.get("nodes", []))
+        body = f'<ul class="bl num">{steps}</ul>'
+    cap = f"<figcaption>{inline(b['caption'])}</figcaption>" if b.get("caption") else ""
+    tag = f'<div class="tg">{inline(b["tag"])}</div>' if b.get("tag") else ""
+    return f'<figure class="ch fc"><p class="ct">{inline(b.get("title", "Diagrama"))}</p>{tag}{body}{cap}</figure>'
+
+
+# ---- bloque libre saneado: lo único donde se acepta HTML del agente ----
+SAFE_TAGS = {"p", "b", "strong", "i", "em", "ul", "ol", "li", "h4", "span", "div", "table", "thead", "tbody", "tr", "th", "td", "br", "code", "small"}
+SAFE_CLASSES = {"k", "micro", "mono", "caja", "pend", "num", "tab", "bp", "bh", "bl"}
+
+
+class _San(HTMLParser):
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.out, self.dropped = [], 0
+
+    def handle_starttag(self, tag, attrs):
+        if tag not in SAFE_TAGS:
+            self.dropped += 1
+            return
+        cls = ""
+        for k, v in attrs:
+            if k == "class" and v:
+                cls = " ".join(x for x in v.split() if x in SAFE_CLASSES)
+            else:
+                self.dropped += 1
+        self.out.append(f'<{tag} class="{cls}">' if cls else f"<{tag}>")
+
+    def handle_endtag(self, tag):
+        if tag in SAFE_TAGS and tag != "br":
+            self.out.append(f"</{tag}>")
+
+    def handle_data(self, data):
+        self.out.append(esc(data))
+
+
+def custom(b, c):
+    p = _San()
+    p.feed(b.get("html", ""))
+    if p.dropped:
+        c.warn.append({"bloque": b.get("label", "custom"), "causa": f"{p.dropped} etiquetas o atributos no permitidos eliminados",
+                       "ajuste": f"permitidos: {sorted(SAFE_TAGS)} y class {sorted(SAFE_CLASSES)}"})
+    return f'<div class="cust">{"".join(p.out)}</div>'
 
 
 # ---------- imágenes ----------
@@ -216,15 +330,28 @@ def toc(b, c):
 
 
 RENDER = {
-    "p": p, "h": h, "callout": callout, "big": big, "kpi": kpi, "chart": chart, "image": image,
+    "p": p, "h": h, "callout": callout, "big": big, "kpi": kpi, "chart": chart, "image": image, "figure": figure, "stats": stats,
+    "form": form, "flowchart": flowchart, "custom": custom,
     "flow": flow, "ladder": ladder, "ranks": ranks, "timeline": timeline, "compare": compare, "toc": toc,
 }
 
 
+def _fallback(b, c, why):
+    """Un bloque que no se puede dibujar nunca rompe el documento: se degrada a una nota con su texto."""
+    c.warn.append({"bloque": str(b.get("type", "?")), "causa": why, "ajuste": "se mostró como nota; usa un bloque del vocabulario"})
+    txt = b.get("text") or b.get("title") or b.get("caption") or json.dumps({k: v for k, v in b.items() if k != "type"}, ensure_ascii=False)[:300]
+    return f'<aside class="co hueco"><span class="lb">Bloque no estándar · {esc(b.get("type", "?"))}</span><p>{inline(txt)}</p></aside>'
+
+
 def render(b, c):
-    t = b["type"]
-    if t == "list":
-        return list_part(b, 0, len(b["items"]))
-    if t == "table":
-        return table_part(b, 0, len(b["rows"]))
-    return RENDER[t](b, c)
+    t = b.get("type")
+    try:
+        if t == "list":
+            return list_part(b, 0, len(b["items"]))
+        if t == "table":
+            return table_part(b, 0, len(b["rows"]))
+        if t in RENDER:
+            return RENDER[t](b, c)
+        return _fallback(b, c, f"tipo de bloque '{t}' fuera del vocabulario")
+    except Exception as e:  # noqa: BLE001
+        return _fallback(b, c, f"el bloque '{t}' no se pudo dibujar ({type(e).__name__}: {e})")
