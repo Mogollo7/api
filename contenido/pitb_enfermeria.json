@@ -1,0 +1,450 @@
+{
+ "contract": "1.0",
+ "design": "anura",
+ "format": "pdf-a4",
+ "palette": "pitb",
+ "options": {
+  "seed": 4
+ },
+ "meta": {
+  "title": "Enfermería en la PITB Antioquia",
+  "author": "Equipo PITB Antioquia",
+  "subject": "Marco teórico, evidencia formativa y justificación ética desde Enfermería",
+  "keywords": [
+   "PITB",
+   "Enfermería",
+   "Una Sola Salud",
+   "BioCLIP"
+  ],
+  "date": "Octubre 2026",
+  "version": "Borrador v1",
+  "header_left": [
+   "Enfermería",
+   "PITB Antioquia"
+  ],
+  "footer": "Enfermería · PITB Antioquia · v1"
+ },
+ "document": {
+  "cover": {
+   "variant": "CV-1",
+   "vertical": "ENFERMERÍA PITB",
+   "title": "Marco teórico, evidencia formativa y justificación ética desde Enfermería",
+   "text": "Cómo la salud pública, Una Sola Salud y la ética acompañan a la Plataforma de Inteligencia Territorial y Biodiversidad de Antioquia.",
+   "image": "enfermera.png",
+   "alt": "Enfermera con gorro, tapabocas y guantes preparando una jeringa",
+   "tint": [
+    "negro",
+    "vivo"
+   ]
+  },
+  "parts": [
+   {
+    "id": "p1",
+    "title": "Marco teórico",
+    "desc": "Salud pública, Una Sola Salud, APS e interdisciplinariedad.",
+    "divider": "DV-B",
+    "image": "campo.png",
+    "tint": [
+     "negro",
+     "vivo"
+    ],
+    "alt": "Persona mayor con guante azul revisando vegetación en campo",
+    "sections": [
+     {
+      "id": "s0",
+      "title": "La PITB desde Enfermería",
+      "tema": "Contexto",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "La Plataforma de Inteligencia Territorial y Biodiversidad (PITB) Antioquia es una propuesta tecnológica para construir un catálogo vivo de biodiversidad mediante inteligencia artificial, identificación de especies y georreferenciación de registros. Su propósito es aportar información al ordenamiento territorial del departamento."
+       },
+       {
+        "type": "p",
+        "text": "Enfermería no reemplaza a biólogos, ecólogos, ingenieros ni autoridades ambientales, ni interviene en la clasificación taxonómica. Su aporte se ubica en la salud pública: comprender cómo el ambiente se relaciona con la salud de las comunidades, promover la prevención, fortalecer la educación para la salud y contribuir a que la información territorial se interprete pensando en el bienestar humano."
+       },
+       {
+        "type": "flowchart",
+        "title": "Ruta de un registro en la PITB",
+        "nodes": [
+         {
+          "id": "a",
+          "label": "Fotografía",
+          "kind": "start"
+         },
+         {
+          "id": "b",
+          "label": "Modelo BioCLIP"
+         },
+         {
+          "id": "c",
+          "label": "Georreferenciación"
+         },
+         {
+          "id": "d",
+          "label": "Capas POT/EOT"
+         },
+         {
+          "id": "e",
+          "label": "Revisión profesional",
+          "kind": "end"
+         }
+        ],
+        "edges": [
+         {
+          "from": "a",
+          "to": "b"
+         },
+         {
+          "from": "b",
+          "to": "c"
+         },
+         {
+          "from": "c",
+          "to": "d"
+         },
+         {
+          "from": "d",
+          "to": "e"
+         }
+        ],
+        "caption": "Las fotografías vienen del campo, de cámaras trampa o de la ciudadanía."
+       }
+      ]
+     },
+     {
+      "id": "s1",
+      "title": "Determinantes ambientales de la salud",
+      "tema": "Salud pública",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "La Organización Mundial de la Salud reconoce que la salud está relacionada con el entorno: calidad del aire y del agua, vivienda, saneamiento, ecosistemas y condiciones de vida de las comunidades (OMS, 2023). La salud no depende solo de atender enfermedades, sino también de prevenir riesgos y de las condiciones que protegen o afectan el bienestar."
+       },
+       {
+        "type": "p",
+        "text": "La PITB puede generar información más actualizada sobre la presencia y distribución de especies y sobre cambios ecológicos. Los registros de biodiversidad no establecen por sí solos un riesgo sanitario, pero pueden orientar preguntas de salud pública y señalar situaciones que ameriten evaluación por las autoridades competentes, siempre con análisis específicos y sin conclusiones automáticas a partir de una fotografía."
+       },
+       {
+        "type": "callout",
+        "tone": "ojo",
+        "text": "Una fotografía de una especie no demuestra un riesgo sanitario."
+       }
+      ]
+     },
+     {
+      "id": "s2",
+      "title": "Una Sola Salud (One Health)",
+      "tema": "One Health",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "El enfoque de Una Sola Salud reconoce que la salud de las personas, los animales y los ecosistemas está conectada y requiere trabajo coordinado entre disciplinas y sectores (FAO et al., 2022)."
+       },
+       {
+        "type": "p",
+        "text": "Desde Enfermería permite articular la información de biodiversidad con la promoción de la salud, la prevención y la educación comunitaria. Si un registro sugiere algo relevante para la salud humana, Enfermería podría colaborar con salud pública y autoridades ambientales en mensajes preventivos o actividades educativas."
+       },
+       {
+        "type": "callout",
+        "tone": "regla",
+        "text": "La plataforma no se usa para diagnosticar enfermedades ni para confirmar agentes infecciosos. Todo riesgo sanitario requiere verificación de profesionales y fuentes epidemiológicas."
+       }
+      ]
+     },
+     {
+      "id": "s3",
+      "title": "APS, participación y educación",
+      "tema": "APS",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "La Atención Primaria en Salud (APS) prioriza la promoción de la salud, la prevención, la participación comunitaria y la coordinación entre sectores. La Declaración de Astaná reafirma su importancia para avanzar hacia la cobertura sanitaria universal (OMS y UNICEF, 2018)."
+       },
+       {
+        "type": "p",
+        "text": "La PITB incluye ciencia ciudadana: las personas aportan fotografías de su territorio. Enfermería puede sumar educación comunitaria sobre la relación entre ambiente y bienestar, prácticas seguras al observar fauna y flora, y la importancia de reportar riesgos a las entidades competentes."
+       },
+       {
+        "type": "callout",
+        "tone": "ojo",
+        "text": "Las actividades se adaptan a cada comunidad y no ponen a la ciudadanía a diagnosticar el ambiente o la salud."
+       }
+      ]
+     },
+     {
+      "id": "s4",
+      "title": "Investigación formativa e interdisciplinariedad",
+      "tema": "Equipo",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "La investigación formativa puede explorar los conocimientos previos sobre biodiversidad y salud ambiental, las prácticas de autocuidado en recorridos de campo, la comprensión de los mensajes preventivos y las necesidades de accesibilidad."
+       },
+       {
+        "type": "table",
+        "head": [
+         "Equipo",
+         "Aporte a la PITB"
+        ],
+        "rows": [
+         [
+          "Tecnología",
+          "Desarrolla e integra la IA y el análisis geoespacial"
+         ],
+         [
+          "Biodiversidad",
+          "Revisa la pertinencia de los registros"
+         ],
+         [
+          "Ordenamiento territorial",
+          "Analiza su relación con las capas POT/EOT"
+         ],
+         [
+          "Enfermería",
+          "Traduce hallazgos en preguntas de salud pública, materiales educativos y propuestas preventivas"
+         ]
+        ],
+        "caption": "Cada disciplina aporta sin sustituir a las demás."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "p2",
+    "title": "Evidencia y evaluación",
+    "desc": "Qué respalda el aporte y cómo se medirá en un piloto.",
+    "divider": "DV-F",
+    "sections": [
+     {
+      "id": "s5",
+      "title": "Base documental",
+      "tema": "Evidencia",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "La revisión documental preliminar identifica tres bases para el aporte de Enfermería."
+       },
+       {
+        "type": "list",
+        "ordered": true,
+        "items": [
+         "Una Sola Salud: la salud humana, animal y ambiental se abordan de forma coordinada (FAO et al., 2022).",
+         "Determinantes ambientales de la OMS: las condiciones del entorno importan para el bienestar (OMS, 2023).",
+         "Declaración de Astaná: valor de la APS, la prevención y la participación comunitaria (OMS y UNICEF, 2018)."
+        ]
+       },
+       {
+        "type": "callout",
+        "tone": "ojo",
+        "text": "Estos antecedentes justifican explorar la conexión, pero no demuestran que la PITB haya reducido enfermedades o identificado riesgos sanitarios."
+       }
+      ]
+     },
+     {
+      "id": "s6",
+      "title": "Propuesta de evaluación piloto",
+      "tema": "Evaluación",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "Para generar evidencia propia se propone una evaluación formativa con usuarios y comunidades durante una fase piloto, con autorización previa e instrumentos adecuados, en tres momentos."
+       },
+       {
+        "type": "table",
+        "head": [
+         "Momento",
+         "Qué se hace"
+        ],
+        "rows": [
+         [
+          "Diagnóstico inicial",
+          "Encuesta breve sobre conocimientos de salud ambiental, percepción de riesgos y prácticas preventivas en la observación de fauna y flora"
+         ],
+         [
+          "Actividad educativa",
+          "Mensajes claros sobre autocuidado, respeto por la fauna, prevención de contactos riesgosos y canales institucionales para reportar hallazgos"
+         ],
+         [
+          "Evaluación posterior",
+          "Preguntas de comprensión y percepción de utilidad: qué se entendió y qué se ajusta"
+         ]
+        ]
+       },
+       {
+        "type": "callout",
+        "tone": "ojo",
+        "text": "Los indicadores son propuestos, no resultados obtenidos."
+       }
+      ]
+     },
+     {
+      "id": "s7",
+      "title": "Indicadores preliminares",
+      "tema": "Indicadores",
+      "blocks": [
+       {
+        "type": "list",
+        "items": [
+         "Porcentaje de participantes que identifica correctamente las recomendaciones de autocuidado.",
+         "Cambio entre las respuestas iniciales y finales.",
+         "Claridad percibida de los materiales.",
+         "Cantidad de observaciones recibidas para mejorar la estrategia educativa."
+        ]
+       },
+       {
+        "type": "p",
+        "text": "Los datos deben recopilarse y analizarse antes de afirmar que la intervención produjo cambios."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "p3",
+    "title": "Justificación ética",
+    "desc": "Principios, límites de la IA y protección de las comunidades.",
+    "divider": "DV-A",
+    "image": "hospital.jpg",
+    "tint": [
+     "negro",
+     "vivo"
+    ],
+    "alt": "Equipo de salud trasladando una camilla por un pasillo",
+    "sections": [
+     {
+      "id": "s8",
+      "title": "Principios y límites de la IA",
+      "tema": "Ética",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "La contribución de Enfermería respeta la beneficencia, la no maleficencia, la autonomía, la justicia, la confidencialidad y la responsabilidad profesional. La información generada por IA puede contener errores y una identificación automatizada no basta para adoptar decisiones sanitarias."
+       },
+       {
+        "type": "p",
+        "text": "BioCLIP está orientado a identificar organismos a partir de imágenes y sus resultados se interpretan dentro de ese alcance. Una identificación de especie no es un diagnóstico, ni prueba de transmisión de patógenos, ni confirma un peligro para la comunidad. Si un registro suscita una inquietud sanitaria, se remite a especialistas y autoridades para una evaluación independiente."
+       }
+      ]
+     },
+     {
+      "id": "s9",
+      "title": "Protección de las comunidades",
+      "tema": "Datos",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "Las actividades de educación o evaluación informan su propósito y piden participación voluntaria cuando corresponda. Si se recopilan datos personales u opiniones identificables, se aplican confidencialidad, minimización de datos, almacenamiento seguro y la normativa vigente."
+       },
+       {
+        "type": "callout",
+        "tone": "ojo",
+        "text": "La ubicación precisa de especies vulnerables se cuida para que su publicación no facilite captura, tráfico o perturbación."
+       }
+      ]
+     },
+     {
+      "id": "s10",
+      "title": "Equidad y responsabilidad profesional",
+      "tema": "Equidad",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "Las recomendaciones de salud ambiental usan lenguaje comprensible y se adaptan a la cultura, el territorio y la educación de cada población. Se evitan los mensajes alarmistas o estigmatizantes y los que responsabilizan a comunidades por problemas ambientales estructurales."
+       },
+       {
+        "type": "p",
+        "text": "Enfermería orienta la promoción, la prevención, la educación para la salud y la articulación comunitaria. No emite conclusiones fuera de su competencia ni recomienda intervenciones basadas solo en una predicción algorítmica: las decisiones se apoyan en evidencia suficiente, en profesionales competentes y en lineamientos institucionales."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "p4",
+    "title": "Impacto y conclusión",
+    "desc": "Lo que se espera y lo que no se debe inferir.",
+    "divider": "DV-F",
+    "sections": [
+     {
+      "id": "s11",
+      "title": "Impacto esperado",
+      "tema": "Impacto",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "La perspectiva de Enfermería puede ampliar el impacto social de la PITB al conectar la biodiversidad con el bienestar comunitario, de forma complementaria al propósito principal de apoyar el ordenamiento territorial."
+       },
+       {
+        "type": "table",
+        "head": [
+         "Ámbito",
+         "Impacto"
+        ],
+        "rows": [
+         [
+          "Salud pública",
+          "Formular preguntas de investigación sobre cambios ambientales y bienestar, con epidemiología y autoridades ambientales"
+         ],
+         [
+          "Educativo",
+          "Materiales sobre ecosistemas, salud y autocuidado en actividades de ciencia ciudadana"
+         ],
+         [
+          "Comunitario",
+          "Participación informada, reporte responsable y comunicación entre ciudadanía, salud y autoridades"
+         ],
+         [
+          "Interdisciplinario",
+          "Sumar la mirada de la salud humana sin sustituir la validación biológica ni el análisis geoespacial"
+         ]
+        ]
+       },
+       {
+        "type": "callout",
+        "tone": "ojo",
+        "text": "Límites: no inferir enfermedad solo por la presencia de una especie, no difundir información alarmista ni exponer datos sensibles de personas o ubicaciones de especies vulnerables."
+       }
+      ]
+     },
+     {
+      "id": "s12",
+      "title": "Conclusión",
+      "tema": "Conclusión",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "Enfermería puede aportar a la PITB desde la salud pública, los determinantes ambientales, la APS, la educación comunitaria y la prevención, siempre con coordinación interdisciplinaria y evaluación basada en evidencia."
+       },
+       {
+        "type": "p",
+        "text": "Los registros de la PITB y las identificaciones de BioCLIP no se interpretan automáticamente como diagnósticos o alertas sanitarias. La protección de datos, la comunicación responsable, la inclusión y la validación profesional son condiciones indispensables."
+       },
+       {
+        "type": "quote",
+        "text": "El valor de Enfermería consiste en que el conocimiento de la biodiversidad dialogue de manera responsable con la promoción de la salud y el bienestar de las comunidades."
+       }
+      ]
+     },
+     {
+      "id": "s13",
+      "title": "Referencias",
+      "tema": "Fuentes",
+      "blocks": [
+       {
+        "type": "refs",
+        "items": [
+         "Food and Agriculture Organization of the United Nations, United Nations Environment Programme, World Health Organization, & World Organisation for Animal Health. (2022). One Health Joint Plan of Action (2022–2026): Working together for the health of humans, animals, plants and the environment. FAO. https://www.fao.org/3/cc2289en/cc2289en.pdf",
+         "Organización Mundial de la Salud. (2023). Environmental health. https://www.who.int/health-topics/environmental-health",
+         "Organización Mundial de la Salud, & Fondo de las Naciones Unidas para la Infancia. (2018). Declaración de Astaná sobre Atención Primaria de Salud. https://www.who.int/docs/default-source/primary-health/declaration/gcphc-declaration-sp.pdf",
+         "Stevens, S., Wu, J., Thompson, M. J., Campolongo, E. G., Song, C. H., Carlyn, D. E., Dong, L., Dahdul, W. M., Stewart, C., Berger-Wolf, T., Chao, W.-L., & Su, Y. (2024). BioCLIP: A vision foundation model for the tree of life. Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, 19412–19424. https://openaccess.thecvf.com/content/CVPR2024/papers/Stevens_BioCLIP_A_Vision_Foundation_Model_for_the_Tree_of_Life_CVPR_2024_paper.pdf"
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

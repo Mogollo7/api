@@ -1,0 +1,94 @@
+{
+ "estado": "ok",
+ "errores": [],
+ "avisos": [],
+ "auditoria": {},
+ "imagenes_necesarias": [],
+ "secciones": [
+  {
+   "id": "s0",
+   "n": "01",
+   "pagina": 3
+  },
+  {
+   "id": "s1",
+   "n": "02",
+   "pagina": 5
+  },
+  {
+   "id": "s2",
+   "n": "03",
+   "pagina": 6
+  },
+  {
+   "id": "s3",
+   "n": "04",
+   "pagina": 7
+  },
+  {
+   "id": "s4",
+   "n": "05",
+   "pagina": 8
+  },
+  {
+   "id": "s5",
+   "n": "06",
+   "pagina": 10
+  },
+  {
+   "id": "s6",
+   "n": "07",
+   "pagina": 11
+  },
+  {
+   "id": "s7",
+   "n": "08",
+   "pagina": 12
+  },
+  {
+   "id": "s8",
+   "n": "09",
+   "pagina": 14
+  },
+  {
+   "id": "s9",
+   "n": "10",
+   "pagina": 15
+  },
+  {
+   "id": "s10",
+   "n": "11",
+   "pagina": 16
+  },
+  {
+   "id": "s11",
+   "n": "12",
+   "pagina": 18
+  },
+  {
+   "id": "s12",
+   "n": "13",
+   "pagina": 19
+  },
+  {
+   "id": "s13",
+   "n": "14",
+   "pagina": 20
+  }
+ ],
+ "correcciones_contraste": [],
+ "variantes_usadas": [
+  "CV-1",
+  "DV-A",
+  "DV-B",
+  "DV-F"
+ ],
+ "variantes_no_aprobadas": [
+  "CV-1",
+  "DV-A",
+  "DV-B",
+  "DV-F"
+ ],
+ "paginas": 20,
+ "segundos": 3.4
+}
