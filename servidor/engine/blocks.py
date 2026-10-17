@@ -108,7 +108,8 @@ def callout(b, c):
 
 def big(b, c):
     unit = f"<small>{esc(b['unit'])}</small>" if b.get("unit") else ""
-    return (f'<div class="bigd"><div class="disco" aria-hidden="true"></div><div class="big">{esc(b["value"])}{unit}</div>'
+    disc = "" if b.get("nodisc") else '<div class="disco" aria-hidden="true"></div>'
+    return (f'<div class="bigd">{disc}<div class="big">{esc(b["value"])}{unit}</div>'
             f'<div class="cap">{inline(b["caption"])}</div></div>')
 
 
@@ -260,6 +261,9 @@ def _one_image(it, c, ratio):
             c.images_used.append((src, cr))
         pos = it.get("pos", "50% 40%")
         credit = ""
+        if cr and "pendiente" in f'{cr.get("autor","")}{cr.get("licencia","")}'.lower():
+            cr = None   # crédito aún sin datos: no se imprime «dato pendiente» en la hoja
+            it = {**it, "nocredit": True}
         if cr:
             who = cr.get("autor") or "autor no indicado"
             credit = f' <span class="cr">Foto: {esc(who)} · {esc(cr.get("licencia",""))} · {esc(cr.get("fuente") or "Wikimedia Commons")}</span>'
@@ -268,7 +272,7 @@ def _one_image(it, c, ratio):
             credit = ' <span class="cr">Crédito: <span class="pend">dato pendiente</span></span>'
         return (f'<figure class="im"><div class="foto" style="aspect-ratio:{ratio}"><img src="data:{mime};base64,{data}" '
                 f'alt="{esc(it.get("alt") or plain(cap))}" style="object-position:{pos}"></div>'
-                f'<figcaption>{inline(cap)}{credit}</figcaption></figure>')
+                + (f'<figcaption>{inline(cap)}{credit}</figcaption>' if (cap or credit) else "") + '</figure>')
     c.missing.append({"src": src, "need": it.get("need") or cap})
     need = it.get("need") or cap or "describe la imagen"
     cross = '<svg viewBox="0 0 100 50" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="50"/><line x1="100" y1="0" x2="0" y2="50"/></svg>'

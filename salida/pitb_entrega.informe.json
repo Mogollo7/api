@@ -118,122 +118,117 @@
   {
    "id": "producto",
    "n": "23",
-   "pagina": 37
+   "pagina": 36
   },
   {
    "id": "proto",
    "n": "24",
-   "pagina": 38
+   "pagina": 37
   },
   {
    "id": "proto2",
    "n": "25",
-   "pagina": 40
+   "pagina": 38
   },
   {
    "id": "proto3",
    "n": "26",
-   "pagina": 41
+   "pagina": 39
   },
   {
    "id": "proto4",
    "n": "27",
-   "pagina": 42
+   "pagina": 40
   },
   {
    "id": "prueba1",
    "n": "28",
-   "pagina": 43
+   "pagina": 41
   },
   {
    "id": "prueba2",
    "n": "29",
-   "pagina": 45
+   "pagina": 43
   },
   {
    "id": "favor",
    "n": "30",
-   "pagina": 46
+   "pagina": 44
   },
   {
    "id": "prueba3",
    "n": "31",
-   "pagina": 48
+   "pagina": 46
   },
   {
    "id": "etica1",
    "n": "32",
-   "pagina": 50
+   "pagina": 48
   },
   {
    "id": "etica2",
    "n": "33",
-   "pagina": 51
+   "pagina": 49
   },
   {
    "id": "etica3",
    "n": "34",
-   "pagina": 52
+   "pagina": 50
   },
   {
    "id": "etica_enf1",
    "n": "35",
-   "pagina": 53
+   "pagina": 51
   },
   {
    "id": "etica_enf2",
    "n": "36",
-   "pagina": 54
+   "pagina": 52
   },
   {
    "id": "etica_psi",
    "n": "37",
-   "pagina": 56
+   "pagina": 54
   },
   {
    "id": "etica_enf3",
    "n": "38",
-   "pagina": 57
+   "pagina": 55
   },
   {
    "id": "impacto",
    "n": "39",
-   "pagina": 59
+   "pagina": 57
   },
   {
    "id": "impacto_enf",
    "n": "40",
-   "pagina": 60
+   "pagina": 58
   },
   {
    "id": "metodo",
    "n": "41",
-   "pagina": 61
-  },
-  {
-   "id": "resultados",
-   "n": "42",
-   "pagina": 62
+   "pagina": 59
   },
   {
    "id": "eval",
-   "n": "43",
-   "pagina": 64
+   "n": "42",
+   "pagina": 60
   },
   {
    "id": "conc",
-   "n": "44",
-   "pagina": 66
+   "n": "43",
+   "pagina": 62
   },
   {
    "id": "conc_areas",
-   "n": "45",
-   "pagina": 67
+   "n": "44",
+   "pagina": 63
   },
   {
    "id": "ref",
-   "n": "46",
-   "pagina": 69
+   "n": "45",
+   "pagina": 65
   }
  ],
  "correcciones_contraste": [],
@@ -255,6 +250,6 @@
   "DV-E",
   "DV-F"
  ],
- "paginas": 72,
- "segundos": 6.0
+ "paginas": 68,
+ "segundos": 7.0
 }

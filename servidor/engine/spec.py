@@ -46,7 +46,7 @@ BLOCKS = {
             "example": {"type": "kpi", "items": [{"v": "62,9 %", "l": "top-1", "note": "[CALC]"}, {"v": "86,1 %", "l": "top-3"}]}},
     "stats": {"desc": "Cifras en columna con regla vertical.", "fields": {"items": F("list", "[{v,l}]", True), "title": F("markup", "Rótulo."), "note": F("markup", "Nota.")},
               "example": {"type": "stats", "items": [{"v": "9,0", "l": "moda"}, {"v": "8,0", "l": "mediana"}]}},
-    "big": {"desc": "Una cifra gigante con su leyenda.", "fields": {"value": F("str", "Cifra.", True), "unit": F("str", "Unidad."), "caption": F("markup", "Leyenda.", True)},
+    "big": {"desc": "Una cifra gigante con su leyenda.", "fields": {"value": F("str", "Cifra.", True), "unit": F("str", "Unidad."), "caption": F("markup", "Leyenda.", True), "nodisc": F("bool", "true = sin el disco decorativo.")},
             "example": {"type": "big", "value": "62,9", "unit": "%", "caption": "Acierto top-1"}},
     "callout": {"desc": "Aviso con etiqueta.", "fields": {
         "tone": F("str", "Tono.", False, enum=["nota", "clave", "ojo", "sim", "pend", "regla", "slate", "hueco"]), "label": F("str", "Rótulo."), "title": F("markup", "Título."),
@@ -95,7 +95,7 @@ SECTION = {"id": F("str", "Identificador único.", True), "title": F("markup", "
 PART = {"id": F("str", "Identificador.", True), "title": F("str", "Título corto (≤ 34).", True, max=34), "desc": F("str", "Descripción de 1–2 líneas.", True, max=200),
         "divider": F("str", "Variante de divisor o 'auto'."), "bg": F("str", "Rol de fondo."), "num_color": F("str", "Rol del número."), "title_color": F("str", "Rol del título."),
         "image": F("str", "Foto del divisor."), "tint": F("list", "[rol oscuro, rol claro]."), "sections": F("list", "Secciones.", True)}
-COVER = {"title": F("str", "Título del documento (una sola vez; no lo repitas en otros campos).", True, max=70), "vertical": F("str", "Palabra gigante de la portada.", True, max=20),
+COVER = {"note": F("str", "Nota corta al pie de la portada CV-1, separada del texto (p. ej. estrategia asociada).", False, max=80), "title": F("str", "Título del documento (una sola vez; no lo repitas en otros campos).", True, max=70), "vertical": F("str", "Palabra gigante de la portada.", True, max=20),
          "text": F("str", "Descripción de 1–3 líneas.", True, max=220), "variant": F("str", "CV-1…"), "image": F("str", "Foto."), "treatment": F("str", "Tinta."), "tint": F("list", "[rol oscuro, rol claro]."),
          "alt": F("str", "Texto alternativo de la foto."), "stack": F("list", "Filas del titular apilado (CV-4)."), "badge": F("obj", "{lines, tag} (CV-4)."), "quote": F("list", "Líneas (CV-4)."),
          "strip": F("list", "Palabras (CV-4)."), "number": F("str", "Número (CV-4)."), "list": F("list", "Líneas (CV-4)."), "notes": F("list", "Notas (CV-4).")}

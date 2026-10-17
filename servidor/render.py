@@ -117,7 +117,7 @@ def _fuentes(ctx):
 
 # opción `density: "aireado"`: texto más grande y más aire entre bloques (documentos académicos para leer en pantalla)
 AIREADO = (".lp .cont{gap:4.6cqw}.int p{font-size:2.75cqw;line-height:1.62;margin-bottom:3cqw}"
-           ".bl{font-size:2.65cqw;line-height:1.55}.bl li{padding:.9cqw 0}.bl.refs,.bl.fnotes{font-size:2.2cqw}")
+           ".bp{text-indent:5cqw}.bl{font-size:2.65cqw;line-height:1.55}.bl li{padding:.9cqw 0}.bl.refs,.bl.fnotes{font-size:2.2cqw}")
 
 
 def make_head(doc, design_dir, m, roles, ph=141.4):

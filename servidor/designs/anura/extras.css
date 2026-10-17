@@ -313,3 +313,8 @@ sup.fn{font-family:var(--font-mono);font-weight:600;font-size:.62em;vertical-ali
 
 .bl.refs.apa li{display:block;padding:.6cqw 0 .6cqw 5cqw;text-indent:-5cqw}
 .bl.refs.apa li::before{content:none;display:none}
+.cv-tit p:not(.cv-note){grid-row:2;grid-column:1;align-self:start}
+.cv-tit p.cv-note{grid-row:2;grid-column:1;align-self:end;padding:0 0 2cqw;max-width:none}
+.cv-tit p+p.cv-note{margin:0}
+.cv-v.cv-v-low{top:21cqw;height:71cqw}
+.cv-tit p.cv-txt{max-width:53ch}
