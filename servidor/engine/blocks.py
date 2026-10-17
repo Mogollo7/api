@@ -226,6 +226,18 @@ def custom(b, c):
 
 
 # ---------- imágenes ----------
+def _original(path, cache):
+    """Copia reducida (JPEG, máx. 1400 px de ancho) para imágenes que no deben tramarse, como las capturas de interfaz."""
+    from PIL import Image, ImageOps
+    out = cache / f"{path.stem}_orig_{path.stat().st_mtime_ns}.jpg"
+    if not out.exists():
+        im = ImageOps.exif_transpose(Image.open(path)).convert("RGB")
+        if im.width > 1400:
+            im = im.resize((1400, round(im.height * 1400 / im.width)), Image.LANCZOS)
+        im.save(out, quality=88)
+    return out
+
+
 def _one_image(it, c, ratio):
     src = it.get("src")
     cap = it.get("caption", "")
@@ -235,8 +247,13 @@ def _one_image(it, c, ratio):
     if path and path.exists():
         treat = it.get("treatment") or ["ocre", "crema", "verde", "negroverde"][c.img_i % 4]
         c.img_i += 1
-        out = duotone(path, treat, c.roles, c.manifest["image_treatments"], c.cache)
         import base64
+        if treat == "original":   # capturas de pantalla: sin filtro, solo reducidas a 1400 px
+            out = _original(path, c.cache)
+            mime = "image/jpeg"
+        else:
+            out = duotone(path, treat, c.roles, c.manifest["image_treatments"], c.cache)
+            mime = "image/png"
         data = base64.b64encode(out.read_bytes()).decode()
         cr = c.credits.get(src)
         if cr:
@@ -249,7 +266,7 @@ def _one_image(it, c, ratio):
         elif not it.get("nocredit"):
             c.no_credit.append(src)
             credit = ' <span class="cr">Crédito: <span class="pend">dato pendiente</span></span>'
-        return (f'<figure class="im"><div class="foto" style="aspect-ratio:{ratio}"><img src="data:image/png;base64,{data}" '
+        return (f'<figure class="im"><div class="foto" style="aspect-ratio:{ratio}"><img src="data:{mime};base64,{data}" '
                 f'alt="{esc(it.get("alt") or plain(cap))}" style="object-position:{pos}"></div>'
                 f'<figcaption>{inline(cap)}{credit}</figcaption></figure>')
     c.missing.append({"src": src, "need": it.get("need") or cap})
