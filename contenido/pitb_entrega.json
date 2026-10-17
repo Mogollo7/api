@@ -459,7 +459,8 @@
                 "ratio": "16/9",
                 "treatment": "verde",
                 "alt": "Persona con guante revisando vegetación en campo",
-                "caption": ""
+                "caption": "",
+                "nocaption": true
               },
               {
                 "type": "p",
@@ -485,8 +486,8 @@
               },
               {
                 "type": "callout",
-                "tone": "ojo",
-                "text": "La plataforma no sirve para diagnosticar enfermedades ni para confirmar agentes infecciosos. Una identificación de especie no es una prueba de riesgo para la salud."
+                "tone": "clave",
+                "text": "Lo más fundamental en medicina es conocer todas las variables que pueden afectar a un paciente, para anticiparse a los peligros y ejecutar contramedidas. Conocer la aparición de especies que pueden correlacionarse con ciertas afecciones aporta una de esas variables, que los profesionales de salud evalúan junto con las demás."
               }
             ]
           },
