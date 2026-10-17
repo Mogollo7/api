@@ -5,7 +5,8 @@
   "palette": "pitb",
   "options": {
     "seed": 17,
-    "density": "aireado"
+    "density": "aireado",
+    "credits_section": false
   },
   "meta": {
     "title": "Territorio sostenible: PITB Antioquia",
@@ -61,7 +62,7 @@
               {
                 "type": "callout",
                 "tone": "ojo",
-                "text": "Los datos de desempeño son preliminares: se midieron con ranas de Colombia, y la interfaz web del prototipo todavía simula el análisis en el navegador. Lo que no se ha medido se dice como tal."
+                "text": "Los primeros resultados respaldan la idea: con 56 especies de ranas de Colombia, un grupo difícil de identificar, el modelo acierta a la primera en 62,9 % de las fotos y en 86,1 % cuando se muestran tres candidatas. Son datos preliminares: la interfaz web todavía simula el análisis en el navegador y lo que no se ha medido se dice como tal."
               }
             ]
           },
@@ -146,6 +147,10 @@
                 "type": "callout",
                 "tone": "clave",
                 "text": "Sin una línea base, el ordenamiento territorial siempre actuará tarde."
+              },
+              {
+                "type": "p",
+                "text": "Y es viable: en las pruebas con ranas de Colombia, un grupo difícil de identificar, el modelo ya acierta entre las tres primeras opciones en más de 8 de cada 10 fotos (ver la Parte 4)."
               },
               {
                 "type": "p",
@@ -343,6 +348,45 @@
             ]
           },
           {
+            "id": "inf_tool",
+            "title": "Herramienta de IA utilizada: BioCLIP",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "El núcleo de clasificación se apoya en BioCLIP, un modelo de inteligencia artificial de visión por computador desarrollado por investigadores del Imageomics Institute de la Universidad Estatal de Ohio, en colaboración con otras instituciones académicas, y reconocido con el premio al Mejor Artículo Estudiantil de la conferencia CVPR 2024 (Stevens et al., 2024)."
+              },
+              {
+                "type": "kpi",
+                "items": [
+                  {
+                    "v": "10M+",
+                    "l": "imágenes de entrenamiento"
+                  },
+                  {
+                    "v": "450K+",
+                    "l": "taxones distintos"
+                  },
+                  {
+                    "v": "17–20 %",
+                    "l": "mejora frente a otros modelos"
+                  },
+                  {
+                    "v": "0",
+                    "l": "coordenadas GPS en su entrenamiento"
+                  }
+                ]
+              },
+              {
+                "type": "p",
+                "text": "BioCLIP fue entrenado con TreeOfLife-10M, un conjunto de más de diez millones de imágenes que cubre más de 450.000 taxones entre animales, plantas, hongos y protistas, lo que le permite reconocer la estructura jerárquica de la taxonomía biológica, desde el reino hasta la especie, en lugar de clasificar cada organismo de forma aislada (Stevens et al., 2024). El modelo reconoce especies aun con pocos o ningún ejemplo previo, capacidad conocida como clasificación zero-shot y few-shot."
+              },
+              {
+                "type": "p",
+                "text": "El modelo no incorpora coordenadas GPS en su entrenamiento, lo que reduce el riesgo de que la información recolectada sea usada para localizar y afectar especies vulnerables (Imageomics Institute, s.f.). A nivel de arquitectura de software, el prototipo complementa a BioCLIP con un motor geoanalítico basado en PostGIS y GDAL, que ejecuta de forma continua el cruce entre los modelos predictivos de biodiversidad, los registros de campo y las capas oficiales de Ordenamiento Territorial (POT, PBOT y EOT) de cada municipio."
+              }
+            ]
+          },
+          {
             "id": "inf2",
             "title": "Cómo identifica el modelo",
             "blocks": [
@@ -405,42 +449,88 @@
             ]
           },
           {
-            "id": "psi",
-            "title": "Psicología: participación y confianza",
+            "id": "psi1",
+            "title": "Psicología: ambiente, participación y comportamiento",
             "blocks": [
               {
                 "type": "p",
-                "text": "La psicología explica por qué una persona decide participar y qué hace con lo que le dice una máquina. Sirve para dos preguntas del proyecto: ¿quién va a querer subir fotos? y ¿cuánto va a creer en la respuesta?"
+                "text": "La Plataforma de Inteligencia Territorial y Biodiversidad (PITB) Antioquia propone integrar la inteligencia artificial en la identificación y el registro de especies de fauna y flora, con el propósito de generar información que contribuya al conocimiento de la biodiversidad y al ordenamiento territorial. Desde la psicología, este proyecto puede analizarse a partir de la relación entre las personas y el ambiente, los factores que influyen en la participación ciudadana, los procesos cognitivos relacionados con la interpretación de información y las implicaciones éticas de la interacción humana con sistemas de inteligencia artificial. Esta perspectiva permite reconocer que el aprovechamiento de una herramienta tecnológica no depende únicamente de sus capacidades técnicas, sino también de cómo las personas comprenden, utilizan y valoran la información que proporciona."
               },
               {
                 "type": "p",
-                "text": "Sobre la primera, Gifford (2014) muestra que el comportamiento ambiental depende de actitudes, creencias, normas sociales y barreras, no solo de tener una herramienta a mano. La teoría del comportamiento planificado (Ajzen, 1991) añade que la intención de actuar nace de la actitud, de lo que la persona cree que opinan los demás y de si se siente capaz. Alguien puede valorar la fauna y no participar porque cree que no sabe identificar especies. De ahí que la plataforma necesite orientaciones simples y actividades de familiarización."
+                "text": "En primer lugar, la psicología ambiental constituye un fundamento teórico relevante para comprender la relación entre los individuos y su entorno natural. Gifford (2014) explica que el comportamiento ambiental está influido por diferentes factores psicológicos, como las actitudes, las creencias, las normas sociales y las barreras que dificultan la adopción de conductas favorables al ambiente. En relación con la PITB Antioquia, estos planteamientos permiten comprender que la participación ciudadana en el registro de especies no depende exclusivamente de disponer de una plataforma, sino también de las motivaciones, los conocimientos y las condiciones que favorecen el compromiso de las personas con la conservación de la biodiversidad. De esta manera, desde la psicología se propone promover estrategias de sensibilización ambiental, actividades de formación y mecanismos de retroalimentación que permitan a los ciudadanos comprender la importancia de sus aportes y fortalecer su participación en el conocimiento del territorio."
               },
               {
                 "type": "p",
-                "text": "Kollmuss y Agyeman (2002) refuerzan la idea: saber que la biodiversidad importa no garantiza que una persona actúe. Informar no basta; hay que atender motivaciones y barreras."
+                "text": "Esta perspectiva se complementa con la teoría del comportamiento planificado de Ajzen (1991), según la cual la intención de realizar una conducta se relaciona con las actitudes hacia dicha conducta, las normas subjetivas y el control conductual percibido. Aplicado a la PITB, este modelo permite analizar cómo la valoración de la conservación ambiental, la percepción del apoyo de la comunidad y la confianza en la propia capacidad para utilizar la plataforma pueden relacionarse con la disposición a participar en el registro de biodiversidad. Por ejemplo, una persona puede considerar importante proteger la fauna, pero abstenerse de participar porque cree que carece de los conocimientos necesarios para identificar especies o utilizar herramientas tecnológicas. Ante esta situación, se propone implementar orientaciones accesibles y actividades de familiarización que faciliten el uso de la plataforma y fortalezcan la percepción de capacidad de los participantes. Estos planteamientos constituyen una base para formular estrategias que posteriormente deberán evaluarse en el contexto real del proyecto."
               },
               {
                 "type": "p",
-                "text": "Sobre la segunda pregunta, Kahneman (2011) describe cómo los juicios humanos caen en atajos y sesgos. En la PITB, el atajo previsible es dar por cierta cualquier identificación de la IA. Lee y See (2004) hablan de una confianza apropiada: ni ciega ni nula, ajustada a lo que el sistema realmente puede hacer. Estudios con usuarios de aplicaciones de identificación reales apuntan en la misma dirección: la confianza en la IA depende del contexto de uso (Kim et al., 2023). Para lograrla, la interfaz debe diferenciar una identificación preliminar de un registro validado, explicar cómo funciona el sistema a grandes rasgos y facilitar la revisión de los casos dudosos."
+                "text": "Asimismo, Kollmuss y Agyeman (2002) examinan la relación entre la conciencia ambiental y el comportamiento favorable al ambiente, señalando que la adopción de conductas sostenibles está condicionada por múltiples factores y que el conocimiento, por sí solo, no garantiza la acción. Este aporte resulta pertinente para la PITB porque permite reconocer que informar a la ciudadanía sobre la importancia de la biodiversidad no asegura automáticamente su participación. También es necesario considerar las motivaciones individuales, las influencias sociales y las barreras que pueden dificultar el compromiso ambiental. En consecuencia, se propone que las estrategias de participación tengan en cuenta las características de los usuarios y faciliten experiencias comprensibles y significativas, en las que las personas puedan reconocer el valor de contribuir al conocimiento de su entorno."
               }
             ]
           },
           {
-            "id": "enf",
-            "title": "Enfermería: salud pública y prevención",
+            "id": "psi2",
+            "title": "Psicología cognitiva y confianza en la IA",
             "blocks": [
               {
                 "type": "p",
-                "text": "Enfermería no reemplaza a biólogos, ecólogos ni autoridades ambientales, y no interviene en la clasificación de especies. Su aporte está en la salud pública: entender cómo el ambiente se relaciona con la salud de las comunidades, promover la prevención y cuidar que la información territorial se lea pensando en las personas."
+                "text": "Por otra parte, la psicología cognitiva permite comprender los procesos mediante los cuales las personas perciben, interpretan y utilizan la información para tomar decisiones. Kahneman (2011) analiza cómo los juicios humanos pueden estar influidos por heurísticas y sesgos cognitivos que, en determinadas circunstancias, conducen a interpretaciones equivocadas. En el contexto de la PITB, este planteamiento resulta importante porque los usuarios podrían asumir que una identificación generada por inteligencia artificial es necesariamente correcta, sin considerar las limitaciones de la imagen o la posibilidad de que existan especies visualmente similares. Por ello, desde la psicología se propone que los resultados se presenten de manera comprensible, que se diferencien las identificaciones preliminares de los registros validados y que se facilite la revisión de aquellos casos que requieran confirmación. Estas medidas buscan favorecer una interpretación crítica de la información y evitar que la confianza en la tecnología sustituya el análisis de la evidencia."
               },
               {
                 "type": "p",
-                "text": "La Organización Mundial de la Salud reconoce que la salud depende del entorno: el aire, el agua, la vivienda, el saneamiento y los ecosistemas (OMS, 2023). Los registros de la PITB no demuestran por sí solos que haya un riesgo sanitario, pero pueden ayudar a formular preguntas y a señalar situaciones que merezcan la evaluación de las autoridades competentes."
+                "text": "En relación con este aspecto, Lee y See (2004) estudian la confianza en los sistemas automatizados y destacan la importancia de diseñar condiciones que permitan una dependencia adecuada de la tecnología, de acuerdo con sus capacidades reales. Este planteamiento puede aplicarse a la interacción entre los usuarios y la PITB, puesto que una confianza excesiva podría llevar a aceptar resultados incorrectos, mientras que una confianza insuficiente podría reducir la disposición a utilizar la herramienta. Desde la psicología, se considera necesario favorecer una confianza informada mediante explicaciones claras sobre el funcionamiento general del sistema, la comunicación de sus limitaciones y la posibilidad de revisar las identificaciones. Así, se busca promover una relación equilibrada con la inteligencia artificial, en la que sus resultados sean considerados recursos de apoyo y no verdades incuestionables."
               },
               {
                 "type": "p",
-                "text": "El enfoque de Una Sola Salud sostiene que la salud de las personas, los animales y los ecosistemas está conectada y exige coordinación entre sectores (FAO et al., 2022). Y la Atención Primaria en Salud pone la promoción, la prevención y la participación comunitaria en el centro (OMS y UNICEF, 2018). Desde ahí, Enfermería puede diseñar educación comunitaria sobre prácticas seguras al observar fauna y flora, y sobre cómo reportar situaciones de riesgo."
+                "text": "Estudios con usuarios de aplicaciones de identificación reales apuntan en la misma dirección: la confianza en la IA depende del contexto de uso (Kim et al., 2023)."
+              }
+            ]
+          },
+          {
+            "id": "psi3",
+            "title": "Investigación formativa desde la psicología",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Los antecedentes teóricos mencionados constituyen una base para la investigación formativa desde la psicología, ya que permiten formular preguntas y estrategias de evaluación relacionadas con las características de las personas que utilizarán la plataforma. A partir de los aportes de Gifford (2014), Ajzen (1991) y Kollmuss y Agyeman (2002), se propone explorar las actitudes hacia la conservación de la biodiversidad, las motivaciones para participar, las barreras percibidas y la disposición a contribuir con registros de fauna y flora. De manera complementaria, los planteamientos de Kahneman (2011) y Lee y See (2004) permiten orientar la evaluación de la comprensión de los resultados, la confianza en las identificaciones automatizadas y la disposición de los usuarios a verificar la información."
+              },
+              {
+                "type": "p",
+                "text": "Para desarrollar esta evaluación, se propone realizar un diagnóstico inicial mediante una encuesta breve que explore las actitudes ambientales, la percepción de capacidad para utilizar la plataforma, las motivaciones y las dificultades identificadas por los participantes. Posteriormente, se podría recoger información sobre la experiencia de uso, la comprensión de los resultados y la percepción de utilidad de la herramienta. Finalmente, el análisis de los datos permitiría identificar necesidades de formación y oportunidades de mejora. Esta propuesta facilitaría la generación de evidencia propia sobre la experiencia de los usuarios y contribuiría a orientar las estrategias psicológicas del proyecto. Sin embargo, sus resultados deberán establecerse a partir de la información efectivamente recopilada durante la implementación piloto, sin asumir anticipadamente que las intervenciones producirán cambios determinados."
+              }
+            ]
+          },
+          {
+            "id": "enf1",
+            "title": "Enfermería: el aporte desde la salud pública",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "La participación de Enfermería no consiste en reemplazar las funciones de biólogos, ecólogos, ingenieros o autoridades ambientales, ni en intervenir directamente en la clasificación taxonómica. Su aporte se ubica en la perspectiva de la salud pública: comprender cómo las condiciones ambientales se relacionan con la salud de las comunidades, promover la prevención, fortalecer la educación para la salud y contribuir a que la información territorial se interprete teniendo en cuenta el bienestar humano."
+              },
+              {
+                "type": "p",
+                "text": "La Organización Mundial de la Salud reconoce que la salud de las personas está estrechamente relacionada con las condiciones del entorno, entre ellas la calidad del aire y del agua, la vivienda, el saneamiento, los ecosistemas y las condiciones en las que viven las comunidades (OMS, 2023). Desde esta perspectiva, la salud no depende exclusivamente de la atención de las enfermedades, sino también de la prevención de riesgos y de las condiciones ambientales y sociales que pueden proteger o afectar el bienestar."
+              },
+              {
+                "type": "p",
+                "text": "Este enfoque se relaciona con la PITB Antioquia porque la plataforma busca generar información más actualizada sobre la presencia y distribución de especies, así como identificar cambios ecológicos relevantes. Aunque los registros de biodiversidad no permiten establecer por sí solos que exista un riesgo sanitario, pueden constituir una fuente complementaria para orientar preguntas de salud pública y reconocer situaciones ambientales que ameriten evaluación por parte de las autoridades competentes. Por ejemplo, los cambios en los ecosistemas o la presencia de determinadas especies pueden motivar investigaciones sobre riesgos ambientales o zoonóticos, siempre que se realicen análisis específicos y se eviten conclusiones automáticas a partir de una fotografía."
+              }
+            ]
+          },
+          {
+            "id": "enf2",
+            "title": "Una Sola Salud y atención primaria",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "El enfoque de Una Sola Salud reconoce que la salud de las personas, los animales y los ecosistemas están conectadas y requieren trabajo coordinado entre diferentes disciplinas y sectores. La Organización Mundial de la Salud y otras organizaciones internacionales promueven este enfoque para abordar problemas complejos que no pueden comprenderse desde una sola área del conocimiento (FAO et al., 2022)."
+              },
+              {
+                "type": "p",
+                "text": "Desde Enfermería, este marco permite proponer una articulación entre la información sobre biodiversidad de la PITB y las acciones de promoción de la salud, prevención de enfermedades y educación comunitaria. Cuando los registros de la plataforma sugieran una situación que pueda tener relevancia para la salud humana, el personal de Enfermería podría colaborar con equipos de salud pública y autoridades ambientales para diseñar mensajes preventivos o actividades educativas. La plataforma no debe utilizarse para diagnosticar enfermedades ni para confirmar la presencia de agentes infecciosos; cualquier riesgo sanitario requiere verificación por profesionales y fuentes epidemiológicas apropiadas."
               },
               {
                 "type": "image",
@@ -451,6 +541,28 @@
                 "caption": "Observación de campo con equipo de protección."
               },
               {
+                "type": "p",
+                "text": "La Atención Primaria en Salud (APS) prioriza la promoción de la salud, la prevención de la enfermedad, la participación de las comunidades y la coordinación entre sectores. La Declaración de Astaná reafirma la importancia de la atención primaria para avanzar hacia una cobertura sanitaria universal y mejorar la salud de las poblaciones (OMS y UNICEF, 2018)."
+              },
+              {
+                "type": "p",
+                "text": "La PITB incorpora un componente de ciencia ciudadana mediante la posibilidad de que las personas aporten fotografías y contribuyan al conocimiento de la biodiversidad de su territorio. Enfermería puede complementar este componente con estrategias de educación comunitaria que expliquen la relación entre el cuidado del ambiente y el bienestar, promuevan prácticas seguras durante las actividades de observación de fauna y flora, y orienten a las personas sobre la importancia de reportar situaciones de riesgo a las entidades competentes. Estas actividades deben diseñarse según las características culturales, educativas y territoriales de cada comunidad, sin atribuir a la ciudadanía responsabilidades de diagnóstico ambiental o sanitario."
+              }
+            ]
+          },
+          {
+            "id": "enf3",
+            "title": "Investigación formativa e interdisciplinariedad",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "La investigación formativa desde Enfermería puede aportar preguntas y métodos para comprender las necesidades de educación y prevención de las comunidades que interactúen con la plataforma. Por ejemplo, se pueden explorar los conocimientos previos sobre biodiversidad y salud ambiental, las prácticas de autocuidado durante recorridos de campo, la comprensión de los mensajes preventivos y las necesidades de accesibilidad de la información."
+              },
+              {
+                "type": "p",
+                "text": "En la PITB, los profesionales de tecnología desarrollan e integran los componentes de IA y análisis geoespacial; los especialistas en biodiversidad revisan la pertinencia de los registros; los profesionales de ordenamiento territorial analizan su relación con las capas POT/EOT; y Enfermería puede contribuir a traducir hallazgos relevantes en preguntas de salud pública, materiales educativos y propuestas preventivas. Esta colaboración amplía el valor social de la plataforma sin modificar su propósito principal."
+              },
+              {
                 "type": "callout",
                 "tone": "ojo",
                 "text": "La plataforma no sirve para diagnosticar enfermedades ni para confirmar agentes infecciosos. Una identificación de especie no es una prueba de riesgo para la salud."
@@ -458,24 +570,34 @@
             ]
           },
           {
-            "id": "com",
-            "title": "Comunicación: participación y apropiación",
+            "id": "com1",
+            "title": "Comunicación para el cambio social",
             "blocks": [
               {
                 "type": "p",
-                "text": "El problema del proyecto no es solo tecnológico. Es también comunicativo, porque depende de que muchas personas aporten, entiendan y se apropien de lo que la plataforma produce."
+                "text": "El proyecto de una plataforma digital para el reconocimiento y registro de la biodiversidad en Antioquia parte de una problemática que no es únicamente tecnológica, sino también social y comunicativa. Actualmente, la identificación de especies depende en gran medida de procesos de muestreo manual que pueden tardar años en actualizarse, lo que dificulta contar con una línea base actualizada para comprender los cambios que ocurren en el territorio. Frente a esto, la propuesta busca utilizar inteligencia artificial para transformar fotografías de flora y fauna en registros geolocalizados que permitan construir un catálogo vivo y comparable de la biodiversidad. En este contexto, la comunicación adquiere relevancia porque el funcionamiento y el impacto de la plataforma dependen de la participación de diferentes actores en la generación, circulación y apropiación del conocimiento."
               },
               {
                 "type": "p",
-                "text": "Gumucio-Dagron (2011) propone una comunicación para el cambio social basada en el diálogo y la participación, no en enviar información de un emisor a un receptor. Aplicado al proyecto, las personas no son solo usuarias que reciben datos: son participantes que aportan lo que observan en su territorio. Una foto de una especie deja de ser un contenido suelto y se vuelve parte de un catálogo colectivo."
+                "text": "Desde la perspectiva de comunicación para el cambio social, Gumucio-Dagron (2011) plantea una comunicación centrada en el diálogo, la participación y la apropiación de los procesos por parte de las comunidades. Esta perspectiva se distancia de los modelos en los que la comunicación consiste únicamente en transmitir información desde un emisor hacia un receptor y propone, en cambio, procesos en los que los actores participan activamente en la construcción de conocimiento y en la transformación de su realidad. Aplicado al proyecto, esto significa que los ciudadanos no deberían ser considerados únicamente como usuarios que reciben información sobre biodiversidad, sino como participantes capaces de aportar información sobre el territorio a partir de sus propias observaciones. La fotografía de una especie, por ejemplo, deja de ser únicamente un contenido generado por un usuario y se convierte en un aporte que puede alimentar el catálogo colectivo de biodiversidad."
               },
               {
                 "type": "p",
-                "text": "Servaes (2012) llega a una idea parecida desde la comunicación para el desarrollo: el desarrollo no puede depender solo de decisiones de instituciones o expertos, y la comunicación debe favorecer la interacción entre quienes participan. Con este lente, la plataforma es un espacio donde se encuentran ciudadanos, investigadores, instituciones y quienes gestionan el territorio."
+                "text": "Esta perspectiva resulta especialmente pertinente porque la solución propuesta busca precisamente convertir la participación ciudadana en información útil para comprender el territorio. La plataforma permite que una fotografía sea procesada mediante BioCLIP, identificada, geolocalizada y posteriormente incorporada a un mapa colectivo de biodiversidad. Así, la comunicación no se limita a divulgar los resultados del proyecto, sino que hace parte del proceso mediante el cual diferentes personas pueden observar, aportar, compartir y apropiarse del conocimiento generado. Desde esta perspectiva, el valor de la plataforma no estaría únicamente en la capacidad de la inteligencia artificial para reconocer especies, sino también en su capacidad para facilitar una participación que contribuya a generar conocimiento actualizado sobre el territorio."
+              }
+            ]
+          },
+          {
+            "id": "com2",
+            "title": "Comunicación participativa y actores del territorio",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Esta idea se complementa con el enfoque de comunicación participativa para el desarrollo propuesto por Servaes (2012), quien plantea un cambio desde modelos de comunicación orientados principalmente a la transmisión de información hacia procesos participativos en los que diferentes actores intervienen en la construcción del desarrollo y del cambio social. Bajo esta perspectiva, la comunicación debe favorecer la interacción y la cooperación entre los actores involucrados, reconociendo que el desarrollo no puede depender exclusivamente de decisiones tomadas desde instituciones o expertos. En el caso de este proyecto, esto permite comprender la plataforma como un espacio de articulación entre ciudadanos, investigadores, instituciones y actores encargados de la gestión del territorio, quienes pueden aportar o utilizar información sobre la biodiversidad desde diferentes roles."
               },
               {
                 "type": "p",
-                "text": "En la práctica, esto se traduce en mensajes cortos que explican qué significa cada resultado, en separar «identificación sugerida» de «confirmación experta», y en canales para reportar errores y corregir datos. La tecnología facilita el proceso; la comunicación conecta a quienes le dan sentido."
+                "text": "Por lo tanto, desde la perspectiva de Comunicación y Relaciones Corporativas, el proyecto puede entenderse como una propuesta en la que la tecnología facilita el proceso, pero la comunicación permite conectar a los actores que le dan sentido. La plataforma no busca únicamente automatizar la identificación de especies, sino generar un sistema participativo de información que permita producir y compartir conocimiento sobre la biodiversidad de Antioquia. De esta manera, los enfoques de Gumucio-Dagron y Servaes permiten sustentar que la participación, el diálogo y la articulación entre actores son elementos fundamentales para que una herramienta tecnológica pueda convertirse en un mecanismo de construcción colectiva de conocimiento y contribuir a una mejor comprensión y gestión del territorio."
               }
             ]
           },
@@ -576,7 +698,7 @@
               },
               {
                 "type": "p",
-                "text": "Gifford (2014), Ajzen (1991) y Kollmuss y Agyeman (2002) explican la participación ambiental. Kahneman (2011) y Lee y See (2004) explican los sesgos al interpretar información y la confianza en la automatización. Gumucio-Dagron (2012) y Servaes (2012) sustentan la comunicación participativa."
+                "text": "Gifford (2014), Ajzen (1991) y Kollmuss y Agyeman (2002) explican la participación ambiental. Kahneman (2011) y Lee y See (2004) explican los sesgos al interpretar información y la confianza en la automatización. Gumucio-Dagron (2011) y Servaes (2012) sustentan la comunicación participativa."
               },
               {
                 "type": "h",
@@ -592,6 +714,20 @@
                 "text": "No se encontró ningún estudio revisado por pares sobre el desempeño de BioCLIP con fauna o flora de Colombia o Antioquia. Por eso las pruebas locales de este documento son preliminares y se presentan como hipótesis a validar.",
                 "label": "VACÍO DE LA LITERATURA",
                 "title": "Qué no hay todavía"
+              }
+            ]
+          },
+          {
+            "id": "evid_enf",
+            "title": "Evidencia documental desde Enfermería",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "La revisión documental preliminar permite identificar tres bases para el aporte de Enfermería. Primero, el enfoque de Una Sola Salud plantea que la salud humana, animal y ambiental deben abordarse de manera coordinada (FAO et al., 2022). Segundo, el marco de determinantes ambientales de la salud de la OMS destaca la importancia de las condiciones del entorno en el bienestar de las personas (OMS, 2023). Tercero, la Declaración de Astaná resalta el valor de la Atención Primaria en Salud, la prevención y la participación comunitaria (OMS y UNICEF, 2018)."
+              },
+              {
+                "type": "p",
+                "text": "Estos antecedentes justifican explorar la conexión entre biodiversidad, educación ambiental y salud comunitaria, pero no demuestran que la PITB ya haya reducido enfermedades o identificado riesgos sanitarios. Para generar evidencia propia, se propone una evaluación formativa con usuarios y comunidades durante una fase piloto, previa autorización y con instrumentos adecuados."
               }
             ]
           },
@@ -1059,6 +1195,33 @@
             ]
           },
           {
+            "id": "favor",
+            "title": "Por qué estos resultados respaldan el proyecto",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Las ranas son una prueba exigente: ocupan apenas entre el 6 y el 18 % del encuadre, hay especies casi idénticas y las fotos vienen del campo. Aun así, el análisis deja cuatro argumentos a favor de la PITB."
+              },
+              {
+                "type": "list",
+                "ordered": true,
+                "items": [
+                  "**El modelo ayuda aunque no sea perfecto.** Con 56 especies acierta a la primera en 62,9 % de las fotos, en 86,1 % si se muestran tres candidatas y en 91,1 % si se muestran cinco. En un catálogo que pasa por revisión, que la especie correcta esté entre las tres primeras en más de 8 de cada 10 fotos es una ayuda real.",
+                  "**Crecer es barato.** El modelo sin entrenar (70,4 % con 28 especies) igualó al modelo ajustado (69,2 %). Añadir una especie al catálogo es calcular un vector, no reentrenar: justo lo que necesita un catálogo vivo que crece con cada registro.",
+                  "**La ubicación mejora la identificación.** Usar el lugar de la observación para reordenar las candidatas subió el acierto en 24,9 puntos en la prueba completa y en 15,3 puntos en sitios aislados. Es una razón técnica para georreferenciar cada foto, y la georreferenciación es el corazón de la PITB. El dato solo reordena las candidatas: la especie sale de lo que se ve en la imagen.",
+                  "**Los errores están concentrados y se pueden marcar.** Se concentran en pocos pares de especies casi idénticas, casi siempre del mismo género, y el sistema puede avisar «requiere un detalle» y enviarlos a revisión humana. Lo que no es una rana se rechaza bien: solo se cuela el 4,6 %."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "ojo",
+                "text": "Estas cifras son de ranas de Colombia. Que las ranas sean difíciles hace razonable esperar buen desempeño con fauna más grande y visible, pero es una hipótesis: para aves, mamíferos y plantas hay que medirlo.",
+                "label": "HIPÓTESIS",
+                "title": "Qué no se puede afirmar todavía"
+              }
+            ]
+          },
+          {
             "id": "prueba3",
             "title": "Pruebas del prototipo y límites",
             "blocks": [
@@ -1167,6 +1330,34 @@
                 "text": "En Colombia, el tratamiento de datos personales se rige por la Ley 1581 de 2012, y la política nacional de IA se orienta por los documentos CONPES 3975 de 2019 y 4144 de 2025. Cuando se recojan datos personales, opiniones o información que permita identificar a alguien, se aplicarán consentimiento informado, finalidad clara, minimización de datos, almacenamiento seguro y acceso limitado. La participación en encuestas y pruebas será voluntaria."
               },
               {
+                "type": "p",
+                "text": "Quien aporta una foto conserva su autoría y la licencia con la que la comparte, y se reconoce en el registro. El sistema también permite reportar errores y pedir la revisión de un resultado."
+              }
+            ]
+          },
+          {
+            "id": "etica_enf1",
+            "title": "Ética desde Enfermería: uso responsable de la información",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "La contribución de Enfermería a la PITB debe respetar los principios de beneficencia, no maleficencia, autonomía, justicia, confidencialidad y responsabilidad profesional. También debe reconocer que la información generada por inteligencia artificial puede contener errores y que una identificación automatizada no constituye por sí sola evidencia suficiente para adoptar decisiones sanitarias."
+              },
+              {
+                "type": "p",
+                "text": "El modelo BioCLIP propuesto por el proyecto está orientado a la identificación de organismos a partir de imágenes. Por ello, sus resultados deben interpretarse dentro de ese alcance. No se debe presentar una identificación de especie como diagnóstico de enfermedad, prueba de transmisión de patógenos ni confirmación de peligro para la comunidad. Si un registro suscita una inquietud sanitaria, debe remitirse a los especialistas y autoridades correspondientes para una evaluación independiente."
+              }
+            ]
+          },
+          {
+            "id": "etica_enf2",
+            "title": "Protección, equidad e inclusión",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Las actividades de educación o evaluación con ciudadanos deben informar claramente su propósito y solicitar la participación voluntaria cuando corresponda. Si se recopilan datos personales, opiniones o información que permita identificar a las personas, se deben aplicar medidas de confidencialidad, minimización de datos, almacenamiento seguro y cumplimiento de la normativa vigente. La ubicación precisa de especies vulnerables también requiere cuidado para evitar que la publicación de registros facilite su captura, tráfico o perturbación."
+              },
+              {
                 "type": "image",
                 "src": "personas/hospital.jpg",
                 "ratio": "4/3",
@@ -1176,17 +1367,31 @@
               },
               {
                 "type": "p",
-                "text": "Quien aporta una foto conserva su autoría y la licencia con la que la comparte, y se reconoce en el registro. El sistema también permite reportar errores y pedir la revisión de un resultado."
+                "text": "Las recomendaciones de salud ambiental deben comunicarse con lenguaje comprensible y adaptarse a las características culturales, territoriales y educativas de la población. Se deben evitar mensajes alarmistas, estigmatizantes o que responsabilicen a comunidades por problemas ambientales estructurales. La información debe ayudar a tomar decisiones informadas y promover la colaboración entre ciudadanía, servicios de salud y autoridades ambientales."
               }
             ]
           },
           {
-            "id": "etica4",
-            "title": "Límites profesionales",
+            "id": "etica_psi",
+            "title": "Ética desde la psicología",
             "blocks": [
               {
                 "type": "p",
-                "text": "Enfermería orienta acciones de promoción, prevención y educación, pero no emite conclusiones fuera de su competencia ni recomienda intervenciones de salud a partir solo de una predicción algorítmica. Si un registro despierta una inquietud sanitaria, se remite a especialistas y autoridades. Las enfermedades de notificación obligatoria se informan a la autoridad."
+                "text": "Desde la dimensión ética, la psicología aporta elementos para analizar cómo la interacción con la inteligencia artificial puede influir en la autonomía, la confianza y la toma de decisiones de las personas. Uno de los riesgos que deben considerarse es la aceptación automática de los resultados generados por el sistema, especialmente cuando los usuarios no comprenden sus limitaciones. Por esta razón, se propone promover el pensamiento crítico, comunicar la incertidumbre cuando corresponda y facilitar la consulta de especialistas para verificar las identificaciones dudosas. De igual forma, es importante que la experiencia de uso sea comprensible para personas con distintos niveles de conocimiento y familiaridad tecnológica, con el fin de reducir barreras de participación y favorecer una interacción más inclusiva."
+              },
+              {
+                "type": "p",
+                "text": "La reflexión ética también requiere considerar que la participación ciudadana debe desarrollarse en condiciones que respeten a las personas y sus aportes. Desde la psicología, se recomienda informar claramente a los participantes sobre la finalidad de las actividades, el uso de la información que proporcionan y las condiciones de participación. Cuando se recojan datos personales mediante encuestas, entrevistas o registros de usuarios, deberán establecerse las medidas de consentimiento, confidencialidad y protección correspondientes. Asimismo, se propone habilitar mecanismos de retroalimentación que permitan reportar dificultades, expresar inquietudes y solicitar la revisión de resultados. Estas medidas contribuirían a fortalecer la confianza informada y a reconocer a los ciudadanos como participantes activos en el proceso de generación de conocimiento."
+              }
+            ]
+          },
+          {
+            "id": "etica_enf3",
+            "title": "Responsabilidad profesional y alcance",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Enfermería puede orientar acciones de promoción y prevención, educación para la salud y articulación comunitaria, pero no debe emitir conclusiones fuera de su competencia profesional ni recomendar intervenciones sanitarias basadas exclusivamente en una predicción algorítmica. Las decisiones deben fundamentarse en evidencia suficiente, valoración de los profesionales competentes y lineamientos institucionales."
               },
               {
                 "type": "callout",
@@ -1252,6 +1457,26 @@
                 "type": "callout",
                 "tone": "ojo",
                 "text": "Riesgos: inferir enfermedad solo por la presencia de una especie, difundir información alarmista o exponer datos sensibles de personas y ubicaciones de especies vulnerables."
+              }
+            ]
+          },
+          {
+            "id": "impacto_enf",
+            "title": "Impacto desde Enfermería",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "La incorporación de la perspectiva de Enfermería podría ampliar el impacto social de la PITB al conectar la información sobre biodiversidad con la promoción del bienestar comunitario. La plataforma tiene como propósito principal apoyar el ordenamiento territorial mediante un catálogo vivo de fauna y flora, registros georreferenciados y cruces con capas POT/EOT. El aporte de Enfermería sería complementario: ayudar a interpretar posibles implicaciones para la educación en salud y proponer acciones preventivas cuando exista evidencia suficiente."
+              },
+              {
+                "type": "list",
+                "items": [
+                  "**Impacto en salud pública.** facilitar la formulación de preguntas de investigación sobre la relación entre cambios ambientales y bienestar comunitario, en coordinación con epidemiología y autoridades ambientales.",
+                  "**Impacto educativo.** diseñar materiales que expliquen la relación entre ecosistemas, salud y autocuidado durante actividades de ciencia ciudadana.",
+                  "**Impacto comunitario.** promover participación informada, reporte responsable de hallazgos y comunicación entre ciudadanía, servicios de salud y autoridades.",
+                  "**Impacto interdisciplinario.** incorporar la mirada de la salud humana en una iniciativa tecnológica y territorial sin sustituir la validación biológica ni el análisis geoespacial.",
+                  "**Límites y riesgos.** evitar inferir riesgos de enfermedad solo por la presencia de una especie, difundir información alarmista o exponer datos sensibles de personas y ubicaciones de especies vulnerables."
+                ]
               }
             ]
           },
@@ -1327,16 +1552,28 @@
             "blocks": [
               {
                 "type": "p",
-                "text": "Para generar evidencia propia se propone una fase piloto con autorización previa e instrumentos revisados. La evaluación observa comprensión, confianza y utilidad percibida, sin afirmar de antemano que la plataforma cambie conductas o mejore la salud."
+                "text": "Para generar evidencia propia, se propone una evaluación formativa con usuarios y comunidades durante una fase piloto, previa autorización y con instrumentos adecuados."
+              },
+              {
+                "type": "p",
+                "text": "La evaluación podría desarrollarse en tres momentos:"
               },
               {
                 "type": "list",
                 "ordered": true,
                 "items": [
-                  "**Diagnóstico inicial.** Encuesta breve sobre actitudes hacia la conservación, conocimientos de salud ambiental, percepción de capacidad para usar la plataforma y barreras.",
-                  "**Actividad educativa.** Cómo aportar una foto, qué significa una identificación probable y cómo actuar ante una inquietud sin sacar conclusiones médicas.",
-                  "**Evaluación posterior.** Comprensión de los resultados, confianza, claridad percibida de los mensajes y sugerencias de mejora."
+                  "**Diagnóstico inicial.** encuesta breve sobre conocimientos de salud ambiental, percepción de riesgos y prácticas preventivas relacionadas con actividades de observación de fauna y flora.",
+                  "**Actividad educativa.** presentación de mensajes claros sobre autocuidado, respeto por la fauna, prevención de contactos riesgosos y canales institucionales para reportar hallazgos o incidentes.",
+                  "**Evaluación posterior.** preguntas de comprensión y percepción de utilidad para identificar qué contenidos se entendieron y qué aspectos requieren ajustes."
                 ]
+              },
+              {
+                "type": "p",
+                "text": "Para desarrollar esta evaluación, se propone realizar un diagnóstico inicial mediante una encuesta breve que explore las actitudes ambientales, la percepción de capacidad para utilizar la plataforma, las motivaciones y las dificultades identificadas por los participantes. Posteriormente, se podría recoger información sobre la experiencia de uso, la comprensión de los resultados y la percepción de utilidad de la herramienta. Finalmente, el análisis de los datos permitiría identificar necesidades de formación y oportunidades de mejora. Esta propuesta facilitaría la generación de evidencia propia sobre la experiencia de los usuarios y contribuiría a orientar las estrategias psicológicas del proyecto. Sin embargo, sus resultados deberán establecerse a partir de la información efectivamente recopilada durante la implementación piloto, sin asumir anticipadamente que las intervenciones producirán cambios determinados."
+              },
+              {
+                "type": "p",
+                "text": "Como indicadores preliminares se podrían utilizar el porcentaje de participantes que identifica correctamente recomendaciones de autocuidado, el cambio entre respuestas iniciales y finales, la claridad percibida de los materiales y la cantidad de observaciones recibidas para mejorar la estrategia educativa. Estos son indicadores propuestos, no resultados obtenidos. Los datos deberán recopilarse y analizarse antes de afirmar que la intervención produjo cambios."
               },
               {
                 "type": "table",
@@ -1376,11 +1613,29 @@
               },
               {
                 "type": "p",
-                "text": "Lo medido hasta ahora es preliminar: 62,9 % de acierto con 56 especies de ranas, y 86,1 % cuando se muestran tres candidatas. Esas cifras no sustituyen a un especialista. Por eso el diseño conserva la revisión humana, la opción «no concluyente» y la protección de los datos sensibles. La psicología, la comunicación y la enfermería aportan lo que la tecnología sola no resuelve: que las personas participen, entiendan y usen la información en favor del bienestar."
+                "text": "Lo medido hasta ahora es preliminar, pero favorable: con 56 especies de ranas de Colombia, un grupo difícil, el modelo acierta a la primera en 62,9 % de las fotos y en 86,1 % cuando se muestran tres candidatas, y usar la ubicación mejora el resultado en 24,9 puntos. Esas cifras no sustituyen a un especialista. Por eso el diseño conserva la revisión humana, la opción «no concluyente» y la protección de los datos sensibles. La psicología, la comunicación y la enfermería aportan lo que la tecnología sola no resuelve: que las personas participen, entiendan y usen la información en favor del bienestar."
               },
               {
                 "type": "p",
                 "text": "Al estar anclado a la Agenda Antioquia 2040 y a la ordenanza de macrorregiones de 2023, el proyecto tiene una ruta institucional para pasar del prototipo a una herramienta departamental. Quedan pendientes medir el modelo con otros grupos, completar la prueba en un teléfono real, resolver el rechazo de especies desconocidas, ampliar la revisión de literatura y poner en marcha la evaluación formativa con las comunidades."
+              }
+            ]
+          },
+          {
+            "id": "conc_areas",
+            "title": "Conclusiones desde cada área",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "En conclusión, la psicología puede contribuir al desarrollo de la PITB Antioquia mediante la comprensión de los factores que influyen en el comportamiento ambiental, la participación ciudadana y la interpretación de la información generada por inteligencia artificial. Los aportes de la psicología ambiental, la teoría del comportamiento planificado y la psicología cognitiva ofrecen fundamentos para formular estrategias de sensibilización, evaluar las barreras de participación y favorecer una relación crítica y equilibrada con la tecnología. A su vez, la reflexión ética permite reconocer la importancia de la autonomía, la confianza informada, la accesibilidad y el respeto por las personas participantes. De esta manera, la incorporación de la perspectiva psicológica busca complementar el funcionamiento tecnológico de la plataforma con una comprensión de las necesidades, percepciones y conductas humanas. La pertinencia y efectividad de estas propuestas deberán evaluarse mediante la investigación desarrollada durante la fase piloto."
+              },
+              {
+                "type": "p",
+                "text": "La Enfermería puede realizar un aporte significativo a la PITB Antioquia desde la salud pública, los determinantes ambientales de la salud, la Atención Primaria en Salud, la educación comunitaria y la prevención. Su participación permitiría explorar cómo la información sobre biodiversidad puede apoyar la formulación de preguntas e iniciativas de promoción del bienestar, siempre mediante coordinación interdisciplinaria y evaluación basada en evidencia."
+              },
+              {
+                "type": "p",
+                "text": "Por lo tanto, desde la perspectiva de Comunicación y Relaciones Corporativas, el proyecto puede entenderse como una propuesta en la que la tecnología facilita el proceso, pero la comunicación permite conectar a los actores que le dan sentido. La plataforma no busca únicamente automatizar la identificación de especies, sino generar un sistema participativo de información que permita producir y compartir conocimiento sobre la biodiversidad de Antioquia. De esta manera, los enfoques de Gumucio-Dagron y Servaes permiten sustentar que la participación, el diálogo y la articulación entre actores son elementos fundamentales para que una herramienta tecnológica pueda convertirse en un mecanismo de construcción colectiva de conocimiento y contribuir a una mejor comprensión y gestión del territorio."
               }
             ]
           },

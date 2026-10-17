@@ -186,7 +186,7 @@ def run(doc_path, out_pdf, images_root):
         for sec in part["sections"]:
             n += 1
             sec["n"] = f"{n:02d}"
-    has_cred = expects_credits(doc, images_root, credits)
+    has_cred = expects_credits(doc, images_root, credits) and (doc.get("options") or {}).get("credits_section", True) is not False
     if has_cred:
         parts.append({"id": "creditos", "title": "Créditos", "desc": "", "_aux": True,
                       "sections": [{"id": "creditos", "title": "Créditos de imágenes", "tema": "Créditos", "n": f"{n+1:02d}", "blocks": []}]})
