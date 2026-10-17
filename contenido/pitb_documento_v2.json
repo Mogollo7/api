@@ -7,27 +7,34 @@
     "seed": 17
   },
   "meta": {
-    "title": "PITB Antioquia: territorio, biodiversidad y comunidad",
-    "author": "Documento interdisciplinario · Informática, Psicología, Enfermería y Comunicación",
-    "date": "Octubre 2026",
+    "title": "Territorio sostenible: PITB Antioquia",
+    "author": "Salomé Mariaca Sánchez, Daniela Estefanía Posada Hernández, Juan Sebastián Martínez Galeano, Maria Estefany Serna Guerra",
+    "date": "Medellín, Antioquia · septiembre de 2026",
     "version": "Vol. 01 · v2",
     "header_left": [
       "PITB ANTIOQUIA",
-      "Biodiversidad, salud y territorio"
+      "Territorio sostenible"
     ],
-    "footer": "PITB ANTIOQUIA · Interdisciplinariedad, evidencia y responsabilidad"
+    "footer": "PITB ANTIOQUIA · Territorio sostenible · Agenda Antioquia 2040"
   },
   "document": {
     "cover": {
       "variant": "CV-1",
-      "vertical": "PITB ANTIOQUIA",
-      "title": "Biodiversidad y comunidad",
-      "text": "Marco interdisciplinario de la Plataforma de Inteligencia Territorial y Biodiversidad: ingeniería informática, psicología, enfermería y teoría de la comunicación.",
+      "vertical": "TERRITORIO SOSTENIBLE",
+      "title": "PITB Antioquia",
+      "text": "Plataforma de Inteligencia Territorial y Biodiversidad: catálogo vivo de biodiversidad con IA para el Ordenamiento Territorial de Antioquia. Estrategia asociada: Agenda Antioquia 2040.",
       "image": "species/panthera-onca.jpg",
       "alt": "Jaguar caminando junto a pastos altos",
       "tint": [
         "negro",
         "vivo"
+      ],
+      "header": [
+        "EQUIPO",
+        "Salomé Mariaca Sánchez",
+        "Daniela Estefanía Posada Hernández",
+        "Juan Sebastián Martínez Galeano",
+        "Maria Estefany Serna Guerra"
       ]
     },
     "parts": [
