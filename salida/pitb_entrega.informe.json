@@ -1,0 +1,185 @@
+{
+ "estado": "ok",
+ "errores": [],
+ "avisos": [],
+ "auditoria": {},
+ "imagenes_necesarias": [],
+ "secciones": [
+  {
+   "id": "resumen",
+   "n": "01",
+   "pagina": 3
+  },
+  {
+   "id": "intro",
+   "n": "02",
+   "pagina": 4
+  },
+  {
+   "id": "just",
+   "n": "03",
+   "pagina": 5
+  },
+  {
+   "id": "obj",
+   "n": "04",
+   "pagina": 6
+  },
+  {
+   "id": "equipo",
+   "n": "05",
+   "pagina": 7
+  },
+  {
+   "id": "inf1",
+   "n": "06",
+   "pagina": 9
+  },
+  {
+   "id": "inf2",
+   "n": "07",
+   "pagina": 10
+  },
+  {
+   "id": "inf3",
+   "n": "08",
+   "pagina": 11
+  },
+  {
+   "id": "inf4",
+   "n": "09",
+   "pagina": 12
+  },
+  {
+   "id": "psi",
+   "n": "10",
+   "pagina": 13
+  },
+  {
+   "id": "enf",
+   "n": "11",
+   "pagina": 14
+  },
+  {
+   "id": "com",
+   "n": "12",
+   "pagina": 16
+  },
+  {
+   "id": "matriz",
+   "n": "13",
+   "pagina": 17
+  },
+  {
+   "id": "lit",
+   "n": "14",
+   "pagina": 19
+  },
+  {
+   "id": "bench",
+   "n": "15",
+   "pagina": 21
+  },
+  {
+   "id": "proto",
+   "n": "16",
+   "pagina": 25
+  },
+  {
+   "id": "proto2",
+   "n": "17",
+   "pagina": 27
+  },
+  {
+   "id": "proto3",
+   "n": "18",
+   "pagina": 28
+  },
+  {
+   "id": "proto4",
+   "n": "19",
+   "pagina": 29
+  },
+  {
+   "id": "prueba1",
+   "n": "20",
+   "pagina": 30
+  },
+  {
+   "id": "prueba2",
+   "n": "21",
+   "pagina": 32
+  },
+  {
+   "id": "prueba3",
+   "n": "22",
+   "pagina": 35
+  },
+  {
+   "id": "etica1",
+   "n": "23",
+   "pagina": 37
+  },
+  {
+   "id": "etica2",
+   "n": "24",
+   "pagina": 38
+  },
+  {
+   "id": "etica3",
+   "n": "25",
+   "pagina": 39
+  },
+  {
+   "id": "etica4",
+   "n": "26",
+   "pagina": 41
+  },
+  {
+   "id": "impacto",
+   "n": "27",
+   "pagina": 43
+  },
+  {
+   "id": "eval",
+   "n": "28",
+   "pagina": 44
+  },
+  {
+   "id": "conc",
+   "n": "29",
+   "pagina": 45
+  },
+  {
+   "id": "ref",
+   "n": "30",
+   "pagina": 46
+  },
+  {
+   "id": "creditos",
+   "n": "31",
+   "pagina": 49
+  }
+ ],
+ "correcciones_contraste": [],
+ "variantes_usadas": [
+  "CV-1",
+  "DV-A",
+  "DV-B",
+  "DV-C",
+  "DV-D",
+  "DV-E",
+  "DV-F"
+ ],
+ "variantes_no_aprobadas": [
+  "CV-1",
+  "DV-A",
+  "DV-B",
+  "DV-C",
+  "DV-D",
+  "DV-E",
+  "DV-F"
+ ],
+ "paginas": 49,
+ "segundos": 5.7
+}

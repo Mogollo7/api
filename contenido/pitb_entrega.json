@@ -1,0 +1,1223 @@
+{
+  "contract": "1.0",
+  "design": "anura",
+  "format": "pdf-a4",
+  "palette": "pitb",
+  "options": {
+    "seed": 17,
+    "density": "aireado"
+  },
+  "meta": {
+    "title": "Territorio sostenible: PITB Antioquia",
+    "author": "Salomé Mariaca Sánchez, Daniela Estefanía Posada Hernández, Juan Sebastián Martínez Galeano, Maria Estefany Serna Guerra",
+    "date": "Medellín, Antioquia · septiembre de 2026",
+    "version": "Vol. 01 · v4",
+    "header_left": [
+      "PITB ANTIOQUIA",
+      "Territorio sostenible"
+    ],
+    "footer": "PITB ANTIOQUIA · Territorio sostenible · Agenda Antioquia 2040",
+    "subject": "Marco teórico interdisciplinario, evidencia, ética e impacto de la PITB Antioquia"
+  },
+  "document": {
+    "cover": {
+      "variant": "CV-1",
+      "vertical": "TERRITORIO SOSTENIBLE",
+      "title": "PITB Antioquia",
+      "text": "Plataforma de Inteligencia Territorial y Biodiversidad: catálogo vivo de biodiversidad con IA para el Ordenamiento Territorial de Antioquia. Estrategia asociada: Agenda Antioquia 2040.",
+      "image": "species/panthera-onca.jpg",
+      "alt": "Jaguar caminando junto a pastos altos",
+      "tint": [
+        "negro",
+        "vivo"
+      ],
+      "header": [
+        "EQUIPO",
+        "Salomé Mariaca Sánchez",
+        "Daniela Estefanía Posada Hernández",
+        "Juan Sebastián Martínez Galeano",
+        "Maria Estefany Serna Guerra"
+      ]
+    },
+    "parts": [
+      {
+        "id": "p1",
+        "title": "Planteamiento",
+        "desc": "Resumen, introducción, justificación y objetivos.",
+        "divider": "DV-D",
+        "sections": [
+          {
+            "id": "resumen",
+            "title": "Resumen",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "La Plataforma de Inteligencia Territorial y Biodiversidad (PITB) Antioquia propone un catálogo vivo de fauna y flora: una persona sube una foto, un modelo de inteligencia artificial sugiere qué especie es, el sistema la ubica en el territorio y el registro se cruza con las capas de ordenamiento territorial (POT/EOT). Este documento reúne el marco teórico interdisciplinario del proyecto, una revisión de la literatura con comparación de alternativas, la justificación ética según los modelos éticos de la IA, el impacto esperado y las pruebas iniciales del modelo y del prototipo."
+              },
+              {
+                "type": "p",
+                "text": "Aportan cuatro áreas: Ingeniería Informática, Psicología, Enfermería y Comunicación. Los datos de desempeño son preliminares: se midieron con ranas de Colombia, y la interfaz web del prototipo todavía simula el análisis en el navegador. Lo que no se ha medido se dice como tal."
+              },
+              {
+                "type": "callout",
+                "tone": "ojo",
+                "text": "Palabras clave: biodiversidad, inteligencia artificial, BioCLIP, ordenamiento territorial, ciencia ciudadana, ética de la IA, Una Sola Salud."
+              }
+            ]
+          },
+          {
+            "id": "intro",
+            "title": "Introducción",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Según el material del proyecto, Antioquia registra más de 21.600 especies, pero su inventario depende de muestreos manuales que pueden tardar años en actualizarse. Sin una línea base al día, el ordenamiento territorial se entera de los cambios cuando ya ocurrieron: una especie que desapareció, una invasión o un cambio en las rutas migratorias."
+              },
+              {
+                "type": "image",
+                "src": "hero-helecho.jpg",
+                "ratio": "21/9",
+                "treatment": "verde",
+                "alt": "Hojas de helecho en primer plano",
+                "caption": "Flora fotografiada de cerca: el tipo de imagen que alimenta el catálogo."
+              },
+              {
+                "type": "p",
+                "text": "La propuesta es convertir cada fotografía, tomada en campo, por una cámara trampa o por una persona con su celular, en un dato del territorio. Un modelo de visión (BioCLIP) sugiere la especie, el sistema la geolocaliza y el registro se publica en un mapa colectivo que se puede comparar a lo largo del tiempo."
+              },
+              {
+                "type": "p",
+                "text": "La pregunta que guía el documento es: ¿cómo puede un catálogo vivo, hecho con IA y con participación ciudadana, aportar información útil al ordenamiento territorial de Antioquia sin que se tomen las identificaciones automáticas como verdades definitivas?"
+              }
+            ]
+          },
+          {
+            "id": "just",
+            "title": "Justificación",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "El proyecto se justifica por cuatro razones que se refuerzan entre sí."
+              },
+              {
+                "type": "list",
+                "items": [
+                  "**Territorial.** El ordenamiento territorial de los 125 municipios necesita datos de presencia de especies que se actualicen con frecuencia, y hoy no los tiene.",
+                  "**Social.** La ciencia ciudadana amplía la cobertura de observaciones y deja que las comunidades aporten lo que ven en su propio territorio.",
+                  "**Educativa.** Cada registro es una oportunidad para aprender sobre biodiversidad y para entender qué puede y qué no puede decir una IA.",
+                  "**Ética.** Una herramienta que sugiere especies puede equivocarse. Mostrar su incertidumbre y proteger los datos es parte del diseño, no un añadido."
+                ]
+              }
+            ]
+          },
+          {
+            "id": "obj",
+            "title": "Objetivos",
+            "blocks": [
+              {
+                "type": "callout",
+                "tone": "clave",
+                "text": "Describir y proponer un catálogo vivo de biodiversidad con IA y georreferenciación que aporte información al ordenamiento territorial de Antioquia.",
+                "label": "OBJETIVO GENERAL",
+                "title": "Qué se busca lograr"
+              },
+              {
+                "type": "h",
+                "text": "Objetivos específicos"
+              },
+              {
+                "type": "list",
+                "ordered": true,
+                "items": [
+                  "Explicar cómo identifica especies el sistema y cómo se decide cuándo confiar en su respuesta.",
+                  "Georreferenciar los registros y relacionarlos con las capas POT/EOT.",
+                  "Definir qué aportan la Informática, la Psicología, la Enfermería y la Comunicación.",
+                  "Comparar el modelo elegido con otras alternativas y presentar los datos preliminares que existen.",
+                  "Establecer los criterios éticos y de protección de datos del proyecto.",
+                  "Proponer una evaluación formativa con comunidades en una fase piloto."
+                ]
+              }
+            ]
+          },
+          {
+            "id": "equipo",
+            "title": "Equipo y estrategia",
+            "blocks": [
+              {
+                "type": "table",
+                "head": [
+                  "Integrante"
+                ],
+                "rows": [
+                  [
+                    "Salomé Mariaca Sánchez"
+                  ],
+                  [
+                    "Daniela Estefanía Posada Hernández"
+                  ],
+                  [
+                    "Juan Sebastián Martínez Galeano"
+                  ],
+                  [
+                    "Maria Estefany Serna Guerra"
+                  ]
+                ]
+              },
+              {
+                "type": "p",
+                "text": "Estrategia asociada: Ordenamiento Territorial, Agenda Antioquia 2040. Medellín, Antioquia, septiembre de 2026."
+              }
+            ]
+          }
+        ],
+        "image": "species/harpia-harpyja.jpg",
+        "tint": [
+          "negro",
+          "vivo"
+        ],
+        "alt": "Imagen del divisor"
+      },
+      {
+        "id": "p2",
+        "title": "Marco teórico interdisciplinario",
+        "desc": "Cuatro áreas, un mismo proyecto.",
+        "divider": "DV-B",
+        "sections": [
+          {
+            "id": "inf1",
+            "title": "Ingeniería informática: de la foto al mapa",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Desde afuera, la plataforma hace cuatro cosas. Recibe una foto, le pide una identificación al modelo, ubica el registro donde se tomó y lo muestra en un mapa que todos pueden ver. Por dentro hay más piezas, pero esa es la idea."
+              },
+              {
+                "type": "flow",
+                "cols": 2,
+                "steps": [
+                  {
+                    "n": "01",
+                    "title": "Captura",
+                    "text": "Una persona sube una foto de campo, de una cámara trampa o de su celular."
+                  },
+                  {
+                    "n": "02",
+                    "title": "Reconocimiento",
+                    "text": "BioCLIP sugiere la especie sin depender de un especialista."
+                  },
+                  {
+                    "n": "03",
+                    "title": "Geolocalización",
+                    "text": "El sistema ubica el registro en el territorio donde se observó."
+                  },
+                  {
+                    "n": "04",
+                    "title": "Mapa colectivo",
+                    "text": "El hallazgo se publica en el mapa de biodiversidad de Antioquia."
+                  }
+                ]
+              },
+              {
+                "type": "p",
+                "text": "La plataforma no es solo un clasificador. También necesita un catálogo, almacenamiento de las imágenes con su fecha, ubicación y licencia, búsqueda, un mapa, control de calidad y una interfaz que una persona sin formación técnica pueda entender."
+              }
+            ]
+          },
+          {
+            "id": "inf2",
+            "title": "Cómo identifica el modelo",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "BioCLIP es un modelo de visión y lenguaje entrenado con el árbol de la vida (Stevens et al., 2024). Funciona como su antecesor CLIP (Radford et al., 2021): convierte una foto en un vector de números y lo acerca al vector del texto que describe lo que hay en ella. Como el texto incluye la cadena taxonómica completa, las especies del mismo género quedan cerca unas de otras."
+              },
+              {
+                "type": "p",
+                "text": "Eso tiene una consecuencia práctica. Para añadir una especie al catálogo no hace falta reentrenar el modelo: basta calcular el vector de sus fotos y guardarlo. La identificación se reduce a comparar el vector de la foto nueva con los de cada especie y devolver las más cercanas."
+              },
+              {
+                "type": "p",
+                "text": "En nuestras pruebas, ajustar todos los pesos del modelo no mejoró nada. Con unas 2.200 imágenes y 28,7 millones de parámetros, el modelo memorizó los ejemplos: el acierto en prueba fue de 69,2 % frente a 70,4 % de la línea base sin entrenar. Es un resultado que coincide con lo que reportan Kumar et al. (2022): ajustar todo puede deformar lo que el modelo ya sabía y empeorar su desempeño con fotos nuevas."
+              },
+              {
+                "type": "callout",
+                "tone": "clave",
+                "text": "Antes de construir, se mide. Si el modelo sin entrenar ya alcanza el objetivo, no se entrena.",
+                "label": "REGLA DE TRABAJO",
+                "title": "Mide antes de construir"
+              }
+            ]
+          },
+          {
+            "id": "inf3",
+            "title": "Qué le muestra la plataforma al usuario",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "La respuesta nunca es una sola palabra. El sistema muestra las tres especies más probables con su porcentaje, el nivel taxonómico que alcanzó (a veces solo familia o género) y cuándo conviene pedir otra foto. Si ninguna candidata supera el umbral de confianza, responde «no concluyente»."
+              },
+              {
+                "type": "p",
+                "text": "Esto importa porque un modelo siempre devuelve algo, incluso cuando la especie no está en su catálogo. En nuestras pruebas, rechazar una rana desconocida fue lo más difícil de resolver: con el umbral elegido pasa el 91,6 % de las ranas ajenas. Lo que sí se rechaza bien es lo que no es una rana: solo se cuela el 4,6 %. Por eso las identificaciones dudosas pasan a revisión humana."
+              },
+              {
+                "type": "callout",
+                "tone": "ojo",
+                "text": "Un falso conocido contamina la ciencia; un falso desconocido solo molesta. Ante la duda, el sistema pregunta."
+              }
+            ]
+          },
+          {
+            "id": "inf4",
+            "title": "Arquitectura y despliegue",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "La pregunta que decide la arquitectura es si habrá conexión donde se toma la foto. Si no la hay, todo corre en el teléfono con una versión ligera del modelo. Si la hay, el teléfono solo captura la foto, la ubicación y la fecha, y un servidor con GPU ejecuta el modelo grande, que se puede actualizar sin publicar de nuevo la aplicación."
+              },
+              {
+                "type": "table",
+                "head": [
+                  "Arquitectura",
+                  "Cómo funciona",
+                  "A favor",
+                  "En contra"
+                ],
+                "rows": [
+                  [
+                    "Todo local",
+                    "El teléfono ejecuta BioCLIP 1 en ONNX (165,6 MB) y compara con vectores guardados",
+                    "Sirve sin conexión",
+                    "Modelo pequeño; solo lo que cabe en el teléfono"
+                  ],
+                  [
+                    "Cliente y servidor",
+                    "La app envía foto, GPS y fecha a una API que ejecuta BioCLIP 2.5",
+                    "Modelo grande y actualizable",
+                    "Requiere red y tiene costo y privacidad que cuidar"
+                  ],
+                  [
+                    "Híbrida",
+                    "Modelo local con reenvío al servidor cuando hay red",
+                    "Funciona en campo y mejora con red",
+                    "Dos modelos que mantener"
+                  ]
+                ]
+              },
+              {
+                "type": "p",
+                "text": "Para que los resultados sean comparables, el preprocesado de la imagen es siempre el mismo (224 × 224, con la misma media y desviación) y cada vector se guarda con la huella del modelo que lo generó. Si se cambia el modelo, los vectores viejos dejan de ser comparables y hay que recalcularlos. Antes de publicar una versión se pasan las mismas fotos por Python y por el dispositivo, y las predicciones deben coincidir."
+              }
+            ]
+          },
+          {
+            "id": "psi",
+            "title": "Psicología: participación y confianza",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "La psicología explica por qué una persona decide participar y qué hace con lo que le dice una máquina. Sirve para dos preguntas del proyecto: ¿quién va a querer subir fotos? y ¿cuánto va a creer en la respuesta?"
+              },
+              {
+                "type": "p",
+                "text": "Sobre la primera, Gifford (2014) muestra que el comportamiento ambiental depende de actitudes, creencias, normas sociales y barreras, no solo de tener una herramienta a mano. La teoría del comportamiento planificado (Ajzen, 1991) añade que la intención de actuar nace de la actitud, de lo que la persona cree que opinan los demás y de si se siente capaz. Alguien puede valorar la fauna y no participar porque cree que no sabe identificar especies. De ahí que la plataforma necesite orientaciones simples y actividades de familiarización."
+              },
+              {
+                "type": "p",
+                "text": "Kollmuss y Agyeman (2002) refuerzan la idea: saber que la biodiversidad importa no garantiza que una persona actúe. Informar no basta; hay que atender motivaciones y barreras."
+              },
+              {
+                "type": "p",
+                "text": "Sobre la segunda pregunta, Kahneman (2011) describe cómo los juicios humanos caen en atajos y sesgos. En la PITB, el atajo previsible es dar por cierta cualquier identificación de la IA. Lee y See (2004) hablan de una confianza apropiada: ni ciega ni nula, ajustada a lo que el sistema realmente puede hacer. Para lograrla, la interfaz debe diferenciar una identificación preliminar de un registro validado, explicar cómo funciona el sistema a grandes rasgos y facilitar la revisión de los casos dudosos."
+              }
+            ]
+          },
+          {
+            "id": "enf",
+            "title": "Enfermería: salud pública y prevención",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Enfermería no reemplaza a biólogos, ecólogos ni autoridades ambientales, y no interviene en la clasificación de especies. Su aporte está en la salud pública: entender cómo el ambiente se relaciona con la salud de las comunidades, promover la prevención y cuidar que la información territorial se lea pensando en las personas."
+              },
+              {
+                "type": "p",
+                "text": "La Organización Mundial de la Salud reconoce que la salud depende del entorno: el aire, el agua, la vivienda, el saneamiento y los ecosistemas (OMS, 2023). Los registros de la PITB no demuestran por sí solos que haya un riesgo sanitario, pero pueden ayudar a formular preguntas y a señalar situaciones que merezcan la evaluación de las autoridades competentes."
+              },
+              {
+                "type": "p",
+                "text": "El enfoque de Una Sola Salud sostiene que la salud de las personas, los animales y los ecosistemas está conectada y exige coordinación entre sectores (FAO et al., 2022). Y la Atención Primaria en Salud pone la promoción, la prevención y la participación comunitaria en el centro (OMS y UNICEF, 2018). Desde ahí, Enfermería puede diseñar educación comunitaria sobre prácticas seguras al observar fauna y flora, y sobre cómo reportar situaciones de riesgo."
+              },
+              {
+                "type": "image",
+                "src": "personas/campo.png",
+                "ratio": "16/9",
+                "treatment": "verde",
+                "alt": "Persona con guante revisando vegetación en campo",
+                "caption": "Observación de campo con equipo de protección."
+              },
+              {
+                "type": "callout",
+                "tone": "ojo",
+                "text": "La plataforma no sirve para diagnosticar enfermedades ni para confirmar agentes infecciosos. Una identificación de especie no es una prueba de riesgo para la salud."
+              }
+            ]
+          },
+          {
+            "id": "com",
+            "title": "Comunicación: participación y apropiación",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "El problema del proyecto no es solo tecnológico. Es también comunicativo, porque depende de que muchas personas aporten, entiendan y se apropien de lo que la plataforma produce."
+              },
+              {
+                "type": "p",
+                "text": "Gumucio-Dagron (2012) propone una comunicación para el cambio social basada en el diálogo y la participación, no en enviar información de un emisor a un receptor. Aplicado al proyecto, las personas no son solo usuarias que reciben datos: son participantes que aportan lo que observan en su territorio. Una foto de una especie deja de ser un contenido suelto y se vuelve parte de un catálogo colectivo."
+              },
+              {
+                "type": "p",
+                "text": "Servaes (2012) llega a una idea parecida desde la comunicación para el desarrollo: el desarrollo no puede depender solo de decisiones de instituciones o expertos, y la comunicación debe favorecer la interacción entre quienes participan. Con este lente, la plataforma es un espacio donde se encuentran ciudadanos, investigadores, instituciones y quienes gestionan el territorio."
+              },
+              {
+                "type": "p",
+                "text": "En la práctica, esto se traduce en mensajes cortos que explican qué significa cada resultado, en separar «identificación sugerida» de «confirmación experta», y en canales para reportar errores y corregir datos. La tecnología facilita el proceso; la comunicación conecta a quienes le dan sentido."
+              }
+            ]
+          },
+          {
+            "id": "matriz",
+            "title": "Cómo se integran las cuatro áreas",
+            "blocks": [
+              {
+                "type": "table",
+                "head": [
+                  "Área",
+                  "Aporte al proyecto",
+                  "Producto o evidencia posible"
+                ],
+                "rows": [
+                  [
+                    "Ingeniería Informática",
+                    "Aplicación, datos, integración de BioCLIP, georreferenciación, pruebas y mantenimiento",
+                    "Prototipo funcional, registros trazables y métricas técnicas"
+                  ],
+                  [
+                    "Psicología",
+                    "Percepción, confianza, motivación y barreras de uso",
+                    "Encuestas, pruebas de comprensión y recomendaciones de experiencia de usuario"
+                  ],
+                  [
+                    "Enfermería",
+                    "Promoción de la salud, prevención y educación comunitaria",
+                    "Material educativo y evaluación formativa"
+                  ],
+                  [
+                    "Comunicación",
+                    "Claridad de los mensajes, canales, contexto y retroalimentación",
+                    "Guía de lenguaje, mensajes de interfaz y protocolo de corrección"
+                  ]
+                ],
+                "caption": "La distribución es una propuesta de trabajo; cada equipo disciplinar debe validarla."
+              },
+              {
+                "type": "p",
+                "text": "El propósito central de la PITB sigue siendo conocer la biodiversidad y apoyar la planificación del territorio. Las otras tres áreas lo complementan sin cambiar su alcance."
+              }
+            ]
+          }
+        ],
+        "image": "species/momotus-momota.jpg",
+        "tint": [
+          "negro",
+          "vivo"
+        ],
+        "alt": "Imagen del divisor"
+      },
+      {
+        "id": "p3",
+        "title": "Literatura y benchmarking",
+        "desc": "Qué se ha hecho y con qué se compara.",
+        "divider": "DV-F",
+        "sections": [
+          {
+            "id": "lit",
+            "title": "Revisión de la literatura",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "La revisión se organiza en tres frentes: identificación automática de especies, interacción entre personas y sistemas automatizados, y salud y participación comunitaria."
+              },
+              {
+                "type": "h",
+                "text": "Identificación automática"
+              },
+              {
+                "type": "p",
+                "text": "CLIP mostró que se puede alinear imágenes y texto para reconocer categorías sin entrenar con ejemplos de cada una (Radford et al., 2021). BioCLIP aplica esa idea al árbol de la vida y, con una base de unos 10 millones de imágenes, supera a CLIP y a OpenCLIP en pruebas de especies sin ejemplos previos (Stevens et al., 2024). Kumar et al. (2022) advierten que ajustar todos los pesos de un modelo preentrenado puede empeorar su desempeño fuera de la distribución de entrenamiento."
+              },
+              {
+                "type": "p",
+                "text": "Para decidir cuándo confiar en una respuesta, se usan técnicas de calibración (Guo et al., 2017), de modo que «90 % de confianza» acierte cerca del 90 % de las veces. Además, el desempeño de los modelos cae en sitios nuevos (Beery et al., 2018), y los datos de ubicación, fecha y hábitat pueden ayudar a reordenar candidatas (Mac Aodha et al., 2019)."
+              },
+              {
+                "type": "h",
+                "text": "Personas y sistemas automatizados"
+              },
+              {
+                "type": "p",
+                "text": "Gifford (2014), Ajzen (1991) y Kollmuss y Agyeman (2002) explican la participación ambiental. Kahneman (2011) y Lee y See (2004) explican los sesgos al interpretar información y la confianza en la automatización. Gumucio-Dagron (2012) y Servaes (2012) sustentan la comunicación participativa."
+              },
+              {
+                "type": "h",
+                "text": "Salud y participación"
+              },
+              {
+                "type": "p",
+                "text": "El plan conjunto de Una Sola Salud (FAO et al., 2022), el marco de determinantes ambientales de la OMS (2023) y la Declaración de Astaná (OMS y UNICEF, 2018) respaldan la coordinación entre sectores, la prevención y la participación comunitaria."
+              },
+              {
+                "type": "callout",
+                "tone": "ojo",
+                "text": "Falta ampliar la revisión con estudios sobre plataformas de ciencia ciudadana y catálogos de biodiversidad ya en uso. Aquí solo se incluyen fuentes que se pudieron verificar.",
+                "label": "PENDIENTE",
+                "title": "Alcance de la revisión"
+              }
+            ]
+          },
+          {
+            "id": "bench",
+            "title": "Comparación con otras alternativas",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Antes de elegir BioCLIP se compararon sus tres versiones y se revisaron otros modelos y servicios. Los números de la tabla vienen de las fichas públicas de cada modelo y del artículo original; son pruebas con muchas especies, no con las nuestras."
+              },
+              {
+                "type": "table",
+                "head": [
+                  "",
+                  "BioCLIP 1",
+                  "BioCLIP 2",
+                  "BioCLIP 2.5"
+                ],
+                "rows": [
+                  [
+                    "Torre de imagen",
+                    "ViT-B/16",
+                    "ViT-L/14",
+                    "ViT-H/14"
+                  ],
+                  [
+                    "Dimensión del vector",
+                    "512",
+                    "768",
+                    "1024"
+                  ],
+                  [
+                    "Datos de entrenamiento",
+                    "~10,4 M de imágenes",
+                    "~214 M de imágenes",
+                    "~19 M más"
+                  ],
+                  [
+                    "Tamaño en FP16",
+                    "0,30 GB",
+                    "0,86 GB",
+                    "1,97 GB"
+                  ],
+                  [
+                    "Acierto sin ejemplos, 10 tareas",
+                    "37,6",
+                    "55,6",
+                    "61,3"
+                  ]
+                ]
+              },
+              {
+                "type": "chart",
+                "title": "Zero-shot, media de 10 tareas",
+                "tag": "[FUENTE] paper de BioCLIP 1",
+                "chart": {
+                  "type": "bar",
+                  "data": {
+                    "max": 50,
+                    "unit": "",
+                    "items": [
+                      {
+                        "l": "CLIP",
+                        "v": 21.9
+                      },
+                      {
+                        "l": "OpenCLIP",
+                        "v": 20.4
+                      },
+                      {
+                        "l": "BioCLIP 1",
+                        "v": 39.4,
+                        "hi": true
+                      }
+                    ]
+                  }
+                },
+                "caption": "Con 1 foto por clase, BioCLIP 1 llega a 50,3 y con 5 fotos a 68,8 (centroide más cercano, media de 10 tareas). Debilidades: Plankton 6,1; PlantDoc casi no mejora a CLIP."
+              },
+              {
+                "type": "table",
+                "head": [
+                  "Alternativa",
+                  "Qué es",
+                  "Límite"
+                ],
+                "rows": [
+                  [
+                    "CLIP / OpenCLIP",
+                    "Visión y lenguaje general; base de comparación",
+                    "21,9 y 20,4 frente a 39,4 de BioCLIP 1"
+                  ],
+                  [
+                    "SpeciesNet (Google)",
+                    "Más de 2.000 etiquetas, licencia Apache-2.0, usa MegaDetector",
+                    "Cerrado a su propio catálogo"
+                  ],
+                  [
+                    "Pl@ntNet",
+                    "Identificación de plantas; modelo propietario",
+                    "Solo plantas"
+                  ],
+                  [
+                    "Merlin",
+                    "Usa ubicación y fecha de eBird; funciona sin conexión",
+                    "Modelo cerrado; sirve de referencia de diseño"
+                  ],
+                  [
+                    "MegaDetector",
+                    "Detecta animal, persona y vehículo",
+                    "No da la especie"
+                  ]
+                ],
+                "caption": "Comparación hecha con la documentación de cada proyecto. La comparación directa de BioCLIP con BioTrove queda pendiente."
+              },
+              {
+                "type": "callout",
+                "tone": "clave",
+                "text": "Con las fotos de cada proyecto hay que medir primero: los benchmarks no son tus especies.",
+                "label": "CONCLUSIÓN DEL BENCHMARKING"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "title": "Prototipo y pruebas iniciales",
+        "desc": "Cómo funciona la web y qué se midió.",
+        "divider": "DV-A",
+        "sections": [
+          {
+            "id": "proto",
+            "title": "Cómo funciona la página web",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "El prototipo es una aplicación web con tres módulos conectados. Las capturas siguientes son del prototipo real, no maquetas."
+              },
+              {
+                "type": "p",
+                "text": "**Explorar** reúne la identificación: la persona sube una foto o elige una de las observaciones de la comunidad. **Detalle de observación** muestra el resultado del modelo con sus tres mejores sugerencias, la persona que la aportó y la licencia de la foto. **Tablero territorial** pone los registros en un mapa y los cruza con las zonificaciones municipales. **Registros de campo** sirve para validar detecciones y auditar la calidad de lo recolectado."
+              },
+              {
+                "type": "image",
+                "src": "capturas/identificacion.jpg",
+                "ratio": "64/45",
+                "treatment": "original",
+                "nocredit": true,
+                "alt": "Módulo de identificación con carga de foto y galería de observaciones.",
+                "caption": "Explorar: carga de evidencia y observaciones de la comunidad. Captura del prototipo."
+              }
+            ]
+          },
+          {
+            "id": "proto2",
+            "title": "Detalle de una observación",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Cada observación se ve como una ficha: la foto con su autoría, la taxonomía completa, la certeza del modelo, las alternativas que consideró y las acciones posibles (geolocalizar y publicar, ver en el tablero, contrastar con BioCLIP). En el prototipo, esa certeza es un dato de demostración."
+              },
+              {
+                "type": "image",
+                "src": "capturas/observacion.jpg",
+                "ratio": "64/45",
+                "treatment": "original",
+                "nocredit": true,
+                "alt": "Detalle de una observación con certeza del modelo, licencia y sugerencias.",
+                "caption": "Detalle de una observación con las tres mejores sugerencias. Captura del prototipo."
+              }
+            ]
+          },
+          {
+            "id": "proto3",
+            "title": "Tablero territorial",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "El tablero muestra los registros sobre un mapa de OpenStreetMap y los cruza con las zonificaciones POT/EOT, con filtros por subregión y por grupo taxonómico. Una coincidencia geográfica entre un registro y una zona no equivale a una conclusión ambiental: es un punto de partida para que lo analicen las personas encargadas."
+              },
+              {
+                "type": "image",
+                "src": "capturas/tablero.jpg",
+                "ratio": "64/45",
+                "treatment": "original",
+                "nocredit": true,
+                "alt": "Tablero territorial con indicadores y mapa de Antioquia.",
+                "caption": "Tablero territorial con el mapa de registros. Captura del prototipo."
+              }
+            ]
+          },
+          {
+            "id": "proto4",
+            "title": "Ejemplos del catálogo",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "El prototipo incluye 24 observaciones de ejemplo de fauna y flora. Estas seis muestran el tipo de registro que se busca identificar y ubicar."
+              },
+              {
+                "type": "image",
+                "ratio": "1/1",
+                "items": [
+                  {
+                    "src": "species/ara-macao.jpg",
+                    "alt": "Guacamaya roja",
+                    "caption": "**Guacamaya roja** · Ara macao"
+                  },
+                  {
+                    "src": "species/tremarctos-ornatus.jpg",
+                    "alt": "Oso de anteojos",
+                    "caption": "**Oso de anteojos** · Tremarctos ornatus"
+                  },
+                  {
+                    "src": "species/bradypus-variegatus.jpg",
+                    "alt": "Perezoso de tres dedos",
+                    "caption": "**Perezoso de tres dedos** · Bradypus variegatus"
+                  }
+                ]
+              },
+              {
+                "type": "image",
+                "ratio": "1/1",
+                "items": [
+                  {
+                    "src": "species/agalychnis-callidryas.jpg",
+                    "alt": "Rana de ojos rojos",
+                    "caption": "**Rana de ojos rojos** · Agalychnis callidryas"
+                  },
+                  {
+                    "src": "species/puma-concolor.jpg",
+                    "alt": "Puma",
+                    "caption": "**Puma** · Puma concolor"
+                  },
+                  {
+                    "src": "species/tapirus-terrestris.jpg",
+                    "alt": "Tapir amazónico",
+                    "caption": "**Tapir amazónico** · Tapirus terrestris"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "prueba1",
+            "title": "Pruebas iniciales: qué tan bien acierta",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Los datos de desempeño vienen del caso real con ranas de Colombia: 56 especies, 5.818 fotos y una partición por individuo, para que el modelo nunca vea en la prueba una foto del mismo animal con el que se entrenó. Se probaron 864 fotos."
+              },
+              {
+                "type": "big",
+                "value": "62,9",
+                "unit": "%",
+                "caption": "Acierto top-1 en 864 fotos de prueba"
+              },
+              {
+                "type": "kpi",
+                "items": [
+                  {
+                    "v": "86,1 %",
+                    "l": "top-3",
+                    "note": "[CALC] +23 puntos sobre top-1"
+                  },
+                  {
+                    "v": "91,1 %",
+                    "l": "top-5",
+                    "note": "[CALC]"
+                  },
+                  {
+                    "v": "56",
+                    "l": "especies · 5.818 fotos",
+                    "note": "[BD] v5, partición por individuo"
+                  }
+                ]
+              },
+              {
+                "type": "chart",
+                "half": true,
+                "title": "Acierto con 56 especies",
+                "tag": "[CALC] test v5 · 864 fotos",
+                "chart": {
+                  "type": "bar",
+                  "data": {
+                    "items": [
+                      {
+                        "l": "Top-1",
+                        "v": 62.85,
+                        "hi": true,
+                        "err": 3.2
+                      },
+                      {
+                        "l": "Top-3",
+                        "v": 86.11
+                      },
+                      {
+                        "l": "Top-5",
+                        "v": 91.09
+                      }
+                    ]
+                  }
+                },
+                "caption": "Mostrar tres candidatas sube el acierto 23 puntos. Intervalo 95 % de top-1: ±3,2 pp [STAT]."
+              },
+              {
+                "type": "callout",
+                "tone": "ojo",
+                "text": "El 62,9 % no alcanza la meta de diseño del 90 % en especies distinguibles. El top-3 (86,1 %) sí supera el 85 %, pero se midió con las 56 especies y no con las 10 más comunes del Valle de Aburrá.",
+                "label": "LECTURA HONESTA",
+                "title": "Qué dicen y qué no dicen estos números"
+              }
+            ]
+          },
+          {
+            "id": "prueba2",
+            "title": "Qué funcionó y qué no",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Lo que no funcionó enseñó tanto como lo que sí. Estas cuatro pruebas cambiaron decisiones del proyecto."
+              },
+              {
+                "type": "table",
+                "head": [
+                  "Prueba",
+                  "Resultado",
+                  "Qué se decidió"
+                ],
+                "rows": [
+                  [
+                    "Línea base sin entrenar frente a ajuste fino (28 especies)",
+                    "70,4 % frente a 69,2 %",
+                    "Se mantiene el modelo congelado; añadir una especie es calcular un vector"
+                  ],
+                  [
+                    "Quitar el fondo a la foto",
+                    "Foto completa 60,7 %, recorte 50,7 %, fondo negro 44,7 % (150 fotos)",
+                    "El clasificador ve la imagen completa; la segmentación solo explica después"
+                  ],
+                  [
+                    "Más especies en el modelo",
+                    "Acierto de 87,3 % con 5 especies a 64,4 % con 56",
+                    "Los resultados cambian con el tamaño del catálogo: se reporta siempre cuántas especies"
+                  ],
+                  [
+                    "Paquete regional frente a global (Sinú, 493 fotos)",
+                    "Global 73,8 %, regional 71,0 %",
+                    "Los intervalos se solapan; no se puede afirmar que el regional mejore"
+                  ]
+                ]
+              },
+              {
+                "type": "chart",
+                "half": true,
+                "title": "Quitar el fondo empeora",
+                "tag": "150 imágenes pareadas · BioCLIP",
+                "chart": {
+                  "type": "bar",
+                  "data": {
+                    "items": [
+                      {
+                        "l": "Completa",
+                        "v": 60.7,
+                        "hi": true
+                      },
+                      {
+                        "l": "Recorte",
+                        "v": 50.7
+                      },
+                      {
+                        "l": "Fondo negro",
+                        "v": 44.7
+                      }
+                    ]
+                  }
+                },
+                "caption": "Segmentar no ayudó con el modelo entrenado en imagen completa. Reentrenar sobre recortes: sin probar."
+              },
+              {
+                "type": "chart",
+                "title": "Errores entre especies parecidas",
+                "tag": "[CALC] top-1 equivocado · test",
+                "chart": {
+                  "type": "hbar",
+                  "data": {
+                    "max": 9,
+                    "items": [
+                      {
+                        "l": "D. bogerti → D. microcephalus",
+                        "v": 8,
+                        "hi": true
+                      },
+                      {
+                        "l": "R. marina → R. horribilis",
+                        "v": 7,
+                        "hi": true
+                      },
+                      {
+                        "l": "H. tatayoi → E. prosoblepon",
+                        "v": 5
+                      },
+                      {
+                        "l": "D. columbianus → D. bogerti",
+                        "v": 5
+                      },
+                      {
+                        "l": "C. metriosistus → C. raniformis",
+                        "v": 5
+                      },
+                      {
+                        "l": "O. taurinus → T. macrotis",
+                        "v": 4
+                      },
+                      {
+                        "l": "N. grandisonae → E. prosoblepon",
+                        "v": 4
+                      },
+                      {
+                        "l": "R. humboldti → R. beebei",
+                        "v": 4
+                      }
+                    ]
+                  }
+                },
+                "caption": "Casi todos son del mismo género. Cuanto más cerca está la especie vecina, peor el acierto (correlación −0,62)."
+              }
+            ]
+          },
+          {
+            "id": "prueba3",
+            "title": "Pruebas del prototipo y límites",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "En la prueba de despliegue se pasaron 64 imágenes por Python y por el modelo exportado a ONNX en FP16: las predicciones fueron idénticas y el modelo pesó 165,6 MB, la mitad del original. La prueba en un teléfono real aún no se completó, así que ninguna versión se publica sin ella."
+              },
+              {
+                "type": "p",
+                "text": "La interfaz web del prototipo simula el análisis en el navegador y ofrece un enlace para probar con BioCLIP real. Las cifras de certeza que se muestran en las capturas son de demostración. Los resultados de acierto de esta sección corresponden a ranas de Colombia; para otros grupos, como aves, mamíferos y plantas, por ahora solo hay literatura."
+              },
+              {
+                "type": "list",
+                "items": [
+                  "El rechazo de especies desconocidas sigue sin resolverse.",
+                  "Las especies casi idénticas se confunden entre sí, casi siempre dentro del mismo género. Ante un par muy parecido el sistema debería avisar «requiere un detalle» y no elegir una.",
+                  "La latencia en el teléfono y el desempeño de BioCLIP 2.5 con nuestras especies están pendientes de medir."
+                ]
+              }
+            ]
+          }
+        ],
+        "image": "species/ramphastos-tucanus.jpg",
+        "tint": [
+          "negro",
+          "vivo"
+        ],
+        "alt": "Imagen del divisor"
+      },
+      {
+        "id": "p5",
+        "title": "Justificación ética",
+        "desc": "Modelos éticos de IA aplicados al proyecto.",
+        "divider": "DV-C",
+        "sections": [
+          {
+            "id": "etica1",
+            "title": "Modelos éticos de IA que se usan",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Para justificar el proyecto no se parte de una lista propia de valores, sino de marcos que ya se discuten a escala mundial. Jobin et al. (2019) revisaron decenas de guías de ética de la IA y encontraron un núcleo común: transparencia, justicia, no maleficencia, responsabilidad y privacidad."
+              },
+              {
+                "type": "table",
+                "head": [
+                  "Marco",
+                  "Qué plantea",
+                  "Dónde se ve en la PITB"
+                ],
+                "rows": [
+                  [
+                    "Floridi y Cowls (2019): cinco principios",
+                    "Beneficencia, no maleficencia, autonomía, justicia y explicabilidad",
+                    "Se muestran tres sugerencias con su certeza, se permite «no concluyente» y se explica el resultado"
+                  ],
+                  [
+                    "UNESCO (2021)",
+                    "Respeto de los derechos humanos, transparencia, supervisión humana, equidad y sostenibilidad",
+                    "Revisión humana de lo dudoso, lenguaje accesible y foco en conservar el ambiente"
+                  ],
+                  [
+                    "Principios de la OCDE (2019)",
+                    "IA centrada en las personas, transparente, robusta y con responsabilidad",
+                    "Trazabilidad de fuentes y licencias, y pruebas antes de publicar cada versión"
+                  ],
+                  [
+                    "Directrices para una IA fiable de la Unión Europea (2019)",
+                    "Supervisión humana, solidez técnica, privacidad, diversidad y rendición de cuentas",
+                    "Sistema de apoyo, no de decisión; datos protegidos; participación diversa"
+                  ]
+                ]
+              },
+              {
+                "type": "p",
+                "text": "De estos marcos se desprenden cuatro compromisos concretos para el proyecto."
+              }
+            ]
+          },
+          {
+            "id": "etica2",
+            "title": "Compromisos del proyecto",
+            "blocks": [
+              {
+                "type": "list",
+                "ordered": true,
+                "items": [
+                  "**Transparencia y explicabilidad.** La persona ve qué sugiere el modelo, con qué certeza y por qué no concluyó, cuando es el caso.",
+                  "**Supervisión humana.** La IA propone; una persona revisa lo dudoso y decide sobre las especies que se confunden entre sí.",
+                  "**No maleficencia.** Una identificación de especie no se presenta como diagnóstico, prueba de contagio ni peligro. No se usa una foto para decidir si un hongo se come.",
+                  "**Justicia e inclusión.** Los mensajes se adaptan a la cultura, la edad y la conectividad de cada comunidad, y no culpan a las comunidades por problemas ambientales estructurales."
+                ]
+              },
+              {
+                "type": "p",
+                "text": "La conservación obliga a un cuidado adicional: las coordenadas de especies amenazadas se ocultan, para que publicarlas no facilite su captura, su tráfico o su perturbación."
+              }
+            ]
+          },
+          {
+            "id": "etica3",
+            "title": "Datos personales y participación",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "En Colombia, el tratamiento de datos personales se rige por la Ley 1581 de 2012. Cuando se recojan datos personales, opiniones o información que permita identificar a alguien, se aplicarán consentimiento informado, finalidad clara, minimización de datos, almacenamiento seguro y acceso limitado. La participación en encuestas y pruebas será voluntaria."
+              },
+              {
+                "type": "image",
+                "src": "personas/hospital.jpg",
+                "ratio": "4/3",
+                "treatment": "calido",
+                "alt": "Equipo de salud trasladando una camilla",
+                "caption": "Ante una inquietud sanitaria decide la revisión profesional."
+              },
+              {
+                "type": "p",
+                "text": "Quien aporta una foto conserva su autoría y la licencia con la que la comparte, y se reconoce en el registro. El sistema también permite reportar errores y pedir la revisión de un resultado."
+              }
+            ]
+          },
+          {
+            "id": "etica4",
+            "title": "Límites profesionales",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Enfermería orienta acciones de promoción, prevención y educación, pero no emite conclusiones fuera de su competencia ni recomienda intervenciones de salud a partir solo de una predicción algorítmica. Si un registro despierta una inquietud sanitaria, se remite a especialistas y autoridades. Las enfermedades de notificación obligatoria se informan a la autoridad."
+              },
+              {
+                "type": "callout",
+                "tone": "ojo",
+                "text": "BioCLIP es una herramienta de identificación de organismos. No es un sistema de diagnóstico clínico, ni detecta patógenos de forma confirmada, ni certifica un riesgo para la comunidad.",
+                "label": "ALCANCE",
+                "title": "Límite central del proyecto"
+              }
+            ]
+          }
+        ],
+        "image": "species/crax-alberti.jpg",
+        "tint": [
+          "negro",
+          "vivo"
+        ],
+        "alt": "Imagen del divisor"
+      },
+      {
+        "id": "p6",
+        "title": "Impacto y cierre",
+        "desc": "Qué se espera, cómo se evaluará y qué falta.",
+        "divider": "DV-E",
+        "sections": [
+          {
+            "id": "impacto",
+            "title": "Impacto esperado",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Estos impactos son esperados y no medidos: dependen de que el proyecto pase del prototipo a una fase piloto."
+              },
+              {
+                "type": "table",
+                "head": [
+                  "Ámbito",
+                  "Impacto esperado"
+                ],
+                "rows": [
+                  [
+                    "Sociedad",
+                    "Una línea base de biodiversidad más actual para el ordenamiento territorial y una vía para que la ciudadanía aporte al conocimiento de su territorio"
+                  ],
+                  [
+                    "Educación",
+                    "Material y actividades que enseñen la relación entre ecosistemas, salud y autocuidado, y que enseñen a leer críticamente lo que dice una IA"
+                  ],
+                  [
+                    "Inclusión",
+                    "Una interfaz comprensible para personas con distinto nivel de conocimiento y de familiaridad tecnológica, con mensajes adaptados al contexto"
+                  ],
+                  [
+                    "Cultura",
+                    "Reconocimiento de los saberes locales sobre la fauna y la flora, y apropiación del conocimiento por parte de las comunidades"
+                  ],
+                  [
+                    "Salud pública",
+                    "Preguntas de investigación sobre ambiente y bienestar, en coordinación con epidemiología y autoridades ambientales"
+                  ]
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "ojo",
+                "text": "Riesgos: inferir enfermedad solo por la presencia de una especie, difundir información alarmista o exponer datos sensibles de personas y ubicaciones de especies vulnerables."
+              }
+            ]
+          },
+          {
+            "id": "eval",
+            "title": "Evaluación formativa propuesta",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Para generar evidencia propia se propone una fase piloto con autorización previa e instrumentos revisados. La evaluación observa comprensión, confianza y utilidad percibida, sin afirmar de antemano que la plataforma cambie conductas o mejore la salud."
+              },
+              {
+                "type": "list",
+                "ordered": true,
+                "items": [
+                  "**Diagnóstico inicial.** Encuesta breve sobre actitudes hacia la conservación, conocimientos de salud ambiental, percepción de capacidad para usar la plataforma y barreras.",
+                  "**Actividad educativa.** Cómo aportar una foto, qué significa una identificación probable y cómo actuar ante una inquietud sin sacar conclusiones médicas.",
+                  "**Evaluación posterior.** Comprensión de los resultados, confianza, claridad percibida de los mensajes y sugerencias de mejora."
+                ]
+              },
+              {
+                "type": "table",
+                "head": [
+                  "Indicador propuesto",
+                  "Qué observaría"
+                ],
+                "rows": [
+                  [
+                    "Comprensión",
+                    "Porcentaje que diferencia una sugerencia automática de una confirmación experta"
+                  ],
+                  [
+                    "Usabilidad",
+                    "Tareas completadas y dificultades en una prueba de interfaz"
+                  ],
+                  [
+                    "Confianza",
+                    "Disposición a verificar una identificación dudosa"
+                  ],
+                  [
+                    "Participación",
+                    "Observaciones y correcciones recibidas durante el piloto"
+                  ]
+                ],
+                "caption": "Indicadores propuestos; no son resultados obtenidos."
+              }
+            ]
+          },
+          {
+            "id": "conc",
+            "title": "Conclusiones",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "La PITB propone un catálogo vivo de biodiversidad hecho con IA para apoyar el ordenamiento territorial de Antioquia. Su valor no está solo en que el modelo reconozca especies, sino en que una comunidad pueda participar, entender y corregir lo que la plataforma produce."
+              },
+              {
+                "type": "p",
+                "text": "Lo medido hasta ahora es preliminar: 62,9 % de acierto con 56 especies de ranas, y 86,1 % cuando se muestran tres candidatas. Esas cifras no alcanzan para sustituir a un especialista, y por eso el diseño conserva la revisión humana, la opción «no concluyente» y la protección de datos sensibles."
+              },
+              {
+                "type": "p",
+                "text": "Quedan pendientes medir el modelo con otros grupos, completar la prueba en un teléfono real, resolver el rechazo de especies desconocidas, ampliar la revisión de literatura y poner en marcha la evaluación formativa con las comunidades."
+              }
+            ]
+          },
+          {
+            "id": "ref",
+            "title": "Referencias",
+            "blocks": [
+              {
+                "type": "refs",
+                "items": [
+                  "Ajzen, I. (1991). The theory of planned behavior. Organizational Behavior and Human Decision Processes, 50(2), 179–211. https://doi.org/10.1016/0749-5978(91)90020-T",
+                  "Beery, S., Van Horn, G., & Perona, P. (2018). Recognition in terra incognita. Proceedings of the European Conference on Computer Vision (ECCV).",
+                  "Floridi, L., & Cowls, J. (2019). A unified framework of five principles for AI in society. Harvard Data Science Review, 1(1). https://doi.org/10.1162/99608f92.8cd550d1",
+                  "Food and Agriculture Organization of the United Nations, United Nations Environment Programme, World Health Organization, & World Organisation for Animal Health. (2022). One Health Joint Plan of Action (2022–2026). FAO. https://www.fao.org/3/cc2289en/cc2289en.pdf",
+                  "Gifford, R. (2014). Environmental psychology matters. Annual Review of Psychology, 65, 541–579. https://doi.org/10.1146/annurev-psych-010213-115048",
+                  "Grupo de Expertos de Alto Nivel sobre IA. (2019). Directrices éticas para una IA fiable. Comisión Europea.",
+                  "Gumucio-Dagron, A. (2012). Comunicación para el cambio social: Clave del desarrollo participativo. Signo y Pensamiento, 30(58), 26–39.",
+                  "Guo, C., Pleiss, G., Sun, Y., & Weinberger, K. Q. (2017). On calibration of modern neural networks. Proceedings of the 34th International Conference on Machine Learning (ICML).",
+                  "Jobin, A., Ienca, M., & Vayena, E. (2019). The global landscape of AI ethics guidelines. Nature Machine Intelligence, 1(9), 389–399. https://doi.org/10.1038/s42256-019-0088-2",
+                  "Kahneman, D. (2011). Thinking, fast and slow. Farrar, Straus and Giroux.",
+                  "Kollmuss, A., & Agyeman, J. (2002). Mind the gap: Why do people act environmentally and what are the barriers to pro-environmental behavior? Environmental Education Research, 8(3), 239–260. https://doi.org/10.1080/13504620220145401",
+                  "Kumar, A., Raghunathan, A., Jones, R., Ma, T., & Liang, P. (2022). Fine-tuning can distort pretrained features and underperform out-of-distribution. International Conference on Learning Representations (ICLR).",
+                  "Lee, J. D., & See, K. A. (2004). Trust in automation: Designing for appropriate reliance. Human Factors, 46(1), 50–80. https://doi.org/10.1518/hfes.46.1.50_30392",
+                  "Ley 1581 de 2012. Por la cual se dictan disposiciones generales para la protección de datos personales. Congreso de la República de Colombia.",
+                  "Mac Aodha, O., Cole, E., & Perona, P. (2019). Presence-only geographical priors for fine-grained image classification. Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV).",
+                  "OCDE. (2019). Recomendación del Consejo sobre inteligencia artificial. OECD/LEGAL/0449.",
+                  "Organización Mundial de la Salud. (2023). Environmental health. https://www.who.int/health-topics/environmental-health",
+                  "Organización Mundial de la Salud, & Fondo de las Naciones Unidas para la Infancia. (2018). Declaración de Astaná sobre Atención Primaria de Salud. https://www.who.int/docs/default-source/primary-health/declaration/gcphc-declaration-sp.pdf",
+                  "Radford, A., Kim, J. W., Hallacy, C., et al. (2021). Learning transferable visual models from natural language supervision. Proceedings of the 38th International Conference on Machine Learning (ICML).",
+                  "Servaes, J. (2012). Comunicación para el desarrollo sostenible y el cambio social. Una visión general. CIC. Cuadernos de Información y Comunicación, 17, 17–40.",
+                  "Stevens, S., Wu, J., Thompson, M. J., Campolongo, E. G., Song, C. H., Carlyn, D. E., Dong, L., Dahdul, W. M., Stewart, C., Berger-Wolf, T., Chao, W.-L., & Su, Y. (2024). BioCLIP: A vision foundation model for the tree of life. Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, 19412–19424. https://openaccess.thecvf.com/content/CVPR2024/papers/Stevens_BioCLIP_A_Vision_Foundation_Model_for_the_Tree_of_Life_CVPR_2024_paper.pdf",
+                  "UNESCO. (2021). Recomendación sobre la ética de la inteligencia artificial. https://unesdoc.unesco.org/ark:/48223/pf0000381137"
+                ]
+              },
+              {
+                "type": "p",
+                "text": "Las fotografías de animales vienen de iNaturalist y se citan con su autor y licencia; varias son de uso no comercial (CC BY-NC). Los créditos de las fotografías de personas y del helecho están pendientes. Las capturas de pantalla son del prototipo PITB."
+              }
+            ]
+          }
+        ],
+        "image": "species/alouatta-seniculus.jpg",
+        "tint": [
+          "negro",
+          "vivo"
+        ],
+        "alt": "Imagen del divisor"
+      }
+    ]
+  }
+}
