@@ -4,6 +4,7 @@
 
 Uso:  python servidor/render.py contenido/guia.json -o salida/guia.pdf --imagenes teoria/imagenes
 """
+import re
 import argparse
 import json
 import os
@@ -91,13 +92,27 @@ def credits_section(ctx):
         if src in seen:
             continue
         seen.add(src)
-        rows.append([cr.get("especie_o_tema", ""), cr.get("autor") or "autor no indicado", cr.get("licencia", ""), cr.get("url_commons", "").replace("https://", "")])
+        rows.append([cr.get("especie_o_tema", ""), cr.get("autor") or "autor no indicado", cr.get("licencia", ""), _origen(cr)])
     if not rows:
         return None
     return {"id": "creditos", "title": "Créditos de imágenes", "tema": "Créditos", "blocks": [
-        {"type": "p", "text": "Fotografías tomadas de Wikimedia Commons y mostradas con el filtro de dos tintas del sistema. Cada imagen conserva su autoría y licencia."},
+        {"type": "p", "text": f"Fotografías tomadas de {_fuentes(ctx)} y mostradas con el filtro de dos tintas del sistema. Cada imagen conserva su autoría y licencia."},
         {"type": "table", "head": ["Imagen", "Autor", "Licencia", "Origen"], "widths": [3, 2, 2, 5], "rows": rows},
     ]}
+
+
+def _origen(cr):
+    """Columna «Origen» de los créditos: URL de Commons (como siempre) o fuente + id de foto si el CSV trae `fuente`."""
+    url = (cr.get("url_commons") or "").replace("https://", "")
+    if not cr.get("fuente"):
+        return url
+    m = re.search(r"photos/(\d+)", url)
+    return cr["fuente"] + (f" · foto {m.group(1)}" if m else "")
+
+
+def _fuentes(ctx):
+    fs = sorted({cr.get("fuente") or "Wikimedia Commons" for _, cr in ctx.images_used})
+    return " y ".join(fs) if len(fs) < 3 else ", ".join(fs[:-1]) + " y " + fs[-1]
 
 
 def make_head(doc, design_dir, m, roles, ph=141.4):

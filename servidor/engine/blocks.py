@@ -262,7 +262,7 @@ def _one_image(it, c, ratio):
         credit = ""
         if cr:
             who = cr.get("autor") or "autor no indicado"
-            credit = f' <span class="cr">Foto: {esc(who)} · {esc(cr.get("licencia",""))} · Wikimedia Commons</span>'
+            credit = f' <span class="cr">Foto: {esc(who)} · {esc(cr.get("licencia",""))} · {esc(cr.get("fuente") or "Wikimedia Commons")}</span>'
         elif not it.get("nocredit"):
             c.no_credit.append(src)
             credit = ' <span class="cr">Crédito: <span class="pend">dato pendiente</span></span>'

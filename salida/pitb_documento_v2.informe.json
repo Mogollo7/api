@@ -1,0 +1,101 @@
+{
+ "estado": "ok",
+ "errores": [],
+ "avisos": [],
+ "auditoria": {},
+ "imagenes_necesarias": [],
+ "secciones": [
+  {
+   "id": "s1",
+   "n": "01",
+   "pagina": 3
+  },
+  {
+   "id": "s2",
+   "n": "02",
+   "pagina": 5
+  },
+  {
+   "id": "s3",
+   "n": "03",
+   "pagina": 8
+  },
+  {
+   "id": "s3b",
+   "n": "04",
+   "pagina": 10
+  },
+  {
+   "id": "s4",
+   "n": "05",
+   "pagina": 13
+  },
+  {
+   "id": "s5",
+   "n": "06",
+   "pagina": 14
+  },
+  {
+   "id": "s6",
+   "n": "07",
+   "pagina": 15
+  },
+  {
+   "id": "s7",
+   "n": "08",
+   "pagina": 17
+  },
+  {
+   "id": "s8",
+   "n": "09",
+   "pagina": 18
+  },
+  {
+   "id": "s9",
+   "n": "10",
+   "pagina": 19
+  },
+  {
+   "id": "s10",
+   "n": "11",
+   "pagina": 21
+  },
+  {
+   "id": "s11",
+   "n": "12",
+   "pagina": 22
+  },
+  {
+   "id": "s12",
+   "n": "13",
+   "pagina": 24
+  },
+  {
+   "id": "s13",
+   "n": "14",
+   "pagina": 25
+  },
+  {
+   "id": "creditos",
+   "n": "15",
+   "pagina": 26
+  }
+ ],
+ "correcciones_contraste": [],
+ "variantes_usadas": [
+  "CV-1",
+  "DV-A",
+  "DV-C",
+  "DV-D",
+  "DV-F"
+ ],
+ "variantes_no_aprobadas": [
+  "CV-1",
+  "DV-A",
+  "DV-C",
+  "DV-D",
+  "DV-F"
+ ],
+ "paginas": 26,
+ "segundos": 5.3
+}

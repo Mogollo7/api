@@ -1,0 +1,575 @@
+{
+  "contract": "1.0",
+  "design": "anura",
+  "format": "pdf-a4",
+  "palette": "pitb",
+  "options": {
+    "seed": 17
+  },
+  "meta": {
+    "title": "PITB Antioquia: territorio, biodiversidad y comunidad",
+    "author": "Documento interdisciplinario · Informática, Psicología, Enfermería y Comunicación",
+    "date": "Octubre 2026",
+    "version": "Vol. 01 · v2",
+    "header_left": [
+      "PITB ANTIOQUIA",
+      "Biodiversidad, salud y territorio"
+    ],
+    "footer": "PITB ANTIOQUIA · Interdisciplinariedad, evidencia y responsabilidad"
+  },
+  "document": {
+    "cover": {
+      "variant": "CV-1",
+      "vertical": "PITB ANTIOQUIA",
+      "title": "Biodiversidad y comunidad",
+      "text": "Marco interdisciplinario de la Plataforma de Inteligencia Territorial y Biodiversidad: ingeniería informática, psicología, enfermería y teoría de la comunicación.",
+      "image": "species/panthera-onca.jpg",
+      "alt": "Jaguar caminando junto a pastos altos",
+      "tint": [
+        "negro",
+        "vivo"
+      ]
+    },
+    "parts": [
+      {
+        "id": "p1",
+        "title": "El proyecto",
+        "desc": "Qué problema aborda la plataforma y qué aporta la ingeniería informática.",
+        "divider": "DV-D",
+        "sections": [
+          {
+            "id": "s1",
+            "title": "Antioquia necesita información territorial actualizable",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "La Plataforma de Inteligencia Territorial y Biodiversidad (PITB) Antioquia propone construir un catálogo vivo de fauna y flora a partir de fotografías, identificación asistida por inteligencia artificial y registros georreferenciados. Su propósito es aportar información comparable en el tiempo y relacionarla con capas de ordenamiento territorial POT/EOT. [PROYECTO]"
+              },
+              {
+                "type": "image",
+                "src": "hero-helecho.jpg",
+                "ratio": "16/9",
+                "alt": "Hojas de helecho en primer plano",
+                "caption": "Flora fotografiada de cerca: el tipo de imagen que alimenta el catálogo.",
+                "treatment": "verde"
+              },
+              {
+                "type": "p",
+                "text": "La presentación del prototipo describe el problema como una actualización lenta de los inventarios mediante muestreos manuales y propone una plataforma web para registrar fauna y flora observadas en campo, cámaras trampa o por ciudadanos. Las cifras generales de biodiversidad que aparecen en la presentación deben conservar su fuente y fecha cuando se publiquen. [PROYECTO]"
+              },
+              {
+                "type": "image",
+                "src": "capturas/tablero.jpg",
+                "ratio": "64/45",
+                "treatment": "original",
+                "nocredit": true,
+                "alt": "Tablero territorial con indicadores y mapa de Antioquia con registros.",
+                "caption": "Prototipo PITB, tablero territorial: indicadores y mapa con los registros cruzados con las zonificaciones POT/EOT. Captura de pantalla."
+              }
+            ]
+          },
+          {
+            "id": "s2",
+            "title": "La ingeniería informática convierte fotos en registros",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "El aporte de Ingeniería Informática es diseñar el sistema que recibe imágenes, conserva metadatos, solicita una identificación al modelo, gestiona la incertidumbre y relaciona cada registro con su ubicación. La plataforma no es solo un clasificador: también necesita catálogo, almacenamiento, búsqueda, mapa, control de calidad y una interfaz comprensible. [INF]"
+              },
+              {
+                "type": "image",
+                "src": "capturas/identificacion.jpg",
+                "ratio": "64/45",
+                "treatment": "original",
+                "nocredit": true,
+                "alt": "Módulo de identificación con carga de foto y galería.",
+                "caption": "Prototipo PITB, identificación: carga de evidencia y observaciones de la comunidad. Captura de pantalla."
+              },
+              {
+                "type": "list",
+                "items": [
+                  {
+                    "t": "Aplicación y servicios",
+                    "items": [
+                      "Interfaz web adaptable a móviles para cargar fotografías y consultar registros. [PROYECTO]",
+                      "Servicios para procesar imágenes, guardar resultados y exponerlos a la interfaz. [INF]"
+                    ]
+                  },
+                  {
+                    "t": "Datos y georreferenciación",
+                    "items": [
+                      "Conservar fecha, ubicación, licencia, autoría y calidad del registro cuando estén disponibles. [INF]",
+                      "Relacionar registros con capas POT/EOT sin confundir una coincidencia geográfica con una conclusión ambiental. [PROYECTO]"
+                    ]
+                  },
+                  {
+                    "t": "Calidad y mantenimiento",
+                    "items": [
+                      "Deduplicar observaciones, versionar el catálogo y documentar fuentes de imágenes. [FUENTE: Guía de IA, cap. 03]",
+                      "Medir el rendimiento con fotos e individuos separados entre entrenamiento y prueba. [FUENTE: Guía de IA, caps. 03–04]"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "image",
+                "src": "capturas/observacion.jpg",
+                "ratio": "64/45",
+                "treatment": "original",
+                "nocredit": true,
+                "alt": "Detalle de una observación con certeza del modelo, licencia y sugerencias.",
+                "caption": "Prototipo PITB, observación: certeza del modelo, licencia y sugerencias. Captura de pantalla."
+              },
+              {
+                "type": "callout",
+                "tone": "clave",
+                "label": "REGLA DE DISEÑO",
+                "title": "La IA propone; el sistema debe mostrar límites",
+                "text": "BioCLIP identifica organismos a partir de imágenes. El diseño debe permitir resultados no concluyentes, conservar la procedencia de los datos y facilitar revisión humana cuando la evidencia no sea suficiente. [FUENTE: Guía de IA, caps. 01, 04 y 05]"
+              }
+            ]
+          },
+          {
+            "id": "s3",
+            "title": "BioCLIP y la evidencia de identificación",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "La guía técnica describe BioCLIP como un modelo de visión y lenguaje orientado al árbol de la vida que transforma imágenes en representaciones numéricas y compara su relación con descripciones taxonómicas. Su desempeño depende del conjunto de especies, las imágenes y el contexto; los resultados de benchmarks no deben presentarse como garantía de acierto para Antioquia. [FUENTE: Stevens et al., 2024; Guía de IA, cap. 02]"
+              },
+              {
+                "type": "image",
+                "src": "species/dendrobates-truncatus.jpg",
+                "ratio": "4/3",
+                "alt": "Rana venenosa de dardo sobre una hoja",
+                "caption": "Dendrobates truncatus, rana venenosa de dardo.",
+                "treatment": "verde"
+              },
+              {
+                "type": "p",
+                "text": "La guía recomienda empezar por una línea base sencilla, comprobar la calidad de las etiquetas, evitar duplicados y dividir los datos por individuo antes de evaluar. También advierte que una foto puede no mostrar los rasgos necesarios para resolver especie, etapa, sexo o salud; en esos casos, el sistema debe bajar el nivel taxonómico o indicar que no es determinable. [FUENTE: Guía de IA, caps. 01–04]"
+              }
+            ]
+          },
+          {
+            "id": "s3b",
+            "title": "Ejemplos del catálogo del prototipo",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "El prototipo incluye 24 observaciones de ejemplo de fauna y flora. Estas seis muestran el tipo de registro que la plataforma busca identificar y georreferenciar. Cada foto conserva su autor y licencia. [PROYECTO]"
+              },
+              {
+                "type": "image",
+                "ratio": "1/1",
+                "items": [
+                  {
+                    "src": "species/panthera-onca.jpg",
+                    "alt": "Jaguar",
+                    "caption": "**Jaguar** · Panthera onca"
+                  },
+                  {
+                    "src": "species/tremarctos-ornatus.jpg",
+                    "alt": "Oso de anteojos",
+                    "caption": "**Oso de anteojos** · Tremarctos ornatus"
+                  },
+                  {
+                    "src": "species/ara-macao.jpg",
+                    "alt": "Guacamaya roja",
+                    "caption": "**Guacamaya roja** · Ara macao"
+                  }
+                ]
+              },
+              {
+                "type": "image",
+                "ratio": "1/1",
+                "items": [
+                  {
+                    "src": "species/bradypus-variegatus.jpg",
+                    "alt": "Perezoso de tres dedos",
+                    "caption": "**Perezoso de tres dedos** · Bradypus variegatus"
+                  },
+                  {
+                    "src": "species/ramphastos-tucanus.jpg",
+                    "alt": "Tucán pechiblanco",
+                    "caption": "**Tucán pechiblanco** · Ramphastos tucanus"
+                  },
+                  {
+                    "src": "species/agalychnis-callidryas.jpg",
+                    "alt": "Rana de ojos rojos",
+                    "caption": "**Rana de ojos rojos** · Agalychnis callidryas"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "image": "species/agalychnis-callidryas.jpg",
+        "tint": [
+          "negro",
+          "vivo"
+        ],
+        "alt": "Imagen del divisor"
+      },
+      {
+        "id": "p2",
+        "title": "Salud y bienestar",
+        "desc": "Aportes de Enfermería y Psicología sin ampliar indebidamente el alcance de la plataforma.",
+        "divider": "DV-A",
+        "sections": [
+          {
+            "id": "s4",
+            "title": "Enfermería: salud pública y prevención",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Enfermería complementa el proyecto desde la promoción de la salud, la prevención, la educación comunitaria y la comprensión de los determinantes ambientales. La salud de las personas se relaciona con condiciones del entorno, como agua, aire, vivienda, saneamiento y ecosistemas (OMS, 2023). [FUENTE]"
+              },
+              {
+                "type": "image",
+                "src": "personas/enfermera.png",
+                "ratio": "16/9",
+                "alt": "Profesional de enfermería preparando una jeringa",
+                "caption": "Educación y prevención en salud: el aporte de Enfermería.",
+                "treatment": "negroverde"
+              },
+              {
+                "type": "p",
+                "text": "La PITB podría aportar registros para formular preguntas de investigación sobre ambiente y bienestar. No puede confirmar por sí sola riesgos zoonóticos, transmisión de patógenos ni enfermedades. Cualquier inquietud sanitaria necesita evaluación independiente por profesionales y autoridades competentes. [RESUMEN]"
+              }
+            ]
+          },
+          {
+            "id": "s5",
+            "title": "Psicología: percepción, conducta y participación",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "La Psicología puede estudiar cómo las personas interpretan la información de biodiversidad, qué genera confianza o confusión y qué condiciones favorecen la participación voluntaria. En el proyecto, estos aportes se proponen como líneas de trabajo y no como resultados ya medidos. [INF]"
+              },
+              {
+                "type": "list",
+                "items": [
+                  "Explorar qué entiende la comunidad por “identificación probable”, “no concluyente” y “registro georreferenciado”. [INF]",
+                  "Evitar mensajes que provoquen miedo o estigmaticen a comunidades por vivir cerca de determinadas especies. [RESUMEN]",
+                  "Probar la facilidad de uso y la confianza percibida mediante entrevistas o pruebas piloto voluntarias, con instrumentos revisados. [PROPUESTA]"
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "ojo",
+                "label": "CUIDADO",
+                "title": "No convertir observaciones en alarmas",
+                "text": "La presencia de una especie no permite inferir automáticamente enfermedad, peligro ni conducta de riesgo. La comunicación debe separar datos observados, hipótesis y decisiones que requieren evaluación profesional. [RESUMEN]"
+              }
+            ]
+          },
+          {
+            "id": "s6",
+            "title": "Una Sola Salud como punto de encuentro",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "El enfoque de Una Sola Salud plantea que la salud humana, la salud animal, las plantas y los ecosistemas están conectados y requieren coordinación entre disciplinas y sectores (FAO, PNUMA, OMS y OMSA, 2022). [FUENTE]"
+              },
+              {
+                "type": "image",
+                "src": "personas/campo.png",
+                "ratio": "16/9",
+                "alt": "Persona con guante revisando vegetación en campo",
+                "caption": "Observación de campo con equipo de protección.",
+                "treatment": "verde"
+              },
+              {
+                "type": "p",
+                "text": "En la PITB, este enfoque es un marco de colaboración, no una función diagnóstica. Ingeniería aporta infraestructura y trazabilidad; Enfermería, prevención y salud pública; Psicología, comprensión de las conductas y la experiencia de uso; Comunicación, mensajes claros, escucha y retroalimentación. [INF]"
+              }
+            ]
+          }
+        ],
+        "image": "personas/enfermera.png",
+        "tint": [
+          "negro",
+          "vivo"
+        ],
+        "alt": "Imagen del divisor"
+      },
+      {
+        "id": "p3",
+        "title": "Comunicación y comunidad",
+        "desc": "Cómo explicar la plataforma y crear una relación responsable con sus usuarios.",
+        "divider": "DV-C",
+        "sections": [
+          {
+            "id": "s7",
+            "title": "Teoría de la comunicación aplicada",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Como marco de trabajo, la comunicación puede organizarse alrededor de emisor, mensaje, canal, receptor, contexto, ruido y retroalimentación. En la PITB, la ciudadanía aporta una observación; la plataforma devuelve una identificación y su grado de incertidumbre; y las personas pueden revisar, corregir o contextualizar el registro. Esta es una aplicación propuesta para el proyecto, no una validación experimental de una teoría concreta. [INF]"
+              },
+              {
+                "type": "list",
+                "items": [
+                  {
+                    "t": "Mensaje",
+                    "items": [
+                      "Usar frases breves y explicar qué significa cada resultado. [INF]",
+                      "Distinguir “identificación sugerida” de “confirmación experta”. [RESUMEN]"
+                    ]
+                  },
+                  {
+                    "t": "Canal",
+                    "items": [
+                      "Combinar interfaz móvil, web, material educativo y espacios presenciales según las necesidades locales. [INF]"
+                    ]
+                  },
+                  {
+                    "t": "Ruido y contexto",
+                    "items": [
+                      "Considerar conectividad, alfabetización digital, lenguaje técnico, calidad de la fotografía y posibles sesgos de interpretación. [INF]"
+                    ]
+                  },
+                  {
+                    "t": "Retroalimentación",
+                    "items": [
+                      "Permitir reportar errores, corregir metadatos y explicar por qué un registro quedó como no concluyente. [INF]"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "s8",
+            "title": "Diseño de mensajes claros y no alarmistas",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Los mensajes deben adaptarse a la edad, experiencia digital, contexto cultural y necesidades de accesibilidad de quienes usan la plataforma. La información debe ayudar a comprender el alcance de la identificación, no dar a entender que una predicción es una verdad definitiva. [INF]"
+              },
+              {
+                "type": "table",
+                "head": [
+                  "Evitar",
+                  "Preferir"
+                ],
+                "rows": [
+                  [
+                    "“Esta especie es peligrosa”.",
+                    "“La foto sugiere esta especie; la identificación no determina por sí sola un riesgo para la salud”. [RESUMEN]"
+                  ],
+                  [
+                    "“La IA confirmó la especie”.",
+                    "“La IA propone una identificación; revisa las alternativas y el nivel de certeza”. [INF]"
+                  ],
+                  [
+                    "“La comunidad causó el problema”.",
+                    "“El registro aporta información; su interpretación requiere contexto y colaboración institucional”. [RESUMEN]"
+                  ],
+                  [
+                    "“No hay resultado”.",
+                    "“No concluyente: la imagen no ofrece evidencia suficiente; puedes aportar otra foto o solicitar revisión”. [INF]"
+                  ]
+                ],
+                "variant": "compact",
+                "caption": "Ejemplos de redacción recomendada para interfaz y materiales educativos. [INF]"
+              },
+              {
+                "type": "p",
+                "text": "La teoría de la comunicación se conecta con la Psicología al observar comprensión, confianza y reacción emocional; con Enfermería, al comunicar prevención con responsabilidad; y con Ingeniería, al convertir esos principios en textos de interfaz, estados de error y mecanismos de retroalimentación. [INF]"
+              }
+            ]
+          },
+          {
+            "id": "s9",
+            "title": "Participación ciudadana con cuidado",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "La ciencia ciudadana puede ampliar la cobertura de observaciones y fortalecer el conocimiento territorial. Para que la participación sea responsable, las instrucciones deben explicar qué datos se recogen, para qué se usan y cómo se puede reportar una equivocación. [RESUMEN]"
+              },
+              {
+                "type": "p",
+                "text": "Si se recopilan datos personales, opiniones o información que identifique a participantes, se deben aplicar minimización de datos, confidencialidad, almacenamiento seguro y las autorizaciones correspondientes. La ubicación precisa de especies vulnerables también requiere cuidado para evitar su captura o perturbación. [RESUMEN]"
+              }
+            ]
+          }
+        ],
+        "image": "species/ramphastos-tucanus.jpg",
+        "tint": [
+          "negro",
+          "vivo"
+        ],
+        "alt": "Imagen del divisor"
+      },
+      {
+        "id": "p4",
+        "title": "Método, ética e integración",
+        "desc": "Propuesta de evaluación formativa y responsabilidades compartidas.",
+        "divider": "DV-F",
+        "sections": [
+          {
+            "id": "s10",
+            "title": "Evaluación formativa propuesta",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Para generar evidencia propia, se propone una fase piloto con autorización institucional e instrumentos adecuados. La evaluación debe observar comprensión y utilidad percibida sin afirmar de antemano que la plataforma produce cambios de conducta o mejora la salud. [RESUMEN]"
+              },
+              {
+                "type": "list",
+                "ordered": true,
+                "items": [
+                  {
+                    "t": "Diagnóstico inicial",
+                    "items": [
+                      "Encuesta breve sobre conocimientos de biodiversidad, salud ambiental y comprensión de los resultados de la IA. [PROPUESTA]"
+                    ]
+                  },
+                  {
+                    "t": "Actividad educativa",
+                    "items": [
+                      "Explicar cómo aportar una foto, qué significa una identificación probable y cómo actuar ante una inquietud sin sacar conclusiones médicas. [PROPUESTA]"
+                    ]
+                  },
+                  {
+                    "t": "Evaluación posterior",
+                    "items": [
+                      "Preguntas de comprensión, claridad percibida, confianza y sugerencias de mejora. [PROPUESTA]"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "table",
+                "head": [
+                  "Indicador propuesto",
+                  "Qué observaría"
+                ],
+                "rows": [
+                  [
+                    "Comprensión",
+                    "Porcentaje que diferencia una sugerencia automática de una confirmación experta."
+                  ],
+                  [
+                    "Usabilidad",
+                    "Tareas completadas y dificultades encontradas durante una prueba de interfaz."
+                  ],
+                  [
+                    "Comunicación",
+                    "Claridad percibida de mensajes, avisos y estados no concluyentes."
+                  ],
+                  [
+                    "Participación",
+                    "Observaciones y correcciones recibidas durante el piloto."
+                  ]
+                ],
+                "variant": "compact",
+                "caption": "Indicadores propuestos; no son resultados obtenidos. [PROPUESTA]"
+              }
+            ]
+          },
+          {
+            "id": "s11",
+            "title": "Ética, privacidad y límites profesionales",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "La iniciativa debe respetar beneficencia, no maleficencia, autonomía, justicia, confidencialidad y responsabilidad profesional. Las decisiones sanitarias no deben basarse exclusivamente en una predicción algorítmica. [RESUMEN]"
+              },
+              {
+                "type": "image",
+                "src": "personas/hospital.jpg",
+                "ratio": "4/3",
+                "alt": "Equipo de salud trasladando una camilla",
+                "caption": "Equipos de salud: ante una inquietud sanitaria decide la revisión profesional.",
+                "treatment": "calido"
+              },
+              {
+                "type": "list",
+                "items": [
+                  "Consentimiento y transparencia cuando se invite a personas a participar en pruebas o actividades de investigación. [RESUMEN]",
+                  "Minimización y protección de datos personales; acceso limitado y almacenamiento seguro. [RESUMEN]",
+                  "Protección de ubicaciones sensibles de fauna vulnerable. [RESUMEN]",
+                  "Trazabilidad de fuentes, licencias, autoría, fecha y procedencia de las fotografías. [FUENTE: Guía de IA, cap. 03]",
+                  "Revisión por profesionales competentes ante inquietudes sanitarias, biológicas o territoriales que excedan la identificación automática. [RESUMEN]"
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "ojo",
+                "label": "ALCANCE",
+                "title": "Límite central del proyecto",
+                "text": "BioCLIP es una herramienta de identificación de organismos, no un sistema de diagnóstico clínico, detección confirmada de patógenos ni certificación de riesgo para la comunidad. [FUENTE: Guía de IA, caps. 01 y 05]"
+              }
+            ]
+          },
+          {
+            "id": "s12",
+            "title": "Matriz de aportes interdisciplinarios",
+            "blocks": [
+              {
+                "type": "table",
+                "head": [
+                  "Área",
+                  "Aporte al proyecto",
+                  "Producto o evidencia posible"
+                ],
+                "rows": [
+                  [
+                    "Ingeniería Informática",
+                    "Aplicación, datos, integración de BioCLIP, georreferenciación, pruebas y mantenimiento.",
+                    "Prototipo funcional, registros trazables, métricas técnicas y documentación. [INF]"
+                  ],
+                  [
+                    "Psicología",
+                    "Comprensión de la percepción, confianza, barreras de uso y respuestas a los mensajes.",
+                    "Entrevistas, pruebas de comprensión y recomendaciones de experiencia de usuario. [PROPUESTA]"
+                  ],
+                  [
+                    "Enfermería",
+                    "Promoción de la salud, prevención, educación comunitaria y enfoque de salud pública.",
+                    "Material educativo y evaluación formativa de comprensión. [PROPUESTA]"
+                  ],
+                  [
+                    "Teoría de la comunicación",
+                    "Claridad de mensajes, elección de canales, contexto, ruido y retroalimentación.",
+                    "Guía de lenguaje, mensajes de interfaz y protocolo de corrección. [PROPUESTA]"
+                  ]
+                ],
+                "variant": "compact",
+                "caption": "La distribución es una propuesta de colaboración; requiere validación por cada equipo disciplinar. [INF]"
+              },
+              {
+                "type": "p",
+                "text": "El propósito central de la PITB permanece en el conocimiento de la biodiversidad y el apoyo a la planificación territorial. Las contribuciones de Psicología, Enfermería y Comunicación complementan ese propósito, mientras Ingeniería Informática construye y mantiene la infraestructura que hace posible registrar, consultar y evaluar la información. [RESUMEN]"
+              }
+            ]
+          },
+          {
+            "id": "s13",
+            "title": "Referencias y créditos visuales",
+            "blocks": [
+              {
+                "type": "refs",
+                "items": [
+                  "Food and Agriculture Organization of the United Nations, United Nations Environment Programme, World Health Organization, & World Organisation for Animal Health. (2022). *One Health Joint Plan of Action (2022–2026).* https://www.fao.org/3/cc2289en/cc2289en.pdf",
+                  "Organización Mundial de la Salud. (2023). *Environmental health.* https://www.who.int/health-topics/environmental-health",
+                  "Organización Mundial de la Salud & UNICEF. (2018). *Declaración de Astaná sobre Atención Primaria de Salud.* https://www.who.int/docs/default-source/primary-health/declaration/gcphc-declaration-sp.pdf",
+                  "Stevens, S. et al. (2024). *BioCLIP: A vision foundation model for the tree of life.* CVPR. https://openaccess.thecvf.com/content/CVPR2024/papers/Stevens_BioCLIP_A_Vision_Foundation_Model_for_the_Tree_of_Life_CVPR_2024_paper.pdf",
+                  "Guía de IA. (Documento aportado por el equipo). *Cómo hacer que un modelo distinga animales: especie, etapa, sexo y salud desde una foto, con contexto.* Vol. 01, caps. 01–07.",
+                  "PITB Antioquia. (Presentación aportada por el equipo). *Territorio sostenible: georreferenciación y ordenamiento territorial.*"
+                ]
+              },
+              {
+                "type": "p",
+                "text": "Las fotografías de animales vienen de iNaturalist y se citan con su autor y licencia al pie de cada imagen; varias son de uso no comercial (CC BY-NC). Las fotografías de personas y de la sección de flora tienen autor y licencia pendientes. Las capturas de pantalla son del prototipo PITB. [FUENTE]"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
