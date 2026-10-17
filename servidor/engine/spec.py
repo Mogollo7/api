@@ -102,7 +102,7 @@ COVER = {"title": F("str", "Título del documento (una sola vez; no lo repitas e
 META = {"title": F("str", "Título para metadatos.", True), "author": F("str", "Autor."), "subject": F("str", "Asunto."), "keywords": F("list", "Palabras clave."), "date": F("str", "Fecha: «Mes AAAA»."),
         "version": F("str", "Versión o etiqueta de la caja de la portada."), "header_left": F("list", "Dos líneas de la cabecera de portada."), "footer": F("str", "Pie de las hojas.")}
 ROOT = {"contract": F("str", f"Versión del contrato (hoy «{CONTRACT_VERSION}»).", True), "design": F("str", "Id del diseño.", True), "format": F("str", "pdf-a4 | pptx-16x9 | web-1col.", True),
-        "palette": F("str", "Nombre de paleta, 'default' o {rol:#hex}."), "options": F("obj", "{seed}"), "meta": F("obj", "Metadatos.", True), "document": F("obj", "{cover, parts[]}", True)}
+        "palette": F("str", "Nombre de paleta, 'default' o {rol:#hex}."), "options": F("obj", "{seed, density: \"aireado\" para texto más grande y más aire}"), "meta": F("obj", "Metadatos.", True), "document": F("obj", "{cover, parts[]}", True)}
 
 
 def validate_block(b: dict, w: str, warns: list):

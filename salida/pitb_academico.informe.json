@@ -1,0 +1,170 @@
+{
+ "estado": "con_avisos",
+ "errores": [],
+ "avisos": [],
+ "auditoria": {
+  "794-print": [
+   {
+    "hoja": "Introducción · 3",
+    "tipo": "contenido invade el pie",
+    "sobra_cqw": 0.8
+   }
+  ],
+  "1300": [
+   {
+    "hoja": "Introducción · 3",
+    "tipo": "contenido invade el pie",
+    "sobra_cqw": 0.8
+   }
+  ],
+  "400": [
+   {
+    "hoja": "Introducción · 3",
+    "tipo": "contenido invade el pie",
+    "sobra_cqw": 0.4
+   }
+  ]
+ },
+ "imagenes_necesarias": [],
+ "secciones": [
+  {
+   "id": "intro",
+   "n": "01",
+   "pagina": 3
+  },
+  {
+   "id": "just",
+   "n": "02",
+   "pagina": 4
+  },
+  {
+   "id": "obj",
+   "n": "03",
+   "pagina": 5
+  },
+  {
+   "id": "equipo",
+   "n": "04",
+   "pagina": 6
+  },
+  {
+   "id": "mt1",
+   "n": "05",
+   "pagina": 8
+  },
+  {
+   "id": "mt2",
+   "n": "06",
+   "pagina": 10
+  },
+  {
+   "id": "mt3",
+   "n": "07",
+   "pagina": 11
+  },
+  {
+   "id": "mt4",
+   "n": "08",
+   "pagina": 12
+  },
+  {
+   "id": "mt5",
+   "n": "09",
+   "pagina": 13
+  },
+  {
+   "id": "ea",
+   "n": "10",
+   "pagina": 14
+  },
+  {
+   "id": "pr1",
+   "n": "11",
+   "pagina": 16
+  },
+  {
+   "id": "pr2",
+   "n": "12",
+   "pagina": 18
+  },
+  {
+   "id": "pr3",
+   "n": "13",
+   "pagina": 19
+  },
+  {
+   "id": "pr4",
+   "n": "14",
+   "pagina": 20
+  },
+  {
+   "id": "pr5",
+   "n": "15",
+   "pagina": 21
+  },
+  {
+   "id": "pr6",
+   "n": "16",
+   "pagina": 22
+  },
+  {
+   "id": "m1",
+   "n": "17",
+   "pagina": 25
+  },
+  {
+   "id": "m2",
+   "n": "18",
+   "pagina": 27
+  },
+  {
+   "id": "m3",
+   "n": "19",
+   "pagina": 28
+  },
+  {
+   "id": "m4",
+   "n": "20",
+   "pagina": 29
+  },
+  {
+   "id": "m5",
+   "n": "21",
+   "pagina": 30
+  },
+  {
+   "id": "con",
+   "n": "22",
+   "pagina": 33
+  },
+  {
+   "id": "ref",
+   "n": "23",
+   "pagina": 34
+  },
+  {
+   "id": "creditos",
+   "n": "24",
+   "pagina": 35
+  }
+ ],
+ "correcciones_contraste": [],
+ "variantes_usadas": [
+  "CV-1",
+  "DV-A",
+  "DV-B",
+  "DV-C",
+  "DV-D",
+  "DV-F"
+ ],
+ "variantes_no_aprobadas": [
+  "CV-1",
+  "DV-A",
+  "DV-B",
+  "DV-C",
+  "DV-D",
+  "DV-F"
+ ],
+ "paginas": 35,
+ "segundos": 5.4
+}

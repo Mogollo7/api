@@ -115,6 +115,11 @@ def _fuentes(ctx):
     return " y ".join(fs) if len(fs) < 3 else ", ".join(fs[:-1]) + " y " + fs[-1]
 
 
+# opción `density: "aireado"`: texto más grande y más aire entre bloques (documentos académicos para leer en pantalla)
+AIREADO = (".lp .cont{gap:4.6cqw}.int p{font-size:2.75cqw;line-height:1.62;margin-bottom:3cqw}"
+           ".bl{font-size:2.65cqw;line-height:1.55}.bl li{padding:.9cqw 0}.bl.refs,.bl.fnotes{font-size:2.2cqw}")
+
+
 def make_head(doc, design_dir, m, roles, ph=141.4):
     meta = doc.get("meta", {})
     css = "\n".join([
@@ -123,6 +128,7 @@ def make_head(doc, design_dir, m, roles, ph=141.4):
         f".page{{aspect-ratio:1/{ph/100:.4f}}}@page{{size:{(m.get('formats_dims') or {}).get(doc.get('format'), {}).get('pdf', 'A4')};margin:0}}",
         ".page.measure{aspect-ratio:auto;height:auto;overflow:visible;border:0;box-shadow:none}"
         ".page.measure .cont{margin:0 5cqw;width:90cqw}",
+        AIREADO if (doc.get("options") or {}).get("density") == "aireado" else "",
     ])
     return (f'<!doctype html><html lang="es"><head><meta charset="utf-8"><title>{esc(plain(meta.get("title","Documento")))}</title>'
             f'<style>{css}</style></head><body style="margin:0">')
