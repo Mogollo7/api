@@ -93,102 +93,102 @@
   {
    "id": "bench",
    "n": "18",
-   "pagina": 26
+   "pagina": 27
   },
   {
    "id": "producto",
    "n": "19",
-   "pagina": 30
+   "pagina": 31
   },
   {
    "id": "proto",
    "n": "20",
-   "pagina": 31
+   "pagina": 32
   },
   {
    "id": "proto2",
    "n": "21",
-   "pagina": 33
+   "pagina": 34
   },
   {
    "id": "proto3",
    "n": "22",
-   "pagina": 34
+   "pagina": 35
   },
   {
    "id": "proto4",
    "n": "23",
-   "pagina": 35
+   "pagina": 36
   },
   {
    "id": "prueba1",
    "n": "24",
-   "pagina": 36
+   "pagina": 37
   },
   {
    "id": "prueba2",
    "n": "25",
-   "pagina": 38
+   "pagina": 39
   },
   {
    "id": "prueba3",
    "n": "26",
-   "pagina": 41
+   "pagina": 42
   },
   {
    "id": "etica1",
    "n": "27",
-   "pagina": 43
+   "pagina": 44
   },
   {
    "id": "etica2",
    "n": "28",
-   "pagina": 44
+   "pagina": 45
   },
   {
    "id": "etica3",
    "n": "29",
-   "pagina": 45
+   "pagina": 46
   },
   {
    "id": "etica4",
    "n": "30",
-   "pagina": 47
+   "pagina": 48
   },
   {
    "id": "impacto",
    "n": "31",
-   "pagina": 49
+   "pagina": 50
   },
   {
    "id": "metodo",
    "n": "32",
-   "pagina": 50
+   "pagina": 51
   },
   {
    "id": "resultados",
    "n": "33",
-   "pagina": 51
+   "pagina": 52
   },
   {
    "id": "eval",
    "n": "34",
-   "pagina": 53
+   "pagina": 54
   },
   {
    "id": "conc",
    "n": "35",
-   "pagina": 54
+   "pagina": 55
   },
   {
    "id": "ref",
    "n": "36",
-   "pagina": 55
+   "pagina": 56
   },
   {
    "id": "creditos",
    "n": "37",
-   "pagina": 58
+   "pagina": 61
   }
  ],
  "correcciones_contraste": [],
@@ -210,6 +210,6 @@
   "DV-E",
   "DV-F"
  ],
- "paginas": 58,
- "segundos": 6.2
+ "paginas": 61,
+ "segundos": 5.5
 }

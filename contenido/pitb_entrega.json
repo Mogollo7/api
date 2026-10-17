@@ -52,7 +52,7 @@
             "blocks": [
               {
                 "type": "p",
-                "text": "Un territorio sostenible necesita un ordenamiento territorial que lo guíe, y un ordenamiento solo funciona si se sabe qué hay en el territorio. Esa es la idea central de este trabajo. Antioquia, el departamento más biodiverso de Colombia, no cuenta hoy con un inventario de especies que se actualice al ritmo de los cambios: depende de muestreos manuales que tardan años."
+                "text": "Un territorio sostenible necesita un ordenamiento territorial que lo guíe, y un ordenamiento solo funciona si se sabe qué hay en el territorio. Esa es la idea central de este trabajo. Antioquia, el departamento con más especies registradas en el Sistema de Información sobre Biodiversidad de Colombia (SiB), no cuenta hoy con un inventario de especies que se actualice al ritmo de los cambios: depende de muestreos manuales que tardan años."
               },
               {
                 "type": "p",
@@ -140,7 +140,7 @@
             "blocks": [
               {
                 "type": "p",
-                "text": "Ordenar un territorio exige conocerlo con precisión. Sin una línea base clara sobre qué especies lo habitan, dónde se encuentran y cómo se comportan, cualquier decisión de planificación puede quedar incompleta o llegar tarde. Antioquia tiene más de 21.600 especies registradas, pero su inventario depende de muestreos manuales que tardan años en actualizarse."
+                "text": "Ordenar un territorio exige conocerlo con precisión. Sin una línea base clara sobre qué especies lo habitan, dónde se encuentran y cómo se comportan, cualquier decisión de planificación puede quedar incompleta o llegar tarde. Antioquia tiene más de 21.000 especies registradas en el SiB Colombia (SiB Colombia, 2024), pero su inventario depende de muestreos manuales que tardan años en actualizarse."
               },
               {
                 "type": "callout",
@@ -153,7 +153,7 @@
               },
               {
                 "type": "p",
-                "text": "El proyecto cuenta además con respaldo institucional. En diciembre de 2023 la Asamblea Departamental aprobó la Ordenanza 57, que formalizó las macrorregiones y subregiones de Antioquia como mecanismo de articulación de la planificación territorial dentro de la Agenda Antioquia 2040 (Gobernación de Antioquia, 2023a)."
+                "text": "El proyecto cuenta además con respaldo institucional. En diciembre de 2023 la Asamblea Departamental aprobó en segundo debate la ordenanza que formaliza las macrorregiones de Antioquia como mecanismo de articulación de la planificación territorial dentro de la Agenda Antioquia 2040; la Gobernación la identifica como Ordenanza 57 (Gobernación de Antioquia, 2023a)."
               }
             ]
           },
@@ -173,8 +173,8 @@
                     "l": "municipios de Antioquia"
                   },
                   {
-                    "v": "21.600+",
-                    "l": "especies registradas"
+                    "v": "21.000+",
+                    "l": "especies registradas en el SiB"
                   },
                   {
                     "v": "Años",
@@ -294,6 +294,10 @@
               },
               {
                 "type": "p",
+                "text": "Que el conocimiento de la biodiversidad es incompleto no es una impresión local, sino un problema documentado. Hortal et al. (2015) describen siete vacíos que limitan el conocimiento de la biodiversidad a gran escala, entre ellos el desconocimiento de dónde vive cada especie, y Meyer et al. (2015) muestran que la información de presencia de especies es escasa y sesgada en buena parte del planeta. Los POT, PBOT y EOT que establece la Ley 388 de 1997 se formulan sobre ese conocimiento parcial."
+              },
+              {
+                "type": "p",
                 "text": "Al automatizar la línea base biológica del departamento, la PITB opera directamente sobre la función de esta estrategia: da al ordenamiento territorial la capacidad de alerta temprana que hoy no tiene."
               }
             ]
@@ -388,7 +392,7 @@
             "blocks": [
               {
                 "type": "p",
-                "text": "El producto es una plataforma web que no requiere instalación para el usuario final. El navegador envía la foto, la ubicación y la fecha a un servidor que ejecuta el modelo, y un motor geoanalítico basado en PostGIS y GDAL cruza cada registro con las capas oficiales de ordenamiento (POT, PBOT y EOT) de cada municipio. Cada registro se estructura con el estándar Darwin Core, de modo que sea comparable y auditable."
+                "text": "El producto es una plataforma web que no requiere instalación para el usuario final. El navegador envía la foto, la ubicación y la fecha a un servidor que ejecuta el modelo, y un motor geoanalítico basado en PostGIS y GDAL cruza cada registro con las capas oficiales de ordenamiento (POT, PBOT y EOT) de cada municipio. Cada registro se estructura con el estándar Darwin Core (Wieczorek et al., 2012), de modo que sea comparable y auditable."
               },
               {
                 "type": "p",
@@ -418,7 +422,7 @@
               },
               {
                 "type": "p",
-                "text": "Sobre la segunda pregunta, Kahneman (2011) describe cómo los juicios humanos caen en atajos y sesgos. En la PITB, el atajo previsible es dar por cierta cualquier identificación de la IA. Lee y See (2004) hablan de una confianza apropiada: ni ciega ni nula, ajustada a lo que el sistema realmente puede hacer. Para lograrla, la interfaz debe diferenciar una identificación preliminar de un registro validado, explicar cómo funciona el sistema a grandes rasgos y facilitar la revisión de los casos dudosos."
+                "text": "Sobre la segunda pregunta, Kahneman (2011) describe cómo los juicios humanos caen en atajos y sesgos. En la PITB, el atajo previsible es dar por cierta cualquier identificación de la IA. Lee y See (2004) hablan de una confianza apropiada: ni ciega ni nula, ajustada a lo que el sistema realmente puede hacer. Estudios con usuarios de aplicaciones de identificación reales apuntan en la misma dirección: la confianza en la IA depende del contexto de uso (Kim et al., 2023). Para lograrla, la interfaz debe diferenciar una identificación preliminar de un registro validado, explicar cómo funciona el sistema a grandes rasgos y facilitar la revisión de los casos dudosos."
               }
             ]
           },
@@ -463,7 +467,7 @@
               },
               {
                 "type": "p",
-                "text": "Gumucio-Dagron (2012) propone una comunicación para el cambio social basada en el diálogo y la participación, no en enviar información de un emisor a un receptor. Aplicado al proyecto, las personas no son solo usuarias que reciben datos: son participantes que aportan lo que observan en su territorio. Una foto de una especie deja de ser un contenido suelto y se vuelve parte de un catálogo colectivo."
+                "text": "Gumucio-Dagron (2011) propone una comunicación para el cambio social basada en el diálogo y la participación, no en enviar información de un emisor a un receptor. Aplicado al proyecto, las personas no son solo usuarias que reciben datos: son participantes que aportan lo que observan en su territorio. Una foto de una especie deja de ser un contenido suelto y se vuelve parte de un catálogo colectivo."
               },
               {
                 "type": "p",
@@ -551,6 +555,22 @@
                 "text": "Para decidir cuándo confiar en una respuesta, se usan técnicas de calibración (Guo et al., 2017), de modo que «90 % de confianza» acierte cerca del 90 % de las veces. Además, el desempeño de los modelos cae en sitios nuevos (Beery et al., 2018), y los datos de ubicación, fecha y hábitat pueden ayudar a reordenar candidatas (Mac Aodha et al., 2019)."
               },
               {
+                "type": "p",
+                "text": "BioCLIP 2 amplió el enfoque con unos 214 millones de imágenes (Gu et al., 2025). Los modelos de visión ya se usan para identificar animales en imágenes de cámaras trampa (Norouzzadeh et al., 2018), y existen conjuntos de referencia como iNaturalist (Van Horn et al., 2018) y servicios como SpeciesNet (Gadot et al., 2024)."
+              },
+              {
+                "type": "h",
+                "text": "Ciencia ciudadana y datos de biodiversidad"
+              },
+              {
+                "type": "p",
+                "text": "La ciencia ciudadana contribuye de forma importante al monitoreo internacional de la biodiversidad (Chandler et al., 2017) y todavía tiene un potencial sin aprovechar para la investigación (Theobald et al., 2015). Su principal debilidad es la calidad de los datos: Kosmala et al. (2016) revisan cómo evaluarla y Isaac et al. (2014) proponen métodos estadísticos para extraer señales de datos con ruido. Para retener a las personas voluntarias, West y Pateman (2016) recomiendan aprender de la literatura sobre voluntariado, y Rotman et al. (2012) muestran que la motivación cambia a lo largo de un proyecto."
+              },
+              {
+                "type": "p",
+                "text": "Estas fuentes respaldan dos decisiones del diseño de la PITB: validar y auditar los registros, y cuidar la motivación de quienes aportan fotos."
+              },
+              {
                 "type": "h",
                 "text": "Personas y sistemas automatizados"
               },
@@ -569,9 +589,9 @@
               {
                 "type": "callout",
                 "tone": "ojo",
-                "text": "Falta ampliar la revisión con estudios sobre plataformas de ciencia ciudadana y catálogos de biodiversidad ya en uso. Aquí solo se incluyen fuentes que se pudieron verificar.",
-                "label": "PENDIENTE",
-                "title": "Alcance de la revisión"
+                "text": "No se encontró ningún estudio revisado por pares sobre el desempeño de BioCLIP con fauna o flora de Colombia o Antioquia. Por eso las pruebas locales de este documento son preliminares y se presentan como hipótesis a validar.",
+                "label": "VACÍO DE LA LITERATURA",
+                "title": "Qué no hay todavía"
               }
             ]
           },
@@ -667,7 +687,7 @@
                   ],
                   [
                     "SpeciesNet (Google)",
-                    "Más de 2.000 etiquetas, licencia Apache-2.0, usa MegaDetector",
+                    "Más de 2.000 etiquetas, licencia Apache-2.0, usa MegaDetector (Gadot et al., 2024)",
                     "Cerrado a su propio catálogo"
                   ],
                   [
@@ -1134,7 +1154,7 @@
               },
               {
                 "type": "p",
-                "text": "La conservación obliga a un cuidado adicional: las coordenadas de especies amenazadas se ocultan, para que publicarlas no facilite su captura, su tráfico o su perturbación."
+                "text": "La conservación obliga a un cuidado adicional: las coordenadas de especies amenazadas se ocultan o se generalizan, siguiendo las buenas prácticas del GBIF (Chapman, 2020), para que publicarlas no facilite su captura, su tráfico o su perturbación."
               }
             ]
           },
@@ -1144,7 +1164,7 @@
             "blocks": [
               {
                 "type": "p",
-                "text": "En Colombia, el tratamiento de datos personales se rige por la Ley 1581 de 2012. Cuando se recojan datos personales, opiniones o información que permita identificar a alguien, se aplicarán consentimiento informado, finalidad clara, minimización de datos, almacenamiento seguro y acceso limitado. La participación en encuestas y pruebas será voluntaria."
+                "text": "En Colombia, el tratamiento de datos personales se rige por la Ley 1581 de 2012, y la política nacional de IA se orienta por los documentos CONPES 3975 de 2019 y 4144 de 2025. Cuando se recojan datos personales, opiniones o información que permita identificar a alguien, se aplicarán consentimiento informado, finalidad clara, minimización de datos, almacenamiento seguro y acceso limitado. La participación en encuestas y pruebas será voluntaria."
               },
               {
                 "type": "image",
@@ -1279,7 +1299,7 @@
                 "rows": [
                   [
                     "Gobernación de Antioquia",
-                    "Una línea base biológica actualizada para sustentar decisiones de ordenamiento y cumplir la Ordenanza 57 de 2023"
+                    "Una línea base biológica actualizada para sustentar decisiones de ordenamiento y apoyar la ordenanza de macrorregiones de 2023"
                   ],
                   [
                     "Corporaciones Autónomas Regionales",
@@ -1352,7 +1372,7 @@
             "blocks": [
               {
                 "type": "p",
-                "text": "El departamento más biodiverso de Colombia no puede seguir planificando su territorio con un inventario de especies que tarda años en actualizarse. Un territorio sostenible y un buen ordenamiento territorial dependen de algo previo: saber qué hay. La PITB propone cerrar esa brecha combinando un modelo de IA validado internacionalmente con un motor geoanalítico que convierte cada fotografía en evidencia útil para decidir."
+                "text": "El departamento con más especies registradas de Colombia no puede seguir planificando su territorio con un inventario de especies que tarda años en actualizarse. Un territorio sostenible y un buen ordenamiento territorial dependen de algo previo: saber qué hay. La PITB propone cerrar esa brecha combinando un modelo de IA validado internacionalmente con un motor geoanalítico que convierte cada fotografía en evidencia útil para decidir."
               },
               {
                 "type": "p",
@@ -1360,7 +1380,7 @@
               },
               {
                 "type": "p",
-                "text": "Al estar anclado a la Agenda Antioquia 2040 y respaldado por la Ordenanza 57 de 2023, el proyecto tiene una ruta institucional para pasar del prototipo a una herramienta departamental. Quedan pendientes medir el modelo con otros grupos, completar la prueba en un teléfono real, resolver el rechazo de especies desconocidas, ampliar la revisión de literatura y poner en marcha la evaluación formativa con las comunidades."
+                "text": "Al estar anclado a la Agenda Antioquia 2040 y a la ordenanza de macrorregiones de 2023, el proyecto tiene una ruta institucional para pasar del prototipo a una herramienta departamental. Quedan pendientes medir el modelo con otros grupos, completar la prueba en un teléfono real, resolver el rechazo de especies desconocidas, ampliar la revisión de literatura y poner en marcha la evaluación formativa con las comunidades."
               }
             ]
           },
@@ -1371,32 +1391,51 @@
               {
                 "type": "refs",
                 "items": [
-                  "Ajzen, I. (1991). The theory of planned behavior. Organizational Behavior and Human Decision Processes, 50(2), 179–211. https://doi.org/10.1016/0749-5978(91)90020-T",
-                  "Beery, S., Van Horn, G., & Perona, P. (2018). Recognition in terra incognita. Proceedings of the European Conference on Computer Vision (ECCV).",
-                  "Comisión Mundial sobre el Medio Ambiente y el Desarrollo. (1987). Nuestro futuro común [Informe Brundtland]. Naciones Unidas.",
-                  "Floridi, L., & Cowls, J. (2019). A unified framework of five principles for AI in society. Harvard Data Science Review, 1(1). https://doi.org/10.1162/99608f92.8cd550d1",
-                  "Food and Agriculture Organization of the United Nations, United Nations Environment Programme, World Health Organization, & World Organisation for Animal Health. (2022). One Health Joint Plan of Action (2022–2026). FAO. https://www.fao.org/3/cc2289en/cc2289en.pdf",
-                  "Gifford, R. (2014). Environmental psychology matters. Annual Review of Psychology, 65, 541–579. https://doi.org/10.1146/annurev-psych-010213-115048",
-                  "Gobernación de Antioquia. (2023a, 12 de diciembre). Aprobado en ordenanza las Macrorregiones de Antioquia. https://antioquia.gov.co/noticias-planeacion/aprobado-en-ordenanza-las-macrorregiones-de-antioquia",
-                  "Gobernación de Antioquia. (2023b). Plan Estratégico Agenda Antioquia 2040. https://www.cideu.org/wp-content/uploads/R_Plan-estrategico-Agenda-Antioquia-2040-1.pdf",
-                  "Grupo de Expertos de Alto Nivel sobre IA. (2019). Directrices éticas para una IA fiable. Comisión Europea.",
-                  "Gumucio-Dagron, A. (2012). Comunicación para el cambio social: Clave del desarrollo participativo. Signo y Pensamiento, 30(58), 26–39.",
-                  "Guo, C., Pleiss, G., Sun, Y., & Weinberger, K. Q. (2017). On calibration of modern neural networks. Proceedings of the 34th International Conference on Machine Learning (ICML).",
-                  "Imageomics Institute. (s.f.). BioCLIP [Ficha de modelo]. Hugging Face. https://huggingface.co/imageomics/bioclip",
-                  "Jobin, A., Ienca, M., & Vayena, E. (2019). The global landscape of AI ethics guidelines. Nature Machine Intelligence, 1(9), 389–399. https://doi.org/10.1038/s42256-019-0088-2",
-                  "Kahneman, D. (2011). Thinking, fast and slow. Farrar, Straus and Giroux.",
-                  "Kollmuss, A., & Agyeman, J. (2002). Mind the gap: Why do people act environmentally and what are the barriers to pro-environmental behavior? Environmental Education Research, 8(3), 239–260. https://doi.org/10.1080/13504620220145401",
-                  "Kumar, A., Raghunathan, A., Jones, R., Ma, T., & Liang, P. (2022). Fine-tuning can distort pretrained features and underperform out-of-distribution. International Conference on Learning Representations (ICLR).",
-                  "Lee, J. D., & See, K. A. (2004). Trust in automation: Designing for appropriate reliance. Human Factors, 46(1), 50–80. https://doi.org/10.1518/hfes.46.1.50_30392",
-                  "Ley 1581 de 2012. Por la cual se dictan disposiciones generales para la protección de datos personales. Congreso de la República de Colombia.",
-                  "Mac Aodha, O., Cole, E., & Perona, P. (2019). Presence-only geographical priors for fine-grained image classification. Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV).",
-                  "OCDE. (2019). Recomendación del Consejo sobre inteligencia artificial. OECD/LEGAL/0449.",
-                  "Organización Mundial de la Salud, & Fondo de las Naciones Unidas para la Infancia. (2018). Declaración de Astaná sobre Atención Primaria de Salud. https://www.who.int/docs/default-source/primary-health/declaration/gcphc-declaration-sp.pdf",
-                  "Organización Mundial de la Salud. (2023). Environmental health. https://www.who.int/health-topics/environmental-health",
-                  "Radford, A., Kim, J. W., Hallacy, C., et al. (2021). Learning transferable visual models from natural language supervision. Proceedings of the 38th International Conference on Machine Learning (ICML).",
-                  "Servaes, J. (2012). Comunicación para el desarrollo sostenible y el cambio social. Una visión general. CIC. Cuadernos de Información y Comunicación, 17, 17–40.",
-                  "Stevens, S., Wu, J., Thompson, M. J., Campolongo, E. G., Song, C. H., Carlyn, D. E., Dong, L., Dahdul, W. M., Stewart, C., Berger-Wolf, T., Chao, W.-L., & Su, Y. (2024). BioCLIP: A vision foundation model for the tree of life. Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, 19412–19424. https://openaccess.thecvf.com/content/CVPR2024/papers/Stevens_BioCLIP_A_Vision_Foundation_Model_for_the_Tree_of_Life_CVPR_2024_paper.pdf",
-                  "UNESCO. (2021). Recomendación sobre la ética de la inteligencia artificial. https://unesdoc.unesco.org/ark:/48223/pf0000381137"
+                  "Ajzen, I. (1991). The theory of planned behavior. *Organizational Behavior and Human Decision Processes, 50*(2), 179–211. https://doi.org/10.1016/0749-5978(91)90020-T",
+                  "Beery, S., Van Horn, G., & Perona, P. (2018). Recognition in terra incognita. En *Computer Vision – ECCV 2018* (LNCS vol. 11133, pp. 472–489). Springer. https://doi.org/10.1007/978-3-030-01270-0_28",
+                  "Chandler, M., See, L., Copas, K., Bonde, A. M. Z., López, B. C., Danielsen, F., Legind, J. K., Masinde, S., Miller-Rushing, A. J., Newman, G., Rosemartin, A., & Turak, E. (2017). Contribution of citizen science towards international biodiversity monitoring. *Biological Conservation, 213*(Part B), 280–294. https://doi.org/10.1016/j.biocon.2016.09.004",
+                  "Chapman, A. D. (2020). *Current best practices for generalizing sensitive species occurrence data* (v1.0). GBIF Secretariat. https://doi.org/10.15468/doc-5jp4-5g10",
+                  "Comisión Mundial sobre el Medio Ambiente y el Desarrollo. (1987). *Our common future* (Documento A/42/427 de la Asamblea General de las Naciones Unidas). https://digitallibrary.un.org/record/139811",
+                  "Congreso de Colombia. (1997). *Ley 388 de 1997, por la cual se modifica la Ley 9 de 1989, y la Ley 3 de 1991 y se dictan otras disposiciones*. Diario Oficial. https://www.anla.gov.co/wanla/eureka/normativa/leyes/ley-388-de-1997-ley-de-desarrollo-territorial",
+                  "Congreso de la República de Colombia. (2012). *Ley Estatutaria 1581 de 2012, por la cual se dictan disposiciones generales para la protección de datos personales*. Diario Oficial 48.587. https://relatoria.colombiacompra.gov.co/normativa/ley-1581-de-2012/?print=pdf",
+                  "Consejo Nacional de Política Económica y Social. (2019). *Política nacional para la transformación digital e inteligencia artificial* (CONPES 3975). Departamento Nacional de Planeación. https://registraduria.gov.co/IMG/pdf/documento-conpes-3975.pdf",
+                  "Consejo Nacional de Política Económica y Social. (2025). *Política nacional de inteligencia artificial* (CONPES 4144). Departamento Nacional de Planeación. https://dnp.gov.co/publicaciones/Planeacion/Paginas/conpes-4144-hoja-de-ruta-colombia-inteligencia-artificial-retos-actuales-transformacion-futura.aspx",
+                  "Floridi, L., & Cowls, J. (2019). A unified framework of five principles for AI in society. *Harvard Data Science Review, 1*(1). https://doi.org/10.1162/99608f92.8cd550d1",
+                  "Food and Agriculture Organization of the United Nations, United Nations Environment Programme, World Health Organization, & World Organisation for Animal Health. (2022). *One Health Joint Plan of Action (2022–2026)*. FAO. https://www.fao.org/3/cc2289en/cc2289en.pdf",
+                  "Gadot, T., Istrate, Ș., Kim, H., Morris, D., Beery, S., Birch, T., & Ahumada, J. (2024). To crop or not to crop: Comparing whole-image and cropped classification on a large dataset of camera trap images. *IET Computer Vision, 18*(8), 1193–1208. https://doi.org/10.1049/cvi2.12318",
+                  "Gifford, R. (2014). Environmental psychology matters. *Annual Review of Psychology, 65*, 541–579. https://doi.org/10.1146/annurev-psych-010213-115048",
+                  "Gobernación de Antioquia. (2023a, 12 de diciembre). *Aprobado en ordenanza las Macrorregiones de Antioquia*. https://antioquia.gov.co/noticias-planeacion/aprobado-en-ordenanza-las-macrorregiones-de-antioquia",
+                  "Gobernación de Antioquia. (2023b). *Plan Estratégico Agenda Antioquia 2040*. https://www.cideu.org/wp-content/uploads/R_Plan-estrategico-Agenda-Antioquia-2040-1.pdf",
+                  "Grupo de Expertos de Alto Nivel sobre IA. (2019). *Directrices éticas para una IA fiable*. Comisión Europea. https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai",
+                  "Gu, J., Stevens, S., Campolongo, E. G., Thompson, M. J., Zhang, N., Wu, J., Kopanev, A., Mai, Z., White, A., Balhoff, J., Dahdul, W., Rubenstein, D., Lapp, H., Berger-Wolf, T., Chao, W.-L., & Su, Y. (2025). BioCLIP 2: Emergent properties from scaling hierarchical contrastive learning. *Advances in Neural Information Processing Systems (NeurIPS 2025)*. https://arxiv.org/abs/2505.23883",
+                  "Gumucio-Dagron, A. (2011). Comunicación para el cambio social: Clave del desarrollo participativo. *Signo y Pensamiento, 30*(58), 26–39. https://doi.org/10.11144/Javeriana.syp30-58.cpcs",
+                  "Guo, C., Pleiss, G., Sun, Y., & Weinberger, K. Q. (2017). On calibration of modern neural networks. *Proceedings of the 34th International Conference on Machine Learning* (PMLR 70, pp. 1321–1330). https://proceedings.mlr.press/v70/guo17a.html",
+                  "Hortal, J., de Bello, F., Diniz-Filho, J. A. F., Lewinsohn, T. M., Lobo, J. M., & Ladle, R. J. (2015). Seven shortfalls that beset large-scale knowledge of biodiversity. *Annual Review of Ecology, Evolution, and Systematics, 46*, 523–549. https://doi.org/10.1146/annurev-ecolsys-112414-054400",
+                  "Imageomics Institute. (s.f.). *BioCLIP* [Ficha de modelo]. Hugging Face. https://huggingface.co/imageomics/bioclip",
+                  "Isaac, N. J. B., van Strien, A. J., August, T. A., de Zeeuw, M. P., & Roy, D. B. (2014). Statistics for citizen science: Extracting signals of change from noisy ecological data. *Methods in Ecology and Evolution, 5*(10), 1052–1060. https://doi.org/10.1111/2041-210X.12254",
+                  "Jobin, A., Ienca, M., & Vayena, E. (2019). The global landscape of AI ethics guidelines. *Nature Machine Intelligence, 1*, 389–399. https://doi.org/10.1038/s42256-019-0088-2",
+                  "Kahneman, D. (2011). *Thinking, fast and slow*. Farrar, Straus and Giroux.",
+                  "Kim, S. S. Y., Watkins, E. A., Russakovsky, O., Fong, R., & Monroy-Hernández, A. (2023). Humans, AI, and context: Understanding end-users' trust in a real-world computer vision application. En *Proceedings of the 2023 ACM Conference on Fairness, Accountability, and Transparency (FAccT '23)*. ACM. https://doi.org/10.1145/3593013.3593978",
+                  "Kollmuss, A., & Agyeman, J. (2002). Mind the gap: Why do people act environmentally and what are the barriers to pro-environmental behavior? *Environmental Education Research, 8*(3), 239–260. https://doi.org/10.1080/13504620220145401",
+                  "Kosmala, M., Wiggins, A., Swanson, A., & Simmons, B. (2016). Assessing data quality in citizen science. *Frontiers in Ecology and the Environment, 14*(10), 551–560. https://doi.org/10.1002/fee.1436",
+                  "Kumar, A., Raghunathan, A., Jones, R., Ma, T., & Liang, P. (2022). Fine-tuning can distort pretrained features and underperform out-of-distribution. *International Conference on Learning Representations (ICLR 2022)*. https://arxiv.org/abs/2202.10054",
+                  "Lee, J. D., & See, K. A. (2004). Trust in automation: Designing for appropriate reliance. *Human Factors, 46*(1), 50–80. https://doi.org/10.1518/hfes.46.1.50_30392",
+                  "Mac Aodha, O., Cole, E., & Perona, P. (2019). Presence-only geographical priors for fine-grained image classification. *Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)*, 9596–9606. https://doi.org/10.1109/ICCV.2019.00969",
+                  "Meyer, C., Kreft, H., Guralnick, R., & Jetz, W. (2015). Global priorities for an effective information basis of biodiversity distributions. *Nature Communications, 6*, Artículo 8221. https://doi.org/10.1038/ncomms9221",
+                  "Norouzzadeh, M. S., Nguyen, A., Kosmala, M., Swanson, A., Palmer, M. S., Packer, C., & Clune, J. (2018). Automatically identifying, counting, and describing wild animals in camera-trap images with deep learning. *Proceedings of the National Academy of Sciences, 115*(25), E5716–E5725. https://doi.org/10.1073/pnas.1719367115",
+                  "OCDE. (2019). *Recommendation of the Council on Artificial Intelligence* (OECD/LEGAL/0449). https://legalinstruments.oecd.org/public/doc/648/648.en.pdf",
+                  "Organización de las Naciones Unidas para la Educación, la Ciencia y la Cultura. (2021). *Recomendación sobre la ética de la inteligencia artificial*. https://digitallibrary.un.org/record/4062376/files/1416674-ES.pdf",
+                  "Organización Mundial de la Salud, & Fondo de las Naciones Unidas para la Infancia. (2018). *Declaración de Astaná sobre Atención Primaria de Salud*. https://www.who.int/docs/default-source/primary-health/declaration/gcphc-declaration-sp.pdf",
+                  "Organización Mundial de la Salud. (2023). *Environmental health*. https://www.who.int/health-topics/environmental-health",
+                  "Radford, A., Kim, J. W., Hallacy, C., Ramesh, A., Goh, G., Agarwal, S., Sastry, G., Askell, A., Mishkin, P., Clark, J., Krueger, G., & Sutskever, I. (2021). Learning transferable visual models from natural language supervision. En M. Meila & T. Zhang (Eds.), *Proceedings of the 38th International Conference on Machine Learning* (PMLR 139, pp. 8748–8763). https://proceedings.mlr.press/v139/radford21a.html",
+                  "Rotman, D., Preece, J., Hammock, J., Procita, K., Hansen, D., Parr, C., Lewis, D., & Jacobs, D. (2012). Dynamic changes in motivation in collaborative citizen-science projects. En *Proceedings of the ACM 2012 Conference on Computer Supported Cooperative Work (CSCW '12)* (pp. 217–226). ACM. https://doi.org/10.1145/2145204.2145238",
+                  "Servaes, J. (2012). Comunicación para el desarrollo sostenible y el cambio social. Una visión general. *CIC Cuadernos de Información y Comunicación, 17*, 17–40. https://revistas.ucm.es/index.php/CIYC/article/view/39256",
+                  "Sistema de Información sobre Biodiversidad de Colombia. (2024). *Cifras sobre biodiversidad de Colombia* [Kit de prensa]. https://cifras.biodiversidad.co/files/Kit_prensa-Cifras_Sobre_Biodiversidad_de_Colombia.pdf",
+                  "Stevens, S., Wu, J., Thompson, M. J., Campolongo, E. G., Song, C. H., Carlyn, D. E., Dong, L., Dahdul, W. M., Stewart, C., Berger-Wolf, T., Chao, W.-L., & Su, Y. (2024). BioCLIP: A vision foundation model for the Tree of Life. *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)*, 19412–19424. https://openaccess.thecvf.com/content/CVPR2024/html/Stevens_BioCLIP_A_Vision_Foundation_Model_for_the_Tree_of_Life_CVPR_2024_paper.html",
+                  "Theobald, E. J., Ettinger, A. K., Burgess, H. K., DeBey, L. B., Schmidt, N. R., Froehlich, H. E., Wagner, C., HilleRisLambers, J., Tewksbury, J., Harsch, M. A., & Parrish, J. K. (2015). Global change and local solutions: Tapping the unrealized potential of citizen science for biodiversity research. *Biological Conservation, 181*, 236–244. https://doi.org/10.1016/j.biocon.2014.10.021",
+                  "Van Horn, G., Mac Aodha, O., Song, Y., Cui, Y., Sun, C., Shepard, A., Adam, H., Perona, P., & Belongie, S. (2018). The iNaturalist species classification and detection dataset. *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)*, 8769–8778. https://doi.org/10.1109/CVPR.2018.00914",
+                  "West, S., & Pateman, R. (2016). Recruiting and retaining participants in citizen science: What can be learned from the volunteering literature? *Citizen Science: Theory and Practice, 1*(2), Artículo 15. https://doi.org/10.5334/cstp.8",
+                  "Wieczorek, J., Bloom, D., Guralnick, R., Blum, S., Döring, M., et al. (2012). Darwin Core: An evolving community-developed biodiversity data standard. *PLoS ONE, 7*(1), e29715. https://doi.org/10.1371/journal.pone.0029715"
                 ]
               },
               {
