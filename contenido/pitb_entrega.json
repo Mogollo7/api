@@ -52,16 +52,59 @@
             "blocks": [
               {
                 "type": "p",
-                "text": "La Plataforma de Inteligencia Territorial y Biodiversidad (PITB) Antioquia propone un catálogo vivo de fauna y flora: una persona sube una foto, un modelo de inteligencia artificial sugiere qué especie es, el sistema la ubica en el territorio y el registro se cruza con las capas de ordenamiento territorial (POT/EOT). Este documento reúne el marco teórico interdisciplinario del proyecto, una revisión de la literatura con comparación de alternativas, la justificación ética según los modelos éticos de la IA, el impacto esperado y las pruebas iniciales del modelo y del prototipo."
+                "text": "Un territorio sostenible necesita un ordenamiento territorial que lo guíe, y un ordenamiento solo funciona si se sabe qué hay en el territorio. Esa es la idea central de este trabajo. Antioquia, el departamento más biodiverso de Colombia, no cuenta hoy con un inventario de especies que se actualice al ritmo de los cambios: depende de muestreos manuales que tardan años."
               },
               {
                 "type": "p",
-                "text": "Aportan cuatro áreas: Ingeniería Informática, Psicología, Enfermería y Comunicación. Los datos de desempeño son preliminares: se midieron con ranas de Colombia, y la interfaz web del prototipo todavía simula el análisis en el navegador. Lo que no se ha medido se dice como tal."
+                "text": "La Plataforma de Inteligencia Territorial y Biodiversidad (PITB) Antioquia propone cerrar esa brecha con un catálogo vivo. Una persona sube una foto, un modelo de inteligencia artificial (BioCLIP) sugiere la especie, el sistema la ubica en el territorio y el registro se cruza con las capas de ordenamiento territorial (POT/EOT). El documento reúne el marco teórico interdisciplinario (Ingeniería Informática, Psicología, Enfermería y Comunicación), la revisión de literatura, la justificación ética, el impacto esperado y las pruebas iniciales."
               },
               {
                 "type": "callout",
                 "tone": "ojo",
-                "text": "Palabras clave: biodiversidad, inteligencia artificial, BioCLIP, ordenamiento territorial, ciencia ciudadana, ética de la IA, Una Sola Salud."
+                "text": "Los datos de desempeño son preliminares: se midieron con ranas de Colombia, y la interfaz web del prototipo todavía simula el análisis en el navegador. Lo que no se ha medido se dice como tal."
+              }
+            ]
+          },
+          {
+            "id": "central",
+            "title": "La idea central",
+            "blocks": [
+              {
+                "type": "callout",
+                "tone": "clave",
+                "text": "No se puede ordenar ni sostener un territorio del que no se sabe qué especies lo habitan, dónde están y cómo cambian.",
+                "label": "CONCEPTO CENTRAL",
+                "title": "Primero saber qué hay"
+              },
+              {
+                "type": "flow",
+                "cols": 2,
+                "steps": [
+                  {
+                    "n": "01",
+                    "title": "Territorio sostenible",
+                    "text": "Un espacio donde la población satisface sus necesidades sin destruir los recursos naturales ni comprometer a las generaciones futuras (CMMAD, 1987)."
+                  },
+                  {
+                    "n": "02",
+                    "title": "Ordenamiento territorial",
+                    "text": "La planificación que decide dónde proteger, dónde construir y dónde cultivar."
+                  },
+                  {
+                    "n": "03",
+                    "title": "Línea base biológica",
+                    "text": "El conocimiento actualizado de qué especies hay, dónde y cómo cambian. Es lo que hoy falta."
+                  },
+                  {
+                    "n": "04",
+                    "title": "PITB Antioquia",
+                    "text": "Un catálogo vivo, hecho con IA y con participación ciudadana, que produce esa línea base."
+                  }
+                ]
+              },
+              {
+                "type": "p",
+                "text": "Todo lo demás en este documento sale de esa cadena: la tecnología sirve para saber qué hay, la psicología y la comunicación explican cómo lograr que muchas personas aporten, la enfermería cuida que lo que se sepa se use en favor del bienestar, y la ética fija los límites de lo que la plataforma puede afirmar."
               }
             ]
           },
@@ -71,7 +114,11 @@
             "blocks": [
               {
                 "type": "p",
-                "text": "Según el material del proyecto, Antioquia registra más de 21.600 especies, pero su inventario depende de muestreos manuales que pueden tardar años en actualizarse. Sin una línea base al día, el ordenamiento territorial se entera de los cambios cuando ya ocurrieron: una especie que desapareció, una invasión o un cambio en las rutas migratorias."
+                "text": "Un territorio sostenible es aquel en el que la población puede desarrollarse y satisfacer sus necesidades presentes sin destruir los recursos naturales ni comprometer el bienestar de las generaciones futuras, según la noción clásica de desarrollo sostenible (Comisión Mundial sobre el Medio Ambiente y el Desarrollo [CMMAD], 1987)."
+              },
+              {
+                "type": "p",
+                "text": "El plan estratégico Agenda Antioquia 2040 recoge esa noción y la lleva a una hoja de ruta para consolidar a Antioquia como el corazón verde de América, con seis pilares: equidad, educación, competitividad, sostenibilidad, multiculturalidad y paz (Gobernación de Antioquia, 2023b). De esas estrategias, este proyecto se centra en el Ordenamiento Territorial, porque articula las dimensiones física, ambiental y social del desarrollo departamental."
               },
               {
                 "type": "image",
@@ -83,11 +130,7 @@
               },
               {
                 "type": "p",
-                "text": "La propuesta es convertir cada fotografía, tomada en campo, por una cámara trampa o por una persona con su celular, en un dato del territorio. Un modelo de visión (BioCLIP) sugiere la especie, el sistema la geolocaliza y el registro se publica en un mapa colectivo que se puede comparar a lo largo del tiempo."
-              },
-              {
-                "type": "p",
-                "text": "La pregunta que guía el documento es: ¿cómo puede un catálogo vivo, hecho con IA y con participación ciudadana, aportar información útil al ordenamiento territorial de Antioquia sin que se tomen las identificaciones automáticas como verdades definitivas?"
+                "text": "La PITB es la propuesta de solución con IA que el equipo desarrolla para apoyar esa estrategia: una herramienta web que usa un modelo de visión por computador tipo BioCLIP para procesar, identificar y georreferenciar registros de fauna y flora, y construir así una línea base biológica viva del departamento."
               }
             ]
           },
@@ -97,16 +140,51 @@
             "blocks": [
               {
                 "type": "p",
-                "text": "El proyecto se justifica por cuatro razones que se refuerzan entre sí."
+                "text": "Ordenar un territorio exige conocerlo con precisión. Sin una línea base clara sobre qué especies lo habitan, dónde se encuentran y cómo se comportan, cualquier decisión de planificación puede quedar incompleta o llegar tarde. Antioquia tiene más de 21.600 especies registradas, pero su inventario depende de muestreos manuales que tardan años en actualizarse."
               },
               {
-                "type": "list",
+                "type": "callout",
+                "tone": "clave",
+                "text": "Sin una línea base, el ordenamiento territorial siempre actuará tarde."
+              },
+              {
+                "type": "p",
+                "text": "Sin un catálogo vivo, las alertas ecológicas (disminución de poblaciones, cambios en las rutas migratorias o especies que aparecen donde no se esperaban) solo se detectan cuando el fenómeno ya ocurrió. Automatizar la clasificación de la evidencia biológica con IA vuelve preventivo al ordenamiento territorial, en línea con su función de preservar los recursos naturales y anticiparse a los retos del departamento (Gobernación de Antioquia, 2023b)."
+              },
+              {
+                "type": "p",
+                "text": "El proyecto cuenta además con respaldo institucional. En diciembre de 2023 la Asamblea Departamental aprobó la Ordenanza 57, que formalizó las macrorregiones y subregiones de Antioquia como mecanismo de articulación de la planificación territorial dentro de la Agenda Antioquia 2040 (Gobernación de Antioquia, 2023a)."
+              }
+            ]
+          },
+          {
+            "id": "prob",
+            "title": "El problema y la necesidad",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "El ordenamiento territorial en regiones de alta complejidad geográfica y ecológica como Antioquia arrastra vacíos de información empírica. ¿Cómo puede el departamento planificar el territorio de sus 125 municipios si no se sabe con precisión qué especies lo habitan hoy? Decidir usos del suelo, zonas de protección o expansión agrícola sin conocer la fauna presente genera conflictos socioambientales, pérdida de biodiversidad y una gestión reactiva en lugar de preventiva."
+              },
+              {
+                "type": "kpi",
                 "items": [
-                  "**Territorial.** El ordenamiento territorial de los 125 municipios necesita datos de presencia de especies que se actualicen con frecuencia, y hoy no los tiene.",
-                  "**Social.** La ciencia ciudadana amplía la cobertura de observaciones y deja que las comunidades aporten lo que ven en su propio territorio.",
-                  "**Educativa.** Cada registro es una oportunidad para aprender sobre biodiversidad y para entender qué puede y qué no puede decir una IA.",
-                  "**Ética.** Una herramienta que sugiere especies puede equivocarse. Mostrar su incertidumbre y proteger los datos es parte del diseño, no un añadido."
+                  {
+                    "v": "125",
+                    "l": "municipios de Antioquia"
+                  },
+                  {
+                    "v": "21.600+",
+                    "l": "especies registradas"
+                  },
+                  {
+                    "v": "Años",
+                    "l": "para actualizar un muestreo manual"
+                  }
                 ]
+              },
+              {
+                "type": "p",
+                "text": "Sin datos comparables en el tiempo no se puede detectar a tiempo la disminución de poblaciones, la aparición repentina de especies en lugares inesperados, la invasión de unas especies sobre los hábitats de otras ni los cambios en las migraciones. La necesidad concreta es una línea base biológica viva, actualizada y comparable, que sustente las decisiones de zonificación, licenciamiento y protección ambiental en los 125 municipios."
               }
             ]
           },
@@ -117,24 +195,22 @@
               {
                 "type": "callout",
                 "tone": "clave",
-                "text": "Describir y proponer un catálogo vivo de biodiversidad con IA y georreferenciación que aporte información al ordenamiento territorial de Antioquia.",
+                "text": "Desarrollar una plataforma web que integre el modelo de IA BioCLIP para clasificar automáticamente registros fotográficos de fauna y flora, y generar un catálogo vivo que sirva como línea base para el Ordenamiento Territorial de Antioquia, en el marco de la Agenda Antioquia 2040.",
                 "label": "OBJETIVO GENERAL",
                 "title": "Qué se busca lograr"
               },
               {
                 "type": "h",
-                "text": "Objetivos específicos"
+                "text": "Objetivos específicos (criterio SMART)"
               },
               {
                 "type": "list",
-                "ordered": true,
                 "items": [
-                  "Explicar cómo identifica especies el sistema y cómo se decide cuándo confiar en su respuesta.",
-                  "Georreferenciar los registros y relacionarlos con las capas POT/EOT.",
-                  "Definir qué aportan la Informática, la Psicología, la Enfermería y la Comunicación.",
-                  "Comparar el modelo elegido con otras alternativas y presentar los datos preliminares que existen.",
-                  "Establecer los criterios éticos y de protección de datos del proyecto.",
-                  "Proponer una evaluación formativa con comunidades en una fase piloto."
+                  "**Específico, modelo de clasificación.** Integrar BioCLIP en un proceso de clasificación automática de fotografías de fauna y flora, capaz de reconocer taxones con pocos o ningún ejemplo previo (zero-shot y few-shot).",
+                  "**Medible, cobertura territorial.** Construir un tablero geoespacial (PostGIS y GDAL) que cruce los registros con las capas de zonificación POT/EOT de los 125 municipios, evaluando el 100 % de los municipios en el primer ciclo de carga de datos.",
+                  "**Alcanzable, piloto con ciencia ciudadana.** Habilitar la captura de evidencia por cámaras trampa, campo y ciudadanía en al menos dos subregiones piloto durante los primeros seis meses de operación.",
+                  "**Relevante, alertas tempranas.** Generar reportes de auditoría y dictámenes de compatibilidad territorial que reduzcan el tiempo de detección de conflictos de uso del suelo, de meses de trabajo manual a días.",
+                  "**Temporal, validación institucional.** Validar el prototipo con al menos una Corporación Autónoma Regional y con la Secretaría de Planeación de Antioquia dentro del primer año, antes de postularlo al Banco de Proyectos de la Agenda Antioquia 2040."
                 ]
               }
             ]
@@ -183,6 +259,45 @@
         "desc": "Cuatro áreas, un mismo proyecto.",
         "divider": "DV-B",
         "sections": [
+          {
+            "id": "agenda",
+            "title": "Territorio sostenible y Agenda Antioquia 2040",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "El Ordenamiento Territorial es uno de los pilares de la Agenda Antioquia 2040 y se apoya en cuatro componentes que enmarcan la sostenibilidad ambiental del proyecto (Gobernación de Antioquia, 2023b)."
+              },
+              {
+                "type": "table",
+                "head": [
+                  "Componente",
+                  "Qué plantea"
+                ],
+                "rows": [
+                  [
+                    "Filosofía",
+                    "Planificar el territorio es proteger la vida: frente al crecimiento acelerado de las ciudades y el agotamiento de los recursos, planear es condición del bienestar colectivo"
+                  ],
+                  [
+                    "Función",
+                    "Preservar los recursos naturales y la biodiversidad, anticipándose a los retos futuros con proyectos de largo plazo"
+                  ],
+                  [
+                    "Modelos",
+                    "Los Macroprocesos Territoriales: modelos orientadores que buscan el equilibrio del sistema territorial en todas sus escalas"
+                  ],
+                  [
+                    "Integración",
+                    "Armonizar el Sistema Departamental de Planeación con la Visión 2040 y consolidar esquemas asociativos entre los 125 municipios"
+                  ]
+                ]
+              },
+              {
+                "type": "p",
+                "text": "Al automatizar la línea base biológica del departamento, la PITB opera directamente sobre la función de esta estrategia: da al ordenamiento territorial la capacidad de alerta temprana que hoy no tiene."
+              }
+            ]
+          },
           {
             "id": "inf1",
             "title": "Ingeniería informática: de la foto al mapa",
@@ -273,40 +388,15 @@
             "blocks": [
               {
                 "type": "p",
-                "text": "La pregunta que decide la arquitectura es si habrá conexión donde se toma la foto. Si no la hay, todo corre en el teléfono con una versión ligera del modelo. Si la hay, el teléfono solo captura la foto, la ubicación y la fecha, y un servidor con GPU ejecuta el modelo grande, que se puede actualizar sin publicar de nuevo la aplicación."
-              },
-              {
-                "type": "table",
-                "head": [
-                  "Arquitectura",
-                  "Cómo funciona",
-                  "A favor",
-                  "En contra"
-                ],
-                "rows": [
-                  [
-                    "Todo local",
-                    "El teléfono ejecuta BioCLIP 1 en ONNX (165,6 MB) y compara con vectores guardados",
-                    "Sirve sin conexión",
-                    "Modelo pequeño; solo lo que cabe en el teléfono"
-                  ],
-                  [
-                    "Cliente y servidor",
-                    "La app envía foto, GPS y fecha a una API que ejecuta BioCLIP 2.5",
-                    "Modelo grande y actualizable",
-                    "Requiere red y tiene costo y privacidad que cuidar"
-                  ],
-                  [
-                    "Híbrida",
-                    "Modelo local con reenvío al servidor cuando hay red",
-                    "Funciona en campo y mejora con red",
-                    "Dos modelos que mantener"
-                  ]
-                ]
+                "text": "El producto es una plataforma web que no requiere instalación para el usuario final. El navegador envía la foto, la ubicación y la fecha a un servidor que ejecuta el modelo, y un motor geoanalítico basado en PostGIS y GDAL cruza cada registro con las capas oficiales de ordenamiento (POT, PBOT y EOT) de cada municipio. Cada registro se estructura con el estándar Darwin Core, de modo que sea comparable y auditable."
               },
               {
                 "type": "p",
-                "text": "Para que los resultados sean comparables, el preprocesado de la imagen es siempre el mismo (224 × 224, con la misma media y desviación) y cada vector se guarda con la huella del modelo que lo generó. Si se cambia el modelo, los vectores viejos dejan de ser comparables y hay que recalcularlos. Antes de publicar una versión se pasan las mismas fotos por Python y por el dispositivo, y las predicciones deben coincidir."
+                "text": "Esta división tiene dos ventajas. El servidor puede usar el modelo grande y actualizarlo sin que nadie reinstale nada. Y la georreferenciación y los cruces normativos se calculan en un solo lugar. Si en el futuro se necesita captura sin conexión en campo, existe una opción local: una versión ligera del modelo (165,6 MB en formato ONNX) que corre en el teléfono y reenvía al servidor cuando hay red."
+              },
+              {
+                "type": "p",
+                "text": "Para que los resultados sean comparables, el preprocesado de la imagen es siempre el mismo (224 × 224, con la misma media y desviación) y cada vector se guarda con la huella del modelo que lo generó. Si se cambia el modelo, los vectores viejos dejan de ser comparables y hay que recalcularlos. Antes de publicar una versión se pasan las mismas fotos por Python y por el modelo exportado, y las predicciones deben coincidir."
               }
             ]
           },
@@ -614,6 +704,41 @@
         "desc": "Cómo funciona la web y qué se midió.",
         "divider": "DV-A",
         "sections": [
+          {
+            "id": "producto",
+            "title": "Qué es el producto final",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "El producto es una plataforma web multimodal, impulsada por modelos de visión y taxonomía automatizada, con tres componentes."
+              },
+              {
+                "type": "table",
+                "head": [
+                  "Componente",
+                  "Qué hace"
+                ],
+                "rows": [
+                  [
+                    "Identificación taxonómica automatizada",
+                    "Recibe imágenes (y, a futuro, audio) de campo y las clasifica mediante incrustaciones multimodales, con énfasis en anfibios, aves y mamíferos"
+                  ],
+                  [
+                    "Tablero de control y mapeo territorial",
+                    "Visualiza en un mapa interactivo los registros y los cruza con las unidades de ordenamiento POT/EOT, sobre capas base como la distribución de GBIF y las coberturas vegetales"
+                  ],
+                  [
+                    "Gestión de registros de campo",
+                    "Permite a investigadores y a las Corporaciones Autónomas Regionales validar detecciones, estructurar metadatos taxonómicos y auditar la calidad de los datos"
+                  ]
+                ]
+              },
+              {
+                "type": "p",
+                "text": "No es un chatbot ni una aplicación móvil independiente. Es una herramienta de monitoreo y apoyo a la decisión territorial: la ciencia ciudadana entra por la puerta (la carga de fotos) y el componente técnico e institucional sale por el otro lado (reportes, alertas y dictámenes de compatibilidad territorial)."
+              }
+            ]
+          },
           {
             "id": "proto",
             "title": "Cómo funciona la página web",
@@ -1111,6 +1236,72 @@
             ]
           },
           {
+            "id": "metodo",
+            "title": "Metodología por fases",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "El desarrollo se plantea en cinco fases iterativas, de modo que el modelo y el valor territorial del producto se validen poco a poco antes de escalar a los 125 municipios."
+              },
+              {
+                "type": "list",
+                "ordered": true,
+                "items": [
+                  "**Relevamiento y línea base.** Recoger las fuentes existentes (registros históricos y literatura) y definir los taxones y las subregiones prioritarias del piloto.",
+                  "**Integración del modelo.** Configurar BioCLIP para clasificación zero y few-shot y validar su desempeño con un conjunto de imágenes de referencia.",
+                  "**Construcción del prototipo.** Desarrollar el tablero geoespacial, la bitácora de campo y el módulo de cruces POT/EOT.",
+                  "**Piloto y captura de datos.** Poner en marcha la captura con cámaras trampa y ciudadanía en subregiones seleccionadas y depurar el catálogo con los primeros registros reales.",
+                  "**Validación institucional.** Socializar el prototipo con una CAR y con la Gobernación, ajustarlo según su retroalimentación y preparar la postulación al Banco de Proyectos."
+                ]
+              }
+            ]
+          },
+          {
+            "id": "resultados",
+            "title": "Resultados esperados y partes interesadas",
+            "blocks": [
+              {
+                "type": "list",
+                "items": [
+                  "Un catálogo vivo y comparable en el tiempo de la fauna y la flora de Antioquia, con vocación de cubrir los 125 municipios.",
+                  "Menos tiempo para detectar cambios ecológicos relevantes (migraciones, invasiones o extinciones locales): de años a semanas.",
+                  "Un tablero de apoyo a la decisión para actualizar los POT y EOT municipales, con cruces normativos automatizados.",
+                  "Evidencia técnica auditable (ficha Darwin Core y certeza del modelo) útil en trámites ambientales ante la ANLA y las CAR.",
+                  "Un prototipo validado y documentado, listo para postularse al Banco de Proyectos de la Agenda Antioquia 2040."
+                ]
+              },
+              {
+                "type": "table",
+                "head": [
+                  "Parte interesada",
+                  "Qué recibe"
+                ],
+                "rows": [
+                  [
+                    "Gobernación de Antioquia",
+                    "Una línea base biológica actualizada para sustentar decisiones de ordenamiento y cumplir la Ordenanza 57 de 2023"
+                  ],
+                  [
+                    "Corporaciones Autónomas Regionales",
+                    "Evidencia biológica auditable y geolocalizada para agilizar licenciamiento y auditoría ambiental"
+                  ],
+                  [
+                    "Los 125 municipios",
+                    "Datos comparables entre subregiones para actualizar sus Esquemas de Ordenamiento Territorial"
+                  ],
+                  [
+                    "Comunidad académica",
+                    "Un catálogo abierto y datos comparables en el tiempo para investigar la biodiversidad"
+                  ],
+                  [
+                    "Ciudadanía",
+                    "Aportar como ciencia ciudadana y ver el mapa colectivo de biodiversidad del departamento"
+                  ]
+                ]
+              }
+            ]
+          },
+          {
             "id": "eval",
             "title": "Evaluación formativa propuesta",
             "blocks": [
@@ -1161,15 +1352,15 @@
             "blocks": [
               {
                 "type": "p",
-                "text": "La PITB propone un catálogo vivo de biodiversidad hecho con IA para apoyar el ordenamiento territorial de Antioquia. Su valor no está solo en que el modelo reconozca especies, sino en que una comunidad pueda participar, entender y corregir lo que la plataforma produce."
+                "text": "El departamento más biodiverso de Colombia no puede seguir planificando su territorio con un inventario de especies que tarda años en actualizarse. Un territorio sostenible y un buen ordenamiento territorial dependen de algo previo: saber qué hay. La PITB propone cerrar esa brecha combinando un modelo de IA validado internacionalmente con un motor geoanalítico que convierte cada fotografía en evidencia útil para decidir."
               },
               {
                 "type": "p",
-                "text": "Lo medido hasta ahora es preliminar: 62,9 % de acierto con 56 especies de ranas, y 86,1 % cuando se muestran tres candidatas. Esas cifras no alcanzan para sustituir a un especialista, y por eso el diseño conserva la revisión humana, la opción «no concluyente» y la protección de datos sensibles."
+                "text": "Lo medido hasta ahora es preliminar: 62,9 % de acierto con 56 especies de ranas, y 86,1 % cuando se muestran tres candidatas. Esas cifras no sustituyen a un especialista. Por eso el diseño conserva la revisión humana, la opción «no concluyente» y la protección de los datos sensibles. La psicología, la comunicación y la enfermería aportan lo que la tecnología sola no resuelve: que las personas participen, entiendan y usen la información en favor del bienestar."
               },
               {
                 "type": "p",
-                "text": "Quedan pendientes medir el modelo con otros grupos, completar la prueba en un teléfono real, resolver el rechazo de especies desconocidas, ampliar la revisión de literatura y poner en marcha la evaluación formativa con las comunidades."
+                "text": "Al estar anclado a la Agenda Antioquia 2040 y respaldado por la Ordenanza 57 de 2023, el proyecto tiene una ruta institucional para pasar del prototipo a una herramienta departamental. Quedan pendientes medir el modelo con otros grupos, completar la prueba en un teléfono real, resolver el rechazo de especies desconocidas, ampliar la revisión de literatura y poner en marcha la evaluación formativa con las comunidades."
               }
             ]
           },
@@ -1182,12 +1373,16 @@
                 "items": [
                   "Ajzen, I. (1991). The theory of planned behavior. Organizational Behavior and Human Decision Processes, 50(2), 179–211. https://doi.org/10.1016/0749-5978(91)90020-T",
                   "Beery, S., Van Horn, G., & Perona, P. (2018). Recognition in terra incognita. Proceedings of the European Conference on Computer Vision (ECCV).",
+                  "Comisión Mundial sobre el Medio Ambiente y el Desarrollo. (1987). Nuestro futuro común [Informe Brundtland]. Naciones Unidas.",
                   "Floridi, L., & Cowls, J. (2019). A unified framework of five principles for AI in society. Harvard Data Science Review, 1(1). https://doi.org/10.1162/99608f92.8cd550d1",
                   "Food and Agriculture Organization of the United Nations, United Nations Environment Programme, World Health Organization, & World Organisation for Animal Health. (2022). One Health Joint Plan of Action (2022–2026). FAO. https://www.fao.org/3/cc2289en/cc2289en.pdf",
                   "Gifford, R. (2014). Environmental psychology matters. Annual Review of Psychology, 65, 541–579. https://doi.org/10.1146/annurev-psych-010213-115048",
+                  "Gobernación de Antioquia. (2023a, 12 de diciembre). Aprobado en ordenanza las Macrorregiones de Antioquia. https://antioquia.gov.co/noticias-planeacion/aprobado-en-ordenanza-las-macrorregiones-de-antioquia",
+                  "Gobernación de Antioquia. (2023b). Plan Estratégico Agenda Antioquia 2040. https://www.cideu.org/wp-content/uploads/R_Plan-estrategico-Agenda-Antioquia-2040-1.pdf",
                   "Grupo de Expertos de Alto Nivel sobre IA. (2019). Directrices éticas para una IA fiable. Comisión Europea.",
                   "Gumucio-Dagron, A. (2012). Comunicación para el cambio social: Clave del desarrollo participativo. Signo y Pensamiento, 30(58), 26–39.",
                   "Guo, C., Pleiss, G., Sun, Y., & Weinberger, K. Q. (2017). On calibration of modern neural networks. Proceedings of the 34th International Conference on Machine Learning (ICML).",
+                  "Imageomics Institute. (s.f.). BioCLIP [Ficha de modelo]. Hugging Face. https://huggingface.co/imageomics/bioclip",
                   "Jobin, A., Ienca, M., & Vayena, E. (2019). The global landscape of AI ethics guidelines. Nature Machine Intelligence, 1(9), 389–399. https://doi.org/10.1038/s42256-019-0088-2",
                   "Kahneman, D. (2011). Thinking, fast and slow. Farrar, Straus and Giroux.",
                   "Kollmuss, A., & Agyeman, J. (2002). Mind the gap: Why do people act environmentally and what are the barriers to pro-environmental behavior? Environmental Education Research, 8(3), 239–260. https://doi.org/10.1080/13504620220145401",
@@ -1196,8 +1391,8 @@
                   "Ley 1581 de 2012. Por la cual se dictan disposiciones generales para la protección de datos personales. Congreso de la República de Colombia.",
                   "Mac Aodha, O., Cole, E., & Perona, P. (2019). Presence-only geographical priors for fine-grained image classification. Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV).",
                   "OCDE. (2019). Recomendación del Consejo sobre inteligencia artificial. OECD/LEGAL/0449.",
-                  "Organización Mundial de la Salud. (2023). Environmental health. https://www.who.int/health-topics/environmental-health",
                   "Organización Mundial de la Salud, & Fondo de las Naciones Unidas para la Infancia. (2018). Declaración de Astaná sobre Atención Primaria de Salud. https://www.who.int/docs/default-source/primary-health/declaration/gcphc-declaration-sp.pdf",
+                  "Organización Mundial de la Salud. (2023). Environmental health. https://www.who.int/health-topics/environmental-health",
                   "Radford, A., Kim, J. W., Hallacy, C., et al. (2021). Learning transferable visual models from natural language supervision. Proceedings of the 38th International Conference on Machine Learning (ICML).",
                   "Servaes, J. (2012). Comunicación para el desarrollo sostenible y el cambio social. Una visión general. CIC. Cuadernos de Información y Comunicación, 17, 17–40.",
                   "Stevens, S., Wu, J., Thompson, M. J., Campolongo, E. G., Song, C. H., Carlyn, D. E., Dong, L., Dahdul, W. M., Stewart, C., Berger-Wolf, T., Chao, W.-L., & Su, Y. (2024). BioCLIP: A vision foundation model for the tree of life. Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, 19412–19424. https://openaccess.thecvf.com/content/CVPR2024/papers/Stevens_BioCLIP_A_Vision_Foundation_Model_for_the_Tree_of_Life_CVPR_2024_paper.pdf",
