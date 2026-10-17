@@ -62,7 +62,7 @@ def section_units(sec, ctx, gap_pair=True):
             i += 2
             continue
         if b["type"] == "refs":
-            rb = {"type": "list", "ordered": True, "items": b["items"], "cls": "refs"}
+            rb = {"type": "list", "ordered": True, "items": b["items"], "cls": "refs" if b.get("numbered", True) else "refs apa"}   # numbered:false = lista APA sin números
             if b.get("title"):
                 units.append({"html": blocks.h({"text": b["title"]}, ctx), "label": f"{sec['id']}.b{i}:refs-h", "keep_next": True})
             units.append({"html": blocks.render(rb, ctx), "label": label, "split": "list", "block": rb})

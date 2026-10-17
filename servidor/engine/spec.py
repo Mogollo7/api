@@ -82,7 +82,7 @@ BLOCKS = {
               "example": {"type": "quote", "text": "Feo es poderoso.", "by": "Manifiesto"}},
     "code": {"desc": "Bloque de código o texto monoespaciado (no se interpreta).", "fields": {"code": F("str", "Código.", True, max=1500), "lang": F("str", "Lenguaje."), "caption": F("markup", "Pie.")},
              "example": {"type": "code", "lang": "python", "code": "df.info()"}},
-    "refs": {"desc": "Referencias o bibliografía numerada.", "fields": {"items": F("list", "Cada referencia como texto.", True, max=80), "title": F("markup", "Título.")},
+    "refs": {"desc": "Referencias o bibliografía numerada.", "fields": {"items": F("list", "Cada referencia como texto.", True, max=80), "title": F("markup", "Título."), "numbered": F("bool", "false = lista APA sin números, para citas autor-año.")},
              "example": {"type": "refs", "items": ["Autor (2024). Título. Revista."]}},
     "custom": {"desc": "ÚLTIMO RECURSO: fragmento HTML saneado (solo etiquetas y clases permitidas). Úsalo solo si ningún bloque sirve.", "fields": {"html": F("str", "HTML.", True)},
                "example": {"type": "custom", "html": "<p class=\"k\">Texto</p>"}},

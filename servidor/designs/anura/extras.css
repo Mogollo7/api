@@ -310,3 +310,6 @@ sup.fn{font-family:var(--font-mono);font-weight:600;font-size:.62em;vertical-ali
 .bl.refs li::before{counter-increment:none}
 .bl.fnotes li::before{content:attr(value);counter-increment:none}
 .kpis.n4 .kpi b{font-size:5.2cqw;white-space:nowrap}
+
+.bl.refs.apa li{display:block;padding:.6cqw 0 .6cqw 5cqw;text-indent:-5cqw}
+.bl.refs.apa li::before{content:none;display:none}

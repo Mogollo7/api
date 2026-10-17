@@ -308,12 +308,12 @@
             ]
           },
           {
-            "id": "inf1",
-            "title": "Ingeniería informática: de la foto al mapa",
+            "id": "inf_a",
+            "title": "Ingeniería informática: cómo funciona la plataforma",
             "blocks": [
               {
                 "type": "p",
-                "text": "Desde afuera, la plataforma hace cuatro cosas. Recibe una foto, le pide una identificación al modelo, ubica el registro donde se tomó y lo muestra en un mapa que todos pueden ver. Por dentro hay más piezas, pero esa es la idea."
+                "text": "Desde afuera, la plataforma hace cuatro cosas: recibe una foto, le pide una identificación al modelo, ubica el registro donde se tomó y lo muestra en un mapa que todos pueden ver."
               },
               {
                 "type": "flow",
@@ -343,108 +343,25 @@
               },
               {
                 "type": "p",
-                "text": "La plataforma no es solo un clasificador. También necesita un catálogo, almacenamiento de las imágenes con su fecha, ubicación y licencia, búsqueda, un mapa, control de calidad y una interfaz que una persona sin formación técnica pueda entender."
+                "text": "El núcleo es BioCLIP, un modelo de visión por computador del Imageomics Institute (Universidad Estatal de Ohio), premiado como Mejor Artículo Estudiantil en CVPR 2024 (Stevens et al., 2024). Se entrenó con más de diez millones de imágenes y 450.000 taxones, y reconoce especies con pocos o ningún ejemplo previo (zero-shot y few-shot). No incorpora coordenadas GPS en su entrenamiento, lo que reduce el riesgo de que la información se use para localizar y afectar especies vulnerables (Imageomics Institute, s.f.)."
               }
             ]
           },
           {
-            "id": "inf_tool",
-            "title": "Herramienta de IA utilizada: BioCLIP",
+            "id": "inf_b",
+            "title": "Cómo decide el modelo y qué muestra al usuario",
             "blocks": [
               {
                 "type": "p",
-                "text": "El núcleo de clasificación se apoya en BioCLIP, un modelo de inteligencia artificial de visión por computador desarrollado por investigadores del Imageomics Institute de la Universidad Estatal de Ohio, en colaboración con otras instituciones académicas, y reconocido con el premio al Mejor Artículo Estudiantil de la conferencia CVPR 2024 (Stevens et al., 2024)."
-              },
-              {
-                "type": "kpi",
-                "items": [
-                  {
-                    "v": "10M+",
-                    "l": "imágenes de entrenamiento"
-                  },
-                  {
-                    "v": "450K+",
-                    "l": "taxones distintos"
-                  },
-                  {
-                    "v": "17–20 %",
-                    "l": "mejora frente a otros modelos"
-                  },
-                  {
-                    "v": "0",
-                    "l": "coordenadas GPS en su entrenamiento"
-                  }
-                ]
+                "text": "BioCLIP convierte la foto en un vector de números y lo compara con el de cada especie (Radford et al., 2021; Stevens et al., 2024). Añadir una especie al catálogo es calcular un vector, no reentrenar. En nuestras pruebas, ajustar todos los pesos no mejoró nada (69,2 % frente a 70,4 % del modelo sin entrenar), en línea con lo que advierten Kumar et al. (2022)."
               },
               {
                 "type": "p",
-                "text": "BioCLIP fue entrenado con TreeOfLife-10M, un conjunto de más de diez millones de imágenes que cubre más de 450.000 taxones entre animales, plantas, hongos y protistas, lo que le permite reconocer la estructura jerárquica de la taxonomía biológica, desde el reino hasta la especie, en lugar de clasificar cada organismo de forma aislada (Stevens et al., 2024). El modelo reconoce especies aun con pocos o ningún ejemplo previo, capacidad conocida como clasificación zero-shot y few-shot."
+                "text": "La respuesta nunca es una sola palabra: el sistema muestra las tres especies más probables con su porcentaje y el nivel taxonómico alcanzado. Si ninguna supera el umbral de confianza, responde «no concluyente» y el registro pasa a revisión humana."
               },
               {
                 "type": "p",
-                "text": "El modelo no incorpora coordenadas GPS en su entrenamiento, lo que reduce el riesgo de que la información recolectada sea usada para localizar y afectar especies vulnerables (Imageomics Institute, s.f.). A nivel de arquitectura de software, el prototipo complementa a BioCLIP con un motor geoanalítico basado en PostGIS y GDAL, que ejecuta de forma continua el cruce entre los modelos predictivos de biodiversidad, los registros de campo y las capas oficiales de Ordenamiento Territorial (POT, PBOT y EOT) de cada municipio."
-              }
-            ]
-          },
-          {
-            "id": "inf2",
-            "title": "Cómo identifica el modelo",
-            "blocks": [
-              {
-                "type": "p",
-                "text": "BioCLIP es un modelo de visión y lenguaje entrenado con el árbol de la vida (Stevens et al., 2024). Funciona como su antecesor CLIP (Radford et al., 2021): convierte una foto en un vector de números y lo acerca al vector del texto que describe lo que hay en ella. Como el texto incluye la cadena taxonómica completa, las especies del mismo género quedan cerca unas de otras."
-              },
-              {
-                "type": "p",
-                "text": "Eso tiene una consecuencia práctica. Para añadir una especie al catálogo no hace falta reentrenar el modelo: basta calcular el vector de sus fotos y guardarlo. La identificación se reduce a comparar el vector de la foto nueva con los de cada especie y devolver las más cercanas."
-              },
-              {
-                "type": "p",
-                "text": "En nuestras pruebas, ajustar todos los pesos del modelo no mejoró nada. Con unas 2.200 imágenes y 28,7 millones de parámetros, el modelo memorizó los ejemplos: el acierto en prueba fue de 69,2 % frente a 70,4 % de la línea base sin entrenar. Es un resultado que coincide con lo que reportan Kumar et al. (2022): ajustar todo puede deformar lo que el modelo ya sabía y empeorar su desempeño con fotos nuevas."
-              },
-              {
-                "type": "callout",
-                "tone": "clave",
-                "text": "Antes de construir, se mide. Si el modelo sin entrenar ya alcanza el objetivo, no se entrena.",
-                "label": "REGLA DE TRABAJO",
-                "title": "Mide antes de construir"
-              }
-            ]
-          },
-          {
-            "id": "inf3",
-            "title": "Qué le muestra la plataforma al usuario",
-            "blocks": [
-              {
-                "type": "p",
-                "text": "La respuesta nunca es una sola palabra. El sistema muestra las tres especies más probables con su porcentaje, el nivel taxonómico que alcanzó (a veces solo familia o género) y cuándo conviene pedir otra foto. Si ninguna candidata supera el umbral de confianza, responde «no concluyente»."
-              },
-              {
-                "type": "p",
-                "text": "Esto importa porque un modelo siempre devuelve algo, incluso cuando la especie no está en su catálogo. En nuestras pruebas, rechazar una rana desconocida fue lo más difícil de resolver: con el umbral elegido pasa el 91,6 % de las ranas ajenas. Lo que sí se rechaza bien es lo que no es una rana: solo se cuela el 4,6 %. Por eso las identificaciones dudosas pasan a revisión humana."
-              },
-              {
-                "type": "callout",
-                "tone": "ojo",
-                "text": "Un falso conocido contamina la ciencia; un falso desconocido solo molesta. Ante la duda, el sistema pregunta."
-              }
-            ]
-          },
-          {
-            "id": "inf4",
-            "title": "Arquitectura y despliegue",
-            "blocks": [
-              {
-                "type": "p",
-                "text": "El producto es una plataforma web que no requiere instalación para el usuario final. El navegador envía la foto, la ubicación y la fecha a un servidor que ejecuta el modelo, y un motor geoanalítico basado en PostGIS y GDAL cruza cada registro con las capas oficiales de ordenamiento (POT, PBOT y EOT) de cada municipio. Cada registro se estructura con el estándar Darwin Core (Wieczorek et al., 2012), de modo que sea comparable y auditable."
-              },
-              {
-                "type": "p",
-                "text": "Esta división tiene dos ventajas. El servidor puede usar el modelo grande y actualizarlo sin que nadie reinstale nada. Y la georreferenciación y los cruces normativos se calculan en un solo lugar. Si en el futuro se necesita captura sin conexión en campo, existe una opción local: una versión ligera del modelo (165,6 MB en formato ONNX) que corre en el teléfono y reenvía al servidor cuando hay red."
-              },
-              {
-                "type": "p",
-                "text": "Para que los resultados sean comparables, el preprocesado de la imagen es siempre el mismo (224 × 224, con la misma media y desviación) y cada vector se guarda con la huella del modelo que lo generó. Si se cambia el modelo, los vectores viejos dejan de ser comparables y hay que recalcularlos. Antes de publicar una versión se pasan las mismas fotos por Python y por el modelo exportado, y las predicciones deben coincidir."
+                "text": "Es una plataforma web que no requiere instalación. El servidor ejecuta el modelo y un motor basado en PostGIS y GDAL cruza cada registro con las capas de ordenamiento (POT, PBOT y EOT) de cada municipio. Cada registro se estructura con el estándar Darwin Core (Wieczorek et al., 2012), de modo que sea comparable y auditable."
               }
             ]
           },
@@ -674,11 +591,7 @@
               },
               {
                 "type": "p",
-                "text": "Para decidir cuándo confiar en una respuesta, se usan técnicas de calibración (Guo et al., 2017), de modo que «90 % de confianza» acierte cerca del 90 % de las veces. Además, el desempeño de los modelos cae en sitios nuevos (Beery et al., 2018), y los datos de ubicación, fecha y hábitat pueden ayudar a reordenar candidatas (Mac Aodha et al., 2019)."
-              },
-              {
-                "type": "p",
-                "text": "BioCLIP 2 amplió el enfoque con unos 214 millones de imágenes (Gu et al., 2025). Los modelos de visión ya se usan para identificar animales en imágenes de cámaras trampa (Norouzzadeh et al., 2018), y existen conjuntos de referencia como iNaturalist (Van Horn et al., 2018) y servicios como SpeciesNet (Gadot et al., 2024)."
+                "text": "Además, los datos de ubicación, fecha y hábitat pueden ayudar a reordenar las candidatas cuando la imagen no basta (Mac Aodha et al., 2019)."
               },
               {
                 "type": "h",
@@ -687,10 +600,6 @@
               {
                 "type": "p",
                 "text": "La ciencia ciudadana contribuye de forma importante al monitoreo internacional de la biodiversidad (Chandler et al., 2017) y todavía tiene un potencial sin aprovechar para la investigación (Theobald et al., 2015). Su principal debilidad es la calidad de los datos: Kosmala et al. (2016) revisan cómo evaluarla y Isaac et al. (2014) proponen métodos estadísticos para extraer señales de datos con ruido. Para retener a las personas voluntarias, West y Pateman (2016) recomiendan aprender de la literatura sobre voluntariado, y Rotman et al. (2012) muestran que la motivación cambia a lo largo de un proyecto."
-              },
-              {
-                "type": "p",
-                "text": "Estas fuentes respaldan dos decisiones del diseño de la PITB: validar y auditar los registros, y cuidar la motivación de quienes aportan fotos."
               },
               {
                 "type": "h",
@@ -823,23 +732,13 @@
                   ],
                   [
                     "SpeciesNet (Google)",
-                    "Más de 2.000 etiquetas, licencia Apache-2.0, usa MegaDetector (Gadot et al., 2024)",
+                    "Más de 2.000 etiquetas, licencia Apache-2.0, usa MegaDetector",
                     "Cerrado a su propio catálogo"
                   ],
                   [
                     "Pl@ntNet",
                     "Identificación de plantas; modelo propietario",
                     "Solo plantas"
-                  ],
-                  [
-                    "Merlin",
-                    "Usa ubicación y fecha de eBird; funciona sin conexión",
-                    "Modelo cerrado; sirve de referencia de diseño"
-                  ],
-                  [
-                    "MegaDetector",
-                    "Detecta animal, persona y vehículo",
-                    "No da la especie"
                   ]
                 ],
                 "caption": "Comparación hecha con la documentación de cada proyecto. La comparación directa de BioCLIP con BioTrove queda pendiente."
@@ -1116,81 +1015,6 @@
                     "Los intervalos se solapan; no se puede afirmar que el regional mejore"
                   ]
                 ]
-              },
-              {
-                "type": "chart",
-                "half": true,
-                "title": "Quitar el fondo empeora",
-                "tag": "150 imágenes pareadas · BioCLIP",
-                "chart": {
-                  "type": "bar",
-                  "data": {
-                    "items": [
-                      {
-                        "l": "Completa",
-                        "v": 60.7,
-                        "hi": true
-                      },
-                      {
-                        "l": "Recorte",
-                        "v": 50.7
-                      },
-                      {
-                        "l": "Fondo negro",
-                        "v": 44.7
-                      }
-                    ]
-                  }
-                },
-                "caption": "Segmentar no ayudó con el modelo entrenado en imagen completa. Reentrenar sobre recortes: sin probar."
-              },
-              {
-                "type": "chart",
-                "title": "Errores entre especies parecidas",
-                "tag": "[CALC] top-1 equivocado · test",
-                "chart": {
-                  "type": "hbar",
-                  "data": {
-                    "max": 9,
-                    "items": [
-                      {
-                        "l": "D. bogerti → D. microcephalus",
-                        "v": 8,
-                        "hi": true
-                      },
-                      {
-                        "l": "R. marina → R. horribilis",
-                        "v": 7,
-                        "hi": true
-                      },
-                      {
-                        "l": "H. tatayoi → E. prosoblepon",
-                        "v": 5
-                      },
-                      {
-                        "l": "D. columbianus → D. bogerti",
-                        "v": 5
-                      },
-                      {
-                        "l": "C. metriosistus → C. raniformis",
-                        "v": 5
-                      },
-                      {
-                        "l": "O. taurinus → T. macrotis",
-                        "v": 4
-                      },
-                      {
-                        "l": "N. grandisonae → E. prosoblepon",
-                        "v": 4
-                      },
-                      {
-                        "l": "R. humboldti → R. beebei",
-                        "v": 4
-                      }
-                    ]
-                  }
-                },
-                "caption": "Casi todos son del mismo género. Cuanto más cerca está la especie vecina, peor el acierto (correlación −0,62)."
               }
             ]
           },
@@ -1227,17 +1051,13 @@
             "blocks": [
               {
                 "type": "p",
-                "text": "En la prueba de despliegue se pasaron 64 imágenes por Python y por el modelo exportado a ONNX en FP16: las predicciones fueron idénticas y el modelo pesó 165,6 MB, la mitad del original. La prueba en un teléfono real aún no se completó, así que ninguna versión se publica sin ella."
-              },
-              {
-                "type": "p",
-                "text": "La interfaz web del prototipo simula el análisis en el navegador y ofrece un enlace para probar con BioCLIP real. Las cifras de certeza que se muestran en las capturas son de demostración. Los resultados de acierto de esta sección corresponden a ranas de Colombia; para otros grupos, como aves, mamíferos y plantas, por ahora solo hay literatura."
+                "text": "En la prueba de despliegue se pasaron 64 imágenes por Python y por el modelo exportado a ONNX en FP16: las predicciones fueron idénticas y el modelo pesó 165,6 MB. La prueba en un teléfono real aún no se completó. La interfaz web del prototipo simula el análisis en el navegador, y las cifras de certeza de las capturas son de demostración."
               },
               {
                 "type": "list",
                 "items": [
+                  "Los resultados de acierto son de ranas de Colombia; para aves, mamíferos y plantas solo hay literatura.",
                   "El rechazo de especies desconocidas sigue sin resolverse.",
-                  "Las especies casi idénticas se confunden entre sí, casi siempre dentro del mismo género. Ante un par muy parecido el sistema debería avisar «requiere un detalle» y no elegir una.",
                   "La latencia en el teléfono y el desempeño de BioCLIP 2.5 con nuestras especies están pendientes de medir."
                 ]
               }
@@ -1289,7 +1109,7 @@
                     "Trazabilidad de fuentes y licencias, y pruebas antes de publicar cada versión"
                   ],
                   [
-                    "Directrices para una IA fiable de la Unión Europea (2019)",
+                    "Grupo de Expertos de Alto Nivel sobre IA (2019)",
                     "Supervisión humana, solidez técnica, privacidad, diversidad y rendición de cuentas",
                     "Sistema de apoyo, no de decisión; datos protegidos; participación diversa"
                   ]
@@ -1645,26 +1465,23 @@
             "blocks": [
               {
                 "type": "refs",
+                "numbered": false,
                 "items": [
                   "Ajzen, I. (1991). The theory of planned behavior. *Organizational Behavior and Human Decision Processes, 50*(2), 179–211. https://doi.org/10.1016/0749-5978(91)90020-T",
-                  "Beery, S., Van Horn, G., & Perona, P. (2018). Recognition in terra incognita. En *Computer Vision – ECCV 2018* (LNCS vol. 11133, pp. 472–489). Springer. https://doi.org/10.1007/978-3-030-01270-0_28",
                   "Chandler, M., See, L., Copas, K., Bonde, A. M. Z., López, B. C., Danielsen, F., Legind, J. K., Masinde, S., Miller-Rushing, A. J., Newman, G., Rosemartin, A., & Turak, E. (2017). Contribution of citizen science towards international biodiversity monitoring. *Biological Conservation, 213*(Part B), 280–294. https://doi.org/10.1016/j.biocon.2016.09.004",
                   "Chapman, A. D. (2020). *Current best practices for generalizing sensitive species occurrence data* (v1.0). GBIF Secretariat. https://doi.org/10.15468/doc-5jp4-5g10",
-                  "Comisión Mundial sobre el Medio Ambiente y el Desarrollo. (1987). *Our common future* (Documento A/42/427 de la Asamblea General de las Naciones Unidas). https://digitallibrary.un.org/record/139811",
+                  "CMMAD. (1987). *Our common future* (Documento A/42/427 de la Asamblea General de las Naciones Unidas). https://digitallibrary.un.org/record/139811",
                   "Congreso de Colombia. (1997). *Ley 388 de 1997, por la cual se modifica la Ley 9 de 1989, y la Ley 3 de 1991 y se dictan otras disposiciones*. Diario Oficial. https://www.anla.gov.co/wanla/eureka/normativa/leyes/ley-388-de-1997-ley-de-desarrollo-territorial",
                   "Congreso de la República de Colombia. (2012). *Ley Estatutaria 1581 de 2012, por la cual se dictan disposiciones generales para la protección de datos personales*. Diario Oficial 48.587. https://relatoria.colombiacompra.gov.co/normativa/ley-1581-de-2012/?print=pdf",
-                  "Consejo Nacional de Política Económica y Social. (2019). *Política nacional para la transformación digital e inteligencia artificial* (CONPES 3975). Departamento Nacional de Planeación. https://registraduria.gov.co/IMG/pdf/documento-conpes-3975.pdf",
-                  "Consejo Nacional de Política Económica y Social. (2025). *Política nacional de inteligencia artificial* (CONPES 4144). Departamento Nacional de Planeación. https://dnp.gov.co/publicaciones/Planeacion/Paginas/conpes-4144-hoja-de-ruta-colombia-inteligencia-artificial-retos-actuales-transformacion-futura.aspx",
+                  "CONPES. (2019). *Política nacional para la transformación digital e inteligencia artificial* (CONPES 3975). Departamento Nacional de Planeación. https://registraduria.gov.co/IMG/pdf/documento-conpes-3975.pdf",
+                  "CONPES. (2025). *Política nacional de inteligencia artificial* (CONPES 4144). Departamento Nacional de Planeación. https://dnp.gov.co/publicaciones/Planeacion/Paginas/conpes-4144-hoja-de-ruta-colombia-inteligencia-artificial-retos-actuales-transformacion-futura.aspx",
+                  "FAO, PNUMA, OMS & OMSA. (2022). *One Health Joint Plan of Action (2022–2026)*. FAO. https://www.fao.org/3/cc2289en/cc2289en.pdf",
                   "Floridi, L., & Cowls, J. (2019). A unified framework of five principles for AI in society. *Harvard Data Science Review, 1*(1). https://doi.org/10.1162/99608f92.8cd550d1",
-                  "Food and Agriculture Organization of the United Nations, United Nations Environment Programme, World Health Organization, & World Organisation for Animal Health. (2022). *One Health Joint Plan of Action (2022–2026)*. FAO. https://www.fao.org/3/cc2289en/cc2289en.pdf",
-                  "Gadot, T., Istrate, Ș., Kim, H., Morris, D., Beery, S., Birch, T., & Ahumada, J. (2024). To crop or not to crop: Comparing whole-image and cropped classification on a large dataset of camera trap images. *IET Computer Vision, 18*(8), 1193–1208. https://doi.org/10.1049/cvi2.12318",
                   "Gifford, R. (2014). Environmental psychology matters. *Annual Review of Psychology, 65*, 541–579. https://doi.org/10.1146/annurev-psych-010213-115048",
                   "Gobernación de Antioquia. (2023a, 12 de diciembre). *Aprobado en ordenanza las Macrorregiones de Antioquia*. https://antioquia.gov.co/noticias-planeacion/aprobado-en-ordenanza-las-macrorregiones-de-antioquia",
                   "Gobernación de Antioquia. (2023b). *Plan Estratégico Agenda Antioquia 2040*. https://www.cideu.org/wp-content/uploads/R_Plan-estrategico-Agenda-Antioquia-2040-1.pdf",
                   "Grupo de Expertos de Alto Nivel sobre IA. (2019). *Directrices éticas para una IA fiable*. Comisión Europea. https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai",
-                  "Gu, J., Stevens, S., Campolongo, E. G., Thompson, M. J., Zhang, N., Wu, J., Kopanev, A., Mai, Z., White, A., Balhoff, J., Dahdul, W., Rubenstein, D., Lapp, H., Berger-Wolf, T., Chao, W.-L., & Su, Y. (2025). BioCLIP 2: Emergent properties from scaling hierarchical contrastive learning. *Advances in Neural Information Processing Systems (NeurIPS 2025)*. https://arxiv.org/abs/2505.23883",
                   "Gumucio-Dagron, A. (2011). Comunicación para el cambio social: Clave del desarrollo participativo. *Signo y Pensamiento, 30*(58), 26–39. https://doi.org/10.11144/Javeriana.syp30-58.cpcs",
-                  "Guo, C., Pleiss, G., Sun, Y., & Weinberger, K. Q. (2017). On calibration of modern neural networks. *Proceedings of the 34th International Conference on Machine Learning* (PMLR 70, pp. 1321–1330). https://proceedings.mlr.press/v70/guo17a.html",
                   "Hortal, J., de Bello, F., Diniz-Filho, J. A. F., Lewinsohn, T. M., Lobo, J. M., & Ladle, R. J. (2015). Seven shortfalls that beset large-scale knowledge of biodiversity. *Annual Review of Ecology, Evolution, and Systematics, 46*, 523–549. https://doi.org/10.1146/annurev-ecolsys-112414-054400",
                   "Imageomics Institute. (s.f.). *BioCLIP* [Ficha de modelo]. Hugging Face. https://huggingface.co/imageomics/bioclip",
                   "Isaac, N. J. B., van Strien, A. J., August, T. A., de Zeeuw, M. P., & Roy, D. B. (2014). Statistics for citizen science: Extracting signals of change from noisy ecological data. *Methods in Ecology and Evolution, 5*(10), 1052–1060. https://doi.org/10.1111/2041-210X.12254",
@@ -1677,18 +1494,16 @@
                   "Lee, J. D., & See, K. A. (2004). Trust in automation: Designing for appropriate reliance. *Human Factors, 46*(1), 50–80. https://doi.org/10.1518/hfes.46.1.50_30392",
                   "Mac Aodha, O., Cole, E., & Perona, P. (2019). Presence-only geographical priors for fine-grained image classification. *Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)*, 9596–9606. https://doi.org/10.1109/ICCV.2019.00969",
                   "Meyer, C., Kreft, H., Guralnick, R., & Jetz, W. (2015). Global priorities for an effective information basis of biodiversity distributions. *Nature Communications, 6*, Artículo 8221. https://doi.org/10.1038/ncomms9221",
-                  "Norouzzadeh, M. S., Nguyen, A., Kosmala, M., Swanson, A., Palmer, M. S., Packer, C., & Clune, J. (2018). Automatically identifying, counting, and describing wild animals in camera-trap images with deep learning. *Proceedings of the National Academy of Sciences, 115*(25), E5716–E5725. https://doi.org/10.1073/pnas.1719367115",
                   "OCDE. (2019). *Recommendation of the Council on Artificial Intelligence* (OECD/LEGAL/0449). https://legalinstruments.oecd.org/public/doc/648/648.en.pdf",
-                  "Organización de las Naciones Unidas para la Educación, la Ciencia y la Cultura. (2021). *Recomendación sobre la ética de la inteligencia artificial*. https://digitallibrary.un.org/record/4062376/files/1416674-ES.pdf",
-                  "Organización Mundial de la Salud, & Fondo de las Naciones Unidas para la Infancia. (2018). *Declaración de Astaná sobre Atención Primaria de Salud*. https://www.who.int/docs/default-source/primary-health/declaration/gcphc-declaration-sp.pdf",
-                  "Organización Mundial de la Salud. (2023). *Environmental health*. https://www.who.int/health-topics/environmental-health",
+                  "OMS & UNICEF. (2018). *Declaración de Astaná sobre Atención Primaria de Salud*. https://www.who.int/docs/default-source/primary-health/declaration/gcphc-declaration-sp.pdf",
+                  "OMS. (2023). *Environmental health*. https://www.who.int/health-topics/environmental-health",
                   "Radford, A., Kim, J. W., Hallacy, C., Ramesh, A., Goh, G., Agarwal, S., Sastry, G., Askell, A., Mishkin, P., Clark, J., Krueger, G., & Sutskever, I. (2021). Learning transferable visual models from natural language supervision. En M. Meila & T. Zhang (Eds.), *Proceedings of the 38th International Conference on Machine Learning* (PMLR 139, pp. 8748–8763). https://proceedings.mlr.press/v139/radford21a.html",
                   "Rotman, D., Preece, J., Hammock, J., Procita, K., Hansen, D., Parr, C., Lewis, D., & Jacobs, D. (2012). Dynamic changes in motivation in collaborative citizen-science projects. En *Proceedings of the ACM 2012 Conference on Computer Supported Cooperative Work (CSCW '12)* (pp. 217–226). ACM. https://doi.org/10.1145/2145204.2145238",
                   "Servaes, J. (2012). Comunicación para el desarrollo sostenible y el cambio social. Una visión general. *CIC Cuadernos de Información y Comunicación, 17*, 17–40. https://revistas.ucm.es/index.php/CIYC/article/view/39256",
-                  "Sistema de Información sobre Biodiversidad de Colombia. (2024). *Cifras sobre biodiversidad de Colombia* [Kit de prensa]. https://cifras.biodiversidad.co/files/Kit_prensa-Cifras_Sobre_Biodiversidad_de_Colombia.pdf",
+                  "SiB Colombia. (2024). *Cifras sobre biodiversidad de Colombia* [Kit de prensa]. https://cifras.biodiversidad.co/files/Kit_prensa-Cifras_Sobre_Biodiversidad_de_Colombia.pdf",
                   "Stevens, S., Wu, J., Thompson, M. J., Campolongo, E. G., Song, C. H., Carlyn, D. E., Dong, L., Dahdul, W. M., Stewart, C., Berger-Wolf, T., Chao, W.-L., & Su, Y. (2024). BioCLIP: A vision foundation model for the Tree of Life. *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)*, 19412–19424. https://openaccess.thecvf.com/content/CVPR2024/html/Stevens_BioCLIP_A_Vision_Foundation_Model_for_the_Tree_of_Life_CVPR_2024_paper.html",
                   "Theobald, E. J., Ettinger, A. K., Burgess, H. K., DeBey, L. B., Schmidt, N. R., Froehlich, H. E., Wagner, C., HilleRisLambers, J., Tewksbury, J., Harsch, M. A., & Parrish, J. K. (2015). Global change and local solutions: Tapping the unrealized potential of citizen science for biodiversity research. *Biological Conservation, 181*, 236–244. https://doi.org/10.1016/j.biocon.2014.10.021",
-                  "Van Horn, G., Mac Aodha, O., Song, Y., Cui, Y., Sun, C., Shepard, A., Adam, H., Perona, P., & Belongie, S. (2018). The iNaturalist species classification and detection dataset. *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)*, 8769–8778. https://doi.org/10.1109/CVPR.2018.00914",
+                  "UNESCO. (2021). *Recomendación sobre la ética de la inteligencia artificial*. https://digitallibrary.un.org/record/4062376/files/1416674-ES.pdf",
                   "West, S., & Pateman, R. (2016). Recruiting and retaining participants in citizen science: What can be learned from the volunteering literature? *Citizen Science: Theory and Practice, 1*(2), Artículo 15. https://doi.org/10.5334/cstp.8",
                   "Wieczorek, J., Bloom, D., Guralnick, R., Blum, S., Döring, M., et al. (2012). Darwin Core: An evolving community-developed biodiversity data standard. *PLoS ONE, 7*(1), e29715. https://doi.org/10.1371/journal.pone.0029715"
                 ]

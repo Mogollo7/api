@@ -46,209 +46,194 @@
    "pagina": 13
   },
   {
-   "id": "inf1",
+   "id": "inf_a",
    "n": "09",
    "pagina": 14
   },
   {
-   "id": "inf_tool",
+   "id": "inf_b",
    "n": "10",
    "pagina": 15
   },
   {
-   "id": "inf2",
+   "id": "psi1",
    "n": "11",
    "pagina": 16
   },
   {
-   "id": "inf3",
+   "id": "psi2",
    "n": "12",
-   "pagina": 17
-  },
-  {
-   "id": "inf4",
-   "n": "13",
    "pagina": 18
   },
   {
-   "id": "psi1",
-   "n": "14",
-   "pagina": 19
-  },
-  {
-   "id": "psi2",
-   "n": "15",
-   "pagina": 21
-  },
-  {
    "id": "psi3",
-   "n": "16",
-   "pagina": 23
+   "n": "13",
+   "pagina": 20
   },
   {
    "id": "enf1",
-   "n": "17",
-   "pagina": 24
+   "n": "14",
+   "pagina": 21
   },
   {
    "id": "enf2",
-   "n": "18",
-   "pagina": 25
+   "n": "15",
+   "pagina": 22
   },
   {
    "id": "enf3",
-   "n": "19",
-   "pagina": 27
+   "n": "16",
+   "pagina": 24
   },
   {
    "id": "com1",
-   "n": "20",
-   "pagina": 28
+   "n": "17",
+   "pagina": 25
   },
   {
    "id": "com2",
-   "n": "21",
-   "pagina": 30
+   "n": "18",
+   "pagina": 27
   },
   {
    "id": "matriz",
-   "n": "22",
-   "pagina": 31
+   "n": "19",
+   "pagina": 28
   },
   {
    "id": "lit",
-   "n": "23",
-   "pagina": 33
+   "n": "20",
+   "pagina": 30
   },
   {
    "id": "evid_enf",
-   "n": "24",
-   "pagina": 36
+   "n": "21",
+   "pagina": 32
   },
   {
    "id": "bench",
-   "n": "25",
-   "pagina": 37
+   "n": "22",
+   "pagina": 33
   },
   {
    "id": "producto",
+   "n": "23",
+   "pagina": 37
+  },
+  {
+   "id": "proto",
+   "n": "24",
+   "pagina": 38
+  },
+  {
+   "id": "proto2",
+   "n": "25",
+   "pagina": 40
+  },
+  {
+   "id": "proto3",
    "n": "26",
    "pagina": 41
   },
   {
-   "id": "proto",
+   "id": "proto4",
    "n": "27",
    "pagina": 42
   },
   {
-   "id": "proto2",
+   "id": "prueba1",
    "n": "28",
-   "pagina": 44
+   "pagina": 43
   },
   {
-   "id": "proto3",
+   "id": "prueba2",
    "n": "29",
    "pagina": 45
   },
   {
-   "id": "proto4",
+   "id": "favor",
    "n": "30",
    "pagina": 46
   },
   {
-   "id": "prueba1",
-   "n": "31",
-   "pagina": 47
-  },
-  {
-   "id": "prueba2",
-   "n": "32",
-   "pagina": 49
-  },
-  {
-   "id": "favor",
-   "n": "33",
-   "pagina": 52
-  },
-  {
    "id": "prueba3",
-   "n": "34",
-   "pagina": 54
+   "n": "31",
+   "pagina": 48
   },
   {
    "id": "etica1",
-   "n": "35",
-   "pagina": 56
+   "n": "32",
+   "pagina": 50
   },
   {
    "id": "etica2",
-   "n": "36",
-   "pagina": 57
+   "n": "33",
+   "pagina": 51
   },
   {
    "id": "etica3",
-   "n": "37",
-   "pagina": 58
+   "n": "34",
+   "pagina": 52
   },
   {
    "id": "etica_enf1",
-   "n": "38",
-   "pagina": 59
+   "n": "35",
+   "pagina": 53
   },
   {
    "id": "etica_enf2",
-   "n": "39",
-   "pagina": 60
+   "n": "36",
+   "pagina": 54
   },
   {
    "id": "etica_psi",
-   "n": "40",
-   "pagina": 62
+   "n": "37",
+   "pagina": 56
   },
   {
    "id": "etica_enf3",
-   "n": "41",
-   "pagina": 63
+   "n": "38",
+   "pagina": 57
   },
   {
    "id": "impacto",
-   "n": "42",
-   "pagina": 65
+   "n": "39",
+   "pagina": 59
   },
   {
    "id": "impacto_enf",
-   "n": "43",
-   "pagina": 66
+   "n": "40",
+   "pagina": 60
   },
   {
    "id": "metodo",
-   "n": "44",
-   "pagina": 67
+   "n": "41",
+   "pagina": 61
   },
   {
    "id": "resultados",
-   "n": "45",
-   "pagina": 68
+   "n": "42",
+   "pagina": 62
   },
   {
    "id": "eval",
-   "n": "46",
-   "pagina": 70
+   "n": "43",
+   "pagina": 64
   },
   {
    "id": "conc",
-   "n": "47",
-   "pagina": 72
+   "n": "44",
+   "pagina": 66
   },
   {
    "id": "conc_areas",
-   "n": "48",
-   "pagina": 73
+   "n": "45",
+   "pagina": 67
   },
   {
    "id": "ref",
-   "n": "49",
-   "pagina": 75
+   "n": "46",
+   "pagina": 69
   }
  ],
  "correcciones_contraste": [],
@@ -270,6 +255,6 @@
   "DV-E",
   "DV-F"
  ],
- "paginas": 79,
- "segundos": 6.7
+ "paginas": 72,
+ "segundos": 6.0
 }
