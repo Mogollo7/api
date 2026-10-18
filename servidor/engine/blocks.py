@@ -249,6 +249,7 @@ def _original(path, cache):
     from PIL import Image, ImageOps
     out = cache / f"{path.stem}_orig_{path.stat().st_mtime_ns}.jpg"
     if not out.exists():
+        cache.mkdir(parents=True, exist_ok=True)
         im = ImageOps.exif_transpose(Image.open(path)).convert("RGB")
         if im.width > 1400:
             im = im.resize((1400, round(im.height * 1400 / im.width)), Image.LANCZOS)

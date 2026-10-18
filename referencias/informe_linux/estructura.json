@@ -1,0 +1,655 @@
+[
+ {
+  "pagina": 1,
+  "fondo": "#ffffff",
+  "oscura": false,
+  "bloques": [
+   {
+    "texto": "Informe Práctico: Gestión de Usuarios, Grupos y / Permisos en Linux",
+    "fuente": "Calibri-Bold",
+    "tam_cqw": 3.59,
+    "color": "#1b365d",
+    "x": 11.8,
+    "y": 12.8,
+    "w": 71.6,
+    "h": 8.6,
+    "alinea": "centro"
+   },
+   {
+    "texto": "Asignatura:SistemasOperativos|EvaluaciónParcial",
+    "fuente": "Calibri-Italic",
+    "tam_cqw": 1.96,
+    "color": "#4a777a",
+    "x": 11.8,
+    "y": 23.0,
+    "w": 42.0,
+    "h": 2.0,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Estudiantes: / Fecha:",
+    "fuente": "Cambria-Bold",
+    "tam_cqw": 1.81,
+    "color": "#000000",
+    "x": 11.8,
+    "y": 28.3,
+    "w": 10.2,
+    "h": 4.2,
+    "alinea": "izq"
+   },
+   {
+    "texto": "SamuelUsmaBrandyJuansebastianMartinezGaleano",
+    "fuente": "Cambria",
+    "tam_cqw": 1.81,
+    "color": "#000000",
+    "x": 22.4,
+    "y": 32.2,
+    "w": 42.1,
+    "h": 1.8,
+    "alinea": "der"
+   },
+   {
+    "texto": "18deOctubrede2026",
+    "fuente": "Cambria",
+    "tam_cqw": 1.81,
+    "color": "#000000",
+    "x": 17.5,
+    "y": 34.6,
+    "w": 17.5,
+    "h": 1.8,
+    "alinea": "izq"
+   },
+   {
+    "texto": "1. Introducción y Objetivos",
+    "fuente": "Calibri-Bold",
+    "tam_cqw": 2.45,
+    "color": "#1b365d",
+    "x": 11.8,
+    "y": 36.1,
+    "w": 27.4,
+    "h": 2.5,
+    "alinea": "izq"
+   },
+   {
+    "texto": "ElpresenteinformedocumentalasoluciónprácticadelaactividaddeadministracióndesistemasLinux / enKaliLinux.Elobjetivoesevidenciarlacorrectacreacióndeusuariosygrupos",
+    "fuente": "Calibri",
+    "tam_cqw": 1.81,
+    "color": "#333333",
+    "x": 11.8,
+    "y": 40.2,
+    "w": 76.0,
+    "h": 9.4,
+    "alinea": "centro"
+   },
+   {
+    "texto": "2. Punto 1: Usuarios y Grupos",
+    "fuente": "Calibri-Bold",
+    "tam_cqw": 2.45,
+    "color": "#1b365d",
+    "x": 11.8,
+    "y": 53.2,
+    "w": 30.1,
+    "h": 2.5,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Resumendeejecución:",
+    "fuente": "Calibri-Bold",
+    "tam_cqw": 1.81,
+    "color": "#2c3e50",
+    "x": 11.8,
+    "y": 57.4,
+    "w": 17.2,
+    "h": 1.8,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Secrearonlosgruposdepartamentales(sistemas,redes,soporte)ysus",
+    "fuente": "Calibri",
+    "tam_cqw": 1.81,
+    "color": "#333333",
+    "x": 29.4,
+    "y": 57.4,
+    "w": 51.8,
+    "h": 1.8,
+    "alinea": "der"
+   },
+   {
+    "texto": "respectivosusuarios(ana,bruno,carla),vinculandoacadaunoconsugrupoprincipal.",
+    "fuente": "Calibri",
+    "tam_cqw": 1.81,
+    "color": "#333333",
+    "x": 11.8,
+    "y": 59.9,
+    "w": 62.8,
+    "h": 1.8,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Comandosejecutados:",
+    "fuente": "Calibri-Bold",
+    "tam_cqw": 1.96,
+    "color": "#4a777a",
+    "x": 11.8,
+    "y": 64.2,
+    "w": 18.5,
+    "h": 2.0,
+    "alinea": "izq"
+   },
+   {
+    "texto": "sudo groupadd sistemas / sudo groupadd redes / sudo groupadd soporte",
+    "fuente": "Consolas",
+    "tam_cqw": 1.55,
+    "color": "#1e293b",
+    "x": 13.0,
+    "y": 68.1,
+    "w": 18.8,
+    "h": 5.7,
+    "alinea": "izq"
+   },
+   {
+    "texto": "sudo useradd -m -g sistemas ana / sudo useradd -m -g redes bruno / sudo useradd -m -g soporte carla",
+    "fuente": "Consolas",
+    "tam_cqw": 1.55,
+    "color": "#1e293b",
+    "x": 13.0,
+    "y": 76.5,
+    "w": 27.3,
+    "h": 5.7,
+    "alinea": "izq"
+   }
+  ],
+  "imagenes": [],
+  "recuadros": [
+   {
+    "x": 12.0,
+    "y": 67.0,
+    "w": 76.3,
+    "h": 16.3,
+    "relleno": "#f0f4f8",
+    "borde": null
+   }
+  ],
+  "tipo": "portada",
+  "paleta": [
+   {
+    "hex": "#ffffff",
+    "pct": 79.2
+   },
+   {
+    "hex": "#f0f4f8",
+    "pct": 8.4
+   },
+   {
+    "hex": "#a9afb7",
+    "pct": 4.8
+   },
+   {
+    "hex": "#e2e4e6",
+    "pct": 4.0
+   },
+   {
+    "hex": "#f8f9fa",
+    "pct": 1.8
+   }
+  ]
+ },
+ {
+  "pagina": 2,
+  "fondo": "#ffffff",
+  "oscura": false,
+  "bloques": [],
+  "imagenes": [
+   {
+    "x": 13.0,
+    "y": 12.9,
+    "w": 74.0,
+    "h": 58.5
+   }
+  ],
+  "recuadros": [
+   {
+    "x": 11.8,
+    "y": 11.9,
+    "w": 76.4,
+    "h": 61.5,
+    "relleno": "#fafafa",
+    "borde": null
+   }
+  ],
+  "tipo": "clara",
+  "paleta": [
+   {
+    "hex": "#ffffff",
+    "pct": 65.6
+   },
+   {
+    "hex": "#242936",
+    "pct": 10.9
+   },
+   {
+    "hex": "#222634",
+    "pct": 7.7
+   },
+   {
+    "hex": "#1f222d",
+    "pct": 6.2
+   },
+   {
+    "hex": "#2f3747",
+    "pct": 4.5
+   }
+  ]
+ },
+ {
+  "pagina": 3,
+  "fondo": "#ffffff",
+  "oscura": false,
+  "bloques": [
+   {
+    "texto": "3. Punto 2: Permisos de Directorios Departamentales",
+    "fuente": "Calibri-Bold",
+    "tam_cqw": 2.45,
+    "color": "#1b365d",
+    "x": 11.8,
+    "y": 61.8,
+    "w": 53.9,
+    "h": 2.5,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Resumendeejecución:",
+    "fuente": "Calibri-Bold",
+    "tam_cqw": 1.81,
+    "color": "#2c3e50",
+    "x": 11.8,
+    "y": 66.0,
+    "w": 17.2,
+    "h": 1.8,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Secrearonlosdirectoriosparacadadepartamentoenlaruta/srv/,",
+    "fuente": "Calibri",
+    "tam_cqw": 1.81,
+    "color": "#333333",
+    "x": 29.4,
+    "y": 66.0,
+    "w": 48.8,
+    "h": 1.8,
+    "alinea": "der"
+   },
+   {
+    "texto": "estableciendocomogrupopropietarioasurespectivodepartamentoyaplicandounmododepermisos / 770(rwxrwx---).",
+    "fuente": "Calibri",
+    "tam_cqw": 1.81,
+    "color": "#333333",
+    "x": 11.8,
+    "y": 68.5,
+    "w": 75.4,
+    "h": 4.3,
+    "alinea": "centro"
+   },
+   {
+    "texto": "Comandosejecutados:",
+    "fuente": "Calibri-Bold",
+    "tam_cqw": 1.96,
+    "color": "#4a777a",
+    "x": 11.8,
+    "y": 75.3,
+    "w": 18.5,
+    "h": 2.0,
+    "alinea": "izq"
+   },
+   {
+    "texto": "sudo mkdir -p /srv/sistemas /srv/redes /srv/soporte / sudo chown :sistemas /srv/sistemas / sudo chown :redes /srv/redes / sudo chown :soporte /srv/soporte / sud",
+    "fuente": "Consolas",
+    "tam_cqw": 1.55,
+    "color": "#1e293b",
+    "x": 13.0,
+    "y": 79.3,
+    "w": 44.4,
+    "h": 9.9,
+    "alinea": "izq"
+   }
+  ],
+  "imagenes": [
+   {
+    "x": 13.0,
+    "y": 14.5,
+    "w": 74.0,
+    "h": 38.3
+   },
+   {
+    "x": 12.4,
+    "y": 96.0,
+    "w": 75.2,
+    "h": 15.1
+   }
+  ],
+  "recuadros": [
+   {
+    "x": 11.8,
+    "y": 11.9,
+    "w": 76.4,
+    "h": 44.1,
+    "relleno": "#fafafa",
+    "borde": null
+   },
+   {
+    "x": 12.0,
+    "y": 78.1,
+    "w": 76.3,
+    "h": 12.1,
+    "relleno": "#f0f4f8",
+    "borde": null
+   },
+   {
+    "x": 11.2,
+    "y": 93.4,
+    "w": 77.6,
+    "h": 20.8,
+    "relleno": "#fafafa",
+    "borde": null
+   }
+  ],
+  "tipo": "clara",
+  "paleta": [
+   {
+    "hex": "#ffffff",
+    "pct": 48.6
+   },
+   {
+    "hex": "#292c39",
+    "pct": 28.2
+   },
+   {
+    "hex": "#f4f6f7",
+    "pct": 11.9
+   },
+   {
+    "hex": "#fdfdfd",
+    "pct": 6.3
+   },
+   {
+    "hex": "#8b919b",
+    "pct": 4.8
+   }
+  ]
+ },
+ {
+  "pagina": 4,
+  "fondo": "#ffffff",
+  "oscura": false,
+  "bloques": [
+   {
+    "texto": "4. Punto 3: Permisos y Seguridad (Archivo Privado)",
+    "fuente": "Calibri-Bold",
+    "tam_cqw": 2.45,
+    "color": "#1b365d",
+    "x": 11.8,
+    "y": 12.5,
+    "w": 51.5,
+    "h": 2.5,
+    "alinea": "izq"
+   },
+   {
+    "texto": "DentrodeldirectoriodeSistemassecreóelarchivo'privado_sistemas.txt'con",
+    "fuente": "Calibri",
+    "tam_cqw": 1.81,
+    "color": "#333333",
+    "x": 29.4,
+    "y": 16.6,
+    "w": 57.0,
+    "h": 1.8,
+    "alinea": "der"
+   },
+   {
+    "texto": "Resumendeejecución:",
+    "fuente": "Calibri-Bold",
+    "tam_cqw": 1.81,
+    "color": "#2c3e50",
+    "x": 11.8,
+    "y": 16.7,
+    "w": 17.2,
+    "h": 1.8,
+    "alinea": "izq"
+   },
+   {
+    "texto": "permisos660(rw-rw----)pertenecientesalgruposistemas.",
+    "fuente": "Calibri",
+    "tam_cqw": 1.81,
+    "color": "#333333",
+    "x": 11.8,
+    "y": 19.2,
+    "w": 42.9,
+    "h": 1.8,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Comandosejecutados:",
+    "fuente": "Calibri-Bold",
+    "tam_cqw": 1.96,
+    "color": "#4a777a",
+    "x": 11.8,
+    "y": 23.5,
+    "w": 18.5,
+    "h": 2.0,
+    "alinea": "izq"
+   },
+   {
+    "texto": "sudo touch /srv/sistemas/privado_sistemas.txt / sudo chown :sistemas /srv/sistemas/privado_sistemas.txt / sudo chmod 660 /srv/sistemas/privado_sistemas.txt",
+    "fuente": "Consolas",
+    "tam_cqw": 1.55,
+    "color": "#1e293b",
+    "x": 13.0,
+    "y": 27.4,
+    "w": 46.9,
+    "h": 5.7,
+    "alinea": "izq"
+   },
+   {
+    "texto": "5. Punto 4: Verificación y Pruebas de Acceso",
+    "fuente": "Calibri-Bold",
+    "tam_cqw": 2.45,
+    "color": "#1b365d",
+    "x": 11.8,
+    "y": 59.4,
+    "w": 44.8,
+    "h": 2.5,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Resumendeejecución:",
+    "fuente": "Calibri-Bold",
+    "tam_cqw": 1.81,
+    "color": "#2c3e50",
+    "x": 11.8,
+    "y": 63.6,
+    "w": 17.2,
+    "h": 1.8,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Sesimularonaccesosconlausuariaautorizada(Ana)yconelusuariodeotro",
+    "fuente": "Calibri",
+    "tam_cqw": 1.81,
+    "color": "#333333",
+    "x": 29.4,
+    "y": 63.5,
+    "w": 56.1,
+    "h": 1.8,
+    "alinea": "der"
+   },
+   {
+    "texto": "departamento(Bruno)paravalidarelcumplimientodelapolíticadeseguridad.",
+    "fuente": "Calibri",
+    "tam_cqw": 1.81,
+    "color": "#333333",
+    "x": 11.8,
+    "y": 66.0,
+    "w": 57.8,
+    "h": 1.8,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Comandosejecutados:",
+    "fuente": "Calibri-Bold",
+    "tam_cqw": 1.96,
+    "color": "#4a777a",
+    "x": 11.8,
+    "y": 70.3,
+    "w": 18.5,
+    "h": 2.0,
+    "alinea": "izq"
+   },
+   {
+    "texto": "# Prueba con Ana (Pertenece al grupo sistemas) / sudo -u ana bash -c \"echo 'prueba de acceso de ana' >> / /srv/sistemas/privado_sistemas.txt && cat /srv/sistema",
+    "fuente": "Consolas",
+    "tam_cqw": 1.55,
+    "color": "#1e293b",
+    "x": 13.0,
+    "y": 74.3,
+    "w": 65.7,
+    "h": 5.7,
+    "alinea": "izq"
+   },
+   {
+    "texto": "# Prueba con Bruno (Pertenece al grupo redes) / sudo -u bruno cat /srv/sistemas/privado_sistemas.txt",
+    "fuente": "Consolas",
+    "tam_cqw": 1.55,
+    "color": "#1e293b",
+    "x": 13.0,
+    "y": 82.6,
+    "w": 44.4,
+    "h": 3.7,
+    "alinea": "izq"
+   }
+  ],
+  "imagenes": [
+   {
+    "x": 12.1,
+    "y": 40.0,
+    "w": 75.5,
+    "h": 10.5
+   },
+   {
+    "x": 13.0,
+    "y": 93.1,
+    "w": 74.0,
+    "h": 19.7
+   }
+  ],
+  "recuadros": [
+   {
+    "x": 12.0,
+    "y": 26.2,
+    "w": 76.3,
+    "h": 7.9,
+    "relleno": "#f0f4f8",
+    "borde": null
+   },
+   {
+    "x": 10.9,
+    "y": 37.4,
+    "w": 78.1,
+    "h": 16.1,
+    "relleno": "#fafafa",
+    "borde": null
+   },
+   {
+    "x": 12.0,
+    "y": 73.1,
+    "w": 76.3,
+    "h": 14.2,
+    "relleno": "#f0f4f8",
+    "borde": null
+   },
+   {
+    "x": 11.8,
+    "y": 90.5,
+    "w": 76.4,
+    "h": 25.4,
+    "relleno": "#fafafa",
+    "borde": null
+   }
+  ],
+  "tipo": "clara",
+  "paleta": [
+   {
+    "hex": "#ffffff",
+    "pct": 54.7
+   },
+   {
+    "hex": "#222633",
+    "pct": 15.4
+   },
+   {
+    "hex": "#f1f4f8",
+    "pct": 10.7
+   },
+   {
+    "hex": "#e5e7e9",
+    "pct": 8.9
+   },
+   {
+    "hex": "#f9fafb",
+    "pct": 5.2
+   }
+  ]
+ },
+ {
+  "pagina": 5,
+  "fondo": "#ffffff",
+  "oscura": false,
+  "bloques": [
+   {
+    "texto": "6. Conclusiones",
+    "fuente": "Calibri-Bold",
+    "tam_cqw": 2.45,
+    "color": "#1b365d",
+    "x": 11.8,
+    "y": 17.5,
+    "w": 15.7,
+    "h": 2.5,
+    "alinea": "izq"
+   },
+   {
+    "texto": "1.Seconfiguraronadecuadamentelascuentasdeusuarioylosgruposprimariosrequeridosporlaguía / delaactividad. / 2.Laasignacióndelpermisooctal770sobrelosdirectoriosdep",
+    "fuente": "Calibri",
+    "tam_cqw": 1.81,
+    "color": "#333333",
+    "x": 11.8,
+    "y": 21.7,
+    "w": 75.4,
+    "h": 14.4,
+    "alinea": "centro"
+   }
+  ],
+  "imagenes": [],
+  "recuadros": [],
+  "tipo": "clara",
+  "paleta": [
+   {
+    "hex": "#ffffff",
+    "pct": 95.4
+   },
+   {
+    "hex": "#b5b6b8",
+    "pct": 0.9
+   },
+   {
+    "hex": "#c7c7c8",
+    "pct": 0.9
+   },
+   {
+    "hex": "#e5e5e6",
+    "pct": 0.8
+   },
+   {
+    "hex": "#f4f4f4",
+    "pct": 0.7
+   }
+  ]
+ }
+]

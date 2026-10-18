@@ -26,5 +26,14 @@
   "ocre": "#A7AA63",
   "crema": "#EAE6D2",
   "arena": "#EAE6D2"
+ },
+ "linux": {
+  "negro": "#051E24",
+  "bosque": "#051E24",
+  "hoja": "#0C4651",
+  "vivo": "#E6FF2B",
+  "ocre": "#E6FF2B",
+  "crema": "#F8F7F2",
+  "arena": "#89888F"
  }
 }

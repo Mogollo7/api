@@ -1,0 +1,112 @@
+{
+ "estado": "con_avisos",
+ "errores": [],
+ "avisos": [
+  {
+   "bloque": "paleta vivo / crema",
+   "causa": "solo 2 puntos de claridad (L*) de diferencia: se confunden en escala de grises",
+   "ajuste": "no los uses juntos como series distintas; añade borde negro o diferencia la claridad"
+  }
+ ],
+ "auditoria": {},
+ "imagenes_necesarias": [
+  {
+   "src": null,
+   "need": "Captura de la terminal con `lsb_release -a` y `uname -a` en Kali Linux."
+  },
+  {
+   "src": null,
+   "need": "Captura de la terminal con `stat /srv/sistemas/privado_sistemas.txt` mostrando `Access: (0660/-rw-rw----)`."
+  },
+  {
+   "src": null,
+   "need": "Captura de la terminal con `sudo -u carla cat /srv/sistemas/privado_sistemas.txt` y el mensaje «Permiso denegado»."
+  },
+  {
+   "src": null,
+   "need": "Captura de la terminal con `sudo -u bruno ls /srv/sistemas` o `cd /srv/sistemas` y su «Permiso denegado»."
+  }
+ ],
+ "secciones": [
+  {
+   "id": "intro",
+   "n": "01",
+   "pagina": 3
+  },
+  {
+   "id": "escenario",
+   "n": "02",
+   "pagina": 4
+  },
+  {
+   "id": "octal",
+   "n": "03",
+   "pagina": 7
+  },
+  {
+   "id": "comandos",
+   "n": "04",
+   "pagina": 8
+  },
+  {
+   "id": "punto1",
+   "n": "05",
+   "pagina": 10
+  },
+  {
+   "id": "punto1b",
+   "n": "06",
+   "pagina": 12
+  },
+  {
+   "id": "punto2",
+   "n": "07",
+   "pagina": 13
+  },
+  {
+   "id": "punto3",
+   "n": "08",
+   "pagina": 14
+  },
+  {
+   "id": "punto4",
+   "n": "09",
+   "pagina": 15
+  },
+  {
+   "id": "matriz",
+   "n": "10",
+   "pagina": 18
+  },
+  {
+   "id": "conclusiones",
+   "n": "11",
+   "pagina": 19
+  },
+  {
+   "id": "refs",
+   "n": "12",
+   "pagina": 20
+  }
+ ],
+ "correcciones_contraste": [
+  {
+   "texto": "0",
+   "de": "#f8f7f2",
+   "a": "#051e24",
+   "via": "rol negro",
+   "ratio_antes": 3.27,
+   "ratio_despues": 4.91
+  }
+ ],
+ "variantes_usadas": [
+  "CV-2",
+  "DV-F"
+ ],
+ "variantes_no_aprobadas": [
+  "CV-2",
+  "DV-F"
+ ],
+ "paginas": 20,
+ "segundos": 3.3
+}

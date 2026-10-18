@@ -1,0 +1,538 @@
+{
+  "contract": "1.0",
+  "design": "anura",
+  "format": "pdf-a4",
+  "palette": "linux",
+  "options": {
+    "seed": 11,
+    "density": "aireado"
+  },
+  "meta": {
+    "title": "Gestión de usuarios, grupos y permisos en Linux",
+    "author": "Samuel Usma Brand, Juan Sebastián Martínez Galeano",
+    "date": "Octubre 2026",
+    "version": "Evaluación parcial · v1",
+    "header_left": [
+      "SISTEMAS OPERATIVOS",
+      "Informe práctico"
+    ],
+    "footer": "Sistemas Operativos · Evaluación parcial · Kali Linux"
+  },
+  "document": {
+    "cover": {
+      "variant": "CV-2",
+      "vertical": "PERMISOS",
+      "title": "Gestión de usuarios, grupos y permisos en Linux",
+      "text": "Informe práctico de administración en Kali Linux: tres grupos departamentales, tres usuarios y un archivo privado protegido con el modelo octal POSIX.",
+      "header": [
+        "EQUIPO",
+        "Samuel Usma Brand",
+        "Juan Sebastián Martínez Galeano"
+      ]
+    },
+    "parts": [
+      {
+        "id": "p1",
+        "title": "Planteamiento",
+        "desc": "Qué se hizo, con quién y en qué entorno.",
+        "divider": "DV-F",
+        "sections": [
+          {
+            "id": "intro",
+            "title": "Introducción y objetivos",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Este informe documenta la solución práctica de la actividad de administración de sistemas Linux, realizada en Kali Linux. Evidencia la creación de usuarios y grupos de trabajo, la asignación de permisos sobre directorios departamentales y el control de acceso sobre un archivo privado mediante el modelo de permisos octales POSIX."
+              },
+              {
+                "type": "h",
+                "text": "Objetivos"
+              },
+              {
+                "type": "list",
+                "ordered": true,
+                "items": [
+                  "Crear los grupos departamentales **sistemas**, **redes** y **soporte**.",
+                  "Crear un usuario por grupo (**ana**, **bruno**, **carla**) con su grupo principal y su directorio personal.",
+                  "Crear un directorio por departamento en `/srv/` con permisos `770`.",
+                  "Crear un archivo privado en el directorio de Sistemas con permisos `660`.",
+                  "Verificar con pruebas de acceso que la política se cumple."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "nota",
+                "label": "Fuente del contenido",
+                "text": "Los comandos, las salidas y las capturas son de la ejecución del equipo [FUENTE]. Las explicaciones del marco teórico son conocimiento general de Linux; su referencia exacta queda como dato pendiente."
+              }
+            ]
+          },
+          {
+            "id": "escenario",
+            "title": "Escenario: tres áreas, tres cuentas",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Cada departamento tiene un grupo y una persona usuaria. El identificador numérico de cada cuenta (UID) y el de su grupo (GID) coinciden, tal como muestra el comando `id` en la captura del Punto 1."
+              },
+              {
+                "type": "table",
+                "head": [
+                  "Departamento",
+                  "Grupo",
+                  "Usuario",
+                  "UID",
+                  "GID",
+                  "Directorio"
+                ],
+                "rows": [
+                  [
+                    "Sistemas",
+                    "sistemas",
+                    "ana",
+                    "1001",
+                    "1001",
+                    "/srv/sistemas"
+                  ],
+                  [
+                    "Redes",
+                    "redes",
+                    "bruno",
+                    "1002",
+                    "1002",
+                    "/srv/redes"
+                  ],
+                  [
+                    "Soporte",
+                    "soporte",
+                    "carla",
+                    "1003",
+                    "1003",
+                    "/srv/soporte"
+                  ]
+                ],
+                "caption": "Tabla 1. Cuentas, grupos y directorios del escenario. UID y GID leídos con `id` [FUENTE]."
+              },
+              {
+                "type": "kpi",
+                "items": [
+                  {
+                    "v": "3",
+                    "l": "grupos",
+                    "note": "[FUENTE]"
+                  },
+                  {
+                    "v": "3",
+                    "l": "usuarios",
+                    "note": "[FUENTE]"
+                  },
+                  {
+                    "v": "3",
+                    "l": "directorios",
+                    "note": "[FUENTE]"
+                  },
+                  {
+                    "v": "1",
+                    "l": "archivo privado",
+                    "note": "[FUENTE]"
+                  }
+                ]
+              },
+              {
+                "type": "image",
+                "need": "Captura de la terminal con `lsb_release -a` y `uname -a` en Kali Linux.",
+                "caption": "Entorno de la práctica: versión de Kali y del kernel.",
+                "ratio": "16/6",
+                "treatment": "original"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "title": "Marco de permisos",
+        "desc": "Cómo se leen los permisos octales y qué hace cada comando.",
+        "divider": "DV-F",
+        "sections": [
+          {
+            "id": "octal",
+            "title": "Leer un permiso octal",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "En Linux cada archivo guarda tres juegos de permisos: para la persona propietaria, para el grupo propietario y para el resto. Cada juego suma tres valores: lectura **r = 4**, escritura **w = 2** y ejecución **x = 1**. Un directorio necesita `x` para poder entrar en él."
+              },
+              {
+                "type": "table",
+                "head": [
+                  "Octal",
+                  "Símbolos",
+                  "Suma",
+                  "Significado"
+                ],
+                "rows": [
+                  [
+                    "7",
+                    "rwx",
+                    "4 + 2 + 1",
+                    "leer, escribir y ejecutar o entrar"
+                  ],
+                  [
+                    "6",
+                    "rw-",
+                    "4 + 2",
+                    "leer y escribir"
+                  ],
+                  [
+                    "0",
+                    "---",
+                    "0",
+                    "sin ningún permiso"
+                  ]
+                ],
+                "caption": "Tabla 2. Los tres dígitos que usa esta práctica [CALC]."
+              },
+              {
+                "type": "compare",
+                "left": {
+                  "title": "770",
+                  "sub": "directorios /srv/…",
+                  "items": [
+                    "propietario: rwx",
+                    "grupo: rwx",
+                    "resto: ---"
+                  ]
+                },
+                "right": {
+                  "title": "660",
+                  "sub": "privado_sistemas.txt",
+                  "items": [
+                    "propietario: rw-",
+                    "grupo: rw-",
+                    "resto: ---"
+                  ]
+                },
+                "verdict": "En ambos casos el resto del sistema queda sin acceso."
+              }
+            ]
+          },
+          {
+            "id": "comandos",
+            "title": "Los comandos del informe",
+            "blocks": [
+              {
+                "type": "table",
+                "head": [
+                  "Comando",
+                  "Qué hace"
+                ],
+                "rows": [
+                  [
+                    "`groupadd`",
+                    "crea un grupo"
+                  ],
+                  [
+                    "`useradd -m -g grupo usuario`",
+                    "crea el usuario con directorio personal (`-m`) y grupo principal (`-g`)"
+                  ],
+                  [
+                    "`mkdir -p`",
+                    "crea el directorio y las rutas intermedias que falten"
+                  ],
+                  [
+                    "`chown :grupo ruta`",
+                    "cambia solo el grupo propietario"
+                  ],
+                  [
+                    "`chmod modo ruta`",
+                    "cambia los permisos"
+                  ],
+                  [
+                    "`touch`",
+                    "crea un archivo vacío"
+                  ],
+                  [
+                    "`sudo -u usuario comando`",
+                    "ejecuta el comando como otra cuenta"
+                  ]
+                ],
+                "caption": "Tabla 3. Resumen de los comandos usados [SIN FUENTE]."
+              },
+              {
+                "type": "callout",
+                "tone": "pend",
+                "label": "Referencia pendiente",
+                "text": "Falta citar las páginas del manual (`man useradd`, `man chmod`, `man chown`) con su versión. Dato pendiente."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "title": "Desarrollo",
+        "desc": "Los cuatro puntos de la actividad con su evidencia.",
+        "divider": "DV-F",
+        "sections": [
+          {
+            "id": "punto1",
+            "title": "Punto 1: usuarios y grupos",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Se crearon los tres grupos departamentales y, después, un usuario por grupo con su grupo principal."
+              },
+              {
+                "type": "code",
+                "lang": "bash",
+                "code": "sudo groupadd sistemas\nsudo groupadd redes\nsudo groupadd soporte\n\nsudo useradd -m -g sistemas ana\nsudo useradd -m -g redes bruno\nsudo useradd -m -g soporte carla",
+                "caption": "Comandos ejecutados."
+              },
+              {
+                "type": "image",
+                "src": "informe_linux/captura-id.png",
+                "treatment": "original",
+                "nocredit": true,
+                "ratio": "648/400",
+                "caption": "Salida de `id` para ana, bruno y carla: cada UID y GID coincide con su grupo [FUENTE]."
+              }
+            ]
+          },
+          {
+            "id": "punto1b",
+            "title": "Cuentas registradas en el sistema",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Los archivos `/etc/passwd` y `/etc/group` guardan las cuentas y los grupos. Las líneas de ana, bruno y carla aparecen resaltadas en rojo, con `/home/<usuario>` como directorio y `/bin/sh` como intérprete de comandos."
+              },
+              {
+                "type": "image",
+                "src": "informe_linux/captura-passwd-group.png",
+                "treatment": "original",
+                "nocredit": true,
+                "ratio": "628/325",
+                "caption": "Búsqueda con `grep -E` en `/etc/passwd` y `/etc/group` [FUENTE]."
+              },
+              {
+                "type": "callout",
+                "tone": "ojo",
+                "label": "Lectura de la captura",
+                "text": "El filtro `ana|bruno|carla` también atrapa líneas ajenas (por ejemplo «Manager»), porque busca la cadena dentro de cualquier palabra. Para el informe solo cuentan las tres líneas en rojo."
+              }
+            ]
+          },
+          {
+            "id": "punto2",
+            "title": "Punto 2: directorios departamentales",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Se creó un directorio por departamento en `/srv/`, con el grupo del departamento como propietario y modo `770`."
+              },
+              {
+                "type": "code",
+                "lang": "bash",
+                "code": "sudo mkdir -p /srv/sistemas /srv/redes /srv/soporte\nsudo chown :sistemas /srv/sistemas\nsudo chown :redes /srv/redes\nsudo chown :soporte /srv/soporte\nsudo chmod 770 /srv/sistemas /srv/redes /srv/soporte",
+                "caption": "Comandos ejecutados."
+              },
+              {
+                "type": "image",
+                "src": "informe_linux/captura-ls-directorios.png",
+                "treatment": "original",
+                "nocredit": true,
+                "ratio": "493/99",
+                "caption": "Resultado de `ls -ld`: `drwxrwx---`, propietario `root`, grupo del departamento [FUENTE]."
+              }
+            ]
+          },
+          {
+            "id": "punto3",
+            "title": "Punto 3: archivo privado",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Dentro del directorio de Sistemas se creó `privado_sistemas.txt`, con grupo `sistemas` y modo `660`."
+              },
+              {
+                "type": "code",
+                "lang": "bash",
+                "code": "sudo touch /srv/sistemas/privado_sistemas.txt\nsudo chown :sistemas /srv/sistemas/privado_sistemas.txt\nsudo chmod 660 /srv/sistemas/privado_sistemas.txt",
+                "caption": "Comandos ejecutados."
+              },
+              {
+                "type": "image",
+                "src": "informe_linux/captura-ls-archivo.png",
+                "treatment": "original",
+                "nocredit": true,
+                "ratio": "524/73",
+                "caption": "`ls -l`: permisos `-rw-rw----`, tamaño 0 antes de las pruebas [FUENTE]."
+              },
+              {
+                "type": "image",
+                "need": "Captura de la terminal con `stat /srv/sistemas/privado_sistemas.txt` mostrando `Access: (0660/-rw-rw----)`.",
+                "caption": "Permiso octal `0660` leído con `stat`.",
+                "ratio": "16/6",
+                "treatment": "original"
+              }
+            ]
+          },
+          {
+            "id": "punto4",
+            "title": "Punto 4: pruebas de acceso",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Se simuló el acceso de la usuaria autorizada (ana, del grupo sistemas) y de un usuario de otro departamento (bruno, del grupo redes) con `sudo -u`."
+              },
+              {
+                "type": "code",
+                "lang": "bash",
+                "code": "# Prueba con Ana (grupo sistemas)\nsudo -u ana bash -c \"echo 'prueba de acceso de ana' >> /srv/sistemas/privado_sistemas.txt && cat /srv/sistemas/privado_sistemas.txt\"\n\n# Prueba con Bruno (grupo redes)\nsudo -u bruno cat /srv/sistemas/privado_sistemas.txt",
+                "caption": "Comandos ejecutados."
+              },
+              {
+                "type": "image",
+                "src": "informe_linux/captura-pruebas.png",
+                "treatment": "original",
+                "nocredit": true,
+                "ratio": "634/169",
+                "caption": "Ana escribe y lee el archivo; a Bruno el sistema le responde «Permiso denegado» [FUENTE]."
+              },
+              {
+                "type": "image",
+                "need": "Captura de la terminal con `sudo -u carla cat /srv/sistemas/privado_sistemas.txt` y el mensaje «Permiso denegado».",
+                "caption": "Carla, del grupo soporte, tampoco puede leer el archivo.",
+                "ratio": "16/6",
+                "treatment": "original"
+              },
+              {
+                "type": "image",
+                "need": "Captura de la terminal con `sudo -u bruno ls /srv/sistemas` o `cd /srv/sistemas` y su «Permiso denegado».",
+                "caption": "Bruno no puede entrar al directorio de Sistemas.",
+                "ratio": "16/6",
+                "treatment": "original"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "title": "Resultados y cierre",
+        "desc": "Qué se comprobó, qué falta y qué se concluye.",
+        "divider": "DV-F",
+        "sections": [
+          {
+            "id": "matriz",
+            "title": "Matriz de verificación",
+            "blocks": [
+              {
+                "type": "table",
+                "head": [
+                  "Quién",
+                  "Grupo",
+                  "Acción",
+                  "Resultado esperado",
+                  "Resultado observado"
+                ],
+                "rows": [
+                  [
+                    "ana",
+                    "sistemas",
+                    "escribir y leer el archivo",
+                    "permitido (`rw-` de grupo)",
+                    {
+                      "t": "permitido [FUENTE]",
+                      "tone": "f"
+                    }
+                  ],
+                  [
+                    "bruno",
+                    "redes",
+                    "leer el archivo",
+                    "denegado (resto `---`)",
+                    {
+                      "t": "denegado [FUENTE]",
+                      "tone": "f"
+                    }
+                  ],
+                  [
+                    "carla",
+                    "soporte",
+                    "leer el archivo",
+                    "denegado (resto `---`)",
+                    {
+                      "t": "dato pendiente",
+                      "tone": "p"
+                    }
+                  ],
+                  [
+                    "bruno",
+                    "redes",
+                    "entrar en /srv/sistemas",
+                    "denegado (resto `---`)",
+                    {
+                      "t": "dato pendiente",
+                      "tone": "p"
+                    }
+                  ]
+                ],
+                "caption": "Tabla 4. Lo comprobado y lo que falta por comprobar."
+              },
+              {
+                "type": "callout",
+                "tone": "pend",
+                "label": "Pruebas sin evidencia",
+                "text": "Las capturas no muestran a carla ni la entrada de bruno en `/srv/sistemas`. Esas dos filas quedan como dato pendiente hasta tener su captura."
+              }
+            ]
+          },
+          {
+            "id": "conclusiones",
+            "title": "Conclusiones",
+            "blocks": [
+              {
+                "type": "list",
+                "ordered": true,
+                "items": [
+                  "Las cuentas de usuario y los grupos primarios pedidos por la actividad quedaron configurados.",
+                  "El modo `770` en los directorios deja a las personas ajenas a cada área sin permisos sobre ellos. Esa conclusión se apoya en los permisos de `ls -ld`; la entrada de otra cuenta aún no tiene captura.",
+                  "Las pruebas con `sudo -u` confirmaron que ana accede al archivo de su área y que a bruno se le denegó el acceso por pertenecer al grupo redes."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "clave",
+                "label": "Idea clave",
+                "text": "La seguridad aquí depende del **grupo propietario** y de un tercer dígito en `0`: quien no es del grupo no entra."
+              },
+              {
+                "type": "callout",
+                "tone": "nota",
+                "label": "Mejora propuesta",
+                "text": "Repetir la prueba con carla y con la entrada a los directorios, y guardar cada salida en una captura. [INF]"
+              }
+            ]
+          },
+          {
+            "id": "refs",
+            "title": "Referencias",
+            "blocks": [
+              {
+                "type": "refs",
+                "numbered": true,
+                "items": [
+                  "Páginas del manual de Linux: `useradd`, `groupadd`, `chown`, `chmod`, `mkdir`, `touch`, `sudo`. Versión y fecha de consulta: dato pendiente.",
+                  "Capturas de pantalla y salidas de terminal de la ejecución del equipo en Kali Linux, 18 de octubre de 2026."
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
