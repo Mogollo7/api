@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # [CLAUDE-CONSTRUCTOR] Construye la versión ESTÁTICA de la web para GitHub Pages (sin API): catálogo, formatos, ejemplos, estadísticas y documentación.
-"""python servidor/tools/pages.py [--salida _site] [--base /guia] [--origen http://127.0.0.1:8765]
+"""python servidor/tools/pages.py [--salida _site] [--base /api] [--origen http://127.0.0.1:8765]
 
 Copia servidor/web/ a <salida>/web/, escribe index.html y 404.html (para que /catalogo, /formatos… funcionen al recargar) con las rutas bajo --base y sin llamadas a /v1,
 y la lista de diseños publicados (servidor/designs/*/manifest.json). La parte que necesita la API (Taller, renderizar, descargar) avisa que corre en local.
@@ -31,7 +31,7 @@ def disenos():
 def main():
     a = sys.argv[1:]
     opt = lambda k, d: a[a.index(k) + 1] if k in a else d      # noqa: E731
-    sal, base, origen = Path(opt("--salida", "_site")), "/" + opt("--base", "/guia").strip("/"), opt("--origen", "http://127.0.0.1:8765")
+    sal, base, origen = Path(opt("--salida", "_site")), "/" + opt("--base", "/api").strip("/"), opt("--origen", "http://127.0.0.1:8765")
     if sal.exists():
         shutil.rmtree(sal)
     shutil.copytree(WEB, sal / "web", ignore=shutil.ignore_patterns("app.legacy.html", "_*"))

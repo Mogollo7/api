@@ -7,9 +7,9 @@ API local que convierte contenido en **PDF, PowerPoint, Word, Excel, video y pá
 
 [![Video: Build once. Connect any AI.](docs/media/hero.gif)](docs/media/hero.mp4)
 
-*Clic en la animación para ver el video completo (67 s, con banda sonora propia). Todo el video fue hecho con myStyle: `create_video` con escenas `:::motion` (fuente: [`contenido/video_brag.md`](contenido/video_brag.md)), estilo brutalismo, anime.js y GSAP, transiciones y partículas. Incluye la sección `/brag`: «Haz trabajar a Haiku como si fuera Opus».*
+*Clic en la animación para ver el video completo (80 s, con banda sonora propia). Todo el video fue hecho con myStyle: `create_video` con escenas `:::motion` (fuente: [`contenido/video_brag.md`](contenido/video_brag.md)), estilo brutalismo, anime.js y GSAP, transiciones, partículas y capturas reales de la web. Incluye la sección `/brag`: «Haiku trabaja como Opus a bajo precio».*
 
-**[Ver la web (demo estática)](https://mogollo7.github.io/guia/)** · [Conectar un agente](#conectar-tu-agente) · [Herramientas](#herramientas) · [Decisiones](docs/decisions)
+**[Ver la web (demo estática)](https://mogollo7.github.io/api/)** · [Conectar un agente](#conectar-tu-agente) · [Herramientas](#herramientas) · [Decisiones](docs/decisions)
 
 </div>
 
@@ -60,7 +60,7 @@ La web se sirve desde la misma API. Estas capturas son de esa web.
 ## Inicio rápido
 
 ```bash
-git clone https://github.com/Mogollo7/guia.git && cd guia
+git clone https://github.com/Mogollo7/api.git && cd api
 pip install -r servidor/requirements.txt && python -m playwright install chromium
 python servidor/api.py --puerto 8765 --imagenes imagenes     # http://127.0.0.1:8765
 python servidor/conectar.py comprobar                         # qué falta y cómo instalarlo

@@ -25,11 +25,11 @@ import random
 import re
 from pathlib import Path
 
-KINDS = ("palabra", "nombres", "cartas", "cerebro", "documento", "flujo", "contador", "estados", "final", "nota")
+KINDS = ("palabra", "nombres", "cartas", "cerebro", "captura", "documento", "flujo", "contador", "estados", "final", "nota")
 FONDOS = ["negro", "crema", "vivo", "negro", "ocre", "bosque"]
 FX = ["particulas", "rejilla", "trama", "anillos", "lineas"]
 TRANS = ["persianas", "barrido", "bloques"]
-DUR = {"palabra": 2.5, "nombres": 4, "cartas": 4, "cerebro": 3.5, "documento": 4, "flujo": 4.5, "contador": 3, "estados": 4, "final": 4, "nota": 3}
+DUR = {"palabra": 2.5, "nombres": 4, "cartas": 4, "cerebro": 3.5, "documento": 4, "flujo": 4.5, "contador": 3, "estados": 4, "final": 4, "nota": 3, "captura": 3.5}
 LUCIDE = Path(__file__).resolve().parent / "tools" / "node" / "node_modules" / "lucide-static" / "icons"
 ICONOS = [("pdf", "file-text"), ("pptx", "presentation"), ("video", "video"), ("render", "layers"), ("audit", "shield-check"), ("quality", "badge-check"),
           ("search", "search"), ("librar", "book-open"), ("recipe", "chef-hat"), ("receta", "chef-hat"), ("compose", "layers"), ("patch", "wrench"),
@@ -140,6 +140,19 @@ def transicion(dr, n, t_corte, kind, c1, c2):
     dr.tweens += tw
 
 
+def _copiar_captura(dr, ruta):
+    """Copia una captura (imagenes/… o una ruta del repositorio) al proyecto del video. Devuelve el src o None."""
+    import shutil
+    raiz = Path(__file__).resolve().parent.parent
+    for f in (raiz / "imagenes" / ruta, raiz / ruta, raiz / "docs" / "media" / Path(ruta).name):
+        if f.is_file() and f.suffix.lower() in (".png", ".jpg", ".jpeg", ".webp") and raiz in f.resolve().parents:
+            dst = Path(dr.out_dir) / "assets" / "img"
+            dst.mkdir(parents=True, exist_ok=True)
+            shutil.copy(f, dst / f.name)
+            return f"assets/img/{f.name}"
+    return None
+
+
 def dirigir(dr, escenas, meta):
     """Añade al director las escenas pedidas (una por línea) y las transiciones entre ellas. Devuelve la lista de avisos."""
     avisos, total, cortes = [], 0.0, []
@@ -170,46 +183,69 @@ def dirigir(dr, escenas, meta):
             return js + [f'tl.fromTo("#$S-ct",{{scale:1}},{{scale:1.045,duration:{d:.3f},ease:"none"}},{t0:.3f});']   # la cámara empuja despacio
 
         if k == "palabra":
-            px = fit(t.upper(), (W - 2 * dr.pad) * .82, 2, 280, 80)       # margen: Anton es más ancha que la estimación
+            larga = max(t.upper().split(), key=len) if t.split() else t
+            px = min(fit(t.upper(), (W - 2 * dr.pad) * .8, 2, 280, 80),      # margen: Anton es más ancha que la estimación
+                     fit(larga + "  ", (W - 2 * dr.pad) * .8, 1, 280, 60))   # la palabra más larga cabe entera en una línea
             pal = t.split()
+            ok = "vivo" if bg != "vivo" else "negro"                       # la última palabra termina «aprobada»: caja verde y check
 
-            def cont(s, pal=pal, px=px, ac=ac, bg=bg):
+            def cont(s, pal=pal, px=px, ac=ac, bg=bg, ok=ok):
                 cuerpo = letras(" ".join(pal[:-1]).upper())
                 if pal:
-                    cuerpo += (f' <span class="wd hlw" style="color:var(--{bg})"><span class="hl" id="{s}-hl" style="background:var(--{ac})"></span>'
-                               + "".join(f'<span class="lt">{esc(ch)}</span>' for ch in pal[-1].upper()) + "</span>")
+                    cuerpo += (f' <span class="wd hlw" id="{s}-hw" style="color:var(--{bg})"><span class="hl" id="{s}-hl" style="background:var(--{ac})"></span>'
+                               + "".join(f'<span class="lt">{esc(ch)}</span>' for ch in pal[-1].upper()) + "</span>"
+                               + f'<span class="okc" id="{s}-ok" style="color:var(--{ok})">{icono("circle-check", "ic okic")}</span>')
                 return f'<div class="mw" style="font-size:{px}px">{cuerpo}</div><div class="rule" id="{s}-r" style="color:var(--{ac})"></div>'
-            dr.scene(bars, bg, con_fondo(cont), lambda t0, d, tw_fondo=tw_fondo: tw_fondo(t0, d) + [
-                f'tl.fromTo("#$S .lt",{{yPercent:115,rotation:8}},{{yPercent:0,rotation:0,duration:.5,ease:"expo.out",stagger:.025}},{t0 + .05:.3f});',
-                f'tl.fromTo("#$S-hl",{{scaleX:0}},{{scaleX:1,duration:.45,ease:"power4.inOut"}},{t0 + .45:.3f});',
-                f'tl.fromTo("#$S-r",{{scaleX:0}},{{scaleX:1,duration:.5,ease:"power4.inOut"}},{t0 + .55:.3f});'])
+
+            def tw(t0, d, ok=ok, ac=ac, tw_fondo=tw_fondo):
+                out = tw_fondo(t0, d) + [
+                    f'tl.fromTo("#$S .lt",{{yPercent:115,rotation:8}},{{yPercent:0,rotation:0,duration:.5,ease:"expo.out",stagger:.025}},{t0 + .05:.3f});',
+                    f'tl.fromTo("#$S-hl",{{scaleX:0}},{{scaleX:1,duration:.45,ease:"power4.inOut"}},{t0 + .45:.3f});',
+                    f'tl.fromTo("#$S-r",{{scaleX:0}},{{scaleX:1,duration:.5,ease:"power4.inOut"}},{t0 + .55:.3f});']
+                ta = t0 + min(1.0, d * .45)
+                if ok != ac:
+                    out.append(f'tl.to("#$S-hl",{{backgroundColor:"var(--{ok})",duration:.25,ease:"power2.out"}},{ta:.3f});')
+                    out.append(f'tl.to("#$S-hw",{{color:"var(--{"negro" if ok == "vivo" else "vivo"})",duration:.25}},{ta:.3f});')
+                out.append(f'tl.fromTo("#$S-ok",{{scale:0,rotation:-40}},{{scale:1,rotation:0,duration:.4,ease:"back.out(2)"}},{ta + .05:.3f});')
+                out.append(draw("#$S-ok .okic *", ta + .1, .4, .08))
+                return out
+            dr.scene(bars, bg, con_fondo(cont), tw)
         elif k == "nombres":
-            nom = items(t)[:8]
-            hub = e.get("extra")
-            cx, cy = W / 2, H / 2
-            rx, ry = W * 0.33, H * 0.31
+            nom = items(t)[:6]
+            hub = e.get("extra") or "MOTOR"
+            cx, cy = W / 2, H * .5
+            rx, ry = W * .36, H * .33
             pos = [(cx + rx * math.cos(-math.pi / 2 + 2 * math.pi * i / len(nom)), cy + ry * math.sin(-math.pi / 2 + 2 * math.pi * i / len(nom))) for i in range(len(nom))]
-            fs = round(H * 0.052)
+            AG = {"claude": "square-terminal", "codex": "code-xml", "opencode": "braces", "antigravity": "rocket", "agente": "user"}
+            ics = [next((v for k2, v in AG.items() if k2 in x.lower()), "bot") for x in nom]
+            fs = round(H * .046)
 
-            def cont(s, nom=nom, hub=hub, pos=pos, fs=fs, ac=ac, bg=bg):
-                lines = "".join(f'<line pathLength="1" x1="{cx:.0f}" y1="{cy:.0f}" x2="{x:.0f}" y2="{y:.0f}"/>' for x, y in pos) if hub else ""
-                h = (f'<div class="hub" id="{s}-h" style="left:{cx:.0f}px;top:{cy:.0f}px;background:var(--{ac});color:var(--{bg})">{icono("server", "ic hic")}<span>{esc(hub)}</span></div>'
-                     f'<i class="pulse" id="{s}-pu" style="left:{cx:.0f}px;top:{cy:.0f}px;border-color:var(--{ac})"></i>') if hub else ""
-                chips = "".join(f'<div class="nm" id="{s}-n{i}" style="left:{x:.0f}px;top:{y:.0f}px;font-size:{fs}px;border-color:var(--{ac})">{icono("bot", "ic nic")}<span>{esc(x_)}</span></div>'
-                                for i, ((x, y), x_) in enumerate(zip(pos, nom)))
-                return f'<svg class="wires" viewBox="0 0 {W} {H}" style="color:var(--{ac})">{lines}</svg>' + h + chips
+            def cont(s, nom=nom, hub=hub, pos=pos, fs=fs, ac=ac, bg=bg, ics=ics):
+                wires = "".join(f'<path pathLength="1" d="M{x:.0f},{y:.0f} L{cx:.0f},{cy:.0f}"/>' for x, y in pos)
+                h = (f'<div class="hub2" id="{s}-h" style="left:{cx:.0f}px;top:{cy:.0f}px;background:var(--{ac});color:var(--{bg})">{icono("server", "ic hic")}'
+                     f'<div><b>{esc(hub)}</b><small class="mono">MCP · HTTP · CLI</small></div></div>'
+                     f'<i class="pulse" id="{s}-pu" style="left:{cx:.0f}px;top:{cy:.0f}px;border-color:var(--{ac})"></i>')
+                pk = "".join(f'<i class="pk" id="{s}-k{i}" style="left:{x:.0f}px;top:{y:.0f}px;background:var(--{ac})"></i>' for i, (x, y) in enumerate(pos))
+                chips = "".join(f'<div class="ag" id="{s}-n{i}" style="left:{x:.0f}px;top:{y:.0f}px;font-size:{fs}px;border-color:var(--{ac})">'
+                                f'<span class="agi" style="background:var(--{ac});color:var(--{bg})">{icono(ic, "ic nic")}</span><span>{esc(x_)}</span></div>'
+                                for i, ((x, y), x_, ic) in enumerate(zip(pos, nom, ics)))
+                return f'<svg class="wires" viewBox="0 0 {W} {H}" style="color:var(--{ac})">{wires}</svg>' + pk + h + chips
 
-            def tw(t0, d, nom=nom, hub=hub, tw_fondo=tw_fondo):
-                g = min(.45, (d - 1.6) / max(1, len(nom)))
+            def tw(t0, d, nom=nom, pos=pos, tw_fondo=tw_fondo):
+                g = min(.35, (d - 2.4) / max(1, len(nom)))
                 out = tw_fondo(t0, d)
-                for i in range(len(nom)):
-                    out.append(f'tl.fromTo("#$S-n{i}",{{xPercent:-50,yPercent:-50,scale:2.4,opacity:0,filter:"blur(24px)"}},{{xPercent:-50,yPercent:-50,scale:1,opacity:1,filter:"blur(0px)",duration:.55,ease:"expo.out"}},{t0 + .15 + i * g:.3f});')
-                    out.append(draw(f"#$S-n{i} .nic *", t0 + .35 + i * g, .5, 0))
-                if hub:
-                    th = t0 + .15 + len(nom) * g
-                    out += [f'tl.fromTo("#$S-h",{{xPercent:-50,yPercent:-50,scale:0,rotation:-90}},{{xPercent:-50,yPercent:-50,scale:1,rotation:0,duration:.6,ease:"back.out(1.8)"}},{th:.3f});',
-                            draw("#$S .wires line", th + .1, .45, .06), draw("#$S-h .hic *", th + .2, .5, 0),
-                            f'tl.fromTo("#$S-pu",{{scale:.4,opacity:.9}},{{scale:4,opacity:0,duration:.9,ease:"power2.out",repeat:1}},{th + .5:.3f});']
+                out.append(f'tl.fromTo("#$S-h",{{xPercent:-50,yPercent:-50,scale:0,rotation:-8}},{{xPercent:-50,yPercent:-50,scale:1,rotation:0,duration:.55,ease:"back.out(1.8)"}},{t0 + .1:.3f});')
+                out.append(draw("#$S-h .hic *", t0 + .25, .5, 0))
+                for i, (x, y) in enumerate(pos):
+                    ti = t0 + .45 + i * g
+                    out.append(f'tl.fromTo("#$S-n{i}",{{xPercent:-50,yPercent:-50,scale:2.2,opacity:0,filter:"blur(22px)"}},{{xPercent:-50,yPercent:-50,scale:1,opacity:1,filter:"blur(0px)",duration:.5,ease:"expo.out"}},{ti:.3f});')
+                    out.append(draw(f"#$S-n{i} .nic *", ti + .2, .45, 0))
+                    out.append(draw(f"#$S .wires path:nth-child({i + 1})", ti + .25, .45, 0))
+                    for r in range(3):                                   # paquetes que viajan del agente al motor
+                        tp = ti + .7 + r * .55
+                        if tp + .5 < t0 + d - .2:
+                            out.append(f'tl.fromTo("#$S-k{i}",{{x:0,y:0,opacity:1,scale:1}},{{x:{cx - x:.0f},y:{cy - y:.0f},opacity:.2,scale:.5,duration:.5,ease:"power1.in",immediateRender:false}},{tp:.3f});')
+                out.append(f'tl.fromTo("#$S-pu",{{scale:.5,opacity:.9}},{{scale:3.4,opacity:0,duration:.8,ease:"power2.out",repeat:2}},{t0 + .7 + len(nom) * g:.3f});')
                 return out
             dr.scene(bars, bg, con_fondo(cont), tw)
         elif k == "cartas":
@@ -235,24 +271,37 @@ def dirigir(dr, escenas, meta):
             dr.scene(bars, bg, con_fondo(cont), tw)
         elif k == "cerebro":
             rnd = random.Random(semilla)
-            cx, cy = W * .5, H * .34
-            nodes = [(cx + rnd.uniform(-1, 1) * W * .36, cy + rnd.uniform(-1, 1) * H * .2) for _ in range(22)]
-            radios = [rnd.choice((7, 9, 12)) for _ in nodes]
-            edges = [(a, b) for a in range(len(nodes)) for b in range(a + 1, len(nodes)) if math.dist(nodes[a], nodes[b]) < W * .17][:46]
-            px = fit(t.upper(), W - 2 * dr.pad, 1, 150, 60)
+            cx, cy = W * .5, H * .36
+            nodes = [(cx, cy)] + [(cx + rnd.uniform(-1, 1) * W * .38, cy + rnd.uniform(-1, 1) * H * .22) for _ in range(26)]
+            radios = [22] + [rnd.choice((7, 9, 12)) for _ in nodes[1:]]
+            edges = [(a, b) for a in range(len(nodes)) for b in range(a + 1, len(nodes)) if math.dist(nodes[a], nodes[b]) < W * .16][:60]
+            px = fit(t.upper(), W - 2 * dr.pad, 1, 140, 60)
 
-            def cont(s, nodes=nodes, radios=radios, edges=edges, ac=ac, px=px, t=t, cx=cx, cy=cy):
+            def cont(s, nodes=nodes, radios=radios, edges=edges, ac=ac, px=px, t=t):
                 ln = "".join(f'<line pathLength="1" x1="{nodes[a][0]:.0f}" y1="{nodes[a][1]:.0f}" x2="{nodes[b][0]:.0f}" y2="{nodes[b][1]:.0f}"/>' for a, b in edges)
                 nd = "".join(f'<circle class="nd" cx="{x:.0f}" cy="{y:.0f}" r="{r}"/>' for (x, y), r in zip(nodes, radios))
-                return (f'<svg class="net" viewBox="0 0 {W} {H}" style="color:var(--{ac})">{ln}{nd}</svg>'
-                        f'<div class="brain" id="{s}-b" style="left:{cx:.0f}px;top:{cy:.0f}px;color:var(--{ac})">{icono("brain-circuit", "ic bic")}</div>'
+                ring = f'<circle class="rn" cx="{nodes[0][0]:.0f}" cy="{nodes[0][1]:.0f}" r="40" pathLength="1"/>'
+                return (f'<svg class="net" viewBox="0 0 {W} {H}" style="color:var(--{ac})">{ln}{nd}{ring}</svg>'
                         f'<div class="mw cap2" id="{s}-t" style="font-size:{px}px">{esc(t.upper())}</div>')
             dr.scene(bars, bg, con_fondo(cont), lambda t0, d, tw_fondo=tw_fondo: tw_fondo(t0, d) + [
-                draw("#$S .net line", t0 + .1, .5, .025),
-                anime(f'anime.animate("#$S .nd",{{scale:[0,1.5,1],duration:600,delay:anime.stagger(40,{{from:"center",start:{int((t0 + .2) * 1000)}}}),ease:"outBack",autoplay:false}})'),
-                anime(f'anime.animate("#$S .nd",{{opacity:[1,.3,1],duration:700,loop:2,delay:anime.stagger(60,{{from:"center",start:{int((t0 + 1.2) * 1000)}}}),ease:"inOutSine",autoplay:false}})'),
-                f'tl.fromTo("#$S-b",{{xPercent:-50,yPercent:-50,scale:.3,opacity:0}},{{xPercent:-50,yPercent:-50,scale:1,opacity:1,duration:.6,ease:"back.out(1.6)"}},{t0 + .3:.3f});', draw("#$S-b .bic *", t0 + .4, .9, .04),
-                f'tl.fromTo("#$S-t",{{y:80,opacity:0}},{{y:0,opacity:1,duration:.5,ease:"expo.out"}},{t0 + .7:.3f});'])
+                anime(f'anime.animate("#$S .nd",{{scale:[0,1.5,1],duration:600,delay:anime.stagger(35,{{from:"first",start:{int((t0 + .1) * 1000)}}}),ease:"outBack",autoplay:false}})'),
+                draw("#$S .net line", t0 + .2, .45, .02),
+                draw("#$S .net .rn", t0 + .3, .6, 0),
+                anime(f'anime.animate("#$S .nd",{{opacity:[1,.3,1],duration:650,loop:2,delay:anime.stagger(45,{{from:"first",start:{int((t0 + 1.1) * 1000)}}}),ease:"inOutSine",autoplay:false}})'),
+                f'tl.fromTo("#$S-t",{{y:80,opacity:0}},{{y:0,opacity:1,duration:.5,ease:"expo.out"}},{t0 + .6:.3f});'])
+        elif k == "captura":
+            src = _copiar_captura(dr, t)
+            lab = e.get("extra") or ""
+            px = fit(lab.upper(), W * .3, 4, 120, 50)
+
+            def cont(s, src=src, lab=lab, px=px, ac=ac):
+                img = f'<img src="{src}" alt="">' if src else '<div class="nocap"></div>'
+                return (f'<div class="capw"><div class="mw capt" id="{s}-t" style="font-size:{px}px">{letras(lab.upper())}</div>'
+                        f'<div class="capi" id="{s}-i" style="box-shadow:22px 22px 0 var(--{ac})">{img}</div></div>')
+            dr.scene(bars, bg, con_fondo(cont), lambda t0, d, tw_fondo=tw_fondo: tw_fondo(t0, d) + [
+                f'tl.fromTo("#$S-i",{{x:420,rotationY:-28,opacity:0,transformPerspective:1600}},{{x:0,rotationY:-8,opacity:1,duration:.7,ease:"expo.out",transformPerspective:1600}},{t0 + .05:.3f});',
+                f'tl.fromTo("#$S-i img",{{scale:1,yPercent:0}},{{scale:1.08,yPercent:-3,duration:{d:.3f},ease:"none"}},{t0:.3f});',
+                f'tl.fromTo("#$S .lt",{{yPercent:115}},{{yPercent:0,duration:.45,ease:"expo.out",stagger:.02}},{t0 + .3:.3f});'])
         elif k == "documento":
             rnd = random.Random(semilla)
             widths = [rnd.uniform(.55, .95) for _ in range(7)]
@@ -401,9 +450,20 @@ def MOTION_CSS(dr):
 .ei{{display:flex}}.eic{{width:{round(H * .085)}px;height:{round(H * .085)}px;stroke-width:2.6}}
 .cnt{{display:flex;flex-direction:column;gap:20px}}
 .l2{{margin-top:-.05em}}
-.nota{{display:flex;align-items:center;justify-content:center;gap:16px;height:100%;font-size:{round(H * .06)}px}}
+.nota{{display:flex;align-items:center;justify-content:center;gap:16px;height:100%;font-size:{round(H * .045)}px;white-space:nowrap}}
 .nota .mono{{letter-spacing:.06em;text-transform:none;font-weight:600}}
 .caret{{display:inline-block;width:{round(H * .03)}px;height:{round(H * .06)}px}}
+.okc{{display:inline-block;width:.62em;height:.62em;margin-left:.14em;vertical-align:.08em}}.okic{{width:100%;height:100%;stroke-width:2.6}}
+.hub2{{position:absolute;display:flex;align-items:center;gap:22px;padding:{round(H * .03)}px {round(H * .045)}px;border:6px solid #121212;box-shadow:14px 14px 0 #121212;font-family:"{d}",sans-serif;z-index:3}}
+.hub2 b{{display:block;font-weight:400;font-size:{round(H * .07)}px;line-height:1;letter-spacing:.03em}}.hub2 small{{display:block;font-size:{round(H * .022)}px;margin-top:8px;letter-spacing:.14em}}
+.ag{{position:absolute;display:flex;align-items:center;gap:16px;padding:{round(H * .012)}px {round(H * .024)}px {round(H * .012)}px {round(H * .012)}px;border:5px solid;font-family:"{d}",sans-serif;text-transform:uppercase;white-space:nowrap;box-shadow:10px 10px 0 currentColor;z-index:2}}
+.agi{{display:flex;padding:10px}}.ag .nic{{width:1.05em;height:1.05em}}
+.pk{{position:absolute;width:16px;height:16px;margin:-8px 0 0 -8px;display:block;opacity:0;z-index:1}}
+.wires path{{stroke-dasharray:1;stroke-dashoffset:1}}
+.net .rn{{fill:none;stroke:currentColor;stroke-width:4;stroke-dasharray:1;stroke-dashoffset:1}}
+.capw{{display:grid;grid-template-columns:{round(W * .3)}px 1fr;gap:{round(W * .04)}px;align-items:center;height:100%}}
+.capi{{overflow:hidden;border:6px solid #121212;background:#121212}}.capi img{{display:block;width:100%;height:auto;transform-origin:50% 30%}}
+.nocap{{height:{round(H * .5)}px}}
 .tr{{pointer-events:none;overflow:hidden}}.tp,.tq{{position:absolute;display:block}}.tp{{top:0;bottom:0}}
 .tb{{position:absolute;top:-20%;bottom:-20%;left:-15%;width:130%;display:block}}
 """

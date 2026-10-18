@@ -398,6 +398,7 @@ def build(doc, out_dir: Path, fmt="video-16x9", report=None):
     mot = ((doc.get("options") or {}).get("video") or {}).get("motion")
     if mot:                                             # escenas explícitas (palabra, nombres, cartas, flujo…): ver video_motion.py
         import video_motion
+        dr.out_dir = out_dir
         dr.max_s = max(12.0, min(120.0, float((doc["options"]["video"]).get("duration", 120))))
         report["avisos"] += video_motion.dirigir(dr, mot, doc.get("meta", {}))
     else:
