@@ -168,19 +168,7 @@ Respuesta esperada: `200 OK` con la lista de herramientas (`list_recipes`, `reci
 
 Pruebas: `python -m unittest discover -s servidor/tests` · Recetas: `python servidor/tools/probar_recetas.py --render` · Regresión visual: `python servidor/regresion.py --comprobar`.
 
-## Decisiones
-
-Las razones de fondo están en [`docs/decisions/`](docs/decisions): el agente manda datos y el motor valida (001), Markdown y recetas (002), una sola definición de herramientas (003), el modelo más barato primero (004), la fábrica de estilos (005) y la web estática en Pages (006).
-
-## Web en GitHub Pages
-
-`servidor/tools/pages.py` construye la versión estática y `.github/workflows/pages.yml` la publica (activa Pages con fuente «GitHub Actions»). El Taller y el renderizado necesitan la API local; la demo lo avisa.
-
-## Estado del proyecto
-
-Hecho: motor de documentos (PDF, PPTX, Word, Excel, video, web), 12 recetas y 10 ingredientes, fábrica de estilos, recursos, calidad (ortografía y accesibilidad), web con ejemplos reales, manual para agentes, conexión por agente, colección de Postman y web estática para Pages.
-Pendiente (fuera de este cierre): crear estilos nuevos con Ollama/Qwen, repetir la prueba Haiku/Opus con `:::motion`, y los formatos extra (PNG/SVG para redes, GIF, EPUB, correo HTML, póster). Seguimiento en [`PENDIENTES.md`](PENDIENTES.md).
 
 ## Licencias
 
-Código del servidor: propio. Fuentes: SIL OFL 1.1 (Archivo, Anton, IBM Plex Mono). Librerías incluidas en `servidor/video/vendor/`: anime.js, three.js y lottie-web (MIT); iconos Lucide (ISC); GSAP bajo su licencia «no charge» (revisa sus usos prohibidos si lo distribuyes). Las imágenes de `imagenes/` llevan su autor y licencia en `imagenes/creditos.csv`.
+Mit licese
