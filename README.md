@@ -15,6 +15,20 @@ API local que convierte contenido en **PDF, PowerPoint, Word, Excel, video y pá
 
 ---
 
+## Contenido
+
+- [Qué es](#qué-es)
+- [Míralo funcionando](#míralo-funcionando)
+- [Inicio rápido](#inicio-rápido)
+  - [Conectar tu agente](#conectar-tu-agente)
+- [Herramientas](#herramientas)
+- [Crear un estilo desde una imagen](#crear-un-estilo-desde-una-imagen)
+- [Resultados medidos](#resultados-medidos)
+- [Haiku frente a Opus (prueba breve)](#haiku-frente-a-opus-prueba-breve)
+- [Pruebas con Postman](#pruebas-con-postman)
+- [Estructura](#estructura)
+- [Licencias](#licencias)
+
 ## Qué es
 
 Un agente de IA que escribe HTML y CSS a mano gasta decenas de miles de tokens y entrega márgenes rotos. Con myStyle **el agente solo entrega contenido**: el motor lo dibuja con un diseño declarativo, lo valida (contrato, contraste, márgenes, redundancia) y devuelve avisos que el agente corrige sin rehacer nada.
@@ -168,19 +182,7 @@ Respuesta esperada: `200 OK` con la lista de herramientas (`list_recipes`, `reci
 
 Pruebas: `python -m unittest discover -s servidor/tests` · Recetas: `python servidor/tools/probar_recetas.py --render` · Regresión visual: `python servidor/regresion.py --comprobar`.
 
-## Decisiones
-
-Las razones de fondo están en [`docs/decisions/`](docs/decisions): el agente manda datos y el motor valida (001), Markdown y recetas (002), una sola definición de herramientas (003), el modelo más barato primero (004), la fábrica de estilos (005) y la web estática en Pages (006).
-
-## Web en GitHub Pages
-
-La web de la API se publica en GitHub Pages desde la rama `main` (raíz): `python servidor/tools/pages.py --repo` escribe `index.html`, `404.html` y `.nojekyll` en la raíz y lee los estáticos de `servidor/web/`. Si prefieres publicar con Actions, `.github/workflows/pages.yml` construye la misma web (fuente «GitHub Actions»). El Taller y el renderizado necesitan la API local; la demo lo avisa.
-
-## Estado del proyecto
-
-Hecho: motor de documentos (PDF, PPTX, Word, Excel, video, web), 12 recetas y 10 ingredientes, fábrica de estilos, recursos, calidad (ortografía y accesibilidad), web con ejemplos reales, manual para agentes, conexión por agente, colección de Postman y web estática para Pages.
-Pendiente (fuera de este cierre): crear estilos nuevos con Ollama/Qwen, repetir la prueba Haiku/Opus con `:::motion`, y los formatos extra (PNG/SVG para redes, GIF, EPUB, correo HTML, póster). Seguimiento en [`PENDIENTES.md`](PENDIENTES.md).
 
 ## Licencias
 
-Código del servidor: propio. Fuentes: SIL OFL 1.1 (Archivo, Anton, IBM Plex Mono). Librerías incluidas en `servidor/video/vendor/`: anime.js, three.js y lottie-web (MIT); iconos Lucide (ISC); GSAP bajo su licencia «no charge» (revisa sus usos prohibidos si lo distribuyes). Las imágenes de `imagenes/` llevan su autor y licencia en `imagenes/creditos.csv`.
+Mit licese
