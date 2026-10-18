@@ -584,10 +584,11 @@
               },
               {
                 "type": "image",
-                "need": "Captura de la terminal con `stat /srv/sistemas/privado_sistemas.txt` mostrando `Access: (0660/-rw-rw----)`.",
-                "caption": "Permiso octal `0660` leído con `stat`.",
-                "ratio": "16/5",
-                "treatment": "original"
+                "src": "informe_linux/sim-stat.png",
+                "treatment": "original",
+                "nocredit": true,
+                "ratio": "872/232",
+                "caption": "Reconstrucción [SIM] de `stat`: modo `660`, propietario `root`, grupo `sistemas`. Los 72 bytes salen de 3 líneas de 24 bytes [CALC]."
               }
             ]
           },
@@ -618,33 +619,28 @@
           },
           {
             "id": "s12",
-            "title": "Pruebas que completan la evidencia",
+            "title": "Pruebas reconstruidas (simulación)",
             "tema": "Evidencia",
             "blocks": [
               {
                 "type": "p",
-                "text": "Estas dos capturas cierran los casos que el informe aún no muestra: otra cuenta de otro departamento y el intento de entrar al directorio."
+                "text": "Estas dos pruebas no se ejecutaron en la práctica. Las imágenes son reconstrucciones [SIM] de lo que el sistema debe responder con los permisos configurados; sustitúyelas por capturas reales cuando se ejecuten."
               },
               {
                 "type": "image",
-                "need": "Captura de la terminal con `lsb_release -a` y `uname -a` en Kali Linux.",
-                "caption": "Entorno de la práctica: versión de Kali y del kernel.",
-                "ratio": "16/4",
-                "treatment": "original"
+                "src": "informe_linux/sim-carla.png",
+                "treatment": "original",
+                "nocredit": true,
+                "ratio": "872/232",
+                "caption": "Reconstrucción [SIM]: carla, del grupo soporte, no puede leer el archivo."
               },
               {
                 "type": "image",
-                "need": "Captura de la terminal con `sudo -u carla cat /srv/sistemas/privado_sistemas.txt` y el mensaje «Permiso denegado».",
-                "caption": "Carla, del grupo soporte, tampoco puede leer el archivo.",
-                "ratio": "16/4",
-                "treatment": "original"
-              },
-              {
-                "type": "image",
-                "need": "Captura de la terminal con `sudo -u bruno ls /srv/sistemas` o `cd /srv/sistemas` y su «Permiso denegado».",
-                "caption": "Bruno no puede entrar al directorio de Sistemas.",
-                "ratio": "16/4",
-                "treatment": "original"
+                "src": "informe_linux/sim-bruno-ls.png",
+                "treatment": "original",
+                "nocredit": true,
+                "ratio": "872/232",
+                "caption": "Reconstrucción [SIM]: bruno no puede listar el directorio de Sistemas."
               }
             ]
           }
@@ -700,8 +696,8 @@
                     "leer el archivo",
                     "denegado (resto `---`)",
                     {
-                      "t": "dato pendiente",
-                      "tone": "p"
+                      "t": "denegado [SIM]",
+                      "tone": "l"
                     }
                   ],
                   [
@@ -710,18 +706,18 @@
                     "entrar en /srv/sistemas",
                     "denegado (resto `---`)",
                     {
-                      "t": "dato pendiente",
-                      "tone": "p"
+                      "t": "denegado [SIM]",
+                      "tone": "l"
                     }
                   ]
                 ],
-                "caption": "Tabla 5. Lo comprobado y lo que falta por comprobar."
+                "caption": "Tabla 5. Lo comprobado [FUENTE] y lo reconstruido [SIM]."
               },
               {
                 "type": "callout",
-                "tone": "pend",
-                "label": "Pruebas sin evidencia",
-                "text": "Las capturas actuales no muestran a carla ni la entrada de bruno en `/srv/sistemas`. Esas dos filas quedan como dato pendiente hasta tener su captura."
+                "tone": "sim",
+                "label": "Simulación",
+                "text": "Las filas de carla y de la entrada de bruno no se ejecutaron: muestran el resultado que corresponde a los permisos y están rotuladas [SIM]. Sustitúyelas por capturas reales."
               }
             ]
           },
@@ -776,9 +772,17 @@
                 "items": [
                   "Solo se usó el modelo básico de propietario, grupo y resto.",
                   "Cada cuenta tiene un único grupo; no se probó una persona en varios grupos.",
-                  "La comprobación de acceso cubre a ana y bruno; carla queda sin evidencia.",
+                  "La comprobación real cubre a ana y bruno; las pruebas de carla y de la entrada al directorio son reconstrucciones [SIM].",
                   "Los permisos se verificaron con `ls` y con pruebas de lectura y escritura, no con una auditoría del sistema."
                 ]
+              },
+              {
+                "type": "image",
+                "src": "informe_linux/permiso-denegado.jpg",
+                "treatment": "negroverde",
+                "ratio": "16/7",
+                "pos": "50% 25%",
+                "caption": "La reacción típica ante un «Permiso denegado»."
               },
               {
                 "type": "callout",
@@ -867,7 +871,7 @@
                 "ordered": true,
                 "items": [
                   "Las cuentas de usuario y los grupos primarios pedidos por la actividad quedaron configurados.",
-                  "El modo `770` en los directorios deja a las personas ajenas a cada área sin permisos sobre ellos. Esa conclusión se apoya en los permisos de `ls -ld`; la entrada de otra cuenta aún no tiene captura.",
+                  "El modo `770` en los directorios deja a las personas ajenas a cada área sin permisos sobre ellos. Esa conclusión se apoya en los permisos de `ls -ld`; la entrada de otra cuenta solo tiene reconstrucción [SIM].",
                   "Las pruebas con `sudo -u` confirmaron que ana accede al archivo de su área y que a bruno se le denegó el acceso por pertenecer al grupo redes."
                 ]
               },
@@ -900,7 +904,7 @@
             "blocks": [
               {
                 "type": "p",
-                "text": "Las capturas son del equipo. Las fotos de portada y divisores esperan archivo y su crédito."
+                "text": "Las capturas reales son del equipo. Las fotos esperan su crédito."
               },
               {
                 "type": "table",
@@ -918,6 +922,12 @@
                     "Kali Linux, 18 de octubre de 2026"
                   ],
                   [
+                    "Terminales reconstruidas (3)",
+                    "Equipo del informe",
+                    "propia",
+                    "Generadas con `servidor/tools/terminal_sim.py` [SIM]"
+                  ],
+                  [
                     "Foto de portada",
                     "dato pendiente",
                     "dato pendiente",
@@ -925,6 +935,12 @@
                   ],
                   [
                     "Foto de divisores",
+                    "dato pendiente",
+                    "dato pendiente",
+                    "dato pendiente"
+                  ],
+                  [
+                    "Foto «Permiso denegado»",
                     "dato pendiente",
                     "dato pendiente",
                     "dato pendiente"

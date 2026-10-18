@@ -6,6 +6,11 @@
    "bloque": "paleta vivo / crema",
    "causa": "solo 2 puntos de claridad (L*) de diferencia: se confunden en escala de grises",
    "ajuste": "no los uses juntos como series distintas; añade borde negro o diferencia la claridad"
+  },
+  {
+   "bloque": "informe_linux/permiso-denegado.jpg",
+   "causa": "imagen usada sin fila en creditos.csv",
+   "ajuste": "añade autor y licencia al CSV"
   }
  ],
  "auditoria": {
@@ -145,24 +150,7 @@
    }
   ]
  },
- "imagenes_necesarias": [
-  {
-   "src": null,
-   "need": "Captura de la terminal con `stat /srv/sistemas/privado_sistemas.txt` mostrando `Access: (0660/-rw-rw----)`."
-  },
-  {
-   "src": null,
-   "need": "Captura de la terminal con `lsb_release -a` y `uname -a` en Kali Linux."
-  },
-  {
-   "src": null,
-   "need": "Captura de la terminal con `sudo -u carla cat /srv/sistemas/privado_sistemas.txt` y el mensaje «Permiso denegado»."
-  },
-  {
-   "src": null,
-   "need": "Captura de la terminal con `sudo -u bruno ls /srv/sistemas` o `cd /srv/sistemas` y su «Permiso denegado»."
-  }
- ],
+ "imagenes_necesarias": [],
  "secciones": [
   {
    "id": "s01",
@@ -227,17 +215,17 @@
   {
    "id": "s13",
    "n": "13",
-   "pagina": 19
+   "pagina": 18
   },
   {
    "id": "s14",
    "n": "14",
-   "pagina": 20
+   "pagina": 19
   },
   {
    "id": "s15",
    "n": "15",
-   "pagina": 21
+   "pagina": 20
   },
   {
    "id": "s16",
@@ -316,5 +304,5 @@
   "DV-B"
  ],
  "paginas": 27,
- "segundos": 5.8
+ "segundos": 8.9
 }

@@ -1,0 +1,26 @@
+[
+  {
+    "nombre": "sim-stat",
+    "titulo": "brand@brandmachine: ~  [SIMULACIÓN]",
+    "bloques": [
+      { "cmd": "stat -c '%a %A %U:%G %s bytes %n' /srv/sistemas/privado_sistemas.txt",
+        "salida": ["660 -rw-rw---- root:sistemas 72 bytes /srv/sistemas/privado_sistemas.txt"] }
+    ]
+  },
+  {
+    "nombre": "sim-carla",
+    "titulo": "brand@brandmachine: ~  [SIMULACIÓN]",
+    "bloques": [
+      { "cmd": "sudo -u carla cat /srv/sistemas/privado_sistemas.txt",
+        "salida": ["cat: /srv/sistemas/privado_sistemas.txt: Permiso denegado"] }
+    ]
+  },
+  {
+    "nombre": "sim-bruno-ls",
+    "titulo": "brand@brandmachine: ~  [SIMULACIÓN]",
+    "bloques": [
+      { "cmd": "sudo -u bruno ls /srv/sistemas",
+        "salida": ["ls: no se puede abrir el directorio '/srv/sistemas': Permiso denegado"] }
+    ]
+  }
+]
