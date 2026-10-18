@@ -7,7 +7,7 @@ API local que convierte contenido en **PDF, PowerPoint, Word, Excel, video y pá
 
 [![Video: Build once. Connect any AI.](docs/media/hero.gif)](docs/media/hero.mp4)
 
-*Clic en la animación para ver el video completo (38 s): la web servida, renderizada con HyperFrames en estilo brutalismo. Incluye la sección `/brag`: «Haz trabajar a Haiku como si fuera Opus».*
+*Clic en la animación para ver el video completo (67 s, con banda sonora propia). Todo el video fue hecho con myStyle: `create_video` con escenas `:::motion` (fuente: [`contenido/video_brag.md`](contenido/video_brag.md)), estilo brutalismo, anime.js y GSAP, transiciones y partículas. Incluye la sección `/brag`: «Haz trabajar a Haiku como si fuera Opus».*
 
 **[Ver la web (demo estática)](https://mogollo7.github.io/guia/)** · [Conectar un agente](#conectar-tu-agente) · [Herramientas](#herramientas) · [Decisiones](docs/decisions)
 

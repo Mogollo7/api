@@ -81,6 +81,7 @@ class Director:
         self.F = {"display": fam[0], "body": fam[1] if len(fam) > 1 else fam[0], "mono": fam[2] if len(fam) > 2 else fam[-1]}
         self.scenes, self.tweens, self.t = [], [], 0.0
         self.esc, self.fit, self.extra_css = esc, fit_px, ""
+        self.overlays, self.motion, self.cortes = [], False, []          # transiciones y modo motion (video_motion.py)
         self.pad = round(self.W * 0.07)
 
     # color de texto solo en pares permitidos (igual que el PPTX)
@@ -366,16 +367,18 @@ html,body{{margin:0;background:var(--negro)}}
 .list{{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:{round(H*0.025)}px}}
 .list li{{font-size:{round(H*0.04)}px;font-weight:700;padding-left:{round(H*0.05)}px;position:relative;display:block}}
 .list li::before{{content:"";position:absolute;left:0;top:.35em;width:.55em;height:.55em;background:var(--hoja)}}{self.extra_css}"""
-        tl = "\n".join(self.tweens)
+        tl = "\n".join(x for x in self.tweens if not x.startswith("(()=>{const a=anime"))
+        an = "\n".join(x for x in self.tweens if x.startswith("(()=>{const a=anime"))       # anime.js se registra al arrancar (no dentro de una promesa)
         return f"""<!doctype html>
 <html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width={W}, height={H}">
 <title>{esc(self.doc.get('meta', {}).get('title', 'Video'))}</title>
-<script src="assets/gsap.min.js"></script>
+<script src="assets/gsap.min.js"></script>{'<script src="assets/anime.umd.min.js"></script>' if self.motion else ''}
 <style>{css}</style></head>
 <body>
 <div id="root" data-composition-id="main" data-start="0" data-width="{W}" data-height="{H}" data-duration="{self.t:.3f}" data-fps="30">
-{chr(10).join(self.scenes)}
+{chr(10).join(self.scenes + self.overlays)}
 </div>
+{f"<script>{chr(10)}window.__hfAnime=window.__hfAnime||[];{chr(10)}{an}{chr(10)}</script>" if an else ""}
 <script>
 document.fonts.ready.then(()=>{{
 const tl=gsap.timeline({{paused:true}});
@@ -402,6 +405,8 @@ def build(doc, out_dir: Path, fmt="video-16x9", report=None):
         dr.direct()
     (out_dir / "assets" / "fonts").mkdir(parents=True, exist_ok=True)
     shutil.copy(HERE / "video" / "gsap.min.js", out_dir / "assets" / "gsap.min.js")
+    if dr.motion:
+        shutil.copy(HERE / "video" / "vendor" / "anime.umd.min.js", out_dir / "assets" / "anime.umd.min.js")
     for f in m["fonts"]:
         shutil.copy(design_dir / f["file"], out_dir / "assets" / "fonts" / Path(f["file"]).name)
     (out_dir / "index.html").write_text(dr.html(design_dir), encoding="utf-8")
@@ -445,6 +450,15 @@ def run(doc_path, out_mp4, fmt=None, quality="draft", do_render=True):
             rep["estado"] = "fallido"
             rep["errores"].append({"bloque": "render", "causa": (r.stderr or r.stdout)[-800:], "ajuste": "revisa `npx hyperframes doctor` (Node 22+, FFmpeg, Chrome)"})
         else:
+            if str((doc.get("options") or {}).get("video", {}).get("musica", "")).lower() in ("si", "sí", "true", "1"):     # banda sonora propia al pulso y whoosh en cada corte
+                try:
+                    sys.path.insert(0, str(HERE / "tools"))
+                    import sonorizar
+                    con = sonorizar.sonorizar(out_mp4, dr.bpm, dr.cortes, out_mp4.with_name(out_mp4.stem + "_audio.mp4"))
+                    con.replace(out_mp4)
+                    rep["musica"] = "banda propia sintetizada (sin licencias de terceros)"
+                except Exception as e:  # noqa: BLE001
+                    rep["avisos"].append({"bloque": "musica", "causa": str(e)[:160], "ajuste": "el video sale sin audio"})
             rep["mb"] = round(out_mp4.stat().st_size / 1e6, 2)
     rep["segundos"] = round(time.time() - t0, 1)
     return rep

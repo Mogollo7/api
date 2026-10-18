@@ -230,7 +230,7 @@ def a_contrato(txt, defecto=None):
         ev = video_motion.parse(motion)
         if not ev:
             avisos.append({"bloque": "motion", "causa": "ninguna línea válida en :::motion", "ajuste": "tipo | texto | segundos; tipos: " + ", ".join(video_motion.KINDS)})
-    vid = {k: (int(meta[h]) if k in ("duration", "bpm") and re.fullmatch(r"\d+", meta[h]) else meta[h]) for h, k in (("duracion", "duration"), ("ritmo", "bpm"), ("entrada", "entrada"), ("escalon", "escalon")) if meta.get(h)}
+    vid = {k: (int(meta[h]) if k in ("duration", "bpm") and re.fullmatch(r"\d+", meta[h]) else meta[h]) for h, k in (("duracion", "duration"), ("ritmo", "bpm"), ("entrada", "entrada"), ("escalon", "escalon"), ("musica", "musica")) if meta.get(h)}
     if motion and ev:
         vid["motion"] = ev
     if vid:                                                             # video: duracion (s, máx. 120), ritmo (bpm), entrada (slide|fade-up|wipe-reveal), escalon (s)
