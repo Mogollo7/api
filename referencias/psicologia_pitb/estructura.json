@@ -1,0 +1,5632 @@
+[
+ {
+  "pagina": 1,
+  "fondo": "#e6e3dd",
+  "oscura": false,
+  "bloques": [
+   {
+    "texto": "PITB / ANTIOQUIA",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 2.6,
+    "color": "#121212",
+    "x": 77.9,
+    "y": 3.5,
+    "w": 9.8,
+    "h": 6.1,
+    "alinea": "der"
+   },
+   {
+    "texto": "INFORME TÉCNICO",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 4.49,
+    "color": "#121212",
+    "x": 4.0,
+    "y": 3.8,
+    "w": 29.0,
+    "h": 4.5,
+    "alinea": "izq"
+   },
+   {
+    "texto": "PITB ANTIOQUIA",
+    "fuente": "Archivo-SemiBold-ExtraBold",
+    "tam_cqw": 1.9,
+    "color": "#121212",
+    "x": 4.0,
+    "y": 8.5,
+    "w": 16.4,
+    "h": 1.9,
+    "alinea": "izq"
+   },
+   {
+    "texto": "PSICOLOGÍA",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 12.61,
+    "color": "#121212",
+    "x": 15.0,
+    "y": 16.8,
+    "w": 53.0,
+    "h": 12.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "VOL. 01",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.6,
+    "color": "#f8f5ee",
+    "x": 79.9,
+    "y": 22.5,
+    "w": 6.7,
+    "h": 1.6,
+    "alinea": "der"
+   },
+   {
+    "texto": "BIODIVERSIDAD",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 9.76,
+    "color": "#121212",
+    "x": 15.0,
+    "y": 38.8,
+    "w": 53.0,
+    "h": 9.8,
+    "alinea": "izq"
+   },
+   {
+    "texto": "INFORME",
+    "fuente": "Archivo-SemiBold-ExtraBold",
+    "tam_cqw": 2.0,
+    "color": "#121212",
+    "x": 4.0,
+    "y": 42.1,
+    "w": 9.8,
+    "h": 2.0,
+    "alinea": "izq"
+   },
+   {
+    "texto": "CONFIANZA / INFORMADA",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 5.19,
+    "color": "#121212",
+    "x": 68.9,
+    "y": 45.5,
+    "w": 22.3,
+    "h": 10.7,
+    "alinea": "der"
+   },
+   {
+    "texto": "PILOTO",
+    "fuente": "Archivo-SemiBold-ExtraBold",
+    "tam_cqw": 2.0,
+    "color": "#121212",
+    "x": 4.0,
+    "y": 47.6,
+    "w": 7.7,
+    "h": 2.0,
+    "alinea": "izq"
+   },
+   {
+    "texto": "ANTIOQUIA",
+    "fuente": "Archivo-SemiBold-ExtraBold",
+    "tam_cqw": 2.0,
+    "color": "#121212",
+    "x": 4.0,
+    "y": 59.0,
+    "w": 12.0,
+    "h": 2.0,
+    "alinea": "izq"
+   },
+   {
+    "texto": "TERRITORIO",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 13.06,
+    "color": "#121212",
+    "x": 15.0,
+    "y": 62.1,
+    "w": 53.0,
+    "h": 13.1,
+    "alinea": "izq"
+   },
+   {
+    "texto": "AMBIENTECOGNICIÓNCONFIANZACOMUNIDAD",
+    "fuente": "Archivo-SemiBold-ExtraBold",
+    "tam_cqw": 1.8,
+    "color": "#f8f5ee",
+    "x": 15.0,
+    "y": 82.8,
+    "w": 54.1,
+    "h": 1.8,
+    "alinea": "izq"
+   },
+   {
+    "texto": "PSICOLOGÍA AMBIENTAL",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.4,
+    "color": "#121212",
+    "x": 33.0,
+    "y": 88.8,
+    "w": 16.8,
+    "h": 1.4,
+    "alinea": "der"
+   },
+   {
+    "texto": "01",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 14.98,
+    "color": "#2ecc5f",
+    "x": 3.0,
+    "y": 90.5,
+    "w": 12.4,
+    "h": 15.0,
+    "alinea": "izq"
+   },
+   {
+    "texto": "COGNICIÓN Y SESGOS",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.4,
+    "color": "#121212",
+    "x": 33.0,
+    "y": 93.1,
+    "w": 15.1,
+    "h": 1.4,
+    "alinea": "der"
+   },
+   {
+    "texto": "MARCO TEÓRICO, EVIDENCIA / FORMATIVA Y / JUSTIFICACIÓN ÉTICA PARA / LA INTERACCIÓN HUMANA / CON INTELIGENCIA / ARTIFICIAL.",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 1.3,
+    "color": "#121212",
+    "x": 75.9,
+    "y": 96.2,
+    "w": 18.7,
+    "h": 10.1,
+    "alinea": "der"
+   },
+   {
+    "texto": "INVESTIGACIÓN PILOTO",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.4,
+    "color": "#121212",
+    "x": 33.0,
+    "y": 97.4,
+    "w": 16.8,
+    "h": 1.4,
+    "alinea": "der"
+   },
+   {
+    "texto": "GOBERNANZA ÉTICA",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.4,
+    "color": "#121212",
+    "x": 33.0,
+    "y": 101.7,
+    "w": 13.4,
+    "h": 1.4,
+    "alinea": "der"
+   },
+   {
+    "texto": "APORTES DE LA PSICOLOGÍA A LA PITB ANTIOQUIA",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.5,
+    "color": "#121212",
+    "x": 33.0,
+    "y": 131.4,
+    "w": 39.5,
+    "h": 1.5,
+    "alinea": "centro"
+   }
+  ],
+  "imagenes": [
+   {
+    "x": 75.8,
+    "y": 21.5,
+    "w": 24.1,
+    "h": 57.9
+   }
+  ],
+  "recuadros": [
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.2,
+    "relleno": "#f8f5ee",
+    "borde": null
+   },
+   {
+    "x": 75.9,
+    "y": 0.1,
+    "w": 22.5,
+    "h": 26.2,
+    "relleno": "#2ecc5f",
+    "borde": null
+   },
+   {
+    "x": 78.3,
+    "y": 21.6,
+    "w": 9.9,
+    "h": 2.9,
+    "relleno": "#121212",
+    "borde": null
+   },
+   {
+    "x": 66.3,
+    "y": 41.7,
+    "w": 29.7,
+    "h": 23.2,
+    "relleno": "#2ecc5f",
+    "borde": null
+   },
+   {
+    "x": 4.3,
+    "y": 68.4,
+    "w": 4.4,
+    "h": 4.4,
+    "relleno": null,
+    "borde": "#121212"
+   },
+   {
+    "x": 4.0,
+    "y": 74.3,
+    "w": 5.0,
+    "h": 3.0,
+    "relleno": null,
+    "borde": null
+   },
+   {
+    "x": 15.0,
+    "y": 81.8,
+    "w": 44.8,
+    "h": 4.3,
+    "relleno": "#121212",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 87.1,
+    "w": 32.0,
+    "h": 14.3,
+    "relleno": "#121212",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.2,
+    "relleno": null,
+    "borde": null
+   }
+  ],
+  "tipo": "portada",
+  "paleta": [
+   {
+    "hex": "#e6e3dd",
+    "pct": 37.0
+   },
+   {
+    "hex": "#e5e2dc",
+    "pct": 25.3
+   },
+   {
+    "hex": "#222d24",
+    "pct": 17.9
+   },
+   {
+    "hex": "#71b984",
+    "pct": 14.4
+   },
+   {
+    "hex": "#eae7e1",
+    "pct": 4.3
+   }
+  ]
+ },
+ {
+  "pagina": 2,
+  "fondo": "#1e362d",
+  "oscura": true,
+  "bloques": [
+   {
+    "texto": "Parte 01 / 04",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.9,
+    "color": "#f8f5ee",
+    "x": 5.0,
+    "y": 5.4,
+    "w": 16.6,
+    "h": 1.9,
+    "alinea": "izq"
+   },
+   {
+    "texto": "01",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 89.9,
+    "color": "#2ecc5f",
+    "x": -4.0,
+    "y": 29.3,
+    "w": 74.1,
+    "h": 89.9,
+    "alinea": "izq"
+   },
+   {
+    "texto": "MARCO TEÓRICO",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 11.99,
+    "color": "#f8f5ee",
+    "x": 5.0,
+    "y": 97.0,
+    "w": 71.7,
+    "h": 12.0,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Psicología ambiental, teoría del comportamiento planificado y / brecha entre conciencia y acción.",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 1.9,
+    "color": "#f8f5ee",
+    "x": 5.0,
+    "y": 108.6,
+    "w": 69.5,
+    "h": 4.8,
+    "alinea": "izq"
+   }
+  ],
+  "imagenes": [
+   {
+    "x": 0.0,
+    "y": 118.4,
+    "w": 99.9,
+    "h": 23.0
+   }
+  ],
+  "recuadros": [
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.2,
+    "relleno": "#10291f",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 118.4,
+    "w": 99.9,
+    "h": 1.5,
+    "relleno": "#2ecc5f",
+    "borde": null
+   },
+   {
+    "x": 28.0,
+    "y": 118.4,
+    "w": 4.0,
+    "h": 34.0,
+    "relleno": "#2ecc5f",
+    "borde": null
+   },
+   {
+    "x": 56.9,
+    "y": 118.4,
+    "w": 3.4,
+    "h": 27.0,
+    "relleno": "#2ecc5f",
+    "borde": null
+   },
+   {
+    "x": 82.9,
+    "y": 118.4,
+    "w": 4.0,
+    "h": 31.0,
+    "relleno": "#2ecc5f",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.2,
+    "relleno": null,
+    "borde": null
+   }
+  ],
+  "tipo": "divisor",
+  "paleta": [
+   {
+    "hex": "#1e362d",
+    "pct": 44.8
+   },
+   {
+    "hex": "#3bcf69",
+    "pct": 26.8
+   },
+   {
+    "hex": "#448b5c",
+    "pct": 6.9
+   },
+   {
+    "hex": "#20382e",
+    "pct": 6.4
+   },
+   {
+    "hex": "#1c332b",
+    "pct": 5.5
+   }
+  ]
+ },
+ {
+  "pagina": 3,
+  "fondo": "#f8f5ee",
+  "oscura": false,
+  "bloques": [
+   {
+    "texto": "01 · MARCO TEÓRICO · FUNDAMENTOS",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.9,
+    "color": "#121212",
+    "x": 51.2,
+    "y": 5.9,
+    "w": 43.5,
+    "h": 1.9,
+    "alinea": "der"
+   },
+   {
+    "texto": "LA DIMENSIÓN",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 8.99,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 17.8,
+    "w": 46.4,
+    "h": 9.0,
+    "alinea": "izq"
+   },
+   {
+    "texto": "PSICOLÓGICA EN LA PITB",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 8.99,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 26.1,
+    "w": 78.6,
+    "h": 9.0,
+    "alinea": "izq"
+   },
+   {
+    "texto": "La Plataforma de Inteligencia Territorial y Biodiversidad (PITB) Antioquia integra / inteligencia artificial para identificar y registrar especies de fauna y fl",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.45,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 36.2,
+    "w": 82.2,
+    "h": 9.9,
+    "alinea": "izq"
+   },
+   {
+    "texto": "FUENTE",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.66,
+    "color": "#f8f5ee",
+    "x": 62.3,
+    "y": 44.1,
+    "w": 6.4,
+    "h": 1.7,
+    "alinea": "der"
+   },
+   {
+    "texto": "El éxito de una herramienta tecnológica no depende únicamente de sus especificaciones de / ingeniería: reside en cómo las personas perciben, asimilan, utilizan ",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.45,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 50.3,
+    "w": 88.9,
+    "h": 9.7,
+    "alinea": "centro"
+   },
+   {
+    "texto": "INF",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.66,
+    "color": "#121212",
+    "x": 29.2,
+    "y": 58.2,
+    "w": 3.2,
+    "h": 1.7,
+    "alinea": "der"
+   },
+   {
+    "texto": "→ →",
+    "fuente": "Consolas-Bold",
+    "tam_cqw": 2.0,
+    "color": "#121212",
+    "x": 32.6,
+    "y": 65.8,
+    "w": 30.7,
+    "h": 2.0,
+    "alinea": "centro"
+   },
+   {
+    "texto": "1 2 3",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.7,
+    "color": "#121212",
+    "x": 7.5,
+    "y": 66.4,
+    "w": 60.3,
+    "h": 1.7,
+    "alinea": "izq"
+   },
+   {
+    "texto": "PERCEPCIÓN INICIAL APROPIACIÓN COMPROMISO",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 3.5,
+    "color": "#121212",
+    "x": 7.5,
+    "y": 69.8,
+    "w": 77.0,
+    "h": 3.5,
+    "alinea": "izq"
+   },
+   {
+    "texto": "TÉCNICA SOSTENIDO",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 3.5,
+    "color": "#f8f5ee",
+    "x": 37.1,
+    "y": 73.2,
+    "w": 43.3,
+    "h": 3.5,
+    "alinea": "der"
+   },
+   {
+    "texto": "Contacto inicial con la plataforma / y valoración de su pertinencia / territorial.",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 1.85,
+    "color": "#121212",
+    "x": 7.5,
+    "y": 73.6,
+    "w": 25.1,
+    "h": 6.9,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Desarrollo de autoeficacia y Participación comunitaria / seguridad en la captura de continua en el monitoreo / registros de especies. ecológico local.",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 1.85,
+    "color": "#f8f5ee",
+    "x": 37.1,
+    "y": 77.1,
+    "w": 48.7,
+    "h": 6.9,
+    "alinea": "der"
+   },
+   {
+    "texto": "PUNTO CLAVE",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.7,
+    "color": "#f8f5ee",
+    "x": 8.3,
+    "y": 93.5,
+    "w": 13.2,
+    "h": 1.7,
+    "alinea": "izq"
+   },
+   {
+    "texto": "El aprovechamiento real de la PITB se define en la interacción cotidiana entre / la ciudadanía y los datos generados.",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.6,
+    "color": "#f8f5ee",
+    "x": 8.3,
+    "y": 97.1,
+    "w": 81.0,
+    "h": 6.5,
+    "alinea": "centro"
+   },
+   {
+    "texto": "Psicología · PITB Antioquia · v1 03",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 1.8,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 135.6,
+    "w": 89.9,
+    "h": 1.8,
+    "alinea": "centro"
+   }
+  ],
+  "imagenes": [],
+  "recuadros": [
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.2,
+    "relleno": "#f8f5ee",
+    "borde": null
+   },
+   {
+    "x": 61.4,
+    "y": 43.5,
+    "w": 8.2,
+    "h": 2.5,
+    "relleno": "#121212",
+    "borde": null
+   },
+   {
+    "x": 61.5,
+    "y": 43.6,
+    "w": 8.1,
+    "h": 2.4,
+    "relleno": null,
+    "borde": "#121212"
+   },
+   {
+    "x": 28.3,
+    "y": 57.6,
+    "w": 5.0,
+    "h": 2.5,
+    "relleno": "#f8f5ee",
+    "borde": null
+   },
+   {
+    "x": 28.4,
+    "y": 57.7,
+    "w": 4.9,
+    "h": 2.4,
+    "relleno": null,
+    "borde": "#121212"
+   },
+   {
+    "x": 5.3,
+    "y": 63.8,
+    "w": 89.4,
+    "h": 22.9,
+    "relleno": null,
+    "borde": "#121212"
+   },
+   {
+    "x": 5.9,
+    "y": 90.9,
+    "w": 89.9,
+    "h": 17.1,
+    "relleno": "#121212",
+    "borde": null
+   },
+   {
+    "x": 5.0,
+    "y": 90.0,
+    "w": 89.9,
+    "h": 17.1,
+    "relleno": "#10291f",
+    "borde": null
+   },
+   {
+    "x": 5.3,
+    "y": 90.2,
+    "w": 89.4,
+    "h": 16.6,
+    "relleno": null,
+    "borde": "#121212"
+   },
+   {
+    "x": 5.5,
+    "y": 64.1,
+    "w": 29.6,
+    "h": 22.4,
+    "relleno": "#f8f5ee",
+    "borde": null
+   },
+   {
+    "x": 35.1,
+    "y": 64.1,
+    "w": 29.7,
+    "h": 22.4,
+    "relleno": "#10291f",
+    "borde": null
+   },
+   {
+    "x": 64.8,
+    "y": 64.1,
+    "w": 29.6,
+    "h": 22.4,
+    "relleno": "#f8f5ee",
+    "borde": null
+   }
+  ],
+  "tipo": "clara",
+  "paleta": [
+   {
+    "hex": "#f8f5ee",
+    "pct": 48.7
+   },
+   {
+    "hex": "#676f69",
+    "pct": 27.6
+   },
+   {
+    "hex": "#f7f5ee",
+    "pct": 10.6
+   },
+   {
+    "hex": "#fcf9f2",
+    "pct": 7.6
+   },
+   {
+    "hex": "#f9f5ee",
+    "pct": 4.5
+   }
+  ]
+ },
+ {
+  "pagina": 4,
+  "fondo": "#f8f5ee",
+  "oscura": false,
+  "bloques": [
+   {
+    "texto": "02 · MARCO TEÓRICO",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.9,
+    "color": "#121212",
+    "x": 70.3,
+    "y": 5.9,
+    "w": 24.4,
+    "h": 1.9,
+    "alinea": "der"
+   },
+   {
+    "texto": "PSICOLOGÍA AMBIENTAL Y",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 7.19,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 17.5,
+    "w": 66.4,
+    "h": 7.2,
+    "alinea": "izq"
+   },
+   {
+    "texto": "CONDUCTA ECOLÓGICA",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 7.19,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 24.1,
+    "w": 57.0,
+    "h": 7.2,
+    "alinea": "izq"
+   },
+   {
+    "texto": "La psicología ambiental analiza la relación recíproca entre los individuos y su entorno. / Gifford (2014) señala que la conducta favorable al ambiente resulta d",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.45,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 32.9,
+    "w": 89.2,
+    "h": 9.7,
+    "alinea": "centro"
+   },
+   {
+    "texto": "FUENTE",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.66,
+    "color": "#f8f5ee",
+    "x": 70.7,
+    "y": 40.8,
+    "w": 6.4,
+    "h": 1.7,
+    "alinea": "der"
+   },
+   {
+    "texto": "En la PITB, disponer de una aplicación tecnológica no asegura por sí mismo el registro / activo de fauna o flora. Es indispensable activar motivaciones intrínse",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.45,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 46.9,
+    "w": 85.3,
+    "h": 9.9,
+    "alinea": "centro"
+   },
+   {
+    "texto": "INF",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.66,
+    "color": "#121212",
+    "x": 70.5,
+    "y": 54.8,
+    "w": 3.2,
+    "h": 1.7,
+    "alinea": "der"
+   },
+   {
+    "texto": "DIMENSIÓN INCIDENCIA EN LA ESTRATEGIA DE / PSICOSOCIAL PLATAFORMA FORTALECIMIENTO",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.7,
+    "color": "#f8f5ee",
+    "x": 6.6,
+    "y": 61.9,
+    "w": 75.2,
+    "h": 4.0,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Actitudes y creencias",
+    "fuente": "TimesNewRomanPS-BoldMT",
+    "tam_cqw": 2.0,
+    "color": "#121212",
+    "x": 6.6,
+    "y": 68.9,
+    "w": 17.9,
+    "h": 2.0,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Interés genuino por conservar Sensibilización sobre valor de la / ecosistemas biodiversidad",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.0,
+    "color": "#121212",
+    "x": 31.8,
+    "y": 68.9,
+    "w": 58.3,
+    "h": 4.6,
+    "alinea": "der"
+   },
+   {
+    "texto": "Normas subjetivas",
+    "fuente": "TimesNewRomanPS-BoldMT",
+    "tam_cqw": 2.0,
+    "color": "#121212",
+    "x": 6.6,
+    "y": 77.0,
+    "w": 15.8,
+    "h": 2.0,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Percepción de respaldo en la Reconocimiento público a / comunidad participantes locales",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.0,
+    "color": "#121212",
+    "x": 31.8,
+    "y": 77.0,
+    "w": 53.3,
+    "h": 4.6,
+    "alinea": "der"
+   },
+   {
+    "texto": "Barreras percibidas",
+    "fuente": "TimesNewRomanPS-BoldMT",
+    "tam_cqw": 2.0,
+    "color": "#121212",
+    "x": 6.6,
+    "y": 84.9,
+    "w": 17.0,
+    "h": 2.0,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Inseguridad ante el uso digital o Guías prácticas y retroalimentación / biológico pedagógica",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.0,
+    "color": "#121212",
+    "x": 31.8,
+    "y": 84.9,
+    "w": 60.7,
+    "h": 4.8,
+    "alinea": "der"
+   },
+   {
+    "texto": "Tabla 1. Factores psicosociales asociados al registro participativo de / especies.",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 1.9,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 93.4,
+    "w": 79.7,
+    "h": 4.7,
+    "alinea": "izq"
+   },
+   {
+    "texto": "NOTA",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.7,
+    "color": "#121212",
+    "x": 8.3,
+    "y": 105.0,
+    "w": 4.7,
+    "h": 1.7,
+    "alinea": "izq"
+   },
+   {
+    "texto": "El compromiso ambiental se consolida cuando la actividad comunitaria se acompaña de / retroalimentación oportuna.",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.2,
+    "color": "#121212",
+    "x": 8.3,
+    "y": 108.5,
+    "w": 77.2,
+    "h": 5.5,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Psicología · PITB Antioquia · v1 04",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 1.8,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 135.6,
+    "w": 89.9,
+    "h": 1.8,
+    "alinea": "centro"
+   }
+  ],
+  "imagenes": [],
+  "recuadros": [
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.2,
+    "relleno": "#f8f5ee",
+    "borde": null
+   },
+   {
+    "x": 69.8,
+    "y": 40.3,
+    "w": 8.2,
+    "h": 2.5,
+    "relleno": "#121212",
+    "borde": null
+   },
+   {
+    "x": 69.9,
+    "y": 40.3,
+    "w": 8.1,
+    "h": 2.4,
+    "relleno": null,
+    "borde": "#121212"
+   },
+   {
+    "x": 69.7,
+    "y": 54.2,
+    "w": 4.9,
+    "h": 2.5,
+    "relleno": "#f8f5ee",
+    "borde": null
+   },
+   {
+    "x": 69.8,
+    "y": 54.3,
+    "w": 4.8,
+    "h": 2.4,
+    "relleno": null,
+    "borde": "#121212"
+   },
+   {
+    "x": 5.0,
+    "y": 60.3,
+    "w": 25.2,
+    "h": 6.9,
+    "relleno": "#121212",
+    "borde": null
+   },
+   {
+    "x": 30.2,
+    "y": 60.3,
+    "w": 32.3,
+    "h": 6.9,
+    "relleno": "#121212",
+    "borde": null
+   },
+   {
+    "x": 62.6,
+    "y": 60.3,
+    "w": 32.3,
+    "h": 6.9,
+    "relleno": "#121212",
+    "borde": null
+   },
+   {
+    "x": 5.0,
+    "y": 101.4,
+    "w": 89.9,
+    "h": 15.9,
+    "relleno": "#ede8d8",
+    "borde": null
+   },
+   {
+    "x": 5.3,
+    "y": 101.7,
+    "w": 89.4,
+    "h": 15.4,
+    "relleno": null,
+    "borde": "#121212"
+   }
+  ],
+  "tipo": "clara",
+  "paleta": [
+   {
+    "hex": "#f8f5ee",
+    "pct": 45.6
+   },
+   {
+    "hex": "#aba9a2",
+    "pct": 22.0
+   },
+   {
+    "hex": "#fbf8f2",
+    "pct": 11.9
+   },
+   {
+    "hex": "#f7f5ee",
+    "pct": 8.9
+   },
+   {
+    "hex": "#f8f5ed",
+    "pct": 8.4
+   }
+  ]
+ },
+ {
+  "pagina": 5,
+  "fondo": "#f8f5ee",
+  "oscura": false,
+  "bloques": [
+   {
+    "texto": "03 · MARCO TEÓRICO",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.9,
+    "color": "#121212",
+    "x": 70.3,
+    "y": 5.9,
+    "w": 24.4,
+    "h": 1.9,
+    "alinea": "der"
+   },
+   {
+    "texto": "TEORÍA DEL COMPORTAMIENTO",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 7.19,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 17.5,
+    "w": 79.3,
+    "h": 7.2,
+    "alinea": "izq"
+   },
+   {
+    "texto": "PLANIFICADO",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 7.19,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 24.1,
+    "w": 33.4,
+    "h": 7.2,
+    "alinea": "izq"
+   },
+   {
+    "texto": "El modelo de Ajzen (1991) establece que la intención conductual se fundamenta en las / actitudes hacia la acción, las normas subjetivas y el control conductual ",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.45,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 32.9,
+    "w": 84.7,
+    "h": 9.7,
+    "alinea": "centro"
+   },
+   {
+    "texto": "FUENTE",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.66,
+    "color": "#f8f5ee",
+    "x": 19.9,
+    "y": 40.8,
+    "w": 6.4,
+    "h": 1.7,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Una persona puede considerar fundamental proteger la fauna, pero abstenerse de reportar / hallazgos si asume que carece de conocimientos para identificar especi",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.45,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 46.9,
+    "w": 87.2,
+    "h": 9.9,
+    "alinea": "centro"
+   },
+   {
+    "texto": "INF",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.66,
+    "color": "#121212",
+    "x": 17.1,
+    "y": 54.8,
+    "w": 3.2,
+    "h": 1.7,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Psicología · PITB Antioquia · v1 05",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 1.8,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 135.6,
+    "w": 89.9,
+    "h": 1.8,
+    "alinea": "centro"
+   }
+  ],
+  "imagenes": [],
+  "recuadros": [
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.2,
+    "relleno": "#f8f5ee",
+    "borde": null
+   },
+   {
+    "x": 19.0,
+    "y": 40.3,
+    "w": 8.3,
+    "h": 2.5,
+    "relleno": "#121212",
+    "borde": null
+   },
+   {
+    "x": 19.1,
+    "y": 40.3,
+    "w": 8.2,
+    "h": 2.4,
+    "relleno": null,
+    "borde": "#121212"
+   },
+   {
+    "x": 16.2,
+    "y": 54.2,
+    "w": 4.9,
+    "h": 2.5,
+    "relleno": "#f8f5ee",
+    "borde": null
+   },
+   {
+    "x": 16.3,
+    "y": 54.3,
+    "w": 4.8,
+    "h": 2.4,
+    "relleno": null,
+    "borde": "#121212"
+   }
+  ],
+  "tipo": "clara",
+  "paleta": [
+   {
+    "hex": "#f8f5ee",
+    "pct": 78.2
+   },
+   {
+    "hex": "#dbd8d2",
+    "pct": 6.9
+   },
+   {
+    "hex": "#fbf8f2",
+    "pct": 5.9
+   },
+   {
+    "hex": "#656462",
+    "pct": 4.7
+   },
+   {
+    "hex": "#f8f5ed",
+    "pct": 2.5
+   }
+  ]
+ },
+ {
+  "pagina": 6,
+  "fondo": "#f8f5ee",
+  "oscura": false,
+  "bloques": [
+   {
+    "texto": "03 · MARCO TEÓRICO",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.9,
+    "color": "#121212",
+    "x": 70.3,
+    "y": 5.9,
+    "w": 24.4,
+    "h": 1.9,
+    "alinea": "der"
+   },
+   {
+    "texto": "DETERMINANTES DE LA INTENCIÓN DE REGISTRO / BIOLÓGICO",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 4.39,
+    "color": "#121212",
+    "x": 7.9,
+    "y": 17.2,
+    "w": 74.3,
+    "h": 8.8,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Normas Autoeficacia",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 2.45,
+    "color": "#121212",
+    "x": 45.6,
+    "y": 29.9,
+    "w": 39.7,
+    "h": 2.5,
+    "alinea": "der"
+   },
+   {
+    "texto": "Actitud hacia",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 2.45,
+    "color": "#f8f5ee",
+    "x": 13.9,
+    "y": 31.7,
+    "w": 19.1,
+    "h": 2.5,
+    "alinea": "izq"
+   },
+   {
+    "texto": "comunitarias técnica",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 2.45,
+    "color": "#121212",
+    "x": 41.1,
+    "y": 33.4,
+    "w": 40.5,
+    "h": 2.5,
+    "alinea": "der"
+   },
+   {
+    "texto": "la conservación",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 2.45,
+    "color": "#f8f5ee",
+    "x": 12.5,
+    "y": 35.2,
+    "w": 22.1,
+    "h": 2.5,
+    "alinea": "izq"
+   },
+   {
+    "texto": "favorables percibida",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 2.45,
+    "color": "#121212",
+    "x": 42.6,
+    "y": 36.9,
+    "w": 40.5,
+    "h": 2.5,
+    "alinea": "der"
+   },
+   {
+    "texto": "Intención de",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 2.45,
+    "color": "#121212",
+    "x": 41.1,
+    "y": 50.6,
+    "w": 17.7,
+    "h": 2.5,
+    "alinea": "centro"
+   },
+   {
+    "texto": "reporte",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 2.45,
+    "color": "#121212",
+    "x": 44.8,
+    "y": 54.1,
+    "w": 10.3,
+    "h": 2.5,
+    "alinea": "centro"
+   },
+   {
+    "texto": "sí",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 2.45,
+    "color": "#121212",
+    "x": 51.4,
+    "y": 61.7,
+    "w": 2.9,
+    "h": 2.5,
+    "alinea": "centro"
+   },
+   {
+    "texto": "Conducta",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 2.45,
+    "color": "#f8f5ee",
+    "x": 44.1,
+    "y": 67.7,
+    "w": 11.8,
+    "h": 2.5,
+    "alinea": "centro"
+   },
+   {
+    "texto": "efectiva de",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 2.45,
+    "color": "#f8f5ee",
+    "x": 41.9,
+    "y": 71.2,
+    "w": 16.2,
+    "h": 2.5,
+    "alinea": "centro"
+   },
+   {
+    "texto": "registro",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 2.45,
+    "color": "#f8f5ee",
+    "x": 44.1,
+    "y": 74.8,
+    "w": 11.8,
+    "h": 2.5,
+    "alinea": "centro"
+   },
+   {
+    "texto": "Figura 1. Ruta explicativa de la conducta de registro basada en Ajzen (1991).",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 1.6,
+    "color": "#121212",
+    "x": 7.9,
+    "y": 83.0,
+    "w": 73.8,
+    "h": 1.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "OJO",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.7,
+    "color": "#121212",
+    "x": 8.3,
+    "y": 93.8,
+    "w": 3.5,
+    "h": 1.7,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Ofrecer orientación accesible y actividades de familiarización eleva la percepción de / capacidad y previene la frustración.",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.2,
+    "color": "#121212",
+    "x": 8.3,
+    "y": 97.5,
+    "w": 74.4,
+    "h": 5.5,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Psicología · PITB Antioquia · v1 06",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 1.8,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 135.6,
+    "w": 89.9,
+    "h": 1.8,
+    "alinea": "centro"
+   }
+  ],
+  "imagenes": [],
+  "recuadros": [
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.2,
+    "relleno": "#f8f5ee",
+    "borde": null
+   },
+   {
+    "x": 5.0,
+    "y": 13.6,
+    "w": 89.9,
+    "h": 73.8,
+    "relleno": "#f8f5ee",
+    "borde": null
+   },
+   {
+    "x": 5.3,
+    "y": 13.8,
+    "w": 89.4,
+    "h": 73.2,
+    "relleno": null,
+    "borde": "#121212"
+   },
+   {
+    "x": 11.4,
+    "y": 29.6,
+    "w": 24.3,
+    "h": 9.3,
+    "relleno": "#121212",
+    "borde": null
+   },
+   {
+    "x": 11.4,
+    "y": 29.6,
+    "w": 24.3,
+    "h": 9.3,
+    "relleno": null,
+    "borde": "#121212"
+   },
+   {
+    "x": 12.1,
+    "y": 30.3,
+    "w": 22.9,
+    "h": 7.9,
+    "relleno": null,
+    "borde": "#f8f5ee"
+   },
+   {
+    "x": 37.8,
+    "y": 29.6,
+    "w": 24.3,
+    "h": 9.3,
+    "relleno": "#ede8d8",
+    "borde": null
+   },
+   {
+    "x": 37.8,
+    "y": 29.6,
+    "w": 24.3,
+    "h": 9.3,
+    "relleno": null,
+    "borde": "#121212"
+   },
+   {
+    "x": 64.3,
+    "y": 29.6,
+    "w": 24.3,
+    "h": 9.3,
+    "relleno": "#ede8d8",
+    "borde": null
+   },
+   {
+    "x": 64.3,
+    "y": 29.6,
+    "w": 24.3,
+    "h": 9.3,
+    "relleno": null,
+    "borde": "#121212"
+   },
+   {
+    "x": 37.8,
+    "y": 67.4,
+    "w": 24.3,
+    "h": 9.3,
+    "relleno": "#121212",
+    "borde": null
+   },
+   {
+    "x": 37.8,
+    "y": 67.4,
+    "w": 24.3,
+    "h": 9.3,
+    "relleno": null,
+    "borde": "#121212"
+   },
+   {
+    "x": 38.5,
+    "y": 68.1,
+    "w": 22.9,
+    "h": 7.9,
+    "relleno": null,
+    "borde": "#f8f5ee"
+   },
+   {
+    "x": 50.9,
+    "y": 61.1,
+    "w": 5.1,
+    "h": 3.3,
+    "relleno": "#f8f5ee",
+    "borde": null
+   },
+   {
+    "x": 5.0,
+    "y": 90.2,
+    "w": 89.9,
+    "h": 16.0,
+    "relleno": "#d4a72c",
+    "borde": null
+   },
+   {
+    "x": 5.3,
+    "y": 90.5,
+    "w": 89.4,
+    "h": 15.5,
+    "relleno": null,
+    "borde": "#121212"
+   }
+  ],
+  "tipo": "clara",
+  "paleta": [
+   {
+    "hex": "#f8f5ee",
+    "pct": 56.5
+   },
+   {
+    "hex": "#a1996e",
+    "pct": 24.5
+   },
+   {
+    "hex": "#fcfaf3",
+    "pct": 7.5
+   },
+   {
+    "hex": "#f8f5ed",
+    "pct": 5.4
+   },
+   {
+    "hex": "#f8f5ef",
+    "pct": 3.7
+   }
+  ]
+ },
+ {
+  "pagina": 7,
+  "fondo": "#f8f5ee",
+  "oscura": false,
+  "bloques": [
+   {
+    "texto": "04 · MARCO TEÓRICO",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.9,
+    "color": "#121212",
+    "x": 70.3,
+    "y": 5.9,
+    "w": 24.4,
+    "h": 1.9,
+    "alinea": "der"
+   },
+   {
+    "texto": "LA BRECHA ENTRE",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 8.99,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 17.8,
+    "w": 57.3,
+    "h": 9.0,
+    "alinea": "izq"
+   },
+   {
+    "texto": "CONCIENCIA Y ACCIÓN",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 8.99,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 26.1,
+    "w": 70.3,
+    "h": 9.0,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Kollmuss y Agyeman (2002) demostraron que un mayor nivel de información ecológica no / genera automáticamente conductas proambientales sostenidas .",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.45,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 36.2,
+    "w": 89.3,
+    "h": 6.2,
+    "alinea": "centro"
+   },
+   {
+    "texto": "FUENTE",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.66,
+    "color": "#f8f5ee",
+    "x": 66.9,
+    "y": 40.5,
+    "w": 6.4,
+    "h": 1.7,
+    "alinea": "der"
+   },
+   {
+    "texto": "Para movilizar a la ciudadanía no basta con informar sobre la riqueza biológica de / Antioquia. Se deben diseñar experiencias significativas y accesibles donde ",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.45,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 46.7,
+    "w": 86.1,
+    "h": 9.7,
+    "alinea": "centro"
+   },
+   {
+    "texto": "INF",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.66,
+    "color": "#121212",
+    "x": 48.7,
+    "y": 54.5,
+    "w": 3.2,
+    "h": 1.7,
+    "alinea": "centro"
+   },
+   {
+    "texto": "MODELO ENFOQUE / INFORMATIVO PSICOSOCIAL / CLÁSICO INTEGRAL",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 4.99,
+    "color": "#f8f5ee",
+    "x": 7.9,
+    "y": 63.7,
+    "w": 67.7,
+    "h": 15.1,
+    "alinea": "izq"
+   },
+   {
+    "texto": "+ +",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 2.0,
+    "color": "#f8f5ee",
+    "x": 7.9,
+    "y": 79.4,
+    "w": 45.6,
+    "h": 2.0,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Supone que transmitir datos produce acción Articula motivaciones, normas y autoeficacia / directa / Enfoque unidireccional y teórico / Desestima barreras cotidi",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.0,
+    "color": "#f8f5ee",
+    "x": 10.9,
+    "y": 79.2,
+    "w": 80.7,
+    "h": 14.8,
+    "alinea": "centro"
+   },
+   {
+    "texto": "Propone experiencias guiadas y significativas / Elimina fricciones en la interacción digital",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.0,
+    "color": "#121212",
+    "x": 55.3,
+    "y": 82.9,
+    "w": 36.4,
+    "h": 5.6,
+    "alinea": "der"
+   },
+   {
+    "texto": "+ / +",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 2.0,
+    "color": "#121212",
+    "x": 52.3,
+    "y": 83.0,
+    "w": 1.2,
+    "h": 5.6,
+    "alinea": "centro"
+   },
+   {
+    "texto": "+ / +",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 2.0,
+    "color": "#f8f5ee",
+    "x": 7.9,
+    "y": 85.8,
+    "w": 1.2,
+    "h": 5.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "El enfoque psicosocial integral supera la brecha informativa y estimula la participación / comunitaria activa.",
+    "fuente": "TimesNewRomanPS-BoldMT",
+    "tam_cqw": 2.1,
+    "color": "#121212",
+    "x": 7.9,
+    "y": 99.2,
+    "w": 77.9,
+    "h": 5.0,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Psicología · PITB Antioquia · v1 07",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 1.8,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 135.6,
+    "w": 89.9,
+    "h": 1.8,
+    "alinea": "centro"
+   }
+  ],
+  "imagenes": [],
+  "recuadros": [
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.2,
+    "relleno": "#f8f5ee",
+    "borde": null
+   },
+   {
+    "x": 66.1,
+    "y": 39.9,
+    "w": 8.2,
+    "h": 2.5,
+    "relleno": "#121212",
+    "borde": null
+   },
+   {
+    "x": 66.1,
+    "y": 40.0,
+    "w": 8.1,
+    "h": 2.4,
+    "relleno": null,
+    "borde": "#121212"
+   },
+   {
+    "x": 47.8,
+    "y": 54.0,
+    "w": 4.9,
+    "h": 2.4,
+    "relleno": "#f8f5ee",
+    "borde": null
+   },
+   {
+    "x": 47.9,
+    "y": 54.1,
+    "w": 4.8,
+    "h": 2.3,
+    "relleno": null,
+    "borde": "#121212"
+   },
+   {
+    "x": 5.3,
+    "y": 60.2,
+    "w": 89.4,
+    "h": 46.2,
+    "relleno": null,
+    "borde": "#121212"
+   },
+   {
+    "x": 5.5,
+    "y": 60.4,
+    "w": 44.4,
+    "h": 36.1,
+    "relleno": "#10291f",
+    "borde": null
+   },
+   {
+    "x": 5.5,
+    "y": 96.5,
+    "w": 88.9,
+    "h": 9.6,
+    "relleno": "#2ecc5f",
+    "borde": null
+   }
+  ],
+  "tipo": "clara",
+  "paleta": [
+   {
+    "hex": "#f8f5ee",
+    "pct": 50.2
+   },
+   {
+    "hex": "#2b3b33",
+    "pct": 18.2
+   },
+   {
+    "hex": "#a5cbab",
+    "pct": 13.4
+   },
+   {
+    "hex": "#fbf9f2",
+    "pct": 8.5
+   },
+   {
+    "hex": "#f7f5ee",
+    "pct": 7.1
+   }
+  ]
+ },
+ {
+  "pagina": 8,
+  "fondo": "#1e362d",
+  "oscura": true,
+  "bloques": [
+   {
+    "texto": "Parte 02 / 04",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.9,
+    "color": "#f8f5ee",
+    "x": 5.0,
+    "y": 5.4,
+    "w": 16.6,
+    "h": 1.9,
+    "alinea": "izq"
+   },
+   {
+    "texto": "02",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 89.9,
+    "color": "#2ecc5f",
+    "x": -4.0,
+    "y": 29.3,
+    "w": 88.8,
+    "h": 89.9,
+    "alinea": "izq"
+   },
+   {
+    "texto": "COGNICIÓN Y TECNOLOGÍA",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 9.48,
+    "color": "#f8f5ee",
+    "x": 5.0,
+    "y": 96.3,
+    "w": 88.5,
+    "h": 9.5,
+    "alinea": "centro"
+   },
+   {
+    "texto": "Procesos cognitivos, heurísticas de juicio y calibración de / la confianza en inteligencia artificial.",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 1.9,
+    "color": "#f8f5ee",
+    "x": 5.0,
+    "y": 111.6,
+    "w": 67.2,
+    "h": 4.8,
+    "alinea": "izq"
+   }
+  ],
+  "imagenes": [
+   {
+    "x": 0.0,
+    "y": 118.4,
+    "w": 99.9,
+    "h": 23.0
+   }
+  ],
+  "recuadros": [
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.2,
+    "relleno": "#10291f",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 118.4,
+    "w": 99.9,
+    "h": 1.5,
+    "relleno": "#2ecc5f",
+    "borde": null
+   },
+   {
+    "x": 28.0,
+    "y": 118.4,
+    "w": 4.0,
+    "h": 34.0,
+    "relleno": "#2ecc5f",
+    "borde": null
+   },
+   {
+    "x": 56.9,
+    "y": 118.4,
+    "w": 3.4,
+    "h": 27.0,
+    "relleno": "#2ecc5f",
+    "borde": null
+   },
+   {
+    "x": 82.9,
+    "y": 118.4,
+    "w": 4.0,
+    "h": 31.0,
+    "relleno": "#2ecc5f",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.2,
+    "relleno": null,
+    "borde": null
+   }
+  ],
+  "tipo": "divisor",
+  "paleta": [
+   {
+    "hex": "#1e362d",
+    "pct": 39.8
+   },
+   {
+    "hex": "#3bcf69",
+    "pct": 32.0
+   },
+   {
+    "hex": "#213b30",
+    "pct": 6.7
+   },
+   {
+    "hex": "#4a9463",
+    "pct": 6.5
+   },
+   {
+    "hex": "#1c332b",
+    "pct": 5.8
+   }
+  ]
+ },
+ {
+  "pagina": 9,
+  "fondo": "#f8f5ee",
+  "oscura": false,
+  "bloques": [
+   {
+    "texto": "05 · COGNICIÓN Y TECNOLOGÍA",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.9,
+    "color": "#121212",
+    "x": 58.0,
+    "y": 5.9,
+    "w": 36.7,
+    "h": 1.9,
+    "alinea": "der"
+   },
+   {
+    "texto": "PROCESOS COGNITIVOS Y",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 7.19,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 17.5,
+    "w": 63.7,
+    "h": 7.2,
+    "alinea": "izq"
+   },
+   {
+    "texto": "HEURÍSTICAS DE JUICIO",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 7.19,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 24.1,
+    "w": 59.8,
+    "h": 7.2,
+    "alinea": "izq"
+   },
+   {
+    "texto": "La psicología cognitiva estudia cómo las personas perciben, interpretan y utilizan la / información para tomar decisiones. Kahneman (2011) analiza cómo los juic",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.45,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 32.9,
+    "w": 86.4,
+    "h": 13.5,
+    "alinea": "centro"
+   },
+   {
+    "texto": "FUENTE",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.66,
+    "color": "#f8f5ee",
+    "x": 20.2,
+    "y": 44.5,
+    "w": 6.4,
+    "h": 1.7,
+    "alinea": "der"
+   },
+   {
+    "texto": "En la PITB, un usuario puede asumir que la clasificación automática de la IA es infalible, / pasando por alto limitaciones de resolución, ángulo de captura o se",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.45,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 50.7,
+    "w": 88.0,
+    "h": 9.7,
+    "alinea": "centro"
+   },
+   {
+    "texto": "INF",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.66,
+    "color": "#121212",
+    "x": 12.3,
+    "y": 58.6,
+    "w": 3.2,
+    "h": 1.7,
+    "alinea": "izq"
+   },
+   {
+    "texto": "SUGERENCIA INICIAL AUTOMATIZADA",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.8,
+    "color": "#121212",
+    "x": 14.4,
+    "y": 66.3,
+    "w": 36.7,
+    "h": 1.8,
+    "alinea": "izq"
+   },
+   {
+    "texto": "1",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 4.59,
+    "color": "#f8f5ee",
+    "x": 8.1,
+    "y": 68.7,
+    "w": 1.5,
+    "h": 4.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Clasificación preliminar probabilística aportada por el modelo de visión.",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 1.9,
+    "color": "#121212",
+    "x": 14.4,
+    "y": 69.0,
+    "w": 55.1,
+    "h": 1.9,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Nivel 1",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 1.5,
+    "color": "#121212",
+    "x": 14.4,
+    "y": 72.2,
+    "w": 6.3,
+    "h": 1.5,
+    "alinea": "izq"
+   },
+   {
+    "texto": "REVISIÓN CRÍTICA DE RASGOS CLAVE",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.8,
+    "color": "#121212",
+    "x": 14.4,
+    "y": 77.5,
+    "w": 37.9,
+    "h": 1.8,
+    "alinea": "izq"
+   },
+   {
+    "texto": "2",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 4.59,
+    "color": "#f8f5ee",
+    "x": 7.7,
+    "y": 79.9,
+    "w": 2.3,
+    "h": 4.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Contraste visual de morfología y hábitat por parte de la persona usuaria.",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 1.9,
+    "color": "#121212",
+    "x": 14.4,
+    "y": 80.2,
+    "w": 54.7,
+    "h": 1.9,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Nivel 2",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 1.5,
+    "color": "#121212",
+    "x": 14.4,
+    "y": 83.4,
+    "w": 6.3,
+    "h": 1.5,
+    "alinea": "izq"
+   },
+   {
+    "texto": "CONFIRMACIÓN EXPERTA O COMUNITARIA",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.8,
+    "color": "#121212",
+    "x": 14.4,
+    "y": 88.8,
+    "w": 40.2,
+    "h": 1.8,
+    "alinea": "izq"
+   },
+   {
+    "texto": "3",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 4.59,
+    "color": "#f8f5ee",
+    "x": 7.7,
+    "y": 91.1,
+    "w": 2.3,
+    "h": 4.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Validación botánica o zoológica en casos de alta incertidumbre.",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 1.9,
+    "color": "#121212",
+    "x": 14.4,
+    "y": 91.5,
+    "w": 48.2,
+    "h": 1.9,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Nivel 3",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 1.5,
+    "color": "#121212",
+    "x": 14.4,
+    "y": 94.6,
+    "w": 6.3,
+    "h": 1.5,
+    "alinea": "izq"
+   },
+   {
+    "texto": "REGLA",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.7,
+    "color": "#121212",
+    "x": 8.3,
+    "y": 104.6,
+    "w": 5.9,
+    "h": 1.7,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Las predicciones algorítmicas deben comunicarse como hipótesis de trabajo y no como / veredictos definitivos.",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.2,
+    "color": "#121212",
+    "x": 8.3,
+    "y": 108.2,
+    "w": 76.6,
+    "h": 5.5,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Psicología · PITB Antioquia · v1 09",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 1.8,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 135.6,
+    "w": 89.9,
+    "h": 1.8,
+    "alinea": "centro"
+   }
+  ],
+  "imagenes": [],
+  "recuadros": [
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.2,
+    "relleno": "#f8f5ee",
+    "borde": null
+   },
+   {
+    "x": 19.4,
+    "y": 43.9,
+    "w": 8.2,
+    "h": 2.5,
+    "relleno": "#121212",
+    "borde": null
+   },
+   {
+    "x": 19.4,
+    "y": 44.0,
+    "w": 8.1,
+    "h": 2.4,
+    "relleno": null,
+    "borde": "#121212"
+   },
+   {
+    "x": 11.5,
+    "y": 58.0,
+    "w": 5.0,
+    "h": 2.4,
+    "relleno": "#f8f5ee",
+    "borde": null
+   },
+   {
+    "x": 11.5,
+    "y": 58.1,
+    "w": 4.9,
+    "h": 2.3,
+    "relleno": null,
+    "borde": "#121212"
+   },
+   {
+    "x": 5.0,
+    "y": 63.9,
+    "w": 89.9,
+    "h": 11.2,
+    "relleno": "#f8f5ee",
+    "borde": null
+   },
+   {
+    "x": 5.4,
+    "y": 64.3,
+    "w": 6.9,
+    "h": 10.8,
+    "relleno": "#121212",
+    "borde": null
+   },
+   {
+    "x": 5.0,
+    "y": 75.1,
+    "w": 89.9,
+    "h": 11.3,
+    "relleno": "#f8f5ee",
+    "borde": null
+   },
+   {
+    "x": 5.4,
+    "y": 75.5,
+    "w": 6.9,
+    "h": 10.9,
+    "relleno": "#121212",
+    "borde": null
+   },
+   {
+    "x": 5.0,
+    "y": 86.5,
+    "w": 89.9,
+    "h": 11.6,
+    "relleno": "#f8f5ee",
+    "borde": null
+   },
+   {
+    "x": 5.2,
+    "y": 86.7,
+    "w": 89.5,
+    "h": 11.2,
+    "relleno": null,
+    "borde": "#121212"
+   },
+   {
+    "x": 5.4,
+    "y": 86.8,
+    "w": 6.9,
+    "h": 10.8,
+    "relleno": "#121212",
+    "borde": null
+   },
+   {
+    "x": 5.0,
+    "y": 101.1,
+    "w": 89.9,
+    "h": 15.9,
+    "relleno": "#2ecc5f",
+    "borde": null
+   },
+   {
+    "x": 5.3,
+    "y": 101.3,
+    "w": 89.4,
+    "h": 15.4,
+    "relleno": null,
+    "borde": "#121212"
+   }
+  ],
+  "tipo": "clara",
+  "paleta": [
+   {
+    "hex": "#f8f5ee",
+    "pct": 49.1
+   },
+   {
+    "hex": "#6d7a6e",
+    "pct": 18.4
+   },
+   {
+    "hex": "#fcf9f2",
+    "pct": 9.3
+   },
+   {
+    "hex": "#f7f5ed",
+    "pct": 8.8
+   },
+   {
+    "hex": "#97d7a6",
+    "pct": 8.6
+   }
+  ]
+ },
+ {
+  "pagina": 10,
+  "fondo": "#f8f5ee",
+  "oscura": false,
+  "bloques": [
+   {
+    "texto": "06 · COGNICIÓN Y TECNOLOGÍA",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.9,
+    "color": "#121212",
+    "x": 58.0,
+    "y": 5.9,
+    "w": 36.7,
+    "h": 1.9,
+    "alinea": "der"
+   },
+   {
+    "texto": "CONFIANZA CALIBRADA EN",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 7.19,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 17.5,
+    "w": 67.2,
+    "h": 7.2,
+    "alinea": "izq"
+   },
+   {
+    "texto": "SISTEMAS AUTOMATIZADOS",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 7.19,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 24.1,
+    "w": 71.2,
+    "h": 7.2,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Lee y See (2004) investigan la confianza en la automatización y la necesidad de diseñar / condiciones para una dependencia adecuada, ajustada a las capacidades ",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.45,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 32.9,
+    "w": 85.9,
+    "h": 9.7,
+    "alinea": "centro"
+   },
+   {
+    "texto": "FUENTE",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.66,
+    "color": "#f8f5ee",
+    "x": 13.8,
+    "y": 40.8,
+    "w": 6.4,
+    "h": 1.7,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Una confianza desmedida conlleva la aceptación ciega de falsos positivos taxonómicos; / una desconfianza excesiva desincentiva el uso de la herramienta. Se requ",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.45,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 46.9,
+    "w": 88.6,
+    "h": 9.9,
+    "alinea": "centro"
+   },
+   {
+    "texto": "INF",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.66,
+    "color": "#121212",
+    "x": 26.7,
+    "y": 54.8,
+    "w": 3.2,
+    "h": 1.7,
+    "alinea": "der"
+   },
+   {
+    "texto": "ESTADO DE CONDUCTA DEL IMPACTO EN LA INTERVENCIÓN DE / CONFIANZA USUARIO PLATAFORMA DISEÑO",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.7,
+    "color": "#f8f5ee",
+    "x": 6.6,
+    "y": 61.9,
+    "w": 83.3,
+    "h": 4.0,
+    "alinea": "centro"
+   },
+   {
+    "texto": "Sobreconfianza",
+    "fuente": "TimesNewRomanPS-BoldMT",
+    "tam_cqw": 2.0,
+    "color": "#121212",
+    "x": 6.6,
+    "y": 68.9,
+    "w": 13.2,
+    "h": 2.0,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Aceptación automática y Dispersión de registros Exhibir márgenes de duda / acrítica erróneos y rasgos clave",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.0,
+    "color": "#121212",
+    "x": 24.6,
+    "y": 68.9,
+    "w": 68.5,
+    "h": 4.6,
+    "alinea": "der"
+   },
+   {
+    "texto": "Confianza / calibrada",
+    "fuente": "TimesNewRomanPS-BoldMT",
+    "tam_cqw": 2.0,
+    "color": "#121212",
+    "x": 6.6,
+    "y": 77.0,
+    "w": 8.8,
+    "h": 4.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Verificación consciente Aprovechamiento óptimo Explicabilidad e / y equilibrada de la IA interfaces transparentes",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.0,
+    "color": "#121212",
+    "x": 24.6,
+    "y": 77.0,
+    "w": 66.4,
+    "h": 4.6,
+    "alinea": "der"
+   },
+   {
+    "texto": "Subconfianza",
+    "fuente": "TimesNewRomanPS-BoldMT",
+    "tam_cqw": 2.0,
+    "color": "#121212",
+    "x": 6.6,
+    "y": 84.9,
+    "w": 11.5,
+    "h": 2.0,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Descarte sistemático del Subutilización y Evidenciar la precisión y / sistema deserción utilidad real",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.0,
+    "color": "#121212",
+    "x": 24.6,
+    "y": 84.9,
+    "w": 67.6,
+    "h": 4.8,
+    "alinea": "der"
+   },
+   {
+    "texto": "Tabla 2. Matriz de calibración de confianza en automatización según Lee y See.",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 1.9,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 93.4,
+    "w": 88.8,
+    "h": 1.9,
+    "alinea": "centro"
+   },
+   {
+    "texto": "PUNTO CLAVE",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.7,
+    "color": "#f8f5ee",
+    "x": 8.3,
+    "y": 102.1,
+    "w": 13.2,
+    "h": 1.7,
+    "alinea": "izq"
+   },
+   {
+    "texto": "La transparencia en las limitaciones del algoritmo es el cimiento de una / relación equilibrada con la tecnología.",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.6,
+    "color": "#f8f5ee",
+    "x": 8.3,
+    "y": 105.7,
+    "w": 74.3,
+    "h": 6.5,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Psicología · PITB Antioquia · v1 10",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 1.8,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 135.6,
+    "w": 89.9,
+    "h": 1.8,
+    "alinea": "centro"
+   }
+  ],
+  "imagenes": [],
+  "recuadros": [
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.2,
+    "relleno": "#f8f5ee",
+    "borde": null
+   },
+   {
+    "x": 13.0,
+    "y": 40.3,
+    "w": 8.2,
+    "h": 2.5,
+    "relleno": "#121212",
+    "borde": null
+   },
+   {
+    "x": 13.0,
+    "y": 40.3,
+    "w": 8.1,
+    "h": 2.4,
+    "relleno": null,
+    "borde": "#121212"
+   },
+   {
+    "x": 25.8,
+    "y": 54.2,
+    "w": 4.9,
+    "h": 2.5,
+    "relleno": "#f8f5ee",
+    "borde": null
+   },
+   {
+    "x": 25.9,
+    "y": 54.3,
+    "w": 4.8,
+    "h": 2.4,
+    "relleno": null,
+    "borde": "#121212"
+   },
+   {
+    "x": 5.0,
+    "y": 60.3,
+    "w": 18.0,
+    "h": 6.9,
+    "relleno": "#121212",
+    "borde": null
+   },
+   {
+    "x": 23.0,
+    "y": 60.3,
+    "w": 23.3,
+    "h": 6.9,
+    "relleno": "#121212",
+    "borde": null
+   },
+   {
+    "x": 46.3,
+    "y": 60.3,
+    "w": 24.3,
+    "h": 6.9,
+    "relleno": "#121212",
+    "borde": null
+   },
+   {
+    "x": 70.6,
+    "y": 60.3,
+    "w": 24.3,
+    "h": 6.9,
+    "relleno": "#121212",
+    "borde": null
+   },
+   {
+    "x": 5.9,
+    "y": 99.4,
+    "w": 89.9,
+    "h": 17.1,
+    "relleno": "#121212",
+    "borde": null
+   },
+   {
+    "x": 5.0,
+    "y": 98.5,
+    "w": 89.9,
+    "h": 17.1,
+    "relleno": "#10291f",
+    "borde": null
+   },
+   {
+    "x": 5.3,
+    "y": 98.8,
+    "w": 89.4,
+    "h": 16.6,
+    "relleno": null,
+    "borde": "#121212"
+   }
+  ],
+  "tipo": "clara",
+  "paleta": [
+   {
+    "hex": "#f8f5ee",
+    "pct": 44.5
+   },
+   {
+    "hex": "#747974",
+    "pct": 27.4
+   },
+   {
+    "hex": "#f8f5ed",
+    "pct": 13.5
+   },
+   {
+    "hex": "#fbf8f2",
+    "pct": 11.4
+   },
+   {
+    "hex": "#f8f5ef",
+    "pct": 3.1
+   }
+  ]
+ },
+ {
+  "pagina": 11,
+  "fondo": "#1e362d",
+  "oscura": true,
+  "bloques": [
+   {
+    "texto": "Parte 03 / 04",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.9,
+    "color": "#f8f5ee",
+    "x": 5.0,
+    "y": 5.4,
+    "w": 16.6,
+    "h": 1.9,
+    "alinea": "izq"
+   },
+   {
+    "texto": "03",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 89.9,
+    "color": "#2ecc5f",
+    "x": -4.0,
+    "y": 29.3,
+    "w": 88.8,
+    "h": 89.9,
+    "alinea": "izq"
+   },
+   {
+    "texto": "INVESTIGACIÓN FORMATIVA",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 8.98,
+    "color": "#f8f5ee",
+    "x": 5.0,
+    "y": 96.3,
+    "w": 89.3,
+    "h": 9.0,
+    "alinea": "centro"
+   },
+   {
+    "texto": "Diagnóstico inicial, evaluación en fase piloto y variables / operativas para la validación empírica.",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 1.9,
+    "color": "#f8f5ee",
+    "x": 5.0,
+    "y": 111.6,
+    "w": 66.0,
+    "h": 4.8,
+    "alinea": "izq"
+   }
+  ],
+  "imagenes": [
+   {
+    "x": 0.0,
+    "y": 118.4,
+    "w": 99.9,
+    "h": 23.0
+   }
+  ],
+  "recuadros": [
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.2,
+    "relleno": "#10291f",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 118.4,
+    "w": 99.9,
+    "h": 1.5,
+    "relleno": "#2ecc5f",
+    "borde": null
+   },
+   {
+    "x": 28.0,
+    "y": 118.4,
+    "w": 4.0,
+    "h": 34.0,
+    "relleno": "#2ecc5f",
+    "borde": null
+   },
+   {
+    "x": 56.9,
+    "y": 118.4,
+    "w": 3.4,
+    "h": 27.0,
+    "relleno": "#2ecc5f",
+    "borde": null
+   },
+   {
+    "x": 82.9,
+    "y": 118.4,
+    "w": 4.0,
+    "h": 31.0,
+    "relleno": "#2ecc5f",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.2,
+    "relleno": null,
+    "borde": null
+   }
+  ],
+  "tipo": "divisor",
+  "paleta": [
+   {
+    "hex": "#1e362d",
+    "pct": 40.0
+   },
+   {
+    "hex": "#3bcf69",
+    "pct": 32.3
+   },
+   {
+    "hex": "#223c31",
+    "pct": 6.7
+   },
+   {
+    "hex": "#4a9663",
+    "pct": 6.5
+   },
+   {
+    "hex": "#1c332b",
+    "pct": 5.6
+   }
+  ]
+ },
+ {
+  "pagina": 12,
+  "fondo": "#f8f5ee",
+  "oscura": false,
+  "bloques": [
+   {
+    "texto": "07 · INVESTIGACIÓN FORMATIVA",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.9,
+    "color": "#121212",
+    "x": 56.6,
+    "y": 5.9,
+    "w": 38.0,
+    "h": 1.9,
+    "alinea": "der"
+   },
+   {
+    "texto": "ESTRATEGIA METODOLÓGICA EN",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 7.19,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 17.5,
+    "w": 80.4,
+    "h": 7.2,
+    "alinea": "izq"
+   },
+   {
+    "texto": "FASE PILOTO",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 7.19,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 24.1,
+    "w": 32.0,
+    "h": 7.2,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Los antecedentes teóricos orientan la investigación formativa desde la psicología para / indagar cómo las personas interactúan con la herramienta y qué variable",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.45,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 32.9,
+    "w": 88.9,
+    "h": 9.7,
+    "alinea": "centro"
+   },
+   {
+    "texto": "FUENTE",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.66,
+    "color": "#f8f5ee",
+    "x": 22.0,
+    "y": 40.8,
+    "w": 6.4,
+    "h": 1.7,
+    "alinea": "der"
+   },
+   {
+    "texto": "Se estructura un proceso iterativo de recolección de evidencia empírica en terreno que / acompaña la evolución del software .",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.45,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 46.9,
+    "w": 84.2,
+    "h": 6.2,
+    "alinea": "centro"
+   },
+   {
+    "texto": "INF",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.66,
+    "color": "#121212",
+    "x": 41.7,
+    "y": 51.1,
+    "w": 3.2,
+    "h": 1.7,
+    "alinea": "der"
+   },
+   {
+    "texto": "→ →",
+    "fuente": "Consolas-Bold",
+    "tam_cqw": 2.0,
+    "color": "#121212",
+    "x": 32.6,
+    "y": 58.8,
+    "w": 30.7,
+    "h": 2.0,
+    "alinea": "centro"
+   },
+   {
+    "texto": "1 2 3",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.7,
+    "color": "#121212",
+    "x": 7.5,
+    "y": 59.4,
+    "w": 60.3,
+    "h": 1.7,
+    "alinea": "izq"
+   },
+   {
+    "texto": "1. DIAGNÓSTICO DE 2. PRUEBA DE 3. ANÁLISIS Y / ENTRADA EXPERIENCIA REFINAMIENTO",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 3.5,
+    "color": "#121212",
+    "x": 7.5,
+    "y": 62.7,
+    "w": 77.7,
+    "h": 7.0,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Encuesta breve sobre actitudes Medición de usabilidad, Identificación de necesidades / ambientales, autoeficacia y comprensión de resultados y educativas y ajus",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 1.85,
+    "color": "#121212",
+    "x": 7.5,
+    "y": 70.0,
+    "w": 81.0,
+    "h": 7.0,
+    "alinea": "centro"
+   },
+   {
+    "texto": "SIMULACIÓN",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.7,
+    "color": "#121212",
+    "x": 8.3,
+    "y": 86.6,
+    "w": 12.0,
+    "h": 1.7,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Los indicadores y fases metodológicas son propuestas para el piloto y sus resultados / dependerán de los datos empíricos obtenidos.",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.2,
+    "color": "#121212",
+    "x": 8.3,
+    "y": 90.2,
+    "w": 74.1,
+    "h": 5.5,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Psicología · PITB Antioquia · v1 12",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 1.8,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 135.6,
+    "w": 89.9,
+    "h": 1.8,
+    "alinea": "centro"
+   }
+  ],
+  "imagenes": [],
+  "recuadros": [
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.2,
+    "relleno": "#f8f5ee",
+    "borde": null
+   },
+   {
+    "x": 21.1,
+    "y": 40.3,
+    "w": 8.3,
+    "h": 2.5,
+    "relleno": "#121212",
+    "borde": null
+   },
+   {
+    "x": 21.2,
+    "y": 40.3,
+    "w": 8.2,
+    "h": 2.4,
+    "relleno": null,
+    "borde": "#121212"
+   },
+   {
+    "x": 40.8,
+    "y": 50.6,
+    "w": 5.0,
+    "h": 2.5,
+    "relleno": "#f8f5ee",
+    "borde": null
+   },
+   {
+    "x": 40.8,
+    "y": 50.7,
+    "w": 4.9,
+    "h": 2.4,
+    "relleno": null,
+    "borde": "#121212"
+   },
+   {
+    "x": 5.3,
+    "y": 56.9,
+    "w": 89.4,
+    "h": 22.9,
+    "relleno": null,
+    "borde": "#121212"
+   },
+   {
+    "x": 5.0,
+    "y": 83.1,
+    "w": 89.9,
+    "h": 15.9,
+    "relleno": "#f8f5ee",
+    "borde": null
+   },
+   {
+    "x": 5.0,
+    "y": 83.1,
+    "w": 89.9,
+    "h": 15.9,
+    "relleno": null,
+    "borde": null
+   },
+   {
+    "x": 5.5,
+    "y": 57.1,
+    "w": 29.6,
+    "h": 22.4,
+    "relleno": "#f8f5ee",
+    "borde": null
+   },
+   {
+    "x": 35.1,
+    "y": 57.1,
+    "w": 29.7,
+    "h": 22.4,
+    "relleno": "#10291f",
+    "borde": null
+   },
+   {
+    "x": 64.8,
+    "y": 57.1,
+    "w": 29.6,
+    "h": 22.4,
+    "relleno": "#f8f5ee",
+    "borde": null
+   }
+  ],
+  "tipo": "clara",
+  "paleta": [
+   {
+    "hex": "#f8f5ee",
+    "pct": 54.0
+   },
+   {
+    "hex": "#a2a39e",
+    "pct": 19.3
+   },
+   {
+    "hex": "#f7f5ee",
+    "pct": 14.0
+   },
+   {
+    "hex": "#fbf8f2",
+    "pct": 9.1
+   },
+   {
+    "hex": "#f8f5ef",
+    "pct": 2.8
+   }
+  ]
+ },
+ {
+  "pagina": 13,
+  "fondo": "#f8f5ee",
+  "oscura": false,
+  "bloques": [
+   {
+    "texto": "08 · INVESTIGACIÓN FORMATIVA",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.9,
+    "color": "#121212",
+    "x": 56.6,
+    "y": 5.9,
+    "w": 38.0,
+    "h": 1.9,
+    "alinea": "der"
+   },
+   {
+    "texto": "MATRIZ OPERACIONAL DE",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 8.99,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 17.8,
+    "w": 80.9,
+    "h": 9.0,
+    "alinea": "izq"
+   },
+   {
+    "texto": "VARIABLES",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 8.99,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 26.1,
+    "w": 34.8,
+    "h": 9.0,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Las variables de interés integran constructos actitudinales, de percepción de control y de / juicio crítico frente a las clasificaciones biológicas automatizada",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.45,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 36.2,
+    "w": 86.5,
+    "h": 6.2,
+    "alinea": "centro"
+   },
+   {
+    "texto": "CONSTRUCTO REFERENTE INDICADOR DE MEDICIÓN INSTRUMENTO",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.7,
+    "color": "#f8f5ee",
+    "x": 6.6,
+    "y": 47.6,
+    "w": 84.8,
+    "h": 1.7,
+    "alinea": "centro"
+   },
+   {
+    "texto": "TEÓRICO",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.7,
+    "color": "#f8f5ee",
+    "x": 28.2,
+    "y": 49.9,
+    "w": 8.1,
+    "h": 1.7,
+    "alinea": "der"
+   },
+   {
+    "texto": "Actitud hacia la / conservación",
+    "fuente": "TimesNewRomanPS-BoldMT",
+    "tam_cqw": 2.0,
+    "color": "#121212",
+    "x": 6.6,
+    "y": 54.6,
+    "w": 13.5,
+    "h": 4.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Gifford (2014) Valor asignado a la protección Escala breve",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.0,
+    "color": "#121212",
+    "x": 28.2,
+    "y": 54.6,
+    "w": 60.5,
+    "h": 2.0,
+    "alinea": "der"
+   },
+   {
+    "texto": "ecosistémica Likert",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.0,
+    "color": "#121212",
+    "x": 49.7,
+    "y": 57.2,
+    "w": 33.6,
+    "h": 2.0,
+    "alinea": "der"
+   },
+   {
+    "texto": "Autoeficacia / tecnológica",
+    "fuente": "TimesNewRomanPS-BoldMT",
+    "tam_cqw": 2.0,
+    "color": "#121212",
+    "x": 6.6,
+    "y": 62.5,
+    "w": 10.6,
+    "h": 4.8,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Ajzen (1991) Percepción de facilidad para Cuestionario",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.0,
+    "color": "#121212",
+    "x": 28.2,
+    "y": 62.5,
+    "w": 60.6,
+    "h": 2.0,
+    "alinea": "der"
+   },
+   {
+    "texto": "registrar datos diagnóstico",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.0,
+    "color": "#121212",
+    "x": 49.7,
+    "y": 65.3,
+    "w": 38.0,
+    "h": 2.0,
+    "alinea": "der"
+   },
+   {
+    "texto": "Pensamiento crítico / en IA",
+    "fuente": "TimesNewRomanPS-BoldMT",
+    "tam_cqw": 2.0,
+    "color": "#121212",
+    "x": 6.6,
+    "y": 70.6,
+    "w": 16.8,
+    "h": 4.8,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Kahneman (2011) Capacidad para cuestionar Prueba de caso",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.0,
+    "color": "#121212",
+    "x": 28.2,
+    "y": 70.6,
+    "w": 62.3,
+    "h": 2.0,
+    "alinea": "der"
+   },
+   {
+    "texto": "identificaciones dudosas con discrepancia",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.0,
+    "color": "#121212",
+    "x": 49.7,
+    "y": 73.3,
+    "w": 42.1,
+    "h": 2.0,
+    "alinea": "der"
+   },
+   {
+    "texto": "Calibración de / confianza",
+    "fuente": "TimesNewRomanPS-BoldMT",
+    "tam_cqw": 2.0,
+    "color": "#121212",
+    "x": 6.6,
+    "y": 78.6,
+    "w": 12.6,
+    "h": 4.8,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Lee y See (2004) Disposición a verificar y Registro de",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.0,
+    "color": "#121212",
+    "x": 28.2,
+    "y": 78.6,
+    "w": 59.5,
+    "h": 2.0,
+    "alinea": "der"
+   },
+   {
+    "texto": "reportar incertidumbre interacción en la",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.0,
+    "color": "#121212",
+    "x": 49.7,
+    "y": 81.4,
+    "w": 42.0,
+    "h": 2.0,
+    "alinea": "der"
+   },
+   {
+    "texto": "app",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.0,
+    "color": "#121212",
+    "x": 78.5,
+    "y": 84.0,
+    "w": 2.9,
+    "h": 2.0,
+    "alinea": "der"
+   },
+   {
+    "texto": "Tabla 3. Operacionalización de dimensiones psicológicas para la investigación / formativa.",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 1.9,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 89.7,
+    "w": 87.7,
+    "h": 4.7,
+    "alinea": "centro"
+   },
+   {
+    "texto": "DATO PENDIENTE",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.7,
+    "color": "#121212",
+    "x": 8.3,
+    "y": 101.3,
+    "w": 16.9,
+    "h": 1.7,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Los instrumentos de evaluación deberán someterse a validación de contenido en / municipios seleccionados de Antioquia.",
+    "fuente": "TimesNewRomanPS-BoldMT",
+    "tam_cqw": 2.2,
+    "color": "#121212",
+    "x": 8.3,
+    "y": 104.9,
+    "w": 74.7,
+    "h": 5.5,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Psicología · PITB Antioquia · v1 13",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 1.8,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 135.6,
+    "w": 89.9,
+    "h": 1.8,
+    "alinea": "centro"
+   }
+  ],
+  "imagenes": [],
+  "recuadros": [
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.2,
+    "relleno": "#f8f5ee",
+    "borde": null
+   },
+   {
+    "x": 5.0,
+    "y": 45.9,
+    "w": 21.5,
+    "h": 6.9,
+    "relleno": "#121212",
+    "borde": null
+   },
+   {
+    "x": 26.6,
+    "y": 45.9,
+    "w": 21.6,
+    "h": 6.9,
+    "relleno": "#121212",
+    "borde": null
+   },
+   {
+    "x": 48.2,
+    "y": 45.9,
+    "w": 28.7,
+    "h": 6.9,
+    "relleno": "#121212",
+    "borde": null
+   },
+   {
+    "x": 76.9,
+    "y": 45.9,
+    "w": 18.0,
+    "h": 6.9,
+    "relleno": "#121212",
+    "borde": null
+   },
+   {
+    "x": 5.0,
+    "y": 97.8,
+    "w": 89.9,
+    "h": 16.0,
+    "relleno": "#f8f5ee",
+    "borde": null
+   }
+  ],
+  "tipo": "clara",
+  "paleta": [
+   {
+    "hex": "#f8f5ee",
+    "pct": 52.6
+   },
+   {
+    "hex": "#969490",
+    "pct": 19.4
+   },
+   {
+    "hex": "#f7f5ee",
+    "pct": 10.7
+   },
+   {
+    "hex": "#fcf9f2",
+    "pct": 10.1
+   },
+   {
+    "hex": "#f9f5ee",
+    "pct": 6.3
+   }
+  ]
+ },
+ {
+  "pagina": 14,
+  "fondo": "#f8f5ee",
+  "oscura": false,
+  "bloques": [
+   {
+    "texto": "09 · INVESTIGACIÓN FORMATIVA · COMUNIDAD",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.9,
+    "color": "#121212",
+    "x": 40.2,
+    "y": 5.9,
+    "w": 54.4,
+    "h": 1.9,
+    "alinea": "der"
+   },
+   {
+    "texto": "CIENCIA CIUDADANA Y",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 7.19,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 17.5,
+    "w": 56.3,
+    "h": 7.2,
+    "alinea": "izq"
+   },
+   {
+    "texto": "EXPERIENCIA EN CAMPO",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 7.19,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 24.1,
+    "w": 62.0,
+    "h": 7.2,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Las jornadas comunitarias de ciencia ciudadana constituyen espacios de socialización / donde la fotografía biológica se vincula con la experiencia directa de la",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.45,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 32.9,
+    "w": 89.9,
+    "h": 6.1,
+    "alinea": "centro"
+   },
+   {
+    "texto": "FUENTE",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.66,
+    "color": "#f8f5ee",
+    "x": 86.9,
+    "y": 37.2,
+    "w": 6.4,
+    "h": 1.7,
+    "alinea": "der"
+   },
+   {
+    "texto": "Trabajo de campo: observación comunitaria y registro de flora en territorio . / Foto: dato pendiente · dato pendiente · Wikimedia Commons",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 1.6,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 95.2,
+    "w": 79.3,
+    "h": 4.0,
+    "alinea": "izq"
+   },
+   {
+    "texto": "FUENTE",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.09,
+    "color": "#f8f5ee",
+    "x": 78.4,
+    "y": 95.6,
+    "w": 4.2,
+    "h": 1.1,
+    "alinea": "der"
+   },
+   {
+    "texto": "El contacto directo con el entorno rural o periurbano propicia la valoración compartida del / patrimonio natural y fortalece el tejido social alrededor de la cu",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.45,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 103.0,
+    "w": 88.5,
+    "h": 6.1,
+    "alinea": "centro"
+   },
+   {
+    "texto": "INF",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.66,
+    "color": "#121212",
+    "x": 84.3,
+    "y": 107.3,
+    "w": 3.2,
+    "h": 1.7,
+    "alinea": "der"
+   },
+   {
+    "texto": "NOTA",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.7,
+    "color": "#121212",
+    "x": 8.3,
+    "y": 116.2,
+    "w": 4.7,
+    "h": 1.7,
+    "alinea": "izq"
+   },
+   {
+    "texto": "La práctica de campo afianza el aprendizaje vivencial y consolida la motivación para el / cuidado colectivo de los ecosistemas.",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.2,
+    "color": "#121212",
+    "x": 8.3,
+    "y": 119.7,
+    "w": 76.8,
+    "h": 5.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Psicología · PITB Antioquia · v1 14",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 1.8,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 135.6,
+    "w": 89.9,
+    "h": 1.8,
+    "alinea": "centro"
+   }
+  ],
+  "imagenes": [
+   {
+    "x": 5.5,
+    "y": 43.2,
+    "w": 88.9,
+    "h": 49.8
+   }
+  ],
+  "recuadros": [
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.2,
+    "relleno": "#f8f5ee",
+    "borde": null
+   },
+   {
+    "x": 86.1,
+    "y": 36.6,
+    "w": 8.2,
+    "h": 2.5,
+    "relleno": "#121212",
+    "borde": null
+   },
+   {
+    "x": 86.1,
+    "y": 36.7,
+    "w": 8.1,
+    "h": 2.4,
+    "relleno": null,
+    "borde": "#121212"
+   },
+   {
+    "x": 77.8,
+    "y": 95.1,
+    "w": 5.5,
+    "h": 1.6,
+    "relleno": "#121212",
+    "borde": null
+   },
+   {
+    "x": 77.8,
+    "y": 95.2,
+    "w": 5.4,
+    "h": 1.5,
+    "relleno": null,
+    "borde": "#121212"
+   },
+   {
+    "x": 83.4,
+    "y": 106.7,
+    "w": 4.9,
+    "h": 2.5,
+    "relleno": "#f8f5ee",
+    "borde": null
+   },
+   {
+    "x": 83.5,
+    "y": 106.8,
+    "w": 4.8,
+    "h": 2.4,
+    "relleno": null,
+    "borde": "#121212"
+   },
+   {
+    "x": 5.0,
+    "y": 112.6,
+    "w": 89.9,
+    "h": 16.0,
+    "relleno": "#ede8d8",
+    "borde": null
+   },
+   {
+    "x": 5.3,
+    "y": 112.9,
+    "w": 89.4,
+    "h": 15.5,
+    "relleno": null,
+    "borde": "#121212"
+   },
+   {
+    "x": 5.0,
+    "y": 42.5,
+    "w": 89.9,
+    "h": 51.1,
+    "relleno": "#121212",
+    "borde": null
+   },
+   {
+    "x": 5.3,
+    "y": 42.9,
+    "w": 89.2,
+    "h": 50.5,
+    "relleno": null,
+    "borde": "#121212"
+   }
+  ],
+  "tipo": "clara",
+  "paleta": [
+   {
+    "hex": "#f8f5ee",
+    "pct": 30.5
+   },
+   {
+    "hex": "#18241c",
+    "pct": 27.6
+   },
+   {
+    "hex": "#78af85",
+    "pct": 15.6
+   },
+   {
+    "hex": "#efebdd",
+    "pct": 14.7
+   },
+   {
+    "hex": "#fcf9f2",
+    "pct": 6.4
+   }
+  ]
+ },
+ {
+  "pagina": 15,
+  "fondo": "#1e362d",
+  "oscura": true,
+  "bloques": [
+   {
+    "texto": "Parte 04 / 04",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.9,
+    "color": "#f8f5ee",
+    "x": 5.0,
+    "y": 5.4,
+    "w": 16.6,
+    "h": 1.9,
+    "alinea": "izq"
+   },
+   {
+    "texto": "04",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 89.9,
+    "color": "#2ecc5f",
+    "x": -4.0,
+    "y": 29.3,
+    "w": 88.8,
+    "h": 89.9,
+    "alinea": "izq"
+   },
+   {
+    "texto": "ÉTICA Y GOBERNANZA",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 11.48,
+    "color": "#f8f5ee",
+    "x": 5.0,
+    "y": 96.9,
+    "w": 89.5,
+    "h": 11.5,
+    "alinea": "centro"
+   },
+   {
+    "texto": "Autonomía personal, gobernanza ética de datos, inclusión / comunitaria y síntesis interdisciplinaria.",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 1.9,
+    "color": "#f8f5ee",
+    "x": 5.0,
+    "y": 111.6,
+    "w": 63.8,
+    "h": 4.8,
+    "alinea": "izq"
+   }
+  ],
+  "imagenes": [
+   {
+    "x": 0.0,
+    "y": 118.4,
+    "w": 99.9,
+    "h": 23.0
+   }
+  ],
+  "recuadros": [
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.2,
+    "relleno": "#10291f",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 118.4,
+    "w": 99.9,
+    "h": 1.5,
+    "relleno": "#2ecc5f",
+    "borde": null
+   },
+   {
+    "x": 28.0,
+    "y": 118.4,
+    "w": 4.0,
+    "h": 34.0,
+    "relleno": "#2ecc5f",
+    "borde": null
+   },
+   {
+    "x": 56.9,
+    "y": 118.4,
+    "w": 3.4,
+    "h": 27.0,
+    "relleno": "#2ecc5f",
+    "borde": null
+   },
+   {
+    "x": 82.9,
+    "y": 118.4,
+    "w": 4.0,
+    "h": 31.0,
+    "relleno": "#2ecc5f",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.2,
+    "relleno": null,
+    "borde": null
+   }
+  ],
+  "tipo": "divisor",
+  "paleta": [
+   {
+    "hex": "#1e362d",
+    "pct": 38.4
+   },
+   {
+    "hex": "#3bcf69",
+    "pct": 32.2
+   },
+   {
+    "hex": "#233e32",
+    "pct": 7.2
+   },
+   {
+    "hex": "#4c9c67",
+    "pct": 6.1
+   },
+   {
+    "hex": "#1c332b",
+    "pct": 6.0
+   }
+  ]
+ },
+ {
+  "pagina": 16,
+  "fondo": "#f8f5ee",
+  "oscura": false,
+  "bloques": [
+   {
+    "texto": "10 · ÉTICA Y GOBERNANZA",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.9,
+    "color": "#121212",
+    "x": 63.5,
+    "y": 5.9,
+    "w": 31.2,
+    "h": 1.9,
+    "alinea": "der"
+   },
+   {
+    "texto": "PRINCIPIOS ÉTICOS E INTERACCIÓN",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 7.19,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 17.5,
+    "w": 88.0,
+    "h": 7.2,
+    "alinea": "centro"
+   },
+   {
+    "texto": "CON IA",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 7.19,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 24.1,
+    "w": 17.3,
+    "h": 7.2,
+    "alinea": "izq"
+   },
+   {
+    "texto": "El despliegue de sistemas de inteligencia artificial en ámbitos comunitarios exige / salvaguardar la autonomía humana y prevenir la delegación acrítica de decis",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.45,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 32.9,
+    "w": 79.9,
+    "h": 9.7,
+    "alinea": "izq"
+   },
+   {
+    "texto": "FUENTE",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.66,
+    "color": "#f8f5ee",
+    "x": 42.3,
+    "y": 40.8,
+    "w": 6.4,
+    "h": 1.7,
+    "alinea": "der"
+   },
+   {
+    "texto": "Para evitar la aceptación mecánica de clasificaciones dudosas, la plataforma debe promover / el pensamiento crítico y facilitar la consulta con biólogos y espec",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.45,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 46.9,
+    "w": 89.8,
+    "h": 6.2,
+    "alinea": "centro"
+   },
+   {
+    "texto": "INF",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.66,
+    "color": "#121212",
+    "x": 89.0,
+    "y": 51.1,
+    "w": 3.2,
+    "h": 1.7,
+    "alinea": "der"
+   },
+   {
+    "texto": "Promover el pensamiento crítico frente a cada salida y grado de certeza algorítmica. / Comunicar con transparencia los márgenes de incertidumbre y las posibles ",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.35,
+    "color": "#121212",
+    "x": 9.6,
+    "y": 57.7,
+    "w": 82.0,
+    "h": 17.8,
+    "alinea": "centro"
+   },
+   {
+    "texto": "Diseñar interfaces accesibles e inclusivas para personas con diversos grados de / alfabetización digital.",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.35,
+    "color": "#121212",
+    "x": 9.6,
+    "y": 77.7,
+    "w": 74.2,
+    "h": 5.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "OJO",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.7,
+    "color": "#121212",
+    "x": 8.3,
+    "y": 90.9,
+    "w": 3.5,
+    "h": 1.7,
+    "alinea": "izq"
+   },
+   {
+    "texto": "La inteligencia artificial en la PITB actúa como asistente cognitivo y nunca como autoridad / incuestionable.",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.2,
+    "color": "#121212",
+    "x": 8.3,
+    "y": 94.4,
+    "w": 80.5,
+    "h": 5.5,
+    "alinea": "centro"
+   },
+   {
+    "texto": "Psicología · PITB Antioquia · v1 16",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 1.8,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 135.6,
+    "w": 89.9,
+    "h": 1.8,
+    "alinea": "centro"
+   }
+  ],
+  "imagenes": [],
+  "recuadros": [
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.2,
+    "relleno": "#f8f5ee",
+    "borde": null
+   },
+   {
+    "x": 41.4,
+    "y": 40.3,
+    "w": 8.2,
+    "h": 2.5,
+    "relleno": "#121212",
+    "borde": null
+   },
+   {
+    "x": 41.5,
+    "y": 40.3,
+    "w": 8.1,
+    "h": 2.4,
+    "relleno": null,
+    "borde": "#121212"
+   },
+   {
+    "x": 88.1,
+    "y": 50.6,
+    "w": 5.0,
+    "h": 2.5,
+    "relleno": "#f8f5ee",
+    "borde": null
+   },
+   {
+    "x": 88.2,
+    "y": 50.7,
+    "w": 4.9,
+    "h": 2.4,
+    "relleno": null,
+    "borde": "#121212"
+   },
+   {
+    "x": 5.0,
+    "y": 87.3,
+    "w": 89.9,
+    "h": 15.9,
+    "relleno": "#d4a72c",
+    "borde": null
+   },
+   {
+    "x": 5.3,
+    "y": 87.6,
+    "w": 89.4,
+    "h": 15.4,
+    "relleno": null,
+    "borde": "#121212"
+   }
+  ],
+  "tipo": "clara",
+  "paleta": [
+   {
+    "hex": "#f8f5ee",
+    "pct": 57.9
+   },
+   {
+    "hex": "#b5a67e",
+    "pct": 21.6
+   },
+   {
+    "hex": "#fbf8f1",
+    "pct": 8.6
+   },
+   {
+    "hex": "#f7f5ee",
+    "pct": 4.4
+   },
+   {
+    "hex": "#f8f5ed",
+    "pct": 4.1
+   }
+  ]
+ },
+ {
+  "pagina": 17,
+  "fondo": "#f8f5ee",
+  "oscura": false,
+  "bloques": [
+   {
+    "texto": "11 · ÉTICA Y GOBERNANZA",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.9,
+    "color": "#121212",
+    "x": 63.5,
+    "y": 5.9,
+    "w": 31.2,
+    "h": 1.9,
+    "alinea": "der"
+   },
+   {
+    "texto": "PROTECCIÓN COMUNITARIA Y",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 7.19,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 17.5,
+    "w": 73.9,
+    "h": 7.2,
+    "alinea": "izq"
+   },
+   {
+    "texto": "GOBERNANZA DE DATOS",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 7.19,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 24.1,
+    "w": 60.4,
+    "h": 7.2,
+    "alinea": "izq"
+   },
+   {
+    "texto": "La participación de personas en actividades de registro o evaluación demanda rigurosidad / en consentimiento informado, confidencialidad y custodia responsable ",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.45,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 32.9,
+    "w": 87.8,
+    "h": 9.7,
+    "alinea": "centro"
+   },
+   {
+    "texto": "FUENTE",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.66,
+    "color": "#f8f5ee",
+    "x": 16.4,
+    "y": 40.8,
+    "w": 6.4,
+    "h": 1.7,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Asimismo, la georreferenciación de especies amenazadas o endémicas exige salvaguardas / especiales para impedir que la divulgación de coordenadas facilite su ex",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.45,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 46.9,
+    "w": 88.0,
+    "h": 9.9,
+    "alinea": "centro"
+   },
+   {
+    "texto": "INF",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.66,
+    "color": "#121212",
+    "x": 18.8,
+    "y": 54.8,
+    "w": 3.2,
+    "h": 1.7,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Psicología · PITB Antioquia · v1 17",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 1.8,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 135.6,
+    "w": 89.9,
+    "h": 1.8,
+    "alinea": "centro"
+   }
+  ],
+  "imagenes": [],
+  "recuadros": [
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.2,
+    "relleno": "#f8f5ee",
+    "borde": null
+   },
+   {
+    "x": 15.5,
+    "y": 40.3,
+    "w": 8.3,
+    "h": 2.5,
+    "relleno": "#121212",
+    "borde": null
+   },
+   {
+    "x": 15.5,
+    "y": 40.3,
+    "w": 8.2,
+    "h": 2.4,
+    "relleno": null,
+    "borde": "#121212"
+   },
+   {
+    "x": 18.0,
+    "y": 54.2,
+    "w": 4.9,
+    "h": 2.5,
+    "relleno": "#f8f5ee",
+    "borde": null
+   },
+   {
+    "x": 18.1,
+    "y": 54.3,
+    "w": 4.8,
+    "h": 2.4,
+    "relleno": null,
+    "borde": "#121212"
+   }
+  ],
+  "tipo": "clara",
+  "paleta": [
+   {
+    "hex": "#f8f5ee",
+    "pct": 77.3
+   },
+   {
+    "hex": "#d9d6d0",
+    "pct": 7.2
+   },
+   {
+    "hex": "#fbf8f2",
+    "pct": 6.1
+   },
+   {
+    "hex": "#605f5c",
+    "pct": 5.1
+   },
+   {
+    "hex": "#f7f5ee",
+    "pct": 2.6
+   }
+  ]
+ },
+ {
+  "pagina": 18,
+  "fondo": "#f8f5ee",
+  "oscura": false,
+  "bloques": [
+   {
+    "texto": "11 · ÉTICA Y GOBERNANZA",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.9,
+    "color": "#121212",
+    "x": 63.5,
+    "y": 5.9,
+    "w": 31.2,
+    "h": 1.9,
+    "alinea": "der"
+   },
+   {
+    "texto": "RUTA DE PROTECCIÓN DE DATOS Y BIODIVERSIDAD / SENSIBLE",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 4.39,
+    "color": "#121212",
+    "x": 7.9,
+    "y": 17.2,
+    "w": 77.4,
+    "h": 8.8,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Consentimiento",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 2.45,
+    "color": "#f8f5ee",
+    "x": 39.7,
+    "y": 29.9,
+    "w": 20.6,
+    "h": 2.5,
+    "alinea": "centro"
+   },
+   {
+    "texto": "informado / voluntario",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 2.45,
+    "color": "#f8f5ee",
+    "x": 43.4,
+    "y": 33.4,
+    "w": 14.0,
+    "h": 6.0,
+    "alinea": "centro"
+   },
+   {
+    "texto": "Minimización y / anonimización",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 2.45,
+    "color": "#121212",
+    "x": 39.7,
+    "y": 46.3,
+    "w": 20.6,
+    "h": 6.0,
+    "alinea": "centro"
+   },
+   {
+    "texto": "de datos",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 2.45,
+    "color": "#121212",
+    "x": 44.1,
+    "y": 53.3,
+    "w": 11.8,
+    "h": 2.5,
+    "alinea": "centro"
+   },
+   {
+    "texto": "¿Especie",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 2.45,
+    "color": "#121212",
+    "x": 44.1,
+    "y": 65.2,
+    "w": 11.8,
+    "h": 2.5,
+    "alinea": "centro"
+   },
+   {
+    "texto": "no",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 2.45,
+    "color": "#121212",
+    "x": 64.7,
+    "y": 66.6,
+    "w": 2.9,
+    "h": 2.5,
+    "alinea": "der"
+   },
+   {
+    "texto": "vulnerable o",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 2.45,
+    "color": "#121212",
+    "x": 41.1,
+    "y": 68.7,
+    "w": 17.7,
+    "h": 2.5,
+    "alinea": "centro"
+   },
+   {
+    "texto": "amenazada?",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 2.45,
+    "color": "#121212",
+    "x": 42.6,
+    "y": 72.2,
+    "w": 14.7,
+    "h": 2.5,
+    "alinea": "centro"
+   },
+   {
+    "texto": "sí",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 2.45,
+    "color": "#121212",
+    "x": 51.4,
+    "y": 78.0,
+    "w": 2.9,
+    "h": 2.5,
+    "alinea": "centro"
+   },
+   {
+    "texto": "Ofuscación de",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 2.45,
+    "color": "#121212",
+    "x": 40.4,
+    "y": 84.1,
+    "w": 19.1,
+    "h": 2.5,
+    "alinea": "centro"
+   },
+   {
+    "texto": "coordenadas",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 2.45,
+    "color": "#121212",
+    "x": 41.9,
+    "y": 87.6,
+    "w": 16.2,
+    "h": 2.5,
+    "alinea": "centro"
+   },
+   {
+    "texto": "precisas",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 2.45,
+    "color": "#121212",
+    "x": 44.1,
+    "y": 91.1,
+    "w": 11.8,
+    "h": 2.5,
+    "alinea": "centro"
+   },
+   {
+    "texto": "Publicación / abierta en",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 2.45,
+    "color": "#f8f5ee",
+    "x": 41.9,
+    "y": 100.5,
+    "w": 16.2,
+    "h": 6.0,
+    "alinea": "centro"
+   },
+   {
+    "texto": "catálogo PITB",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 2.45,
+    "color": "#f8f5ee",
+    "x": 40.4,
+    "y": 107.5,
+    "w": 19.1,
+    "h": 2.5,
+    "alinea": "centro"
+   },
+   {
+    "texto": "Figura 2. Protocolo ético para la salvaguarda de datos personales y especies sensibles.",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 1.6,
+    "color": "#121212",
+    "x": 7.9,
+    "y": 115.8,
+    "w": 83.4,
+    "h": 1.6,
+    "alinea": "centro"
+   },
+   {
+    "texto": "Psicología · PITB Antioquia · v1 18",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 1.8,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 135.6,
+    "w": 89.9,
+    "h": 1.8,
+    "alinea": "centro"
+   }
+  ],
+  "imagenes": [],
+  "recuadros": [
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.2,
+    "relleno": "#f8f5ee",
+    "borde": null
+   },
+   {
+    "x": 5.0,
+    "y": 13.6,
+    "w": 89.9,
+    "h": 106.3,
+    "relleno": "#f8f5ee",
+    "borde": null
+   },
+   {
+    "x": 5.3,
+    "y": 13.8,
+    "w": 89.4,
+    "h": 105.8,
+    "relleno": null,
+    "borde": "#121212"
+   },
+   {
+    "x": 37.8,
+    "y": 29.6,
+    "w": 24.3,
+    "h": 9.3,
+    "relleno": "#121212",
+    "borde": null
+   },
+   {
+    "x": 37.8,
+    "y": 29.6,
+    "w": 24.3,
+    "h": 9.3,
+    "relleno": null,
+    "borde": "#121212"
+   },
+   {
+    "x": 38.5,
+    "y": 30.3,
+    "w": 22.9,
+    "h": 7.9,
+    "relleno": null,
+    "borde": "#f8f5ee"
+   },
+   {
+    "x": 37.8,
+    "y": 45.9,
+    "w": 24.3,
+    "h": 9.3,
+    "relleno": "#ede8d8",
+    "borde": null
+   },
+   {
+    "x": 37.8,
+    "y": 45.9,
+    "w": 24.3,
+    "h": 9.3,
+    "relleno": null,
+    "borde": "#121212"
+   },
+   {
+    "x": 37.8,
+    "y": 83.8,
+    "w": 24.3,
+    "h": 9.3,
+    "relleno": "#ede8d8",
+    "borde": null
+   },
+   {
+    "x": 37.8,
+    "y": 83.8,
+    "w": 24.3,
+    "h": 9.3,
+    "relleno": null,
+    "borde": "#121212"
+   },
+   {
+    "x": 37.8,
+    "y": 100.1,
+    "w": 24.3,
+    "h": 9.3,
+    "relleno": "#121212",
+    "borde": null
+   },
+   {
+    "x": 37.8,
+    "y": 100.1,
+    "w": 24.3,
+    "h": 9.3,
+    "relleno": null,
+    "borde": "#121212"
+   },
+   {
+    "x": 38.5,
+    "y": 100.8,
+    "w": 22.9,
+    "h": 7.9,
+    "relleno": null,
+    "borde": "#f8f5ee"
+   },
+   {
+    "x": 50.9,
+    "y": 77.5,
+    "w": 5.1,
+    "h": 3.3,
+    "relleno": "#f8f5ee",
+    "borde": null
+   },
+   {
+    "x": 64.2,
+    "y": 66.0,
+    "w": 5.1,
+    "h": 3.3,
+    "relleno": "#f8f5ee",
+    "borde": null
+   }
+  ],
+  "tipo": "clara",
+  "paleta": [
+   {
+    "hex": "#f8f5ee",
+    "pct": 66.5
+   },
+   {
+    "hex": "#5a5c58",
+    "pct": 10.2
+   },
+   {
+    "hex": "#fcfaf3",
+    "pct": 7.8
+   },
+   {
+    "hex": "#c5cfbe",
+    "pct": 7.3
+   },
+   {
+    "hex": "#f8f5ed",
+    "pct": 4.7
+   }
+  ]
+ },
+ {
+  "pagina": 19,
+  "fondo": "#f8f5ee",
+  "oscura": false,
+  "bloques": [
+   {
+    "texto": "11 · ÉTICA Y GOBERNANZA",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.9,
+    "color": "#121212",
+    "x": 63.5,
+    "y": 5.9,
+    "w": 31.2,
+    "h": 1.9,
+    "alinea": "der"
+   },
+   {
+    "texto": "PUNTO CLAVE",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.7,
+    "color": "#f8f5ee",
+    "x": 8.3,
+    "y": 17.1,
+    "w": 13.2,
+    "h": 1.7,
+    "alinea": "izq"
+   },
+   {
+    "texto": "La ética territorial demanda proteger tanto la dignidad de las comunidades / como la integridad de las especies vulnerables.",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.6,
+    "color": "#f8f5ee",
+    "x": 8.3,
+    "y": 20.7,
+    "w": 77.1,
+    "h": 6.5,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Psicología · PITB Antioquia · v1 19",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 1.8,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 135.6,
+    "w": 89.9,
+    "h": 1.8,
+    "alinea": "centro"
+   }
+  ],
+  "imagenes": [],
+  "recuadros": [
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.2,
+    "relleno": "#f8f5ee",
+    "borde": null
+   },
+   {
+    "x": 5.9,
+    "y": 14.5,
+    "w": 89.9,
+    "h": 17.1,
+    "relleno": "#121212",
+    "borde": null
+   },
+   {
+    "x": 5.0,
+    "y": 13.6,
+    "w": 89.9,
+    "h": 17.1,
+    "relleno": "#10291f",
+    "borde": null
+   },
+   {
+    "x": 5.3,
+    "y": 13.8,
+    "w": 89.4,
+    "h": 16.6,
+    "relleno": null,
+    "borde": "#121212"
+   }
+  ],
+  "tipo": "clara",
+  "paleta": [
+   {
+    "hex": "#f8f5ee",
+    "pct": 81.8
+   },
+   {
+    "hex": "#10291f",
+    "pct": 8.2
+   },
+   {
+    "hex": "#fcf9f3",
+    "pct": 2.7
+   },
+   {
+    "hex": "#c1bfba",
+    "pct": 2.2
+   },
+   {
+    "hex": "#3a4b43",
+    "pct": 2.0
+   }
+  ]
+ },
+ {
+  "pagina": 20,
+  "fondo": "#f8f5ee",
+  "oscura": false,
+  "bloques": [
+   {
+    "texto": "12 · ÉTICA Y GOBERNANZA · SÍNTESIS",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.9,
+    "color": "#121212",
+    "x": 48.4,
+    "y": 5.9,
+    "w": 46.2,
+    "h": 1.9,
+    "alinea": "der"
+   },
+   {
+    "texto": "CONCLUSIONES Y ARTICULACIÓN",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 7.19,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 17.5,
+    "w": 81.7,
+    "h": 7.2,
+    "alinea": "izq"
+   },
+   {
+    "texto": "TRANSDISCIPLINAR",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 7.19,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 24.1,
+    "w": 48.6,
+    "h": 7.2,
+    "alinea": "izq"
+   },
+   {
+    "texto": "La psicología aporta a la PITB Antioquia herramientas conceptuales y metodológicas para / comprender los factores que orientan la conducta ambiental, la apropia",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.45,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 32.9,
+    "w": 88.3,
+    "h": 9.7,
+    "alinea": "centro"
+   },
+   {
+    "texto": "FUENTE",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.66,
+    "color": "#f8f5ee",
+    "x": 55.4,
+    "y": 40.8,
+    "w": 6.4,
+    "h": 1.7,
+    "alinea": "der"
+   },
+   {
+    "texto": "Integrar la psicología ambiental y cognitiva en el diseño de la plataforma asegura que el / avance técnico dialogue de forma armónica con las necesidades, capac",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.45,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 46.9,
+    "w": 87.8,
+    "h": 9.9,
+    "alinea": "centro"
+   },
+   {
+    "texto": "INF",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.66,
+    "color": "#121212",
+    "x": 35.0,
+    "y": 54.8,
+    "w": 3.2,
+    "h": 1.7,
+    "alinea": "der"
+   },
+   {
+    "texto": "El verdadero potencial de la inteligencia territorial / emerge cuando el poder computacional se orienta / a fortalecer la autonomía, el conocimiento y el / bien",
+    "fuente": "Archivo-SemiBold-ExtraBold",
+    "tam_cqw": 3.4,
+    "color": "#121212",
+    "x": 9.4,
+    "y": 61.0,
+    "w": 84.3,
+    "h": 15.6,
+    "alinea": "centro"
+   },
+   {
+    "texto": "— EQUIPO DE INVESTIGACIÓN PITB ANTIOQUIA",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 1.8,
+    "color": "#121212",
+    "x": 9.4,
+    "y": 79.5,
+    "w": 48.7,
+    "h": 1.8,
+    "alinea": "izq"
+   },
+   {
+    "texto": "NOTA",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.7,
+    "color": "#121212",
+    "x": 8.3,
+    "y": 88.9,
+    "w": 4.7,
+    "h": 1.7,
+    "alinea": "izq"
+   },
+   {
+    "texto": "La efectividad de estas propuestas psicosociales se contrastará durante la fase piloto de / implementación.",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.2,
+    "color": "#121212",
+    "x": 8.3,
+    "y": 92.4,
+    "w": 76.4,
+    "h": 5.5,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Psicología · PITB Antioquia · v1 20",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 1.8,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 135.6,
+    "w": 89.9,
+    "h": 1.8,
+    "alinea": "centro"
+   }
+  ],
+  "imagenes": [],
+  "recuadros": [
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.2,
+    "relleno": "#f8f5ee",
+    "borde": null
+   },
+   {
+    "x": 54.5,
+    "y": 40.3,
+    "w": 8.3,
+    "h": 2.5,
+    "relleno": "#121212",
+    "borde": null
+   },
+   {
+    "x": 54.6,
+    "y": 40.3,
+    "w": 8.2,
+    "h": 2.4,
+    "relleno": null,
+    "borde": "#121212"
+   },
+   {
+    "x": 34.1,
+    "y": 54.2,
+    "w": 5.0,
+    "h": 2.5,
+    "relleno": "#f8f5ee",
+    "borde": null
+   },
+   {
+    "x": 34.2,
+    "y": 54.3,
+    "w": 4.9,
+    "h": 2.4,
+    "relleno": null,
+    "borde": "#121212"
+   },
+   {
+    "x": 5.0,
+    "y": 85.3,
+    "w": 89.9,
+    "h": 16.0,
+    "relleno": "#ede8d8",
+    "borde": null
+   },
+   {
+    "x": 5.3,
+    "y": 85.6,
+    "w": 89.4,
+    "h": 15.5,
+    "relleno": null,
+    "borde": "#121212"
+   }
+  ],
+  "tipo": "clara",
+  "paleta": [
+   {
+    "hex": "#f8f5ee",
+    "pct": 53.5
+   },
+   {
+    "hex": "#b2b1a8",
+    "pct": 18.1
+   },
+   {
+    "hex": "#f8f5ed",
+    "pct": 12.3
+   },
+   {
+    "hex": "#fbf8f1",
+    "pct": 9.8
+   },
+   {
+    "hex": "#f7f5ee",
+    "pct": 3.6
+   }
+  ]
+ },
+ {
+  "pagina": 21,
+  "fondo": "#f8f5ee",
+  "oscura": false,
+  "bloques": [
+   {
+    "texto": "13 · ÉTICA Y GOBERNANZA",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.9,
+    "color": "#121212",
+    "x": 63.5,
+    "y": 5.9,
+    "w": 31.2,
+    "h": 1.9,
+    "alinea": "der"
+   },
+   {
+    "texto": "REFERENCIAS",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 8.99,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 17.8,
+    "w": 42.5,
+    "h": 9.0,
+    "alinea": "izq"
+   },
+   {
+    "texto": "BIBLIOGRÁFICAS",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 8.99,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 26.1,
+    "w": 52.0,
+    "h": 9.0,
+    "alinea": "izq"
+   },
+   {
+    "texto": "FUENTES CITADAS EN EL DOCUMENTO",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.9,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 37.0,
+    "w": 41.0,
+    "h": 1.9,
+    "alinea": "izq"
+   },
+   {
+    "texto": "1",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.7,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 44.6,
+    "w": 1.0,
+    "h": 1.7,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Ajzen, I. (1991). The theory of planned behavior. Organizational Behavior and Human Decision Processes, / 50(2), 179–211. https://doi.org/10.1016/0749-5978(91)9",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 1.9,
+    "color": "#121212",
+    "x": 11.2,
+    "y": 44.1,
+    "w": 81.3,
+    "h": 4.5,
+    "alinea": "centro"
+   },
+   {
+    "texto": "Gifford, R. (2014). Environmental psychology matters. Annual Review of Psychology, 65, 541–579. / https://doi.org/10.1146/annurev-psych-010213-115048",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 1.9,
+    "color": "#121212",
+    "x": 11.2,
+    "y": 50.5,
+    "w": 76.3,
+    "h": 4.5,
+    "alinea": "centro"
+   },
+   {
+    "texto": "2",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.7,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 50.9,
+    "w": 1.0,
+    "h": 1.7,
+    "alinea": "izq"
+   },
+   {
+    "texto": "3",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.7,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 57.2,
+    "w": 1.0,
+    "h": 1.7,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Kahneman, D. (2011). Thinking, fast and slow. Farrar, Straus and Giroux.",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 1.9,
+    "color": "#121212",
+    "x": 11.2,
+    "y": 56.8,
+    "w": 55.9,
+    "h": 1.9,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Kollmuss, A., & Agyeman, J. (2002). Mind the gap: Why do people act environmentally and what are the / barriers to pro-environmental behavior? Environmental Edu",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 1.9,
+    "color": "#121212",
+    "x": 11.2,
+    "y": 60.6,
+    "w": 80.0,
+    "h": 7.1,
+    "alinea": "centro"
+   },
+   {
+    "texto": "4",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.7,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 60.9,
+    "w": 1.0,
+    "h": 1.7,
+    "alinea": "izq"
+   },
+   {
+    "texto": "5",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.7,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 69.9,
+    "w": 1.0,
+    "h": 1.7,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Lee, J. D., & See, K. A. (2004). Trust in automation: Designing for appropriate reliance. Human Factors, / 46(1), 50–80. https://doi.org/10.1518/hfes.46.1.50_30",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 1.9,
+    "color": "#121212",
+    "x": 11.2,
+    "y": 69.5,
+    "w": 79.5,
+    "h": 4.5,
+    "alinea": "centro"
+   },
+   {
+    "texto": "Psicología · PITB Antioquia · v1 21",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 1.8,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 135.6,
+    "w": 89.9,
+    "h": 1.8,
+    "alinea": "centro"
+   }
+  ],
+  "imagenes": [],
+  "recuadros": [
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.2,
+    "relleno": "#f8f5ee",
+    "borde": null
+   }
+  ],
+  "tipo": "clara",
+  "paleta": [
+   {
+    "hex": "#f8f5ee",
+    "pct": 71.8
+   },
+   {
+    "hex": "#aaa8a3",
+    "pct": 11.3
+   },
+   {
+    "hex": "#fbf8f2",
+    "pct": 7.2
+   },
+   {
+    "hex": "#f7f5ee",
+    "pct": 6.8
+   },
+   {
+    "hex": "#f8f5ef",
+    "pct": 2.2
+   }
+  ]
+ },
+ {
+  "pagina": 22,
+  "fondo": "#f8f5ee",
+  "oscura": false,
+  "bloques": [
+   {
+    "texto": "14",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.9,
+    "color": "#121212",
+    "x": 92.2,
+    "y": 5.9,
+    "w": 2.5,
+    "h": 1.9,
+    "alinea": "der"
+   },
+   {
+    "texto": "CRÉDITOS DE IMÁGENES",
+    "fuente": "Anton-Regular",
+    "tam_cqw": 8.99,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 17.8,
+    "w": 76.6,
+    "h": 9.0,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Fotografías tomadas de Wikimedia Commons y mostradas con el filtro de dos tintas del / sistema. Cada imagen conserva su autoría y licencia.",
+    "fuente": "TimesNewRomanPSMT",
+    "tam_cqw": 2.45,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 28.0,
+    "w": 85.7,
+    "h": 6.1,
+    "alinea": "centro"
+   },
+   {
+    "texto": "IMAGEN AUTOR LICENCIA ORIGEN",
+    "fuente": "IBMPlexMono-SemiBold",
+    "tam_cqw": 1.7,
+    "color": "#f8f5ee",
+    "x": 6.6,
+    "y": 39.3,
+    "w": 59.5,
+    "h": 1.7,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Trabajo de campo",
+    "fuente": "TimesNewRomanPS-BoldMT",
+    "tam_cqw": 2.0,
+    "color": "#121212",
+    "x": 6.6,
+    "y": 44.0,
+    "w": 15.5,
+    "h": 2.0,
+    "alinea": "izq"
+   },
+   {
+    "texto": "dato dato dato pendiente / pendiente pendiente",
+    "fuente": "TimesNewRomanPS-BoldMT",
+    "tam_cqw": 2.0,
+    "color": "#121212",
+    "x": 29.7,
+    "y": 44.0,
+    "w": 42.6,
+    "h": 4.6,
+    "alinea": "centro"
+   },
+   {
+    "texto": "Psicología · PITB Antioquia · v1 22",
+    "fuente": "IBMPlexMono-Regular",
+    "tam_cqw": 1.8,
+    "color": "#121212",
+    "x": 5.0,
+    "y": 135.6,
+    "w": 89.9,
+    "h": 1.8,
+    "alinea": "centro"
+   }
+  ],
+  "imagenes": [],
+  "recuadros": [
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.2,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.1,
+    "w": 99.9,
+    "h": 141.2,
+    "relleno": "#f8f5ee",
+    "borde": null
+   },
+   {
+    "x": 5.0,
+    "y": 37.6,
+    "w": 22.4,
+    "h": 4.7,
+    "relleno": "#121212",
+    "borde": null
+   },
+   {
+    "x": 27.4,
+    "y": 37.6,
+    "w": 15.1,
+    "h": 4.7,
+    "relleno": "#121212",
+    "borde": null
+   },
+   {
+    "x": 42.5,
+    "y": 37.6,
+    "w": 15.0,
+    "h": 4.7,
+    "relleno": "#121212",
+    "borde": null
+   },
+   {
+    "x": 57.5,
+    "y": 37.6,
+    "w": 37.4,
+    "h": 4.7,
+    "relleno": "#121212",
+    "borde": null
+   },
+   {
+    "x": 29.1,
+    "y": 43.8,
+    "w": 4.4,
+    "h": 2.1,
+    "relleno": "#d4a72c",
+    "borde": null
+   },
+   {
+    "x": 29.1,
+    "y": 46.4,
+    "w": 8.9,
+    "h": 2.1,
+    "relleno": "#d4a72c",
+    "borde": null
+   },
+   {
+    "x": 44.0,
+    "y": 43.8,
+    "w": 4.4,
+    "h": 2.1,
+    "relleno": "#d4a72c",
+    "borde": null
+   },
+   {
+    "x": 44.0,
+    "y": 46.4,
+    "w": 8.9,
+    "h": 2.1,
+    "relleno": "#d4a72c",
+    "borde": null
+   },
+   {
+    "x": 59.2,
+    "y": 43.8,
+    "w": 13.7,
+    "h": 2.1,
+    "relleno": "#d4a72c",
+    "borde": null
+   }
+  ],
+  "tipo": "clara",
+  "paleta": [
+   {
+    "hex": "#f8f5ee",
+    "pct": 77.2
+   },
+   {
+    "hex": "#848179",
+    "pct": 9.7
+   },
+   {
+    "hex": "#fbf9f3",
+    "pct": 4.2
+   },
+   {
+    "hex": "#f8f5ef",
+    "pct": 3.3
+   },
+   {
+    "hex": "#f8f5ed",
+    "pct": 3.1
+   }
+  ]
+ }
+]

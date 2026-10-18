@@ -16,16 +16,32 @@ class PageCtx:
     def __init__(self, design_dir, manifest, roles, sym, images_root, cache, warn):
         self.design_dir, self.m, self.roles, self.sym = Path(design_dir), manifest, roles, sym
         self.images_root, self.cache, self.warn = Path(images_root), Path(cache), warn
+        self.missing = []       # fotos de portada/divisor pedidas con `need` y aún sin archivo
 
 
 def _b64(path: Path) -> str:
     return "data:image/png;base64," + base64.b64encode(path.read_bytes()).decode()
 
 
-def art(pc: PageCtx, default_rel, custom=None, treatment=None, tint=None):
-    """Imagen de una plantilla: la foto del agente en dos tintas, o el arte del diseño repintado a la paleta. None = sin imagen."""
+def _need_art(pc: PageCtx, custom, need):
+    """Recuadro «IMAGEN NECESARIA» (SVG) para una foto de plantilla pedida con `need` que aún no existe: nunca se sustituye por arte por defecto."""
+    from html import escape
+    pc.missing.append({"src": custom, "need": need})
+    arena, negro = pc.roles.get("arena", "#cccccc"), pc.roles.get("negro", "#000000")
+    svg = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice"><rect width="100" height="100" fill="{arena}"/>'
+           f'<path d="M0 0L100 100M100 0L0 100" stroke="{negro}" stroke-opacity=".25" stroke-width=".5"/>'
+           f'<text x="50" y="48" text-anchor="middle" font-family="monospace" font-weight="700" font-size="7" fill="{negro}">IMAGEN</text>'
+           f'<text x="50" y="57" text-anchor="middle" font-family="monospace" font-weight="700" font-size="7" fill="{negro}">NECESARIA</text></svg>')
+    return "data:image/svg+xml;utf8," + svg.replace("#", "%23").replace("<", "%3C").replace(">", "%3E").replace('"', "'")
+
+
+def art(pc: PageCtx, default_rel, custom=None, treatment=None, tint=None, need=None):
+    """Imagen de una plantilla: la foto del agente en dos tintas, o el arte del diseño repintado a la paleta. None = sin imagen.
+    Con `need` y sin archivo, dibuja «IMAGEN NECESARIA» en vez del arte del diseño."""
     if custom:
         f = pc.images_root / custom
+        if not f.exists() and need:
+            return _need_art(pc, custom, need)
         if f.exists():
             dk, lt = (tint or ["negro", "vivo"])
             tr = {"_t": [dk, lt]} if not treatment else pc.m["image_treatments"]
@@ -64,9 +80,9 @@ def cover(pc: PageCtx, meta, cov, variant="CV-1"):
         sym_html(pc.sym, sid, f'left:{s["left"]}cqw;top:{s["top"]}cqw;width:{s["size"]}cqw;height:{s["size"]}cqw;color:var(--{s["color"]})', "sc sym")
         for s, sid in zip(slots, cov.get("symbols", ["g90", "g84", "g32"])))
     tint = cov.get("tint", ["bosque", "ocre"])
-    img = art(pc, t.get("image"), cov.get("image"), cov.get("treatment"), tint if variant != "CV-4" else (cov.get("tint") or ["negro", "crema"]))
+    img = art(pc, t.get("image"), cov.get("image"), cov.get("treatment"), tint if variant != "CV-4" else (cov.get("tint") or ["negro", "crema"]), cov.get("need"))
     if variant == "CV-4":
-        img = art(pc, None, cov.get("image"), cov.get("treatment"), cov.get("tint") or ["negro", "crema"])
+        img = art(pc, None, cov.get("image"), cov.get("treatment"), cov.get("tint") or ["negro", "crema"], cov.get("need"))
     words = (cov.get("stack") or str(cov["vertical"]).split())
     n2, n4 = min(len(words), 3), min(len(words), 4)
     bd = cov.get("badge") or {"lines": left[:1] + [meta.get("version", "")], "tag": ""}
@@ -92,7 +108,7 @@ def divider(pc: PageCtx, variant, number, total, part, label="Parte"):
     t = pc.m["templates"]["divider"].get(key) or next(iter(pc.m["templates"]["divider"].values()))
     lo = t["loose"]
     loose = sym_html(pc.sym, lo["id"], f'left:{lo["left"]}cqw;top:{lo["top"]}cqw;width:{lo["size"]}cqw;height:{lo["size"]}cqw;color:var(--{lo["color"]})', "sc sym")
-    img = art(pc, t.get("image"), part.get("image"), part.get("treatment"), part.get("tint") or t.get("tint")) if t.get("image") is not None or part.get("image") else None
+    img = art(pc, t.get("image"), part.get("image"), part.get("treatment"), part.get("tint") or t.get("tint"), part.get("need")) if t.get("image") is not None or part.get("image") else None
     cls = f"page dv d{key} grain"
     style = []
     for k, c in (("bg", "bgc"), ("num_color", "nc"), ("title_color", "tc")):

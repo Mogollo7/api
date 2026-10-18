@@ -340,7 +340,7 @@ def run(doc_path, out_pdf, images_root):
     report["avisos"] += ctx.warn
     report["variantes_usadas"] = sorted(reg.used)
     report["variantes_no_aprobadas"] = reg.not_approved()
-    report["imagenes_necesarias"] = ctx.missing
+    report["imagenes_necesarias"] = ctx.missing + pc.missing
     for src in sorted(set(ctx.no_credit)):
         report["avisos"].append({"bloque": src, "causa": "imagen usada sin fila en creditos.csv", "ajuste": "añade autor y licencia al CSV"})
     n_hojas = 1 + len(plan)

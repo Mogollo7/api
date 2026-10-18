@@ -94,9 +94,9 @@ SECTION = {"id": F("str", "Identificador único.", True), "title": F("markup", "
            "notes": F("list", "Notas al pie: [{n, text}] que se citan en el texto con [^n]."), "toc": F("bool", "False = no aparece en el índice.")}
 PART = {"id": F("str", "Identificador.", True), "title": F("str", "Título corto (≤ 34).", True, max=34), "desc": F("str", "Descripción de 1–2 líneas.", True, max=200),
         "divider": F("str", "Variante de divisor o 'auto'."), "bg": F("str", "Rol de fondo."), "num_color": F("str", "Rol del número."), "title_color": F("str", "Rol del título."),
-        "image": F("str", "Foto del divisor."), "tint": F("list", "[rol oscuro, rol claro]."), "sections": F("list", "Secciones.", True)}
+        "image": F("str", "Foto del divisor."), "need": F("markup", "Qué foto hace falta si `image` aún no existe: dibuja «IMAGEN NECESARIA»."), "tint": F("list", "[rol oscuro, rol claro]."), "sections": F("list", "Secciones.", True)}
 COVER = {"note": F("str", "Nota corta al pie de la portada CV-1, separada del texto (p. ej. estrategia asociada).", False, max=80), "title": F("str", "Título del documento (una sola vez; no lo repitas en otros campos).", True, max=70), "vertical": F("str", "Palabra gigante de la portada.", True, max=20),
-         "text": F("str", "Descripción de 1–3 líneas.", True, max=220), "variant": F("str", "CV-1…"), "image": F("str", "Foto."), "treatment": F("str", "Tinta."), "tint": F("list", "[rol oscuro, rol claro]."),
+         "text": F("str", "Descripción de 1–3 líneas.", True, max=220), "variant": F("str", "CV-1…"), "image": F("str", "Foto."), "need": F("markup", "Qué foto hace falta si `image` aún no existe: dibuja «IMAGEN NECESARIA»."), "treatment": F("str", "Tinta."), "tint": F("list", "[rol oscuro, rol claro]."),
          "alt": F("str", "Texto alternativo de la foto."), "stack": F("list", "Filas del titular apilado (CV-4)."), "badge": F("obj", "{lines, tag} (CV-4)."), "quote": F("list", "Líneas (CV-4)."),
          "strip": F("list", "Palabras (CV-4)."), "number": F("str", "Número (CV-4)."), "list": F("list", "Líneas (CV-4)."), "notes": F("list", "Notas (CV-4).")}
 META = {"title": F("str", "Título para metadatos.", True), "author": F("str", "Autor."), "subject": F("str", "Asunto."), "keywords": F("list", "Palabras clave."), "date": F("str", "Fecha: «Mes AAAA»."),

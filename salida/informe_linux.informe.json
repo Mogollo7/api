@@ -8,15 +8,151 @@
    "ajuste": "no los uses juntos como series distintas; añade borde negro o diferencia la claridad"
   }
  ],
- "auditoria": {},
+ "auditoria": {
+  "794-print": [
+   {
+    "hoja": "Portada",
+    "tipo": "texto/foto",
+    "a": "PARCIAL",
+    "area": 586
+   },
+   {
+    "hoja": "Portada",
+    "tipo": "texto/texto",
+    "a": "PERMISOS",
+    "b": "KALI LINUX",
+    "area": 68
+   },
+   {
+    "hoja": "Portada",
+    "tipo": "texto/foto",
+    "a": "ACCESO",
+    "area": 2209
+   },
+   {
+    "hoja": "Portada",
+    "tipo": "texto/foto",
+    "a": "CONTROLADO",
+    "area": 5089
+   },
+   {
+    "hoja": "Divisor 02",
+    "tipo": "texto/símbolo",
+    "a": "Desarrollo práctico",
+    "area": 411
+   },
+   {
+    "hoja": "Divisor 03",
+    "tipo": "texto/símbolo",
+    "a": "Verificación y análisis",
+    "area": 78
+   },
+   {
+    "hoja": "Divisor 04",
+    "tipo": "texto/símbolo",
+    "a": "Seguridad y cierre",
+    "area": 887
+   }
+  ],
+  "1300": [
+   {
+    "hoja": "Portada",
+    "tipo": "texto/foto",
+    "a": "PARCIAL",
+    "area": 1398
+   },
+   {
+    "hoja": "Portada",
+    "tipo": "texto/texto",
+    "a": "PERMISOS",
+    "b": "KALI LINUX",
+    "area": 181
+   },
+   {
+    "hoja": "Portada",
+    "tipo": "texto/foto",
+    "a": "ACCESO",
+    "area": 5867
+   },
+   {
+    "hoja": "Portada",
+    "tipo": "texto/foto",
+    "a": "CONTROLADO",
+    "area": 13517
+   },
+   {
+    "hoja": "Divisor 02",
+    "tipo": "texto/símbolo",
+    "a": "Desarrollo práctico",
+    "area": 1014
+   },
+   {
+    "hoja": "Divisor 03",
+    "tipo": "texto/símbolo",
+    "a": "Verificación y análisis",
+    "area": 156
+   },
+   {
+    "hoja": "Divisor 04",
+    "tipo": "texto/símbolo",
+    "a": "Seguridad y cierre",
+    "area": 2418
+   }
+  ],
+  "400": [
+   {
+    "hoja": "Portada",
+    "tipo": "texto/foto",
+    "a": "PARCIAL",
+    "area": 161
+   },
+   {
+    "hoja": "Portada",
+    "tipo": "texto/texto",
+    "a": "PERMISOS",
+    "b": "KALI LINUX",
+    "area": 20
+   },
+   {
+    "hoja": "Portada",
+    "tipo": "texto/foto",
+    "a": "ACCESO",
+    "area": 602
+   },
+   {
+    "hoja": "Portada",
+    "tipo": "texto/foto",
+    "a": "CONTROLADO",
+    "area": 1386
+   },
+   {
+    "hoja": "Divisor 02",
+    "tipo": "texto/símbolo",
+    "a": "Desarrollo práctico",
+    "area": 96
+   },
+   {
+    "hoja": "Divisor 03",
+    "tipo": "texto/símbolo",
+    "a": "Verificación y análisis",
+    "area": 24
+   },
+   {
+    "hoja": "Divisor 04",
+    "tipo": "texto/símbolo",
+    "a": "Seguridad y cierre",
+    "area": 216
+   }
+  ]
+ },
  "imagenes_necesarias": [
   {
    "src": null,
-   "need": "Captura de la terminal con `lsb_release -a` y `uname -a` en Kali Linux."
+   "need": "Captura de la terminal con `stat /srv/sistemas/privado_sistemas.txt` mostrando `Access: (0660/-rw-rw----)`."
   },
   {
    "src": null,
-   "need": "Captura de la terminal con `stat /srv/sistemas/privado_sistemas.txt` mostrando `Access: (0660/-rw-rw----)`."
+   "need": "Captura de la terminal con `lsb_release -a` y `uname -a` en Kali Linux."
   },
   {
    "src": null,
@@ -25,73 +161,169 @@
   {
    "src": null,
    "need": "Captura de la terminal con `sudo -u bruno ls /srv/sistemas` o `cd /srv/sistemas` y su «Permiso denegado»."
+  },
+  {
+   "src": "portada.jpg",
+   "need": "Foto para la portada, en horizontal o vertical: sala de servidores, cables de red o una pantalla con terminal (sin texto legible)."
+  },
+  {
+   "src": "portada.jpg",
+   "need": "Foto para la portada, en horizontal o vertical: sala de servidores, cables de red o una pantalla con terminal (sin texto legible)."
+  },
+  {
+   "src": "divisor.jpg",
+   "need": "Foto para los divisores (se reutiliza en las cuatro partes): teclado, terminal o servidores, con una zona oscura y otra clara."
+  },
+  {
+   "src": "divisor.jpg",
+   "need": "Foto para los divisores (se reutiliza en las cuatro partes)."
+  },
+  {
+   "src": "divisor.jpg",
+   "need": "Foto para los divisores (se reutiliza en las cuatro partes)."
+  },
+  {
+   "src": "divisor.jpg",
+   "need": "Foto para los divisores (se reutiliza en las cuatro partes)."
   }
  ],
  "secciones": [
   {
-   "id": "intro",
+   "id": "s01",
    "n": "01",
    "pagina": 3
   },
   {
-   "id": "escenario",
+   "id": "s02",
    "n": "02",
    "pagina": 4
   },
   {
-   "id": "octal",
+   "id": "s03",
    "n": "03",
+   "pagina": 5
+  },
+  {
+   "id": "s04",
+   "n": "04",
+   "pagina": 6
+  },
+  {
+   "id": "s05",
+   "n": "05",
    "pagina": 7
   },
   {
-   "id": "comandos",
-   "n": "04",
-   "pagina": 8
-  },
-  {
-   "id": "punto1",
-   "n": "05",
+   "id": "s06",
+   "n": "06",
    "pagina": 10
   },
   {
-   "id": "punto1b",
-   "n": "06",
+   "id": "s07",
+   "n": "07",
+   "pagina": 11
+  },
+  {
+   "id": "s08",
+   "n": "08",
    "pagina": 12
   },
   {
-   "id": "punto2",
-   "n": "07",
+   "id": "s09",
+   "n": "09",
    "pagina": 13
   },
   {
-   "id": "punto3",
-   "n": "08",
+   "id": "s10",
+   "n": "10",
    "pagina": 14
   },
   {
-   "id": "punto4",
-   "n": "09",
+   "id": "s11",
+   "n": "11",
    "pagina": 15
   },
   {
-   "id": "matriz",
-   "n": "10",
-   "pagina": 18
+   "id": "s12",
+   "n": "12",
+   "pagina": 16
   },
   {
-   "id": "conclusiones",
-   "n": "11",
+   "id": "s13",
+   "n": "13",
    "pagina": 19
   },
   {
-   "id": "refs",
-   "n": "12",
+   "id": "s14",
+   "n": "14",
    "pagina": 20
+  },
+  {
+   "id": "s15",
+   "n": "15",
+   "pagina": 21
+  },
+  {
+   "id": "s16",
+   "n": "16",
+   "pagina": 23
+  },
+  {
+   "id": "s17",
+   "n": "17",
+   "pagina": 24
+  },
+  {
+   "id": "s18",
+   "n": "18",
+   "pagina": 25
+  },
+  {
+   "id": "s19",
+   "n": "19",
+   "pagina": 26
+  },
+  {
+   "id": "s20",
+   "n": "20",
+   "pagina": 27
   }
  ],
  "correcciones_contraste": [
   {
-   "texto": "0",
+   "texto": "mkdir",
+   "de": "#f8f7f2",
+   "a": "#051e24",
+   "via": "rol negro",
+   "ratio_antes": 3.27,
+   "ratio_despues": 4.91
+  },
+  {
+   "texto": "chown",
+   "de": "#f8f7f2",
+   "a": "#051e24",
+   "via": "rol negro",
+   "ratio_antes": 3.27,
+   "ratio_despues": 4.91
+  },
+  {
+   "texto": "chmod 770",
+   "de": "#f8f7f2",
+   "a": "#051e24",
+   "via": "rol negro",
+   "ratio_antes": 3.27,
+   "ratio_despues": 4.91
+  },
+  {
+   "texto": "/srv/",
+   "de": "#f8f7f2",
+   "a": "#051e24",
+   "via": "rol negro",
+   "ratio_antes": 3.27,
+   "ratio_despues": 4.91
+  },
+  {
+   "texto": "rw-",
    "de": "#f8f7f2",
    "a": "#051e24",
    "via": "rol negro",
@@ -100,13 +332,13 @@
   }
  ],
  "variantes_usadas": [
-  "CV-2",
-  "DV-F"
+  "CV-4",
+  "DV-B"
  ],
  "variantes_no_aprobadas": [
-  "CV-2",
-  "DV-F"
+  "CV-4",
+  "DV-B"
  ],
- "paginas": 20,
- "segundos": 3.3
+ "paginas": 27,
+ "segundos": 3.9
 }
