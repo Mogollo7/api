@@ -174,7 +174,7 @@ Las razones de fondo están en [`docs/decisions/`](docs/decisions): el agente ma
 
 ## Web en GitHub Pages
 
-`servidor/tools/pages.py` construye la versión estática y `.github/workflows/pages.yml` la publica (activa Pages con fuente «GitHub Actions»). El Taller y el renderizado necesitan la API local; la demo lo avisa.
+La web de la API se publica en GitHub Pages desde la rama `main` (raíz): `python servidor/tools/pages.py --repo` escribe `index.html`, `404.html` y `.nojekyll` en la raíz y lee los estáticos de `servidor/web/`. Si prefieres publicar con Actions, `.github/workflows/pages.yml` construye la misma web (fuente «GitHub Actions»). El Taller y el renderizado necesitan la API local; la demo lo avisa.
 
 ## Estado del proyecto
 

@@ -1,0 +1,535 @@
+<!doctype html><!-- [CLAUDE-CONSTRUCTOR] Frontend de myStyle: una sección por ruta (/, /como, /agente, /catalogo[/id], /taller, /formatos, /estilos). Estilos en /web/site.css. -->
+<html lang="es" data-base="/api" data-static="1" data-origin="http://127.0.0.1:8765"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>myStyle · API de documentos</title>
+<meta name="description" content="Tu agente manda datos; myStyle devuelve PDF, PowerPoint editable o video con el diseño intacto.">
+<script>try{const t=localStorage.getItem('mystyle-tema');if(t)document.documentElement.dataset.theme=t}catch{}</script>
+<link rel="icon" id="favicon" type="image/svg+xml" href="/api/servidor/web/favicon.svg">
+<link rel="stylesheet" href="/api/servidor/web/site.css"></head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+ <symbol id="i-logo" viewBox="0 0 32 32"><g style="isolation:isolate"><circle cx="11" cy="12" r="8.5" style="fill:var(--l1);mix-blend-mode:var(--lmix)"/><circle cx="21" cy="12" r="8.5" style="fill:var(--l2);mix-blend-mode:var(--lmix)"/><circle cx="16" cy="20.5" r="8.5" style="fill:var(--l3);mix-blend-mode:var(--lmix)"/></g></symbol>
+ <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></symbol>
+ <symbol id="i-x" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="2.2"/></symbol>
+ <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1" stroke="currentColor" stroke-width="2"/></symbol>
+ <symbol id="i-moon" viewBox="0 0 24 24"><path fill="currentColor" d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></symbol>
+ <symbol id="i-auto" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path fill="currentColor" d="M12 3a9 9 0 0 1 0 18z"/></symbol>
+ <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M15.5 15.5L21 21" stroke="currentColor" stroke-width="2.2"/></symbol>
+</svg>
+<a class="skip" href="#main">Saltar al contenido</a>
+<header class="top"><div class="bar">
+ <a class="logo" href="/api/" data-link aria-label="myStyle, inicio"><svg><use href="#i-logo"/></svg><span>my<b>Style</b></span></a>
+ <nav class="inline" aria-label="Principal"><a href="/api/como" data-link>Cómo funciona</a><a href="/api/agente" data-link>Tu agente</a><a href="/api/catalogo" data-link>Catálogo</a><a href="/api/taller" data-link>Taller</a><a href="/api/formatos" data-link>Formatos</a><a href="/api/estilos" data-link>Nuevos estilos</a><a href="/api/estadisticas" data-link>Estadísticas</a></nav>
+ <div class="tools"><span class="status" id="st" role="status"><i></i><span>Conectando…</span></span>
+  <button class="ibtn" id="theme"><svg><use href="#i-auto"/></svg></button>
+  <button class="ibtn burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="drawer"><svg><use href="#i-menu"/></svg></button></div>
+</div></header>
+<div class="panel-bg" id="panel-bg"></div>
+<aside class="drawer" id="drawer" aria-label="Menú" aria-hidden="true">
+ <div class="head"><a class="logo" href="/api/" data-link><svg><use href="#i-logo"/></svg><span>my<b>Style</b></span></a><button class="ibtn" id="close" aria-label="Cerrar menú"><svg><use href="#i-x"/></svg></button></div>
+ <form class="search" id="sform" role="search"><svg aria-hidden="true"><use href="#i-search"/></svg><input type="search" id="sq" placeholder="Buscar plantillas" aria-label="Buscar plantillas"></form>
+ <nav aria-label="Menú móvil"><a href="/api/" data-link>Inicio <span>00</span></a><a href="/api/como" data-link>Cómo funciona <span>01</span></a><a href="/api/agente" data-link>Tu agente <span>02</span></a><a href="/api/catalogo" data-link>Catálogo <span>03</span></a><a href="/api/taller" data-link>Taller <span>04</span></a><a href="/api/formatos" data-link>Formatos <span>05</span></a><a href="/api/estilos" data-link>Nuevos estilos <span>06</span></a><a href="/api/estadisticas" data-link>Estadísticas <span>07</span></a></nav>
+ <div class="foot"><a class="btn" href="/api/agente" data-link>Conectar mi agente</a></div>
+</aside>
+
+<main id="main" tabindex="-1">
+<section class="hero" data-route="/"><div class="wrap">
+ <div><span class="eyebrow">API de documentos para agentes</span>
+  <h1 class="disp">Tu agente <em>manda datos.</em> Tú recibes el documento.</h1>
+  <p class="lead">Elige un estilo, dale las reglas a tu agente y recibe un PDF, un PowerPoint editable, un Word, un Excel o un video con el diseño intacto. Tu agente nunca escribe HTML ni CSS.</p>
+  <div class="cta"><a class="btn" href="/api/catalogo" data-link>Explorar el catálogo</a><a class="btn ghost" href="/api/agente" data-link>Conectar mi agente</a></div>
+  <p class="credit">Imagen del hero proporcionada por el autor del sitio.</p></div>
+ <figure><img src="/api/servidor/web/img/hero-mystyle.png" alt="Retrato de un hombre de traje oscuro que levanta el índice" width="446" height="463" fetchpriority="high"><figcaption>Una oferta que tu agente no puede rechazar</figcaption></figure>
+</div>
+<div class="strip" id="strip"><div><b>—</b><span>diseños</span></div><div><b>—</b><span>plantillas</span></div><div><b>24</b><span>bloques de contenido</span></div><div><b>6</b><span>formatos · PDF · PPTX · Word · Excel · video · web</span></div></div></section>
+
+<section class="sec" data-route="/"><div class="wrap">
+ <span class="eyebrow">Elige tu ruta</span><h2 class="disp">Empieza por aquí</h2>
+ <nav class="go" aria-label="Secciones">
+  <a href="/api/como" data-link><b>01</b><strong>Cómo funciona</strong><span>Cuatro pasos de los datos al documento.</span></a>
+  <a href="/api/agente" data-link><b>02</b><strong>Tu agente</strong><span>Skill, Prompt Maestro o una llamada HTTP.</span></a>
+  <a href="/api/catalogo" data-link><b>03</b><strong>Catálogo</strong><span>Hojea plantillas reales y úsalas de base.</span></a>
+  <a href="/api/taller" data-link><b>04</b><strong>Taller</strong><span>Ajusta la paleta y renderiza tu JSON.</span></a>
+  <a href="/api/formatos" data-link><b>05</b><strong>Formatos</strong><span>PDF, PowerPoint, Word, Excel y video desde el mismo JSON.</span></a>
+  <a href="/api/estilos" data-link class="hot"><b>06</b><strong>Nuevos estilos</strong><span>Suma una familia visual y amplía el catálogo.</span></a>
+  <a href="/api/estadisticas" data-link><b>07</b><strong>Estadísticas</strong><span>Cuántos tokens ahorra myStyle frente a hacerlo a mano.</span></a>
+ </nav></div></section>
+
+<section class="sec alt" data-route="/" id="ejemplos"><div class="wrap">
+ <span class="eyebrow">Ejemplos reales</span><h2 class="disp">Mira lo que sale</h2>
+ <p class="intro">Archivos generados con la misma API, no maquetas. Cambia de formato y compara.</p>
+ <div class="tabs" role="tablist" aria-label="Formato del ejemplo" id="show-tabs"></div>
+ <div class="showcase" id="show" role="tabpanel" aria-live="polite"></div>
+</div></section>
+
+<section class="sec dk" data-route="/" id="home-stats"><div class="wrap">
+ <span class="eyebrow">Estadísticas</span><h2 class="disp">Menos tokens. El mismo documento.</h2>
+ <p class="intro" id="hs-intro">Cargando las mediciones…</p>
+ <div class="hs-bars" id="hs-bars"></div>
+ <p><a class="btn" href="/api/estadisticas" data-link>Ver la medición completa</a></p>
+</div></section>
+
+<section class="sec" data-route="/" id="video-creativo"><div class="wrap">
+ <span class="eyebrow">Video creativo</span><h2 class="disp">Un solo motor. Cualquier agente.</h2>
+ <p class="intro">El video del README, renderizado con HyperFrames desde esta misma web, y un guion hecho por dos modelos (Haiku y Opus) con las herramientas de la API, sin editar a mano.</p>
+ <div class="vids" id="vids"></div>
+</div></section>
+
+<section class="sec dk" data-route="/estadisticas"><span class="ghostnum" aria-hidden="true">07</span><div class="wrap">
+ <span class="eyebrow">Estadísticas</span><h1 class="disp">Menos tokens. El mismo documento.</h1>
+ <p class="intro" id="st-intro">Cargando las mediciones…</p>
+ <figure class="stchart"><svg id="st-svg" role="img" aria-labelledby="st-t st-d" viewBox="0 0 720 360" preserveAspectRatio="xMidYMid meet"><title id="st-t">Tokens por formato, con y sin myStyle</title><desc id="st-d">Barras agrupadas por formato.</desc></svg>
+  <figcaption class="mono" id="st-cap"></figcaption></figure>
+ <div class="st-tablewrap"><table class="st-table" id="st-table"><caption class="sr">Tokens medios por formato, con y sin myStyle</caption></table></div>
+ <div class="two st-cards">
+  <article class="st-card" id="st-style"><h3>Crear un estilo nuevo desde un PDF</h3><p class="st-big" id="st-style-n">—</p><p id="st-style-t"></p></article>
+  <article class="st-card" id="st-agents"><h3>Cualquier agente</h3><ul id="st-agents-l"></ul></article>
+ </div>
+ <p class="st-meth"><a href="/api/servidor/web/stats/TOKENS.md" target="_blank" rel="noopener">Cómo se mide</a> · fórmula, supuestos y límites de cada cifra.</p>
+</div></section>
+
+<section class="sec dk" data-route="/como"><span class="ghostnum" aria-hidden="true">01</span><div class="wrap">
+ <span class="eyebrow">Cómo funciona</span><h1 class="disp">Cuatro pasos. Cero HTML.</h1>
+ <p class="intro">Tu agente se encarga del contenido. myStyle se encarga del diseño, la maquetación y la revisión.</p>
+ <ol class="steps">
+  <li class="step"><span class="n">1</span><h3>Elige</h3><p>Un estilo, una plantilla del catálogo y una paleta: la del diseño o la tuya, con el contraste ya validado.</p></li>
+  <li class="step"><span class="n">2</span><h3>Entrega las reglas</h3><p>Instala la skill del diseño o pega el Prompt Maestro. Ahí están los bloques que tu agente puede usar.</p></li>
+  <li class="step"><span class="n">3</span><h3>Tu agente escribe JSON</h3><p>Solo datos: títulos, párrafos, tablas y gráficos. Nada de código de diseño.</p></li>
+  <li class="step"><span class="n">4</span><h3>myStyle entrega</h3><p>Maqueta, revisa márgenes, solapes y contraste, y responde con el archivo y un informe.</p></li>
+ </ol>
+ <div class="two">
+  <div><div class="cap"><span class="mono">Tu agente envía</span></div><pre class="code" id="ex-req" aria-label="Ejemplo de petición" tabindex="0"></pre></div>
+  <div><div class="cap"><span class="mono">myStyle responde</span></div><pre class="code" id="ex-res" aria-label="Ejemplo de respuesta" tabindex="0"></pre></div>
+ </div></div></section>
+
+<section class="sec" data-route="/agente"><span class="ghostnum" aria-hidden="true">02</span><div class="wrap">
+ <span class="eyebrow">Tu agente</span><h1 class="disp">Cualquier agente. Una sola llamada.</h1>
+ <p class="intro">Sirve cualquier agente que lea texto y haga una petición HTTP. Los ejemplos se completan con el diseño que elijas.</p>
+ <div class="pickrow"><label class="mono">Diseño<select id="ag-d"></select></label><label class="mono">URL de la API<input type="text" id="ag-u" readonly size="28"></label></div>
+ <div class="tabs" role="tablist" aria-label="Tipo de agente">
+  <button role="tab" id="t1" aria-selected="true" aria-controls="p1">Claude con skills</button>
+  <button role="tab" id="t2" aria-selected="false" aria-controls="p2" tabindex="-1">Otro modelo</button>
+  <button role="tab" id="t3" aria-selected="false" aria-controls="p3" tabindex="-1">HTTP directo</button>
+  <button role="tab" id="t4" aria-selected="false" aria-controls="p4" tabindex="-1">Video con skills</button>
+  <button role="tab" id="t5" aria-selected="false" aria-controls="p5" tabindex="-1">Conectar (MCP)</button></div>
+ <div class="panel" id="p1" role="tabpanel" aria-labelledby="t1"><div><h3>Skill del diseño</h3><ol>
+   <li>Descarga la skill (<code>SKILL.md</code>) y guárdala en la carpeta de skills de tu agente.</li><li>Pídele: «haz un informe con el diseño <b class="dn"></b>».</li><li>Tu agente lee las reglas, escribe el JSON y llama a <code>/v1/render</code>.</li></ol>
+   <a class="btn sm" id="dl-skill" download="SKILL.md" href="#">Descargar SKILL.md</a></div>
+  <div><div class="cap"><span class="mono">Instalar desde la terminal</span><button class="btn sm ghost cp" data-t="c-skill">Copiar</button></div><pre class="code" id="c-skill" tabindex="0"></pre></div></div>
+ <div class="panel" id="p2" role="tabpanel" aria-labelledby="t2" hidden><div><h3>Prompt Maestro</h3><ol>
+   <li>Pulsa «Generar y copiar».</li><li>Pégalo al inicio de la conversación con tu modelo (ChatGPT, Gemini…) junto con tu contenido.</li><li>Lleva el JSON que te devuelva al <a href="/api/taller" data-link>Taller</a> o envíalo a <code>/v1/render</code>.</li></ol>
+   <button class="btn sm" id="gen-p">Generar y copiar</button></div>
+  <div><pre class="code" id="c-prompt" style="max-height:20rem" tabindex="0">Aquí aparece el prompt.</pre></div></div>
+ <div class="panel" id="p3" role="tabpanel" aria-labelledby="t3" hidden><div><h3>Una llamada</h3><ol>
+   <li>Pide el esquema: <code>GET /v1/schema</code>.</li><li>Envía el contenido a <code>POST /v1/render</code> con el <code>format</code> que quieras.</li><li>Descarga el archivo de la respuesta y revisa <code>avisos</code> y <code>auditoria</code>.</li></ol>
+   <p style="font-size:.92rem">PDF, PPTX, Word y Excel responden al momento. El video responde <code>202</code> con un trabajo: consulta <code>estado_url</code> hasta que diga <code>ok</code>. Mismo contenido, mismo trabajo.</p></div>
+  <div><div class="cap"><span class="mono">curl</span><button class="btn sm ghost cp" data-t="c-curl">Copiar</button></div><pre class="code" id="c-curl" tabindex="0"></pre></div></div>
+ <div class="panel" id="p4" role="tabpanel" aria-labelledby="t4" hidden><div><h3>Kit de motion</h3><ol>
+   <li>Descarga el kit: trae el estilo listo para <code>/estudio-motion</code> y el brief para <code>/brag</code>, con la paleta y las fuentes del diseño.</li>
+   <li>Para pulir un video de la API, descomprime su <code>proyecto</code> y edítalo con las skills de HyperFrames.</li><li>Renderiza la versión final con <code>--quality delivery</code>.</li></ol>
+   <a class="btn sm" id="dl-motion" download="kit-motion.md" href="#">Descargar kit de motion</a></div>
+  <div><pre class="code" id="c-motion" tabindex="0"></pre></div></div>
+ <div class="panel" id="p5" role="tabpanel" aria-labelledby="t5" hidden><div><h3>Conectar tu agente</h3><ol>
+   <li>Arranca la API: <code>python servidor/api.py --imagenes imagenes</code> y comprueba el equipo con <code>python servidor/conectar.py comprobar</code>.</li>
+   <li>Elige tu agente y copia la configuración. Con <code>--escribir</code> el script la guarda por ti (hace copia <code>.bak</code>).</li>
+   <li>Copia el manual <code>skills/mystyle/</code> a la carpeta de skills de tu agente (<code>python servidor/conectar.py skill</code>). Codex y OpenCode leen <code>AGENTS.md</code> de la raíz.</li>
+   <li>Pide: «haz un informe de ventas en PDF». El agente busca una receta, rellena los huecos y recibe el archivo. Son 24 herramientas, las mismas por MCP, por HTTP y por terminal.</li></ol>
+   <label class="mono" style="display:block;margin-top:14px">Agente<select id="ag-a"><option value="claude-code">Claude Code</option><option value="codex">Codex</option><option value="opencode">OpenCode</option><option value="antigravity">Antigravity</option><option value="claude-desktop">Claude Desktop</option><option value="http">Otro (HTTP / OpenAI)</option></select></label></div>
+  <div><div class="cap"><span class="mono" id="ag-f">Configuración</span><button class="btn sm ghost cp" data-t="c-mcp">Copiar</button></div><pre class="code" id="c-mcp" tabindex="0"></pre></div></div>
+</div></section>
+
+<section class="sec alt" data-route="/catalogo"><span class="ghostnum" aria-hidden="true">03</span><div class="wrap">
+ <span class="eyebrow">Catálogo</span><h1 class="disp">Elige tu plantilla.</h1>
+ <p class="intro">Documentos reales hechos con myStyle. Ábrelos para verlos por dentro y úsalos como punto de partida.</p>
+ <div class="qrow"><input type="search" id="cq" placeholder="Buscar por título o tema" aria-label="Buscar plantillas"><select id="cord" aria-label="Ordenar"><option value="">Más recientes</option><option value="pags">Más páginas</option><option value="az">A–Z</option></select></div>
+ <div class="filters" id="flt" role="group" aria-label="Filtros"></div>
+ <div class="pills" id="pills" aria-label="Filtros activos"></div>
+ <p class="mono" id="cnt" role="status">Cargando el catálogo…</p>
+ <div class="shelf" id="shelf"></div>
+ <div id="pubs" hidden><h2 class="disp" style="font-size:clamp(2rem,4vw,3.2rem);margin-top:64px">Trabajos publicados</h2><p class="intro" style="margin-bottom:18px">Documentos que alguien publicó desde el Taller. Lo que no se publica es privado y caduca solo.</p><div class="pubs" id="publist"></div></div></div></section>
+
+<section class="sec" data-route="/taller"><span class="ghostnum" aria-hidden="true">04</span><div class="wrap">
+ <span class="eyebrow">Taller</span><h1 class="disp">Ajusta. Renderiza. Entrega.</h1>
+ <p class="intro">Cambia la paleta, mira las variantes con el motor real y renderiza tu JSON en el formato que necesites.</p>
+ <div class="lab">
+  <div class="card"><h3>Diseño y paleta</h3>
+   <label for="d">Diseño</label><select id="d"></select><label for="p">Paleta de partida</label><select id="p"></select>
+   <label>Mi paleta · un color por rol</label><div class="roles" id="roles"></div><div class="av" id="av" role="status"></div>
+   <details class="pick" id="pick"><summary>Paleta desde una imagen</summary>
+    <p class="hint">La imagen se queda en tu navegador: no se sube al servidor.</p>
+    <div class="pk-row"><button class="btn ghost" id="pbtn" type="button">Elegir imagen</button><button class="btn ghost" id="peye" type="button" hidden>Tomar de la pantalla</button><input id="pimg" type="file" accept="image/png,image/jpeg,image/webp" hidden></div>
+    <canvas id="pcv" hidden aria-label="Imagen elegida: haz clic para tomar el color de un punto" role="img"></canvas>
+    <div class="psw" id="psw" role="group" aria-label="Colores dominantes"></div>
+    <label for="prole">Rol activo del cuentagotas (clic en la imagen o en una muestra)</label><select id="prole"></select>
+    <div class="pk-row"><button class="btn" id="papply" type="button" disabled>Aplicar a mi paleta</button><button class="btn ghost" id="pundo" type="button" disabled>Deshacer</button></div>
+    <div class="av" id="pmsg" role="status"></div></details>
+   <button class="btn ghost" id="sv">Guardar mi paleta</button>
+   <h3 style="margin-top:26px">Variantes y prompt</h3><div id="vs"></div>
+   <label for="m">Modo</label><select id="m"><option>B</option><option>A</option></select>
+   <label><input type="checkbox" id="s">Prompt corto</label>
+   <button class="btn" id="gp">Generar prompt</button><pre class="out" id="out" hidden></pre><button class="btn ghost" id="cp" hidden>Copiar prompt</button></div>
+  <div style="display:grid;gap:24px;min-width:0">
+   <div class="card"><h3>Variantes con tu paleta</h3><iframe class="pv" id="gal" title="Galería de variantes"></iframe></div>
+   <div class="card"><h3>Tu JSON → archivo</h3><label for="f">Cargar archivo</label><input type="file" id="f" accept=".json">
+    <label for="j">JSON del documento</label><textarea id="j" rows="7" placeholder="Pega el JSON, carga un archivo o usa una plantilla del catálogo"></textarea>
+    <label for="fmt">Formato</label><select id="fmt"><option value="pdf-a4">PDF · A4</option><option value="pptx-16x9">PowerPoint · 16:9 editable</option><option value="docx-a4">Word · A4</option><option value="xlsx">Excel · tablas y gráficos</option><option value="video-16x9">Video · 16:9</option><option value="video-9x16">Video · 9:16 vertical</option></select>
+    <label><input type="checkbox" id="up" checked>Usar mi paleta</label><button class="btn" id="gr">Renderizar</button><p class="say" id="dl" role="status"></p><pre class="out" id="inf" hidden></pre>
+    <iframe class="pv" id="pdf" title="PDF" hidden style="margin-top:14px;height:44rem"></iframe><div id="tvid"></div></div>
+   <div class="card"><h3>Imágenes</h3><p style="margin:0;font-size:.92rem">Busca fotos libres en Wikimedia Commons (con autor y licencia) o sube la tuya. Copia el <code>src</code> en un bloque <code>image</code>.</p>
+    <form class="qrow" id="cform" style="margin-top:14px"><input type="search" id="cqs" placeholder="Ej.: Dendrobates tinctorius" aria-label="Buscar en Wikimedia Commons"><button class="btn sm">Buscar</button></form>
+    <div class="imgs" id="cres"></div><label for="upf">Subir imagen o CSV</label><input type="file" id="upf" accept="image/png,image/jpeg,image/gif,image/webp,.csv"><p class="say" id="upsay" role="status"></p></div>
+  </div></div></div></section>
+
+<section class="sec dk" data-route="/formatos"><span class="ghostnum" aria-hidden="true">05</span><div class="wrap">
+ <span class="eyebrow">Formatos</span><h1 class="disp">Un contenido. Seis salidas.</h1>
+ <p class="intro">El mismo JSON sale como documento, presentación, hoja de cálculo o video. Mismos colores, mismas fuentes, mismas reglas.</p>
+ <div class="fmts">
+  <article class="fmt"><img src="/api/servidor/web/fmt/pdf.png" alt="Primera página del informe de ventas en PDF" loading="lazy"><span><span class="chip r">Listo</span></span><h3>PDF</h3><ul><li>A4 maquetado en Chromium</li><li>Gráficos, tablas e índice con enlaces</li><li>Auditoría y contraste automáticos</li></ul><a class="fmt-go" data-link href="/api/catalogo?formato=pdf">Ver ejemplos de PDF →</a></article>
+  <article class="fmt"><div class="slider" data-slides="5" data-base="/api/servidor/web/ejemplos/pptx-" data-alt="Diapositiva de la presentación de ventas en PowerPoint"></div><span><span class="chip r">Listo</span></span><h3>PowerPoint</h3><ul><li>16:9 con gráficos, tablas y diagramas editables</li><li>Tema con tu paleta y tus fuentes</li><li>GIF y video incrustados</li></ul><a class="fmt-go" data-link href="/api/catalogo/informe_ventas?descargar=pptx-16x9">Ver ejemplo en PowerPoint →</a></article>
+  <article class="fmt"><video class="pv" controls muted loop playsinline preload="metadata" poster="/api/servidor/web/fmt/video.png" aria-label="Video de ejemplo: resumen del trimestre"><source src="/api/servidor/web/ejemplos/resumen.mp4" type="video/mp4"></video><span><span class="chip r">Listo</span></span><h3>Video</h3><ul><li>Escenas animadas con HyperFrames, en 16:9 o 9:16</li><li>Se renderiza en su propia cola</li><li>Púlelo con <code>/estudio-motion</code> o <code>/brag</code></li></ul><a class="fmt-go" data-link href="/api/catalogo/informe_ventas?video=1">Ver ejemplo en video →</a></article>
+  <article class="fmt"><img src="/api/servidor/web/fmt/docx.png" alt="Página del informe de ventas en Word" loading="lazy"><span><span class="chip r">Listo</span></span><h3>Word</h3><ul><li>A4 con estilos, índice y pie con página</li><li>Tablas con cabecera repetida y avisos</li><li>Gráficos con el mismo motor del PDF</li></ul><a class="fmt-go" data-link href="/api/catalogo/informe_ventas?descargar=docx-a4">Ver ejemplo en Word →</a></article>
+  <article class="fmt"><img src="/api/servidor/web/fmt/xlsx.png" alt="Hoja de cálculo con las cifras del informe de ventas" loading="lazy"><span><span class="chip r">Listo</span></span><h3>Excel</h3><ul><li>Una hoja por tabla, cifra o gráfico</li><li>Números reales y totales con =SUMA()</li><li>Gráficos nativos con tu paleta</li></ul><a class="fmt-go" data-link href="/api/catalogo/informe_ventas?descargar=xlsx">Ver ejemplo en Excel →</a></article>
+  <article class="fmt"><div class="frame web"><div class="bar" aria-hidden="true"><i></i><i></i><i></i></div><iframe title="Página web animada de ejemplo" src="/api/servidor/web/ejemplos/web-animada.html" loading="lazy" sandbox="allow-scripts allow-same-origin"></iframe></div><span><span class="chip r">Nuevo</span></span><h3>Web animada</h3><ul><li>Una sola página HTML con anime.js</li><li>Entrada escalonada y cifras que cuentan</li><li>Fondo 3D opcional con three.js</li></ul><a class="fmt-go" href="/api/servidor/web/ejemplos/web-animada.html" target="_blank" rel="noopener">Abrir la página completa →</a></article>
+ </div></div></section>
+
+<section class="sec alt" data-route="/estilos"><span class="ghostnum" aria-hidden="true">06</span><div class="wrap">
+ <span class="eyebrow">Nuevos estilos</span><h1 class="disp">Expande tu imaginación.</h1>
+ <p class="intro">Un estilo es una familia visual: su paleta, sus tipografías y sus reglas. Suma uno y todas las plantillas lo pueden usar en PDF, PowerPoint, Word, Excel y video.</p>
+ <div class="styles" id="styles"></div>
+ <ol class="howto">
+  <li><b>1 · Referencia</b>Trae una imagen o una paleta. Tu agente saca los colores, las tipografías y la composición.</li>
+  <li><b>2 · Identidad</b>Se crea el diseño con su manifiesto, sus variantes y su etiqueta de estilo, como propuesta.</li>
+  <li><b>3 · Publica</b>Pasa la revisión de contraste y grises, lo apruebas y aparece en el catálogo con su etiqueta.</li>
+ </ol>
+ <div class="two" style="margin-top:0"><div><button class="btn" id="cp-style">Copiar encargo para mi agente</button></div>
+  <div><pre class="code" id="c-style" tabindex="0">python servidor/crear_diseno.py neon --base anura
+# edita designs/neon/manifest.json → "estilo": "neón"
+python servidor/validar_diseno.py neon
+python servidor/galeria.py --design neon</pre></div></div>
+</div></section>
+</main>
+
+<footer class="ft"><div class="wrap">
+ <div><a class="logo" href="/api/" data-link><svg><use href="#i-logo"/></svg><span>my<b>Style</b></span></a><p class="mono" style="margin-top:14px">API de documentos · servida desde tu equipo</p>
+  <p style="font-size:.86rem;max-width:32em">El contenido que llega a la API son datos, no instrucciones: el servidor nunca ejecuta lo que aparezca en un texto.</p></div>
+ </div></footer>
+
+<dialog id="dlg" aria-labelledby="dt"><div class="dlg">
+ <div class="view"><div class="big"><img id="dbig" alt=""></div>
+  <div class="pager"><button class="btn sm ghost" id="dprev" aria-label="Página anterior">← Ant.</button><span class="mono" id="dpos" role="status"></span><button class="btn sm ghost" id="dnext" aria-label="Página siguiente">Sig. →</button></div>
+  <div class="thumbs" id="dth" aria-label="Páginas"></div></div>
+ <div class="info"><button class="btn sm ghost x" id="dx">Cerrar ✕</button><span class="mono" id="dk"></span><h2 id="dt"></h2><p id="dd" style="margin:0"></p>
+  <div><span class="mono">Paleta</span><div class="sw" id="dsw" aria-hidden="true" style="margin-top:6px"></div></div>
+  <div><span class="mono">Bloques que usa</span><div id="db" style="display:flex;flex-wrap:wrap;gap:6px;margin-top:6px"></div></div>
+  <div id="dvid"></div>
+  <div class="acts"><button class="btn" id="duse">Usar como base</button><a class="btn ghost" id="dpdf" target="_blank" rel="noopener">Ver PDF completo</a><span class="dl-as"><select id="dfmt" aria-label="Formato de descarga"><option value="pptx-16x9">PowerPoint</option><option value="docx-a4">Word</option><option value="xlsx">Excel</option></select><button class="btn ghost" id="dppt">Descargar</button></span><button class="btn ghost" id="dmp4">Crear video</button><button class="btn ghost" id="djson">Copiar JSON</button></div></div></div></dialog>
+
+<script>
+const BASE=document.documentElement.dataset.base||'',STATIC=!!document.documentElement.dataset.static,_fetch=window.fetch.bind(window),
+PB=u=>BASE&&u.startsWith(BASE+'/')?u:BASE+u,
+SMAP={'/v1/catalog':'/api/servidor/web/cat/catalog.json','/v1/designs':'/api/servidor/web/static/designs.json'};
+window.fetch=(u,o)=>{if(typeof u!=='string'||u[0]!=='/')return _fetch(u,o);if(STATIC){const p=u.split('?')[0];if(SMAP[p])return _fetch(PB(SMAP[p]));if(p.startsWith('/v1/'))return Promise.reject(new Error('API no disponible en la versión estática'))}return _fetch(PB(u),o)};
+const PATHN=()=>location.pathname.slice(BASE.length)||'/';
+const $=i=>document.getElementById(i),J=(u,o)=>fetch(u,o).then(async r=>{if(!r.ok&&r.status!==202)throw await r.json().catch(()=>({}));return r.json()});
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const ORIGIN=document.documentElement.dataset.origin||location.origin,ROL={negro:'texto y fondos oscuros',bosque:'fondo oscuro',hoja:'tono medio: series y detalles',vivo:'acento fuerte (no como texto sobre claro)',ocre:'acento cálido (no como texto sobre claro)',crema:'papel, fondo claro',arena:'papel alterno, bandas'};
+const KEY='anura-mi-paleta',W=ms=>new Promise(r=>setTimeout(r,ms));let base={},pals={},cur={},timer,CAT=[],designs=[];
+const copy=async(t,btn)=>{try{await navigator.clipboard.writeText(t);const o=btn.textContent;btn.textContent='¡Copiado!';setTimeout(()=>btn.textContent=o,1400)}catch{alert('No se pudo copiar. Selecciona el texto y cópialo a mano.')}};
+
+/* tema: icono que rota auto → claro → oscuro */
+const THEMES=['','light','dark'],TI={'':'i-auto',light:'i-sun',dark:'i-moon'},TL={'':'automático (el del sistema)',light:'claro',dark:'oscuro'};
+const setTheme=t=>{if(t)document.documentElement.dataset.theme=t;else delete document.documentElement.dataset.theme;$('theme').innerHTML=`<svg><use href="#${TI[t]}"/></svg>`;
+ $('theme').setAttribute('aria-label',`Tema ${TL[t]}. Cambiar tema`);favicon();$('theme').title=`Tema ${TL[t]}`;try{t?localStorage.setItem('mystyle-tema',t):localStorage.removeItem('mystyle-tema')}catch{}};
+function favicon(){const cs=getComputedStyle(document.documentElement),c=k=>cs.getPropertyValue(k).trim();
+ const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="${c('--lmix')==='screen'?'#030b18':'#f5eae4'}"/><g style="isolation:isolate"><circle cx="11" cy="12" r="7.5" fill="${c('--l1')}" style="mix-blend-mode:${c('--lmix')}"/><circle cx="21" cy="12" r="7.5" fill="${c('--l2')}" style="mix-blend-mode:${c('--lmix')}"/><circle cx="16" cy="20.5" r="7.5" fill="${c('--l3')}" style="mix-blend-mode:${c('--lmix')}"/></g></svg>`;
+ $('favicon').href='data:image/svg+xml,'+encodeURIComponent(svg)}
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>favicon());
+setTheme(document.documentElement.dataset.theme||'');
+$('theme').onclick=()=>setTheme(THEMES[(THEMES.indexOf(document.documentElement.dataset.theme||'')+1)%3]);
+
+/* menú de 3 líneas: panel lateral */
+let lastFocus=null;
+function drawer(open){document.body.classList.toggle('open',open);document.body.classList.toggle('lock',open);$('drawer').setAttribute('aria-hidden',!open);$('burger').setAttribute('aria-expanded',open);
+ if(open){lastFocus=document.activeElement;setTimeout(()=>$('sq').focus(),50)}else if(lastFocus)lastFocus.focus()}
+$('burger').onclick=()=>drawer(true);$('close').onclick=()=>drawer(false);$('panel-bg').onclick=()=>drawer(false);
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.body.classList.contains('open'))drawer(false)});
+$('drawer').addEventListener('keydown',e=>{if(e.key!=='Tab')return;const f=[...$('drawer').querySelectorAll('a,button,input')];const a=f[0],z=f[f.length-1];
+ if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}});
+$('sform').onsubmit=e=>{e.preventDefault();go('/catalogo?q='+encodeURIComponent($('sq').value.trim()))};
+
+/* rutas: una sección por URL */
+const NAMES={'/':'API de documentos','/como':'Cómo funciona','/agente':'Tu agente','/catalogo':'Catálogo','/taller':'Taller','/formatos':'Formatos','/estilos':'Nuevos estilos','/estadisticas':'Estadísticas'};
+function route(push){
+ const [,seg,id]=PATHN().split('/'),k=NAMES['/'+(seg||'')]?'/'+(seg||''):'/';
+ document.querySelectorAll('main>section').forEach(s=>s.hidden=s.dataset.route!==k);
+ document.querySelectorAll('nav a[data-link]').forEach(a=>a.getAttribute('href')===k?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current'));
+ document.title=`${NAMES[k]} · myStyle`;if(document.body.classList.contains('open'))drawer(false);
+ if(push!==null){window.scrollTo(0,0);$('main').focus({preventScroll:true})}
+ if(k==='/catalogo'&&!id)whenCat(()=>{readURL();shelf()});
+ if(k==='/estadisticas')stats();
+ if(k==='/'){showcase();homeStats();videos()}
+ sliders();
+ if(k==='/catalogo'&&id)whenCat(()=>{if(!CAT.some(x=>x.id===id))return;open_(id,null,false);const p=new URLSearchParams(location.search),d=p.get('descargar');
+  if(d&&EXT[d]){$('dfmt').value=d;$('dppt').focus()}if(p.get('video')==='1')$('dmp4').focus()});else closeDlg(false);
+}
+function go(path){if(BASE+path!==location.pathname+location.search)history.pushState(null,'',BASE+path);route()}
+document.addEventListener('click',e=>{const a=e.target.closest('a[data-link]');if(!a||e.ctrlKey||e.metaKey||e.shiftKey||e.button)return;e.preventDefault();go(a.getAttribute('href').slice(BASE.length))});
+addEventListener('popstate',()=>route(null));
+
+/* estado de la API y créditos */
+J('/v1/designs').then(ds=>{designs=ds;gallery();$('st').className=STATIC?'status off':'status on';$('st').lastChild.textContent=STATIC?'Demo estática':'API en línea';
+ $('strip').children[0].firstChild.textContent=ds.length;fill(['d','ag-d']);$('d').onchange=()=>{$('ag-d').value=$('d').value;load();agent()};$('ag-d').onchange=()=>{$('d').value=$('ag-d').value;load();agent()};load();agent()})
+ .catch(()=>{$('st').className='status off';$('st').lastChild.textContent='API sin conexión'});
+function fill(ids){ids.forEach(i=>$(i).innerHTML=designs.map(d=>`<option value="${esc(d.id)}">${esc(d.name)} v${esc(d.version)}</option>`).join(''))}
+
+
+/* estadísticas: tokens con y sin myStyle */
+const FMTN={pdf:'PDF',pptx:'PowerPoint',docx:'Word',xlsx:'Excel',video:'Video'},fmtN=n=>new Intl.NumberFormat('es-CO').format(Math.round(n));
+let stLoaded=false;
+function stats(){if(stLoaded)return;stLoaded=true;
+ fetch('/api/servidor/web/stats/tokens.json').then(r=>{if(!r.ok)throw 0;return r.json()}).then(d=>{
+  const ks=Object.keys(FMTN).filter(k=>d.formatos[k]),max=Math.max(...ks.map(k=>d.formatos[k].sin.media)),tag=d.estimado?'estimado':'medido';
+  const pdf=d.formatos.pdf;
+  $('st-intro').textContent=`Un agente que crea un PDF con myStyle gasta unos ${fmtN(pdf.con.media)} tokens; a mano, unos ${fmtN(pdf.sin.media)}. Cifras ${tag}s sobre ${pdf.n} documentos de ejemplo.`.replace('estimados','estimadas').replace('medidos','medidas');
+  const L=170,R=24,T=14,H=ks.length*64,Wd=720-L-R;let s=`<title id="st-t">Tokens por formato, con y sin myStyle</title><desc id="st-d">Barras agrupadas: con myStyle y sin él, por formato.</desc>`;
+  ks.forEach((k,i)=>{const f=d.formatos[k],y=T+i*64,w1=Math.max(3,Wd*f.con.media/max),w2=Math.max(3,Wd*f.sin.media/max);
+   s+=`<text x="${L-12}" y="${y+26}" text-anchor="end" class="st-l">${FMTN[k]}</text>
+    <rect x="${L}" y="${y}" width="${w1}" height="22" class="b-con"/><text x="${L+w1+8}" y="${y+16}" class="st-v">${fmtN(f.con.media)} con</text>
+    <rect x="${L}" y="${y+28}" width="${w2}" height="22" class="b-sin"/><text x="${Math.min(L+w2+8,L+Wd-110)}" y="${y+44}" class="${w2>Wd-130?'st-v in':'st-v'}">${fmtN(f.sin.media)} sin</text>`});
+  $('st-svg').setAttribute('viewBox',`0 0 720 ${H+T+8}`);$('st-svg').innerHTML=s;
+  $('st-cap').textContent=`Tokens medios por documento · ${d.metodo_conteo} · iteraciones a mano: ×${d.factor_iteraciones.central} (rango ${d.factor_iteraciones.min}–${d.factor_iteraciones.max})`;
+  $('st-table').innerHTML=`<caption class="sr">Tokens medios por formato, con y sin myStyle</caption><thead><tr><th scope="col">Formato</th><th scope="col">Con myStyle</th><th scope="col">Sin (a mano)</th><th scope="col">Ahorro</th><th scope="col">Dato</th></tr></thead><tbody>`+
+   ks.map(k=>{const f=d.formatos[k];return`<tr><th scope="row">${FMTN[k]}</th><td>${fmtN(f.con.media)}</td><td>${fmtN(f.sin.media)}</td><td>${f.ahorro_pct} %</td><td>${k==='pdf'||k==='video'?'medido en el artefacto':'por fórmula'}</td></tr>`}).join('')+'</tbody>';
+  const e=d.estilo_nuevo;$('st-style-n').textContent=`≈ ${fmtN(e.tokens)} tokens`;
+  $('st-style-t').textContent=`Leer la referencia, crear el diseño, validarlo, escribir un documento de prueba y publicarlo (${e.modelo}). Medido con el contador de la sesión: aproximado.`;
+  const a=d.agentes;$('st-agents-l').innerHTML=[
+   `<li><b>Claude (MCP)</b> · ${fmtN(a.claude_mcp.definiciones_herramientas_completo)} tokens de herramientas por conversación (${fmtN(a.claude_mcp.definiciones_herramientas_minimo)} en el perfil mínimo).</li>`,
+   `<li><b>ChatGPT (OpenAPI)</b> · ${fmtN(a.chatgpt_openapi.definiciones_openapi)} tokens del esquema por conversación.</li>`,
+   a.modelo_local.corridas_registradas?`<li><b>Modelo local</b> · ${fmtN(a.modelo_local.tokens_entrada_media)} entrada y ${fmtN(a.modelo_local.tokens_salida_media)} salida por corrida, sin costo.</li>`:'',
+   a.markdown_en_vez_de_json?`<li><b>Markdown en vez de JSON</b> · ${fmtN(a.markdown_en_vez_de_json.markdown)} frente a ${fmtN(a.markdown_en_vez_de_json.contrato_json)} tokens para el mismo documento.</li>`:''].join('')})
+  .catch(()=>{stLoaded=false;$('st-intro').textContent='Todavía no hay mediciones. Genera servidor/web/stats/tokens.json con servidor/tools/tokens.py.'})}
+
+/* ejemplos con media real, estad\u00edsticas en el home y video creativo */
+const SHOW=[{k:'pdf',n:'PDF',m:()=>`<figure class="shot"><img src="/api/servidor/web/fmt/pdf.png" alt="Primera p\u00e1gina del informe de ventas en PDF" loading="lazy"></figure>`,t:'A4 maquetado con Chromium: gr\u00e1ficos, tablas e \u00edndice con enlaces.',l:['/catalogo?formato=pdf','Ver PDF del cat\u00e1logo']},
+ {k:'pptx',n:'PowerPoint',m:()=>`<div class="slider" data-slides="5" data-base="/api/servidor/web/ejemplos/pptx-" data-alt="Diapositiva de la presentaci\u00f3n de ventas"></div>`,t:'16:9 editable con tema, tablas y gr\u00e1ficos nativos. Pasa las diapositivas.',l:['/catalogo/informe_ventas?descargar=pptx-16x9','Ver ejemplo en PowerPoint']},
+ {k:'docx',n:'Word',m:()=>`<figure class="shot"><img src="/api/servidor/web/fmt/docx.png" alt="P\u00e1gina del informe en Word" loading="lazy"></figure>`,t:'A4 con estilos, \u00edndice y pie con p\u00e1gina.',l:['/catalogo/informe_ventas?descargar=docx-a4','Ver ejemplo en Word']},
+ {k:'xlsx',n:'Excel',m:()=>`<figure class="shot"><img src="/api/servidor/web/fmt/xlsx.png" alt="Hoja de c\u00e1lculo con las cifras" loading="lazy"></figure>`,t:'Una hoja por tabla, cifra o gr\u00e1fico, con f\u00f3rmulas reales.',l:['/catalogo/informe_ventas?descargar=xlsx','Ver ejemplo en Excel']},
+ {k:'video',n:'Video',m:()=>`<video class="pv" controls muted loop playsinline preload="metadata" poster="/api/servidor/web/fmt/video.png" aria-label="Video de ejemplo"><source src="/api/servidor/web/ejemplos/resumen.mp4" type="video/mp4"></video>`,t:'MP4 con escenas animadas (HyperFrames + GSAP), en 16:9 o 9:16.',l:['/formatos','Ver todos los formatos']},
+ {k:'web',n:'Web animada',m:()=>`<div class="frame web"><div class="bar" aria-hidden="true"><i></i><i></i><i></i></div><iframe title="P\u00e1gina web animada" src="/api/servidor/web/ejemplos/web-animada.html" loading="lazy" sandbox="allow-scripts allow-same-origin"></iframe></div>`,t:'Una p\u00e1gina HTML con anime.js: entrada escalonada y cifras que cuentan.',l:['/api/servidor/web/ejemplos/web-animada.html','Abrir la p\u00e1gina completa',1]}];
+function sliders(root){(root||document).querySelectorAll('.slider:not([data-on])').forEach(s=>{s.dataset.on=1;const n=+s.dataset.slides,b=s.dataset.base,alt=s.dataset.alt;let i=1;
+ s.innerHTML=`<img alt="" loading="lazy"><div class="sl-c"><button type="button" class="sl-b" aria-label="Diapositiva anterior">\u2039</button><span class="mono" aria-live="polite"></span><button type="button" class="sl-b" aria-label="Diapositiva siguiente">\u203a</button></div>`;
+ const im=s.querySelector('img'),tx=s.querySelector('span'),bs=s.querySelectorAll('button'),set=k=>{i=(k+n-1)%n+1;im.src=BASE+b+i+'.jpg';im.alt=`${alt} ${i} de ${n}`;tx.textContent=`${i} / ${n}`};
+ bs[0].onclick=()=>set(i-1);bs[1].onclick=()=>set(i+1);s.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')set(i-1);if(e.key==='ArrowRight')set(i+1)});set(1)})}
+function showcase(){const tabs=$('show-tabs'),box=$('show');if(!tabs||tabs.dataset.on)return;tabs.dataset.on=1;
+ const pick=k=>{const x=SHOW.find(v=>v.k===k);tabs.querySelectorAll('button').forEach(b=>{b.setAttribute('aria-selected',b.dataset.k===k);b.tabIndex=b.dataset.k===k?0:-1});
+  box.innerHTML=`<div class="sc-m">${x.m()}</div><div class="sc-t"><h3>${x.n}</h3><p>${x.t}</p><a class="btn ghost" ${x.l[2]?`href="${BASE}${x.l[0]}" target="_blank" rel="noopener"`:`href="${BASE}${x.l[0]}" data-link`}>${x.l[1]}</a></div>`;sliders(box)};
+ tabs.innerHTML=SHOW.map(x=>`<button type="button" role="tab" data-k="${x.k}" aria-selected="false">${x.n}</button>`).join('');
+ tabs.onclick=e=>{const b=e.target.closest('button');if(b)pick(b.dataset.k)};
+ tabs.onkeydown=e=>{const bs=[...tabs.querySelectorAll('button')],i=bs.indexOf(document.activeElement);if(i<0||!['ArrowLeft','ArrowRight'].includes(e.key))return;const n=bs[(i+(e.key==='ArrowRight'?1:-1)+bs.length)%bs.length];n.focus();pick(n.dataset.k)};
+ pick('pdf')}
+function homeStats(){const bars=$('hs-bars');if(!bars||bars.dataset.on)return;bars.dataset.on=1;
+ fetch('/api/servidor/web/stats/tokens.json').then(r=>r.json()).then(d=>{const ks=Object.keys(FMTN).filter(k=>d.formatos[k]),max=Math.max(...ks.map(k=>d.formatos[k].sin.media)),p=d.formatos.pdf;
+  $('hs-intro').textContent=`Un agente que crea un PDF con myStyle gasta unos ${fmtN(p.con.media)} tokens; a mano, unos ${fmtN(p.sin.media)} (${p.ahorro_pct} % menos). Cifras ${d.estimado?'estimadas':'medidas'}.`;
+  const rc=d.recetas,rcRow=rc?`<div class="hs-row"><span class="hs-n">PDF con receta</span><div class="hs-b" role="img" aria-label="PDF con receta: ${fmtN(rc.media)} tokens frente a ${fmtN(p.sin.media)} a mano"><i class="c" style="width:${Math.max(2,100*rc.media/max)}%"></i><i class="s" style="width:${Math.max(2,100*p.sin.media/max)}%"></i></div><span class="hs-v mono">${(100*(1-rc.media/p.sin.media)).toFixed(1)} %</span></div>`:'';
+  if(rc)$('hs-intro').textContent+=` Con una receta (solo rellenas huecos) baja a unos ${fmtN(rc.media)} tokens.`;
+  bars.innerHTML=rcRow+ks.map(k=>{const f=d.formatos[k];return `<div class="hs-row"><span class="hs-n">${FMTN[k]}</span><div class="hs-b" role="img" aria-label="${FMTN[k]}: ${fmtN(f.con.media)} tokens con myStyle, ${fmtN(f.sin.media)} a mano"><i class="c" style="width:${Math.max(2,100*f.con.media/max)}%"></i><i class="s" style="width:${Math.max(2,100*f.sin.media/max)}%"></i></div><span class="hs-v mono">${f.ahorro_pct} %</span></div>`}).join('')+'<p class="mono hs-k"><i class="c"></i> con myStyle <i class="s"></i> a mano</p>'})
+ .catch(()=>{$('hs-intro').textContent='Todav\u00eda no hay mediciones.'})}
+function videos(){const box=$('vids');if(!box||box.dataset.on)return;box.dataset.on=1;
+ fetch('/api/servidor/web/ejemplos/videos.json').then(r=>r.json()).catch(()=>[]).then(l=>{
+  box.innerHTML=l.length?l.map(([f,n])=>`<figure><video controls playsinline preload="metadata" poster="${BASE}/web/ejemplos/${f}.jpg" aria-label="${n}"><source src="${BASE}/web/ejemplos/${f}.mp4" type="video/mp4"></video><figcaption class="mono">${n}</figcaption></figure>`).join(''):'<p class="intro">Los videos se publican aqu\u00ed cuando est\u00e9n renderizados.</p>'})}
+/* cómo funciona */
+const EX={contract:'1.0',design:'anura',format:'pdf-a4',meta:{title:'Informe de prueba'},document:{cover:{vertical:'INFORME',title:'Resultados del trimestre',text:'Resumen en una página.'},parts:[{id:'p1',title:'Resumen',desc:'Lo esencial.',sections:[{id:'s1',title:'Lo esencial',blocks:[{type:'p',text:'Las ventas subieron 12 %.'},{type:'chart',title:'Ventas',chart:{type:'bar',data:{items:[{l:'Ene',v:10},{l:'Feb',v:14},{l:'Mar',v:18,hi:true}]}}}]}]}]}};
+$('ex-req').textContent=`POST ${ORIGIN}/v1/render\n`+JSON.stringify(EX,null,1);
+$('ex-res').textContent=JSON.stringify({estado:'ok',paginas:4,job:'3f9a1c07b2de',pdf:'/v1/files/3f9a1c07b2de.pdf',avisos:[],auditoria:{}},null,1)+'\n// forma de la respuesta; el job real depende del contenido';
+
+
+const AG={'claude-code':['Terminal',(u,p)=>`claude mcp add mystyle -e MYSTYLE_URL=${u} -- python ${p}`],
+ codex:['~/.codex/config.toml',(u,p)=>`[mcp_servers.mystyle]\ncommand = "python"\nargs = ["${p}"]\nenv = { MYSTYLE_URL = "${u}" }`],
+ opencode:['opencode.json',(u,p)=>JSON.stringify({$schema:'https://opencode.ai/config.json',mcp:{mystyle:{type:'local',command:['python',p],environment:{MYSTYLE_URL:u},enabled:true}}},null,2)],
+ antigravity:['mcp_config.json (Antigravity)',(u,p)=>JSON.stringify({mcpServers:{mystyle:{command:'python',args:[p],env:{MYSTYLE_URL:u}}}},null,2)],
+ 'claude-desktop':['claude_desktop_config.json',(u,p)=>JSON.stringify({mcpServers:{mystyle:{command:'python',args:[p],env:{MYSTYLE_URL:u}}}},null,2)],
+ http:['Sin MCP',(u)=>`# function calling estilo OpenAI (Ollama, LM Studio, cualquier cliente)\ncurl -s ${u}/v1/tools?perfil=minimo\n\n# HTTP directo\ncurl -s ${u}/v1/openapi.json\n\n# una herramienta desde la terminal\npython servidor/herramientas.py call list_recipes '{"q":"informe de ventas"}'`]};
+function connectAg(){const k=$('ag-a').value,[f,fn]=AG[k];$('ag-f').textContent=f;$('c-mcp').textContent=fn(ORIGIN,'<ruta>/servidor/mcp_server.py')}
+$('ag-a').onchange=connectAg;
+/* tu agente */
+const tabs=[...document.querySelectorAll('[role=tab]')];
+const sel=t=>tabs.forEach(x=>{const on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;$(x.getAttribute('aria-controls')).hidden=!on});
+tabs.forEach((t,i)=>{t.onclick=()=>sel(t);t.onkeydown=e=>{const dd={ArrowRight:1,ArrowLeft:-1}[e.key];if(dd){const n=tabs[(i+dd+tabs.length)%tabs.length];sel(n);n.focus()}}});
+function agent(){const d=$('ag-d').value||'anura',dn=designs.find(x=>x.id===d)?.name||d;$('ag-u').value=ORIGIN;
+ connectAg();document.querySelectorAll('.dn').forEach(e=>e.textContent=dn);
+ $('dl-skill').href=`/v1/designs/${d}/skill`;$('dl-motion').href=`/v1/designs/${d}/motion`;
+ fetch(`/v1/designs/${d}/motion`).then(r=>r.text()).then(t=>$('c-motion').textContent=t.split('## 2')[0].trim()).catch(()=>{});
+ $('c-skill').textContent=`mkdir -p ~/.claude/skills/documentos-${d}\ncurl -s ${ORIGIN}/v1/designs/${d}/skill \\\n  -o ~/.claude/skills/documentos-${d}/SKILL.md`;
+ $('c-curl').textContent=`curl -s ${ORIGIN}/v1/schema -o contrato.schema.json\n\ncurl -s -X POST ${ORIGIN}/v1/render \\\n  -H "Content-Type: application/json" \\\n  -d @documento.json\n\n# PDF:   {"estado":"ok","pdf":"/v1/files/<job>.pdf"}\n# PPTX:  "format":"pptx-16x9"  -> {"pptx":"/v1/files/<job>.pptx"}\n# Video: "format":"video-16x9" -> 202 {"job","estado_url"}\ncurl -s ${ORIGIN}/v1/jobs/<job>   # hasta "estado":"ok" -> "video"`}
+$('gen-p').onclick=async()=>{const r=await fetch('/v1/prompt',{method:'POST',body:JSON.stringify({design:$('ag-d').value,palette:cur,mode:'B'})});const t=await r.text();$('c-prompt').textContent=t;copy(t,$('gen-p'))};
+document.querySelectorAll('.cp').forEach(b=>b.onclick=()=>copy($(b.dataset.t).textContent,b));
+
+/* video: trabajo asíncrono con consulta de estado */
+async function video(doc,fmt,box,btn){
+ const say=t=>box.innerHTML=`<p class="say" role="status">${t}</p>`,o=btn&&btn.textContent;if(btn){btn.disabled=true;btn.textContent='Creando video…'}
+ try{let r=await J('/v1/render',{method:'POST',body:JSON.stringify({...doc,format:fmt})});
+  while(r.estado==='en_cola'||r.estado==='renderizando'){say(r.estado==='en_cola'?'En cola. Tu video empieza en un momento…':'Renderizando el video. Tarda cerca de un minuto…');await W(3000);r=await J(r.estado_url||'/v1/jobs/'+r.job)}
+  if(!r.video)throw r;
+  box.innerHTML=`<p class="say" role="status">Video listo: ${esc(r.duracion_s)} s, ${esc(r.escenas)} escenas.</p><video class="player" controls preload="metadata" src="${esc(r.video)}"></video>
+   <p class="say"><a href="${esc(r.video)}" download>Descargar MP4</a> · <a href="${esc(r.proyecto||'#')}" download>Proyecto HyperFrames (.zip)</a></p>`}
+ catch(e){say(`No pudimos crear el video. ${esc((e.errores&&e.errores[0]&&e.errores[0].causa||e.error||'Error desconocido').slice(0,160))} Revisa el JSON e inténtalo de nuevo.`)}
+ finally{if(btn){btn.disabled=false;btn.textContent=o}}}
+
+/* catálogo */
+const FA={estilo:'Estilo',diseno:'Diseño',tipo:'Tipo',formato:'Formato de ejemplo'},FK={estilo:'style',diseno:'design',tipo:'kind'},
+ FMT={pdf:'PDF',pptx:'PowerPoint',docx:'Word',xlsx:'Excel',video:'Video'},FMAP={'pdf-a4':'pdf','pptx-16x9':'pptx','docx-a4':'docx',xlsx:'xlsx'};
+const st={q:'',estilo:new Set(),diseno:new Set(),tipo:new Set(),formato:new Set(),orden:''},waiting=[];const whenCat=f=>CAT.length?f():waiting.push(f);
+const norm=s=>String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
+const fmtsOf=x=>{const d=designs.find(v=>v.id===x.design),f=d?d.formats.map(k=>FMAP[k]).filter(Boolean):['pdf','pptx','docx','xlsx'];return[...new Set([...f,'video'])]};
+const vals=(x,f)=>f==='formato'?fmtsOf(x):[x[FK[f]]];
+const lab=(f,v)=>f==='formato'?FMT[v]:v;
+function matches(x,skip){const q=norm(st.q.trim());
+ return(!q||norm(x.title+' '+x.text+' '+x.kind).includes(q))&&Object.keys(FA).every(f=>f===skip||!st[f].size||vals(x,f).some(v=>st[f].has(v)))}
+function readURL(){const p=new URLSearchParams(location.search);st.q=p.get('q')||'';$('cq').value=st.q;
+ Object.keys(FA).forEach(f=>st[f]=new Set((p.get(f)||'').split(',').filter(Boolean)));
+ st.orden=['pags','az'].includes(p.get('orden'))?p.get('orden'):'';$('cord').value=st.orden}
+function writeURL(push){const p=new URLSearchParams();if(st.q.trim())p.set('q',st.q.trim());Object.keys(FA).forEach(f=>st[f].size&&p.set(f,[...st[f]].join(',')));if(st.orden)p.set('orden',st.orden);
+ const u=BASE+'/catalogo'+(p.toString()?'?'+p:'');if(u!==location.pathname+location.search)history[push?'pushState':'replaceState'](null,'',u)}
+function ddOpen(f,on){document.querySelectorAll('.dd.open').forEach(o=>{if(o.dataset.f!==f){o.classList.remove('open');o.querySelector('.ddb').setAttribute('aria-expanded','false')}});
+ const d=f&&document.querySelector(`.dd[data-f="${f}"]`);if(d){d.classList.toggle('open',on);d.querySelector('.ddb').setAttribute('aria-expanded',on);if(on)d.querySelector('input')?.focus()}
+ document.body.classList.toggle('sheet',!!document.querySelector('.dd.open')&&innerWidth<=560)}
+function buildFilters(){const box=$('flt');box.innerHTML=Object.keys(FA).map(f=>`<div class="dd" data-f="${f}"><button type="button" class="ddb" aria-expanded="false" aria-haspopup="true"><span>${FA[f]}</span><i></i></button><div class="ddp" role="group" aria-label="${FA[f]}"><div class="ddh"><b>${FA[f]}</b><button type="button" class="ddx" aria-label="Cerrar">✕</button></div><div class="ddl"></div></div></div>`).join('');
+ box.querySelectorAll('.dd').forEach(d=>{const f=d.dataset.f,b=d.querySelector('.ddb');b.onclick=()=>ddOpen(f,!d.classList.contains('open'));d.querySelector('.ddx').onclick=()=>{ddOpen(f,false);b.focus()}});
+ box.onkeydown=e=>{if(e.key==='Escape'){const o=box.querySelector('.dd.open');if(o){e.preventDefault();e.stopPropagation();ddOpen(null,false);o.querySelector('.ddb').focus()}}};
+ document.addEventListener('click',e=>{if(!e.target.closest('.dd'))ddOpen(null,false)})}
+function drawFilters(){Object.keys(FA).forEach(f=>{const d=document.querySelector(`.dd[data-f="${f}"]`);if(!d)return;
+ const all=[...new Set(CAT.flatMap(x=>vals(x,f)))].sort(),cnt=v=>CAT.filter(x=>matches(x,f)&&vals(x,f).includes(v)).length;
+ d.querySelector('.ddl').innerHTML=all.map(v=>`<label class="opt"><input type="checkbox" value="${esc(v)}"${st[f].has(v)?' checked':''}><span>${esc(lab(f,v))}</span><em>(${cnt(v)})</em></label>`).join('');
+ d.querySelector('.ddb span').textContent=FA[f]+(st[f].size?` · ${st[f].size}`:'');d.querySelector('.ddb').classList.toggle('on',st[f].size>0);
+ d.querySelectorAll('input').forEach(i=>i.onchange=()=>{i.checked?st[f].add(i.value):st[f].delete(i.value);const v=i.value;shelf(true);ddOpen(f,true);d.querySelector(`input[value="${v}"]`)?.focus()})});
+ const pl=[];Object.keys(FA).forEach(f=>st[f].forEach(v=>pl.push(`<button type="button" class="pill" data-f="${f}" data-v="${esc(v)}" aria-label="Quitar filtro ${esc(FA[f])}: ${esc(lab(f,v))}">${esc(FA[f])}: ${esc(lab(f,v))} <b>✕</b></button>`)));
+ if(st.q.trim())pl.push(`<button type="button" class="pill" data-f="q" aria-label="Quitar la búsqueda">«${esc(st.q.trim())}» <b>✕</b></button>`);
+ $('pills').innerHTML=pl.join('')+(pl.length?'<button type="button" class="pill clr" id="clr">Limpiar filtros</button>':'');
+ $('pills').querySelectorAll('.pill[data-f]').forEach(p=>p.onclick=()=>{p.dataset.f==='q'?(st.q='',$('cq').value=''):st[p.dataset.f].delete(p.dataset.v);shelf(true)});
+ const c=$('clr');if(c)c.onclick=()=>{st.q='';$('cq').value='';Object.keys(FA).forEach(f=>st[f].clear());shelf(true)}}
+let urlOn=false,qt;
+J('/v1/catalog').then(c=>{CAT=c;$('strip').children[1].firstChild.textContent=c.length;buildFilters();styles();readURL();shelf();urlOn=true;waiting.splice(0).forEach(f=>f())}).catch(()=>{$('cnt').textContent='No pudimos cargar el catálogo. Recarga la página; si sigue igual, revisa que la API esté en línea.'});
+$('cq').oninput=()=>{st.q=$('cq').value;clearTimeout(qt);qt=setTimeout(()=>shelf(false),120)};
+$('cord').onchange=()=>{st.orden=$('cord').value;shelf(true)};
+function shelf(push){if(!CAT.length)return;drawFilters();if(push!==undefined&&urlOn&&PATHN()==='/catalogo')writeURL(push);
+ const l=CAT.filter(x=>matches(x)).sort((x,y)=>st.orden==='pags'?y.pages-x.pages:st.orden==='az'?x.title.localeCompare(y.title,'es'):(y.updated||'').localeCompare(x.updated||''));
+ $('cnt').textContent=`${l.length} de ${CAT.length} plantillas`;
+ $('shelf').innerHTML=(l.length?l.map(x=>`<button class="book" data-id="${esc(x.id)}"><div class="cv"><img src="/api/servidor/web/cat/${esc(x.id)}/p01.png" alt="Portada de ${esc(x.title)}" loading="lazy" width="496" height="702"><span class="pg">${x.pages} págs</span><span class="peek" aria-hidden="true">Ver por dentro →</span></div>
+  <h3>${esc(x.title)}</h3><p>${esc(x.text)}</p><div class="ft"><span class="chip r">${esc(x.style)}</span><span class="chip k">${esc(x.design)}</span><span class="chip">${esc(x.kind)}</span></div></button>`).join('')
+  :'<div class="empty">Ninguna plantilla coincide. Quita un filtro o borra la búsqueda.</div>')
+  +'<a class="book new" href="/api/estilos" data-link><div class="cv"><span class="plus">+</span><b class="mono">Nuevo estilo</b><span>Suma una familia visual</span></div></a>';
+ document.querySelectorAll('.book[data-id]').forEach(b=>b.onclick=()=>open_(b.dataset.id,b,true))}
+function styles(){const by={};CAT.forEach(x=>{(by[x.style]??={d:new Set(),n:0}).d.add(x.design);by[x.style].n++});
+ $('styles').innerHTML=Object.entries(by).map(([s,v])=>`<article class="style"><span class="chip r" style="width:fit-content">Disponible</span><h3>${esc(s)}</h3><p>${v.d.size} ${v.d.size===1?'diseño':'diseños'} · ${v.n} ${v.n===1?'plantilla':'plantillas'}: ${esc([...v.d].join(', '))}</p></article>`).join('')
+  +'<article class="style slot"><span class="chip o" style="width:fit-content">Libre</span><h3>Tu estilo</h3><p>Editorial suave, neón, papel recortado… La familia que imagines entra aquí con su propia etiqueta.</p></article>'
+  +'<article class="style slot"><span class="chip o" style="width:fit-content">Libre</span><h3>Una variación</h3><p>Una paleta o una portada nueva dentro de un estilo existente. Entra como propuesta y la apruebas tú.</p></article>'}
+$('cp-style').onclick=()=>copy(`Quiero un estilo nuevo para myStyle.\n1. Lee guia/CLAUDE.md (protocolo de referencias y diseños).\n2. A partir de mi referencia, crea el diseño con: python servidor/crear_diseno.py <id> --base anura\n3. Define paleta por roles, tipografías y variantes; pon "estilo": "<nombre del estilo>" en designs/<id>/manifest.json.\n4. Corre python servidor/validar_diseno.py <id> hasta que todo sea ✔ y muéstrame python servidor/galeria.py --design <id>.\n5. No cambies diseños aprobados: lo nuevo entra como propuesta.`,$('cp-style'));
+
+let cu=null,pi=0,opener=null,pushed=false;
+function open_(id,btn,push){cu=CAT.find(x=>x.id===id);opener=btn;pi=0;if(push){history.pushState(null,'',BASE+'/catalogo/'+id);pushed=true}
+ document.title=`${cu.title} · myStyle`;$('dk').textContent=`${cu.style} · ${cu.kind} · ${cu.pages} páginas`;$('dt').textContent=cu.title;$('dd').textContent=cu.text;$('dvid').innerHTML='';
+ $('db').innerHTML=cu.blocks.map(b=>`<span class="chip">${esc(b)}</span>`).join('');$('dpdf').href=`/api/servidor/web/cat/${id}/doc.pdf`;
+ $('dth').innerHTML=Array.from({length:cu.shown},(_,i)=>`<button data-i="${i}" aria-label="Página ${i+1}"><img src="/api/servidor/web/cat/${id}/p${String(i+1).padStart(2,'0')}.png" alt=""></button>`).join('');
+ $('dth').querySelectorAll('button').forEach(b=>b.onclick=()=>page(+b.dataset.i));
+ J('/v1/designs/'+cu.design).then(m=>{const p={...m.paleta,...(m.paletas[cu.palette]||{})};$('dsw').innerHTML=Object.values(p).map(c=>`<i style="background:${esc(c)}"></i>`).join('')}).catch(()=>{});
+ page(0);if(!$('dlg').open)$('dlg').showModal()}
+function page(i){pi=(i+cu.shown)%cu.shown;const f=String(pi+1).padStart(2,'0');$('dbig').src=`/api/servidor/web/cat/${cu.id}/p${f}.png`;$('dbig').alt=`Página ${pi+1} de ${cu.title}`;
+ $('dpos').textContent=`${pi+1} / ${cu.shown}`+(cu.pages>cu.shown?` (de ${cu.pages})`:'');$('dth').querySelectorAll('button').forEach((b,k)=>b.setAttribute('aria-current',k===pi))}
+function closeDlg(nav=true){if(!$('dlg').open)return;$('dlg').close();
+ if(nav&&PATHN().startsWith('/catalogo/')){if(pushed)history.back();else history.replaceState(null,'',BASE+'/catalogo');document.title='Catálogo · myStyle'}pushed=false;opener&&opener.focus()}
+$('dprev').onclick=()=>page(pi-1);$('dnext').onclick=()=>page(pi+1);$('dx').onclick=()=>closeDlg();
+$('dlg').addEventListener('click',e=>{if(e.target===$('dlg'))closeDlg()});
+$('dlg').addEventListener('keydown',e=>{if(e.key==='ArrowRight')page(pi+1);if(e.key==='ArrowLeft')page(pi-1);if(e.key==='Escape'){e.preventDefault();closeDlg()}});
+$('djson').onclick=async()=>copy(JSON.stringify(await J('/v1/examples/'+cu.id),null,1),$('djson'));
+const EXT={'pptx-16x9':'pptx','docx-a4':'docx','xlsx':'xlsx'},NAME={'pptx-16x9':'PowerPoint','docx-a4':'Word','xlsx':'Excel','pdf-a4':'PDF','video-16x9':'Video','video-9x16':'Video'};
+async function office(doc,fmt,btn){const o=btn.textContent;btn.textContent=`Generando ${NAME[fmt]}…`;btn.disabled=true;
+ const r=await J('/v1/render',{method:'POST',body:JSON.stringify({...doc,format:fmt})}).catch(e=>e);btn.textContent=o;btn.disabled=false;const url=r[EXT[fmt]];
+ if(!url)return alert(`No pudimos generar el ${NAME[fmt]}. `+(r.error||(r.errores&&r.errores[0]&&r.errores[0].causa)||'')+' Revisa el JSON en el Taller e inténtalo de nuevo.');
+ const a=document.createElement('a');a.href=url;a.download=(doc.meta?.title||'documento')+'.'+EXT[fmt];a.click();return r}
+$('dppt').onclick=async()=>office(await J('/v1/examples/'+cu.id),$('dfmt').value,$('dppt'));
+$('dmp4').onclick=async()=>video(await J('/v1/examples/'+cu.id),'video-16x9',$('dvid'),$('dmp4'));
+$('duse').onclick=async()=>{const j=await J('/v1/examples/'+cu.id),d=cu.design,p=cu.palette;opener=null;history.replaceState(null,'',BASE+'/catalogo');closeDlg(false);
+ $('j').value=JSON.stringify(j,null,1);$('d').value=d;$('ag-d').value=d;await load(p);agent();go('/taller');$('j').focus()};
+
+/* taller */
+function paint(){$('roles').innerHTML=Object.keys(base).map(k=>`<label class="r"><input type="color" data-k="${k}" value="${esc(cur[k])}" aria-label="Color ${k}"><b>${k}</b><span>${ROL[k]||''}</span></label>`).join('');
+ document.querySelectorAll('#roles input').forEach(i=>i.oninput=()=>{cur[i.dataset.k]=i.value;sync()})}
+function sync(){clearTimeout(timer);timer=setTimeout(async()=>{
+ const c=await J('/v1/paleta',{method:'POST',body:JSON.stringify({design:$('d').value,palette:cur})}).catch(e=>({avisos:[{causa:e.error||'No pudimos revisar la paleta.'}]}));
+ $('av').innerHTML=c.avisos.length?c.avisos.map(a=>`⚠ ${esc(a.bloque||'')}: ${esc(a.causa)}`).join('<br>'):'<span class="ok">✔ Contraste y grises correctos</span>';
+ try{const r=await fetch('/v1/galeria',{method:'POST',body:JSON.stringify({design:$('d').value,palette:cur})});$('gal').srcdoc=await r.text()}catch{}},500)}
+async function load(pal){const m=await J('/v1/designs/'+$('d').value);base=m.paleta;pals=m.paletas;cur={...base,...(pal&&pals[pal]||{})};
+ $('p').innerHTML='<option value="">default</option>'+Object.keys(pals).map(x=>`<option${x===pal?' selected':''}>${esc(x)}</option>`).join('');
+ if(!pal)try{const s=JSON.parse(localStorage.getItem(KEY));if(s&&s.d==$('d').value){cur={...base,...s.p};$('p').insertAdjacentHTML('beforeend','<option value="__mia" selected>mi paleta guardada</option>')}}catch{}
+ paint();pkRoles();pk.prop=null;pk.undo=[];sync();const g={};m.variantes.forEach(v=>(g[v.tipo]??=[]).push(v));
+ $('vs').innerHTML=Object.entries(g).map(([t,vs])=>`<label for="v-${esc(t)}">${esc(t)}</label><select id="v-${esc(t)}" data-t="${esc(t)}"><option value="">auto</option>${vs.map(v=>`<option value="${esc(v.id)}">${esc(v.id)} · ${esc(v.nombre)} (${esc(v.estado)})</option>`).join('')}</select>`).join('')}
+
+/* paleta desde una imagen (todo en el navegador) */
+const pk={prop:null,undo:[]};
+const hex=(r,g,b)=>'#'+[r,g,b].map(v=>Math.round(v).toString(16).padStart(2,'0')).join('');
+const lum=([r,g,b])=>(.2126*r+.7152*g+.0722*b)/255;
+const sat=([r,g,b])=>{const M=Math.max(r,g,b),m=Math.min(r,g,b),l=(M+m)/510;return M===m?0:(M-m)/255/(1-Math.abs(2*l-1))};
+function medianCut(px,n){let boxes=[px];while(boxes.length<n){let bi=-1,br=-1,bc=0;
+  boxes.forEach((b,i)=>{if(b.length<2)return;for(let c=0;c<3;c++){let lo=255,hi=0;for(const p of b){lo=Math.min(lo,p[c]);hi=Math.max(hi,p[c])}if(hi-lo>br){br=hi-lo;bi=i;bc=c}}});
+  if(bi<0)break;const b=boxes[bi].sort((x,y)=>x[bc]-y[bc]),h=b.length>>1;boxes.splice(bi,1,b.slice(0,h),b.slice(h))}
+ return boxes.filter(b=>b.length).map(b=>{const s=[0,0,0];b.forEach(p=>{s[0]+=p[0];s[1]+=p[1];s[2]+=p[2]});return s.map(v=>v/b.length)})}
+function assignRoles(cols){const keys=Object.keys(base),want=['negro','bosque','hoja','vivo','ocre','crema','arena'].filter(k=>keys.includes(k));
+ const c=cols.slice();while(c.length<8)c.push(c[c.length-1]||[128,128,128]);c.sort((x,y)=>lum(x)-lum(y));
+ const out={},take=(k,col)=>{out[k]=hex(...col)};take('negro',c.shift());take('crema',c.pop());take('arena',c.pop());
+ const vs=x=>sat(x)*(.3+lum(x));c.sort((x,y)=>vs(y)-vs(x));take('vivo',c.shift());take('ocre',c.shift());c.sort((x,y)=>lum(x)-lum(y));take('bosque',c.shift());take('hoja',c.shift());
+ return Object.fromEntries(want.map(k=>[k,out[k]]))}
+function pkRoles(){$('prole').innerHTML=Object.keys(base).map(k=>`<option>${esc(k)}</option>`).join('')}
+function pkSet(k,v){pk.undo.push({...cur});cur[k]=v;paint();sync();$('pundo').disabled=false;$('pmsg').textContent=`${k} → ${v}`}
+function pkShow(){$('psw').innerHTML=(pk.cols||[]).map(c=>`<button type="button" class="sw" style="background:${c}" data-c="${c}" aria-label="Color ${c}: asignar al rol activo" title="${c}"></button>`).join('');
+ $('psw').querySelectorAll('button').forEach(b=>b.onclick=()=>pkSet($('prole').value,b.dataset.c));
+ $('papply').disabled=!pk.prop;if(pk.prop)$('pmsg').innerHTML='Propuesta: '+Object.entries(pk.prop).map(([k,v])=>`<span class="chip" style="background:${v};color:${lum([parseInt(v.slice(1,3),16),parseInt(v.slice(3,5),16),parseInt(v.slice(5,7),16)])>.55?'#030b18':'#fff'}">${esc(k)}</span>`).join(' ')}
+$('pbtn').onclick=()=>$('pimg').click();
+$('pimg').onchange=async e=>{const f=e.target.files[0];if(!f)return;if(!/^image\/(png|jpeg|webp)$/.test(f.type)||f.size>15*1024*1024){$('pmsg').textContent='Usa PNG, JPG o WEBP de hasta 15 MB.';return}
+ const bmp=await createImageBitmap(f).catch(()=>null);if(!bmp){$('pmsg').textContent='No pudimos leer esa imagen.';return}
+ const cv=$('pcv'),k=Math.min(1,640/bmp.width);cv.width=Math.round(bmp.width*k);cv.height=Math.round(bmp.height*k);cv.hidden=false;
+ const x=cv.getContext('2d',{willReadFrequently:true});x.drawImage(bmp,0,0,cv.width,cv.height);
+ const s=Math.max(1,Math.floor(Math.sqrt(cv.width*cv.height/6000))),px=[],d=x.getImageData(0,0,cv.width,cv.height).data;
+ for(let y=0;y<cv.height;y+=s)for(let i=0;i<cv.width;i+=s){const o=(y*cv.width+i)*4;if(d[o+3]>200)px.push([d[o],d[o+1],d[o+2]])}
+ const cols=medianCut(px,8);pk.cols=cols.map(c=>hex(...c));pk.prop=assignRoles(cols);pkRoles();pkShow()};
+$('pcv').onclick=e=>{const cv=$('pcv'),r=cv.getBoundingClientRect(),X=Math.floor((e.clientX-r.left)*cv.width/r.width),Y=Math.floor((e.clientY-r.top)*cv.height/r.height),
+ p=cv.getContext('2d').getImageData(X,Y,1,1).data;pkSet($('prole').value,hex(p[0],p[1],p[2]))};
+$('papply').onclick=()=>{pk.undo.push({...cur});Object.assign(cur,pk.prop);paint();sync();$('pundo').disabled=false;$('pmsg').textContent='Paleta aplicada. Revisa el contraste arriba.'};
+$('pundo').onclick=()=>{const u=pk.undo.pop();if(u){cur=u;paint();sync()}$('pundo').disabled=!pk.undo.length;$('pmsg').textContent='Cambio deshecho.'};
+if(window.EyeDropper){$('peye').hidden=false;$('peye').onclick=async()=>{try{const r=await new EyeDropper().open();pkSet($('prole').value,r.sRGBHex.toLowerCase())}catch{}}}
+$('p').onchange=()=>{if($('p').value==='__mia')return;cur={...base,...(pals[$('p').value]||{})};paint();sync()};
+$('sv').onclick=()=>{try{localStorage.setItem(KEY,JSON.stringify({d:$('d').value,p:cur}));$('sv').textContent='Paleta guardada';setTimeout(()=>$('sv').textContent='Guardar mi paleta',1400)}catch{alert('No pudimos guardar la paleta en este navegador.')}};
+$('gp').onclick=async()=>{const v={};document.querySelectorAll('#vs select').forEach(s=>s.value&&(v[s.dataset.t]=s.value));
+ const r=await fetch('/v1/prompt',{method:'POST',body:JSON.stringify({design:$('d').value,palette:cur,variants:v,mode:$('m').value,short:$('s').checked})});
+ $('out').textContent=await r.text();$('out').hidden=$('cp').hidden=false};
+$('cp').onclick=()=>copy($('out').textContent,$('cp'));
+$('f').onchange=async e=>$('j').value=await e.target.files[0].text();
+$('gr').onclick=async()=>{let b;try{b=JSON.parse($('j').value)}catch{return alert('El JSON no es válido. Revisa comas y llaves, o carga una plantilla del catálogo.')}
+ b.design??=$('d').value;if($('up').checked)b.palette=cur;const fmt=$('fmt').value;$('tvid').innerHTML='';$('dl').innerHTML='';$('inf').hidden=true;$('pdf').hidden=true;
+ if(fmt.startsWith('video'))return video(b,fmt,$('tvid'),$('gr'));
+ b.format=fmt;$('gr').disabled=true;$('gr').textContent='Renderizando…';
+ const r=await J('/v1/render',{method:'POST',body:JSON.stringify(b)}).catch(e=>e);$('gr').disabled=false;$('gr').textContent='Renderizar';
+ $('inf').hidden=false;$('inf').textContent=JSON.stringify({estado:r.estado,paginas:r.paginas,diapositivas:r.diapositivas,errores:r.errores,avisos:r.avisos,auditoria:r.auditoria,error:r.error},null,1);
+ const k=EXT[fmt],url=k&&r[k];
+ $('dl').innerHTML=(url?`<a href="${esc(url)}" download>Descargar ${NAME[fmt]}</a>`+(r.fuentes?.descarga?` · <a href="${esc(r.fuentes.descarga)}" download>Fuentes .ttf</a> (instálalas para verlo como en el diseño)`:''):'')
+  +(r.job&&r.estado!=='rechazado'?` <button class="btn sm ghost" id="pub" data-job="${esc(r.job)}">Publicar en la galería</button>`:'');
+ if($('pub'))$('pub').onclick=async e=>{const x=await J(`/v1/jobs/${e.target.dataset.job}/publish`,{method:'POST',body:'{}'}).catch(e=>e);e.target.textContent=x.publicado?'Publicado':'No se pudo publicar';e.target.disabled=true;gallery()};
+ $('pdf').hidden=!r.pdf;if(r.pdf)$('pdf').src=r.pdf};
+
+/* imágenes: Wikimedia Commons (con licencia) o subida propia */
+$('cform').onsubmit=async e=>{e.preventDefault();const q=$('cqs').value.trim();if(!q)return;$('cres').innerHTML='<p class="say">Buscando en Wikimedia Commons…</p>';
+ const r=await J('/v1/commons?q='+encodeURIComponent(q)+'&n=6').catch(e=>e);
+ if(!r.resultados){$('cres').innerHTML=`<p class="say">${esc(r.error||'No pudimos buscar ahora.')} Inténtalo en unos segundos o sube tu imagen.</p>`;return}
+ if(!r.resultados.length){$('cres').innerHTML='<p class="say">No hay fotos libres con ese nombre. Prueba con el nombre científico o en inglés.</p>';return}
+ $('cres').innerHTML=r.resultados.map(x=>`<figure><img src="${esc(x.thumb)}" alt="${esc(x.descripcion||x.titulo)}" loading="lazy"><figcaption>${esc(String(x.autor).slice(0,40))} · ${esc(x.licencia)}</figcaption><button class="btn sm ghost" data-t="${esc(x.titulo)}">Usar</button></figure>`).join('');
+ $('cres').querySelectorAll('button').forEach(b=>b.onclick=async()=>{b.disabled=true;b.textContent='Importando…';const x=await J('/v1/commons/import',{method:'POST',body:JSON.stringify({title:b.dataset.t,tema:q})}).catch(e=>e);
+  if(x.src){copy(x.src,b);b.textContent='src copiado';$('upsay').textContent=`src: ${x.src} · ${x.autor} · ${x.licencia}`}else{b.textContent='No se pudo';$('upsay').textContent=x.error||''}})};
+$('upf').onchange=async e=>{const f=e.target.files[0];if(!f)return;if(f.size>15e6)return $('upsay').textContent='El archivo pesa más de 15 MB. Redúcelo y vuelve a subirlo.';
+ const data=await new Promise(ok=>{const rd=new FileReader();rd.onload=()=>ok(rd.result.split(',')[1]);rd.readAsDataURL(f)});
+ const r=await J('/v1/uploads',{method:'POST',body:JSON.stringify({name:f.name,data})}).catch(e=>e);
+ $('upsay').textContent=r.src?`Subido. src: ${r.src} (copiado)`:`No pudimos subirlo. ${r.error||''}`;if(r.src)navigator.clipboard?.writeText(r.src).catch(()=>{})};
+
+/* galería de trabajos publicados */
+async function gallery(){const all=[];for(const d of designs){const g=await J(`/v1/designs/${d.id}/gallery`).catch(()=>({trabajos:[]}));g.trabajos.forEach(t=>all.push({...t,design:d.id}))}
+ $('pubs').hidden=!all.length;$('publist').innerHTML=all.map(t=>`<a class="pub" href="${esc(t.archivo)}" target="_blank" rel="noopener"><span class="chip r" style="width:fit-content">${esc(NAME[t.formato]||t.formato)}</span><b>${esc(t.titulo)}</b><span class="mono">${esc(t.design)} · ${esc(t.fecha)}</span></a>`).join('')}
+
+route(null);
+</script></body></html>

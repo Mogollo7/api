@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # [CLAUDE-CONSTRUCTOR] Construye la versión ESTÁTICA de la web para GitHub Pages (sin API): catálogo, formatos, ejemplos, estadísticas y documentación.
 """python servidor/tools/pages.py [--salida _site] [--base /api] [--origen http://127.0.0.1:8765]
+python servidor/tools/pages.py --repo [--base /api]     (Pages «desde la rama main, raíz»: escribe index.html, 404.html y .nojekyll en la raíz del repositorio)
 
 Copia servidor/web/ a <salida>/web/, escribe index.html y 404.html (para que /catalogo, /formatos… funcionen al recargar) con las rutas bajo --base y sin llamadas a /v1,
 y la lista de diseños publicados (servidor/designs/*/manifest.json). La parte que necesita la API (Taller, renderizar, descargar) avisa que corre en local.
@@ -31,25 +32,30 @@ def disenos():
 def main():
     a = sys.argv[1:]
     opt = lambda k, d: a[a.index(k) + 1] if k in a else d      # noqa: E731
-    sal, base, origen = Path(opt("--salida", "_site")), "/" + opt("--base", "/api").strip("/"), opt("--origen", "http://127.0.0.1:8765")
-    if sal.exists():
-        shutil.rmtree(sal)
-    shutil.copytree(WEB, sal / "web", ignore=shutil.ignore_patterns("app.legacy.html", "_*"))
-    (sal / "web" / "static").mkdir(exist_ok=True)
-    (sal / "web" / "static" / "designs.json").write_text(json.dumps(disenos(), ensure_ascii=False), encoding="utf-8")
+    base, origen = "/" + opt("--base", "/api").strip("/"), opt("--origen", "http://127.0.0.1:8765")
+    repo = "--repo" in a          # Pages desde la rama (raíz del repositorio): index.html en la raíz y los estáticos se leen de servidor/web/ (sin copiarlos)
+    sal = RAIZ if repo else Path(opt("--salida", "_site"))
+    web = "/servidor/web" if repo else "/web"
+    if not repo:
+        if sal.exists():
+            shutil.rmtree(sal)
+        shutil.copytree(WEB, sal / "web", ignore=shutil.ignore_patterns("app.legacy.html", "_*"))
+    destino = (WEB if repo else sal / "web") / "static"
+    destino.mkdir(parents=True, exist_ok=True)
+    (destino / "designs.json").write_text(json.dumps(disenos(), ensure_ascii=False), encoding="utf-8")
     h = (WEB / "app.html").read_text(encoding="utf-8")
     h = h.replace('<html lang="es"', f'<html lang="es" data-base="{base}" data-static="1" data-origin="{origen}"', 1)
     for q in ('"', "'", "`"):
-        h = h.replace(f"{q}/web/", f"{q}{base}/web/")                              # rutas de archivos estáticos (HTML y plantillas de JS)
+        h = h.replace(f"{q}/web/", f"{q}{base}{web}/")                              # rutas de archivos estáticos (HTML y plantillas de JS)
     h = re.sub(r'href="/(' + RUTAS + r')', lambda m: f'href="{base}/{m.group(1)}', h)  # enlaces internos con data-link
     h = h.replace('href="/"', f'href="{base}/"')
     (sal / "index.html").write_text(h, encoding="utf-8")
     (sal / "404.html").write_text(h, encoding="utf-8")
     (sal / ".nojekyll").write_text("", encoding="utf-8")
     media = RAIZ / "docs" / "media"
-    if media.exists():
+    if media.exists() and not repo:
         shutil.copytree(media, sal / "media")
-    print(f"sitio estático en {sal} ({sum(1 for _ in sal.rglob('*') if _.is_file())} archivos), base {base}")
+    print(f"sitio estático en {sal} (index.html, 404.html, .nojekyll), base {base}, estáticos en {base}{web}/")
 
 
 if __name__ == "__main__":
