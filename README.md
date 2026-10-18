@@ -26,6 +26,7 @@ API local que convierte contenido en **PDF, PowerPoint, Word, Excel, video y pá
 - [Resultados medidos](#resultados-medidos)
 - [Haiku frente a Opus (prueba breve)](#haiku-frente-a-opus-prueba-breve)
 - [Pruebas con Postman](#pruebas-con-postman)
+  - [Resultados de las pruebas](#resultados-de-las-pruebas)
 - [Estructura](#estructura)
 - [Licencias](#licencias)
 
@@ -167,6 +168,79 @@ Consulta la [guía detallada de Postman](POSTMAN_DOCUMENTATION.md) para ver cóm
 * URL completa: `http://localhost:8765/v1/tools`
 
 Respuesta esperada: `200 OK` con la lista de herramientas (`list_recipes`, `recipe_get`, `create_from_recipe`, …). Sin Postman: `npx newman run postman/myStyle.postman_collection.json -e postman/myStyle.local.postman_environment.json`.
+
+### Resultados de las pruebas
+
+Última ejecución: **26 solicitudes y 61 comprobaciones, 0 fallidas.** Tabla completa y más respuestas en [`postman/RESULTADOS.md`](postman/RESULTADOS.md).
+
+| Método | URL | Estado | Tiempo | Pruebas |
+|---|---|---|---|---|
+| GET | `/v1/tools` | 200 OK | 30 ms | 5/5 |
+| GET | `/v1/tools?perfil=minimo` | 200 OK | 6 ms | 2/2 |
+| GET | `/v1/designs` | 200 OK | 6 ms | 2/2 |
+| GET | `/v1/openapi.json` | 200 OK | 4 ms | 2/2 |
+| GET | `/v1/recipes?q=informe%20de%20ventas` | 200 OK | 63 ms | 3/3 |
+| GET | `/v1/recipes/informe_negocio` | 200 OK | 40 ms | 3/3 |
+| GET | `/v1/recipes/no_existe` | 404 Not Found | 41 ms | 2/2 |
+| POST | `/v1/recipes` | 200 OK | 7 ms | 3/3 |
+| POST | `/v1/recipes` | 200 OK | 6 ms | 2/2 |
+| POST | `/v1/render` | 200 OK | 15 ms | 5/5 |
+| … | 16 solicitudes más | | | |
+
+Ejemplo, crear un PDF desde una receta: `POST http://localhost:8765/v1/render`
+
+```json
+{
+  "receta": "informe_negocio",
+  "valores": {
+    "titulo": "Informe desde Postman"
+  }
+}
+```
+
+Respuesta (**200 OK**, 15 ms):
+
+```json
+{
+  "estado": "ok",
+  "errores": [],
+  "avisos": [],
+  "auditoria": {},
+  "imagenes_necesarias": [],
+  "secciones": [
+    {
+      "id": "s1",
+      "n": "01",
+      "pagina": 3
+    },
+    {
+      "id": "s2",
+      "n": "02",
+      "pagina": 4
+    },
+    {
+      "id": "s3",
+      "n": "03",
+      "pagina": 5
+    }
+  ],
+  "correcciones_contraste": [],
+  "variantes_usadas": [
+    "CV-1",
+    "DV-A"
+  ],
+  "variantes_no_aprobadas": [
+    "CV-1",
+    "DV-A"
+  ],
+  "paginas": 5,
+  "segundos": 4.3,
+  "job": "1f7847d99043",
+  "formato": "pdf-a4",
+  "pdf": "/v1/files/1f7847d99043.pdf?exp=…&sig=…",
+  "repetido": true
+}
+```
 
 ## Estructura
 
