@@ -125,7 +125,8 @@ def callout(b, c):
 
 def big(b, c):
     unit = f"<small>{esc(b['unit'])}</small>" if b.get("unit") else ""
-    return (f'<div class="bigd"><div class="disco" aria-hidden="true"></div><div class="big">{esc(b["value"])}{unit}</div>'
+    disc = "" if b.get("nodisc") else '<div class="disco" aria-hidden="true"></div>'
+    return (f'<div class="bigd">{disc}<div class="big">{esc(b["value"])}{unit}</div>'
             f'<div class="cap">{inline(b["caption"])}</div></div>')
 
 
@@ -243,6 +244,18 @@ def custom(b, c):
 
 
 # ---------- imágenes ----------
+def _original(path, cache):
+    """Copia reducida (JPEG, máx. 1400 px de ancho) para imágenes que no deben tramarse, como las capturas de interfaz."""
+    from PIL import Image, ImageOps
+    out = cache / f"{path.stem}_orig_{path.stat().st_mtime_ns}.jpg"
+    if not out.exists():
+        im = ImageOps.exif_transpose(Image.open(path)).convert("RGB")
+        if im.width > 1400:
+            im = im.resize((1400, round(im.height * 1400 / im.width)), Image.LANCZOS)
+        im.save(out, quality=88)
+    return out
+
+
 def _one_image(it, c, ratio):
     src = it.get("src")
     cap = it.get("caption", "")
@@ -252,23 +265,31 @@ def _one_image(it, c, ratio):
     if path and path.exists():
         treat = it.get("treatment") or ["ocre", "crema", "verde", "negroverde"][c.img_i % 4]
         c.img_i += 1
-        out = duotone(path, treat, c.roles, c.manifest["image_treatments"], c.cache)
         import base64
+        if treat == "original":   # capturas de pantalla: sin filtro, solo reducidas a 1400 px
+            out = _original(path, c.cache)
+            mime = "image/jpeg"
+        else:
+            out = duotone(path, treat, c.roles, c.manifest["image_treatments"], c.cache)
+            mime = "image/png"
         data = base64.b64encode(out.read_bytes()).decode()
         cr = c.credits.get(src)
         if cr:
             c.images_used.append((src, cr))
         pos = it.get("pos", "50% 40%")
         credit = ""
+        if cr and "pendiente" in f'{cr.get("autor","")}{cr.get("licencia","")}'.lower():
+            cr = None   # crédito aún sin datos: no se imprime «dato pendiente» en la hoja
+            it = {**it, "nocredit": True}
         if cr:
             who = cr.get("autor") or "autor no indicado"
-            credit = f' <span class="cr">Foto: {esc(who)} · {esc(cr.get("licencia",""))} · Wikimedia Commons</span>'
+            credit = f' <span class="cr">Foto: {esc(who)} · {esc(cr.get("licencia",""))} · {esc(cr.get("fuente") or "Wikimedia Commons")}</span>'
         elif not it.get("nocredit"):
             c.no_credit.append(src)
             credit = ' <span class="cr">Crédito: <span class="pend">dato pendiente</span></span>'
-        return (f'<figure class="im"><div class="foto" style="aspect-ratio:{ratio}"><img src="data:image/png;base64,{data}" '
+        return (f'<figure class="im"><div class="foto" style="aspect-ratio:{ratio}"><img src="data:{mime};base64,{data}" '
                 f'alt="{esc(it.get("alt") or plain(cap))}" style="object-position:{pos}"></div>'
-                f'<figcaption>{inline(cap)}{credit}</figcaption></figure>')
+                + ('' if it.get('nocaption') else f'<figcaption>{inline(cap)}{credit}</figcaption>') + '</figure>')
     c.missing.append({"src": src, "need": it.get("need") or cap})
     need = it.get("need") or cap or "describe la imagen"
     cross = '<svg viewBox="0 0 100 50" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="0" x2="100" y2="50"/><line x1="100" y1="0" x2="0" y2="50"/></svg>'

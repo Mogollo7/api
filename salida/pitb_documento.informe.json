@@ -1,0 +1,152 @@
+{
+ "estado": "con_avisos",
+ "errores": [],
+ "avisos": [
+  {
+   "bloque": "s5.b1:image",
+   "causa": "mide 116.8cqw y la hoja admite 115.9",
+   "ajuste": "se redujo al 99 %; parte el bloque o acorta el contenido"
+  }
+ ],
+ "auditoria": {
+  "794-print": [
+   {
+    "hoja": "Referencias y créditos visuales · 27",
+    "tipo": "fuera de hoja",
+    "a": "CVPR. https://openaccess.the"
+   }
+  ],
+  "1300": [
+   {
+    "hoja": "Referencias y créditos visuales · 27",
+    "tipo": "fuera de hoja",
+    "a": "CVPR. https://openaccess.the"
+   }
+  ],
+  "400": [
+   {
+    "hoja": "Referencias y créditos visuales · 27",
+    "tipo": "fuera de hoja",
+    "a": "CVPR. https://openaccess.the"
+   }
+  ]
+ },
+ "imagenes_necesarias": [
+  {
+   "src": null,
+   "need": "Fotografía real y panorámica de Medellín o de un paisaje urbano de Antioquia; sin mapas, infografías ni texto sobreimpreso. Buscar en Wikimedia Commons: “Medellín Panorámica.jpg”."
+  },
+  {
+   "src": null,
+   "need": "Fotografía documental de una persona desarrollando software frente a un computador portátil, con código visible pero sin diagramas ni texto añadido. Wikimedia Commons: “Software developer.jpg”."
+  },
+  {
+   "src": null,
+   "need": "Fotografía naturalista de una rana Dendrobates truncatus sobre una hoja, sin etiquetas, flechas, esquemas ni composición tipo infografía. Wikimedia Commons: “Dendrobates truncatus 2026-2.jpg”."
+  },
+  {
+   "src": null,
+   "need": "Fotografía documental de una enfermera conversando con una persona y explicándole información de salud; evitar escenas dramáticas o imágenes de diagnóstico. Wikimedia Commons: “Nurse with patient.jpg”."
+  },
+  {
+   "src": null,
+   "need": "Fotografía respetuosa de una conversación de orientación psicológica entre dos personas en un entorno privado, sin gestos exagerados ni símbolos clínicos. Wikimedia Commons: “Counselling session.jpg”."
+  },
+  {
+   "src": null,
+   "need": "Fotografía de una persona observando fauna en un entorno natural de Antioquia, con distancia respetuosa y sin tocar al animal; evitar diagramas conceptuales. Usar una foto real de Commons con licencia verificada."
+  },
+  {
+   "src": null,
+   "need": "Fotografía documental de varias personas conversando en una actividad comunitaria o reunión vecinal; personas reales, espacio cotidiano, sin iconos ni flechas. Buscar una foto con licencia abierta en Wikimedia Commons."
+  },
+  {
+   "src": null,
+   "need": "Fotografía de un pequeño grupo de personas participando en una actividad educativa o de observación ambiental al aire libre, sin carteles con texto legible ni gráficos."
+  }
+ ],
+ "secciones": [
+  {
+   "id": "s1",
+   "n": "01",
+   "pagina": 3
+  },
+  {
+   "id": "s2",
+   "n": "02",
+   "pagina": 5
+  },
+  {
+   "id": "s3",
+   "n": "03",
+   "pagina": 9
+  },
+  {
+   "id": "s4",
+   "n": "04",
+   "pagina": 12
+  },
+  {
+   "id": "s5",
+   "n": "05",
+   "pagina": 14
+  },
+  {
+   "id": "s6",
+   "n": "06",
+   "pagina": 17
+  },
+  {
+   "id": "s7",
+   "n": "07",
+   "pagina": 19
+  },
+  {
+   "id": "s8",
+   "n": "08",
+   "pagina": 21
+  },
+  {
+   "id": "s9",
+   "n": "09",
+   "pagina": 22
+  },
+  {
+   "id": "s10",
+   "n": "10",
+   "pagina": 24
+  },
+  {
+   "id": "s11",
+   "n": "11",
+   "pagina": 25
+  },
+  {
+   "id": "s12",
+   "n": "12",
+   "pagina": 26
+  },
+  {
+   "id": "s13",
+   "n": "13",
+   "pagina": 27
+  }
+ ],
+ "correcciones_contraste": [],
+ "variantes_usadas": [
+  "CV-1",
+  "DV-A",
+  "DV-C",
+  "DV-D",
+  "DV-F"
+ ],
+ "variantes_no_aprobadas": [
+  "CV-1",
+  "DV-A",
+  "DV-C",
+  "DV-D",
+  "DV-F"
+ ],
+ "paginas": 27,
+ "segundos": 4.6
+}

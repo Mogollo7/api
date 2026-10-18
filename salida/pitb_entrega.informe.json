@@ -1,0 +1,255 @@
+{
+ "estado": "ok",
+ "errores": [],
+ "avisos": [],
+ "auditoria": {},
+ "imagenes_necesarias": [],
+ "secciones": [
+  {
+   "id": "resumen",
+   "n": "01",
+   "pagina": 3
+  },
+  {
+   "id": "central",
+   "n": "02",
+   "pagina": 4
+  },
+  {
+   "id": "intro",
+   "n": "03",
+   "pagina": 5
+  },
+  {
+   "id": "just",
+   "n": "04",
+   "pagina": 7
+  },
+  {
+   "id": "prob",
+   "n": "05",
+   "pagina": 8
+  },
+  {
+   "id": "obj",
+   "n": "06",
+   "pagina": 9
+  },
+  {
+   "id": "equipo",
+   "n": "07",
+   "pagina": 11
+  },
+  {
+   "id": "agenda",
+   "n": "08",
+   "pagina": 13
+  },
+  {
+   "id": "inf_a",
+   "n": "09",
+   "pagina": 14
+  },
+  {
+   "id": "inf_b",
+   "n": "10",
+   "pagina": 15
+  },
+  {
+   "id": "psi1",
+   "n": "11",
+   "pagina": 16
+  },
+  {
+   "id": "psi2",
+   "n": "12",
+   "pagina": 18
+  },
+  {
+   "id": "psi3",
+   "n": "13",
+   "pagina": 20
+  },
+  {
+   "id": "enf1",
+   "n": "14",
+   "pagina": 21
+  },
+  {
+   "id": "enf2",
+   "n": "15",
+   "pagina": 22
+  },
+  {
+   "id": "enf3",
+   "n": "16",
+   "pagina": 24
+  },
+  {
+   "id": "com1",
+   "n": "17",
+   "pagina": 25
+  },
+  {
+   "id": "com2",
+   "n": "18",
+   "pagina": 27
+  },
+  {
+   "id": "matriz",
+   "n": "19",
+   "pagina": 28
+  },
+  {
+   "id": "lit",
+   "n": "20",
+   "pagina": 30
+  },
+  {
+   "id": "evid_enf",
+   "n": "21",
+   "pagina": 32
+  },
+  {
+   "id": "bench",
+   "n": "22",
+   "pagina": 33
+  },
+  {
+   "id": "producto",
+   "n": "23",
+   "pagina": 36
+  },
+  {
+   "id": "proto",
+   "n": "24",
+   "pagina": 37
+  },
+  {
+   "id": "proto2",
+   "n": "25",
+   "pagina": 38
+  },
+  {
+   "id": "proto3",
+   "n": "26",
+   "pagina": 39
+  },
+  {
+   "id": "proto4",
+   "n": "27",
+   "pagina": 40
+  },
+  {
+   "id": "prueba1",
+   "n": "28",
+   "pagina": 41
+  },
+  {
+   "id": "prueba2",
+   "n": "29",
+   "pagina": 43
+  },
+  {
+   "id": "favor",
+   "n": "30",
+   "pagina": 44
+  },
+  {
+   "id": "prueba3",
+   "n": "31",
+   "pagina": 46
+  },
+  {
+   "id": "etica1",
+   "n": "32",
+   "pagina": 48
+  },
+  {
+   "id": "etica2",
+   "n": "33",
+   "pagina": 49
+  },
+  {
+   "id": "etica3",
+   "n": "34",
+   "pagina": 50
+  },
+  {
+   "id": "etica_enf1",
+   "n": "35",
+   "pagina": 51
+  },
+  {
+   "id": "etica_enf2",
+   "n": "36",
+   "pagina": 52
+  },
+  {
+   "id": "etica_psi",
+   "n": "37",
+   "pagina": 54
+  },
+  {
+   "id": "etica_enf3",
+   "n": "38",
+   "pagina": 55
+  },
+  {
+   "id": "impacto",
+   "n": "39",
+   "pagina": 57
+  },
+  {
+   "id": "impacto_enf",
+   "n": "40",
+   "pagina": 58
+  },
+  {
+   "id": "metodo",
+   "n": "41",
+   "pagina": 59
+  },
+  {
+   "id": "eval",
+   "n": "42",
+   "pagina": 60
+  },
+  {
+   "id": "conc",
+   "n": "43",
+   "pagina": 62
+  },
+  {
+   "id": "conc_areas",
+   "n": "44",
+   "pagina": 63
+  },
+  {
+   "id": "ref",
+   "n": "45",
+   "pagina": 65
+  }
+ ],
+ "correcciones_contraste": [],
+ "variantes_usadas": [
+  "CV-1",
+  "DV-A",
+  "DV-B",
+  "DV-C",
+  "DV-D",
+  "DV-E",
+  "DV-F"
+ ],
+ "variantes_no_aprobadas": [
+  "CV-1",
+  "DV-A",
+  "DV-B",
+  "DV-C",
+  "DV-D",
+  "DV-E",
+  "DV-F"
+ ],
+ "paginas": 68,
+ "segundos": 5.7
+}

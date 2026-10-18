@@ -4,6 +4,7 @@
 
 Uso:  python servidor/render.py contenido/guia.json -o salida/guia.pdf --imagenes teoria/imagenes
 """
+import re
 import argparse
 import json
 import os
@@ -61,7 +62,7 @@ def section_units(sec, ctx, gap_pair=True):
             i += 2
             continue
         if b["type"] == "refs":
-            rb = {"type": "list", "ordered": True, "items": b["items"], "cls": "refs"}
+            rb = {"type": "list", "ordered": True, "items": b["items"], "cls": "refs" if b.get("numbered", True) else "refs apa"}   # numbered:false = lista APA sin números
             if b.get("title"):
                 units.append({"html": blocks.h({"text": b["title"]}, ctx), "label": f"{sec['id']}.b{i}:refs-h", "keep_next": True})
             units.append({"html": blocks.render(rb, ctx), "label": label, "split": "list", "block": rb})
@@ -91,13 +92,32 @@ def credits_section(ctx):
         if src in seen:
             continue
         seen.add(src)
-        rows.append([cr.get("especie_o_tema", ""), cr.get("autor") or "autor no indicado", cr.get("licencia", ""), cr.get("url_commons", "").replace("https://", "")])
+        rows.append([cr.get("especie_o_tema", ""), cr.get("autor") or "autor no indicado", cr.get("licencia", ""), _origen(cr)])
     if not rows:
         return None
     return {"id": "creditos", "title": "Créditos de imágenes", "tema": "Créditos", "blocks": [
-        {"type": "p", "text": "Fotografías tomadas de Wikimedia Commons y mostradas con el filtro de dos tintas del sistema. Cada imagen conserva su autoría y licencia."},
+        {"type": "p", "text": f"Fotografías tomadas de {_fuentes(ctx)} y mostradas con el filtro de dos tintas del sistema. Cada imagen conserva su autoría y licencia."},
         {"type": "table", "head": ["Imagen", "Autor", "Licencia", "Origen"], "widths": [3, 2, 2, 5], "rows": rows},
     ]}
+
+
+def _origen(cr):
+    """Columna «Origen» de los créditos: URL de Commons (como siempre) o fuente + id de foto si el CSV trae `fuente`."""
+    url = (cr.get("url_commons") or "").replace("https://", "")
+    if not cr.get("fuente"):
+        return url
+    m = re.search(r"photos/(\d+)", url)
+    return cr["fuente"] + (f" · foto {m.group(1)}" if m else "")
+
+
+def _fuentes(ctx):
+    fs = sorted({cr.get("fuente") or "Wikimedia Commons" for _, cr in ctx.images_used})
+    return " y ".join(fs) if len(fs) < 3 else ", ".join(fs[:-1]) + " y " + fs[-1]
+
+
+# opción `density: "aireado"`: texto más grande y más aire entre bloques (documentos académicos para leer en pantalla)
+AIREADO = (".lp .cont{gap:4.6cqw}.int p{font-size:2.75cqw;line-height:1.62;margin-bottom:3cqw}"
+           ".bp{text-indent:5cqw}.bl{font-size:2.65cqw;line-height:1.55}.bl li{padding:.9cqw 0}.bl.refs,.bl.fnotes{font-size:2.2cqw}")
 
 
 def make_head(doc, design_dir, m, roles, ph=141.4):
@@ -108,6 +128,7 @@ def make_head(doc, design_dir, m, roles, ph=141.4):
         f".page{{aspect-ratio:1/{ph/100:.4f}}}@page{{size:{(m.get('formats_dims') or {}).get(doc.get('format'), {}).get('pdf', 'A4')};margin:0}}",
         ".page.measure{aspect-ratio:auto;height:auto;overflow:visible;border:0;box-shadow:none}"
         ".page.measure .cont{margin:0 5cqw;width:90cqw}",
+        AIREADO if (doc.get("options") or {}).get("density") == "aireado" else "",
     ])
     return (f'<!doctype html><html lang="es"><head><meta charset="utf-8"><title>{esc(plain(meta.get("title","Documento")))}</title>'
             f'<style>{css}</style></head><body style="margin:0">')
@@ -171,7 +192,7 @@ def run(doc_path, out_pdf, images_root):
         for sec in part["sections"]:
             n += 1
             sec["n"] = f"{n:02d}"
-    has_cred = expects_credits(doc, images_root, credits)
+    has_cred = expects_credits(doc, images_root, credits) and (doc.get("options") or {}).get("credits_section", True) is not False
     if has_cred:
         parts.append({"id": "creditos", "title": "Créditos", "desc": "", "_aux": True,
                       "sections": [{"id": "creditos", "title": "Créditos de imágenes", "tema": "Créditos", "n": f"{n+1:02d}", "blocks": []}]})
