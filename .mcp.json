@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "mystyle": {
+      "command": "python",
+      "args": ["servidor/mcp_server.py"],
+      "env": { "MYSTYLE_URL": "http://127.0.0.1:8765" }
+    }
+  }
+}
