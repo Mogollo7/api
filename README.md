@@ -5,9 +5,14 @@
 **Tu agente manda datos. Tú recibes el documento.**
 API local que convierte contenido en **PDF, PowerPoint, Word, Excel, video y páginas web animadas** con un diseño intacto, para cualquier agente de IA: Claude Code, Codex, OpenCode, Antigravity o un modelo local.
 
-[![Video: Build once. Connect any AI.](docs/media/hero.gif)](docs/media/hero.mp4)
+<video src="https://github.com/Mogollo7/api/raw/main/docs/media/hero.mp4" poster="docs/media/hero.jpg" controls muted width="720">Tu navegador no reproduce video: usa los enlaces de abajo.</video>
 
-*Clic en la animación para ver el video completo (80 s, con banda sonora propia). Todo el video fue hecho con myStyle: `create_video` con escenas `:::motion` (fuente: [`contenido/video_brag.md`](contenido/video_brag.md)), estilo brutalismo, anime.js y GSAP, transiciones, partículas y capturas reales de la web. Incluye la sección `/brag`: «Haiku trabaja como Opus a bajo precio».*
+> **Esto que ves en el GIF es solo un adelanto (los primeros 18 s).** El video completo dura **80 s**, tiene banda sonora y 28 escenas:
+> **[▶ Ver el video completo (MP4)](https://github.com/Mogollo7/api/raw/main/docs/media/hero.mp4)** · [en la web, con el reproductor](https://mogollo7.github.io/api/#video-creativo)
+
+[![Adelanto del video: Build once. Connect any AI.](docs/media/hero.gif)](https://github.com/Mogollo7/api/raw/main/docs/media/hero.mp4)
+
+*Todo el video fue hecho con myStyle: `create_video` con escenas `:::motion` (fuente: [`contenido/video_brag.md`](contenido/video_brag.md)), estilo brutalismo, anime.js y GSAP, transiciones, partículas y capturas reales de la web. Incluye la sección `/brag`: «Haiku trabaja como Opus a bajo precio».*
 
 **[Ver la web (demo estática)](https://mogollo7.github.io/api/)** · [Conectar un agente](#conectar-tu-agente) · [Herramientas](#herramientas) · [Decisiones](docs/decisions)
 
