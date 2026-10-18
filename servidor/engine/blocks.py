@@ -288,7 +288,7 @@ def _one_image(it, c, ratio):
         elif not it.get("nocredit"):
             c.no_credit.append(src)
             credit = ' <span class="cr">Crédito: <span class="pend">dato pendiente</span></span>'
-        return (f'<figure class="im"><div class="foto" style="aspect-ratio:{ratio}"><img src="data:{mime};base64,{data}" '
+        return (f'<figure class="im{" nobox" if it.get("nobox") else ""}"><div class="foto" style="aspect-ratio:{ratio}"><img src="data:{mime};base64,{data}" '
                 f'alt="{esc(it.get("alt") or plain(cap))}" style="object-position:{pos}"></div>'
                 + ('' if it.get('nocaption') else f'<figcaption>{inline(cap)}{credit}</figcaption>') + '</figure>')
     c.missing.append({"src": src, "need": it.get("need") or cap})

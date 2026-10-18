@@ -54,7 +54,7 @@ BLOCKS = {
         "example": {"type": "callout", "tone": "ojo", "text": "Advertencia breve."}},
     "image": {"desc": "Foto en dos tintas con pie y crédito. Si no tienes la imagen, escribe `need` y el servidor dibuja «IMAGEN NECESARIA».", "fields": {
         "src": F("str", "Ruta relativa a la carpeta de imágenes."), "need": F("markup", "Qué imagen hace falta si no existe."), "caption": F("markup", "Pie (sirve de texto alternativo)."),
-        "alt": F("str", "Texto alternativo."), "ratio": F("str", "Proporción, p. ej. 16/9."), "nocaption": F("bool", "true = sin pie ni crédito bajo la foto."), "treatment": F("str", "Tinta. `original` = sin filtro (capturas de pantalla).", enum=["ocre", "crema", "verde", "negroverde", "acento", "claro", "calido", "rojo", "original"]),
+        "alt": F("str", "Texto alternativo."), "ratio": F("str", "Proporción, p. ej. 16/9."), "nocaption": F("bool", "true = sin pie ni crédito bajo la foto."), "nobox": F("bool", "true = sin la caja gruesa alrededor (para capturas que ya traen su propio marco)."), "treatment": F("str", "Tinta. `original` = sin filtro (capturas de pantalla).", enum=["ocre", "crema", "verde", "negroverde", "acento", "claro", "calido", "rojo", "original"]),
         "items": F("list", "Hasta 3 imágenes en fila: [{src,caption,…}]", False, max=3)},
         "example": {"type": "image", "src": "fauna/rana.jpg", "ratio": "16/9", "caption": "Pie de la imagen."}},
     "media": {"desc": "GIF o video. PDF imprime el póster con «▶»; web reproduce; PPTX lo incrusta.", "fields": {

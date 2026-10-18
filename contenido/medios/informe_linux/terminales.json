@@ -1,26 +1,72 @@
 [
   {
-    "nombre": "sim-stat",
-    "titulo": "brand@brandmachine: ~  [SIMULACIÓN]",
-    "bloques": [
-      { "cmd": "stat -c '%a %A %U:%G %s bytes %n' /srv/sistemas/privado_sistemas.txt",
-        "salida": ["660 -rw-rw---- root:sistemas 72 bytes /srv/sistemas/privado_sistemas.txt"] }
+    "nombre": "marco-id",
+    "titulo": "brand@brandmachine: ~",
+    "origen": "captura-id.png",
+    "recorte": [
+      0,
+      54,
+      630,
+      512
     ]
   },
   {
-    "nombre": "sim-carla",
-    "titulo": "brand@brandmachine: ~  [SIMULACIÓN]",
-    "bloques": [
-      { "cmd": "sudo -u carla cat /srv/sistemas/privado_sistemas.txt",
-        "salida": ["cat: /srv/sistemas/privado_sistemas.txt: Permiso denegado"] }
-    ]
+    "nombre": "marco-passwd-group",
+    "titulo": "brand@brandmachine: ~",
+    "origen": "captura-passwd-group.png"
   },
   {
-    "nombre": "sim-bruno-ls",
-    "titulo": "brand@brandmachine: ~  [SIMULACIÓN]",
+    "nombre": "marco-ls-directorios",
+    "titulo": "brand@brandmachine: ~",
+    "origen": "captura-ls-directorios.png"
+  },
+  {
+    "nombre": "marco-ls-archivo",
+    "titulo": "brand@brandmachine: ~",
+    "origen": "captura-ls-archivo.png"
+  },
+  {
+    "nombre": "marco-pruebas",
+    "titulo": "brand@brandmachine: ~",
+    "origen": "captura-pruebas.png"
+  },
+  {
+    "nombre": "marco-sim-stat",
+    "titulo": "brand@brandmachine: ~",
     "bloques": [
-      { "cmd": "sudo -u bruno ls /srv/sistemas",
-        "salida": ["ls: no se puede abrir el directorio '/srv/sistemas': Permiso denegado"] }
-    ]
+      {
+        "cmd": "stat -c '%a %A %U:%G %s bytes %n' /srv/sistemas/privado_sistemas.txt",
+        "salida": [
+          "660 -rw-rw---- root:sistemas 72 bytes /srv/sistemas/privado_sistemas.txt"
+        ]
+      }
+    ],
+    "sim": true
+  },
+  {
+    "nombre": "marco-sim-carla",
+    "titulo": "brand@brandmachine: ~",
+    "bloques": [
+      {
+        "cmd": "sudo -u carla cat /srv/sistemas/privado_sistemas.txt",
+        "salida": [
+          "cat: /srv/sistemas/privado_sistemas.txt: Permiso denegado"
+        ]
+      }
+    ],
+    "sim": true
+  },
+  {
+    "nombre": "marco-sim-bruno-ls",
+    "titulo": "brand@brandmachine: ~",
+    "bloques": [
+      {
+        "cmd": "sudo -u bruno ls /srv/sistemas",
+        "salida": [
+          "ls: no se puede abrir el directorio '/srv/sistemas': Permiso denegado"
+        ]
+      }
+    ],
+    "sim": true
   }
 ]

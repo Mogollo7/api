@@ -190,67 +190,67 @@
   {
    "id": "s08",
    "n": "08",
-   "pagina": 12
+   "pagina": 13
   },
   {
    "id": "s09",
    "n": "09",
-   "pagina": 13
+   "pagina": 14
   },
   {
    "id": "s10",
    "n": "10",
-   "pagina": 14
+   "pagina": 15
   },
   {
    "id": "s11",
    "n": "11",
-   "pagina": 15
+   "pagina": 16
   },
   {
    "id": "s12",
    "n": "12",
-   "pagina": 16
+   "pagina": 17
   },
   {
    "id": "s13",
    "n": "13",
-   "pagina": 18
+   "pagina": 19
   },
   {
    "id": "s14",
    "n": "14",
-   "pagina": 19
+   "pagina": 20
   },
   {
    "id": "s15",
    "n": "15",
-   "pagina": 20
+   "pagina": 21
   },
   {
    "id": "s16",
    "n": "16",
-   "pagina": 23
+   "pagina": 24
   },
   {
    "id": "s17",
    "n": "17",
-   "pagina": 24
+   "pagina": 25
   },
   {
    "id": "s18",
    "n": "18",
-   "pagina": 25
+   "pagina": 26
   },
   {
    "id": "s19",
    "n": "19",
-   "pagina": 26
+   "pagina": 27
   },
   {
    "id": "s20",
    "n": "20",
-   "pagina": 27
+   "pagina": 28
   }
  ],
  "correcciones_contraste": [
@@ -303,6 +303,6 @@
   "CV-4",
   "DV-B"
  ],
- "paginas": 27,
- "segundos": 8.9
+ "paginas": 28,
+ "segundos": 4.2
 }

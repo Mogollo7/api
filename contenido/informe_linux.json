@@ -500,12 +500,12 @@
               },
               {
                 "type": "image",
-                "src": "informe_linux/captura-id.png",
+                "src": "informe_linux/marco-id.png",
                 "treatment": "original",
                 "nocredit": true,
-                "ratio": "648/290",
+                "ratio": "832/644",
                 "caption": "Salida de `id` para ana, bruno y carla: cada UID y GID coincide con su grupo [FUENTE].",
-                "pos": "50% 0%"
+                "nobox": true
               }
             ]
           },
@@ -520,11 +520,12 @@
               },
               {
                 "type": "image",
-                "src": "informe_linux/captura-passwd-group.png",
+                "src": "informe_linux/marco-passwd-group.png",
                 "treatment": "original",
                 "nocredit": true,
-                "ratio": "628/325",
-                "caption": "Búsqueda con `grep -E` en `/etc/passwd` y `/etc/group` [FUENTE]."
+                "ratio": "832/472",
+                "caption": "Búsqueda con `grep -E` en `/etc/passwd` y `/etc/group` [FUENTE].",
+                "nobox": true
               },
               {
                 "type": "callout",
@@ -551,11 +552,12 @@
               },
               {
                 "type": "image",
-                "src": "informe_linux/captura-ls-directorios.png",
+                "src": "informe_linux/marco-ls-directorios.png",
                 "treatment": "original",
                 "nocredit": true,
-                "ratio": "493/99",
-                "caption": "Resultado de `ls -ld`: `drwxrwx---`, propietario `root`, grupo del departamento [FUENTE]."
+                "ratio": "832/213",
+                "caption": "Resultado de `ls -ld`: `drwxrwx---`, propietario `root`, grupo del departamento [FUENTE].",
+                "nobox": true
               }
             ]
           },
@@ -576,19 +578,21 @@
               },
               {
                 "type": "image",
-                "src": "informe_linux/captura-ls-archivo.png",
+                "src": "informe_linux/marco-ls-archivo.png",
                 "treatment": "original",
                 "nocredit": true,
-                "ratio": "524/73",
-                "caption": "`ls -l`: permisos `-rw-rw----`, tamaño 0 antes de las pruebas [FUENTE]."
+                "ratio": "832/162",
+                "caption": "`ls -l`: permisos `-rw-rw----`, tamaño 0 antes de las pruebas [FUENTE].",
+                "nobox": true
               },
               {
                 "type": "image",
-                "src": "informe_linux/sim-stat.png",
+                "src": "informe_linux/marco-sim-stat.png",
                 "treatment": "original",
                 "nocredit": true,
-                "ratio": "872/232",
-                "caption": "Reconstrucción [SIM] de `stat`: modo `660`, propietario `root`, grupo `sistemas`. Los 72 bytes salen de 3 líneas de 24 bytes [CALC]."
+                "ratio": "832/188",
+                "caption": "Reconstrucción [SIM] de `stat`: modo `660`, propietario `root`, grupo `sistemas`. Los 72 bytes salen de 3 líneas de 24 bytes [CALC].",
+                "nobox": true
               }
             ]
           },
@@ -609,11 +613,12 @@
               },
               {
                 "type": "image",
-                "src": "informe_linux/captura-pruebas.png",
+                "src": "informe_linux/marco-pruebas.png",
                 "treatment": "original",
                 "nocredit": true,
-                "ratio": "634/169",
-                "caption": "Ana escribe y lee el archivo; a Bruno el sistema le responde «Permiso denegado» [FUENTE]."
+                "ratio": "832/267",
+                "caption": "Ana escribe y lee el archivo; a Bruno el sistema le responde «Permiso denegado» [FUENTE].",
+                "nobox": true
               }
             ]
           },
@@ -628,19 +633,21 @@
               },
               {
                 "type": "image",
-                "src": "informe_linux/sim-carla.png",
+                "src": "informe_linux/marco-sim-carla.png",
                 "treatment": "original",
                 "nocredit": true,
-                "ratio": "872/232",
-                "caption": "Reconstrucción [SIM]: carla, del grupo soporte, no puede leer el archivo."
+                "ratio": "832/188",
+                "caption": "Reconstrucción [SIM]: carla, del grupo soporte, no puede leer el archivo.",
+                "nobox": true
               },
               {
                 "type": "image",
-                "src": "informe_linux/sim-bruno-ls.png",
+                "src": "informe_linux/marco-sim-bruno-ls.png",
                 "treatment": "original",
                 "nocredit": true,
-                "ratio": "872/232",
-                "caption": "Reconstrucción [SIM]: bruno no puede listar el directorio de Sistemas."
+                "ratio": "832/188",
+                "caption": "Reconstrucción [SIM]: bruno no puede listar el directorio de Sistemas.",
+                "nobox": true
               }
             ]
           }
