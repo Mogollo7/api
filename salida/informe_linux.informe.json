@@ -161,30 +161,6 @@
   {
    "src": null,
    "need": "Captura de la terminal con `sudo -u bruno ls /srv/sistemas` o `cd /srv/sistemas` y su «Permiso denegado»."
-  },
-  {
-   "src": "portada.jpg",
-   "need": "Foto para la portada, en horizontal o vertical: sala de servidores, cables de red o una pantalla con terminal (sin texto legible)."
-  },
-  {
-   "src": "portada.jpg",
-   "need": "Foto para la portada, en horizontal o vertical: sala de servidores, cables de red o una pantalla con terminal (sin texto legible)."
-  },
-  {
-   "src": "divisor.jpg",
-   "need": "Foto para los divisores (se reutiliza en las cuatro partes): teclado, terminal o servidores, con una zona oscura y otra clara."
-  },
-  {
-   "src": "divisor.jpg",
-   "need": "Foto para los divisores (se reutiliza en las cuatro partes)."
-  },
-  {
-   "src": "divisor.jpg",
-   "need": "Foto para los divisores (se reutiliza en las cuatro partes)."
-  },
-  {
-   "src": "divisor.jpg",
-   "need": "Foto para los divisores (se reutiliza en las cuatro partes)."
   }
  ],
  "secciones": [
@@ -340,5 +316,5 @@
   "DV-B"
  ],
  "paginas": 27,
- "segundos": 3.9
+ "segundos": 5.8
 }
