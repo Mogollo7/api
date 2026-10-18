@@ -1,0 +1,24 @@
+{
+ "id": "prompt-master-gr-map",
+ "tipo": "plantilla",
+ "nombre": "Mapa de puntos (gráfico)",
+ "version": "1",
+ "descripcion": "Gráfico estándar: ver ESTANDARES.md",
+ "tags": [
+  "gráfico",
+  "molécula",
+  "nueva",
+  "propuesta"
+ ],
+ "design": "prompt-master",
+ "uso": "Variante GR-map del diseño prompt-master; se elige en options.variants.gráfico.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "gráfico": "GR-map"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

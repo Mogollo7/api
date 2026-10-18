@@ -1,0 +1,24 @@
+{
+ "id": "prompt-master-fl-2",
+ "tipo": "plantilla",
+ "nombre": "Diagrama de flujo (flujo)",
+ "version": "1",
+ "descripcion": "Nodos y flechas con decisión",
+ "tags": [
+  "flujo",
+  "organismo",
+  "nueva",
+  "propuesta"
+ ],
+ "design": "prompt-master",
+ "uso": "Variante FL-2 del diseño prompt-master; se elige en options.variants.flujo.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "flujo": "FL-2"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

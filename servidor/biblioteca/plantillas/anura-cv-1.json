@@ -1,0 +1,24 @@
+{
+ "id": "anura-cv-1",
+ "tipo": "plantilla",
+ "nombre": "Vertical + foto (portada)",
+ "version": "1",
+ "descripcion": "Palabra vertical gigante y foto a la derecha; la de ANURA y de la referencia «Cine».",
+ "tags": [
+  "portada",
+  "organismo",
+  "anura",
+  "propuesta"
+ ],
+ "design": "anura",
+ "uso": "Variante CV-1 del diseño anura; se elige en options.variants.portada.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "portada": "CV-1"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

@@ -1,0 +1,39 @@
+{
+ "id": "salvia",
+ "tipo": "estilo",
+ "nombre": "Salvia",
+ "version": "0.1.0",
+ "descripcion": "Familia visual «redonda»: 7 colores por rol, fuentes Archivo, contraste mínimo 4.5:1.",
+ "tags": [
+  "redonda",
+  "paleta",
+  "tipografia",
+  "archivo",
+  "_marca",
+  "salvia"
+ ],
+ "uso": "Elige el estilo cuando el usuario no trae uno; si trae una imagen, busca el parecido.",
+ "parametros": {
+  "roles": "color por rol (negro, bosque, hoja, vivo, ocre, crema, arena)",
+  "formatos": "pdf-a4, pptx-16x9"
+ },
+ "ejemplo": {
+  "design": "salvia",
+  "palette": "default"
+ },
+ "paleta": {
+  "negro": "#0B0B0C",
+  "bosque": "#0E251B",
+  "hoja": "#1E513B",
+  "vivo": "#2F7D5B",
+  "ocre": "#E1F4EC",
+  "crema": "#FFFFFF",
+  "arena": "#F1F9F5"
+ },
+ "fuentes": [
+  "Archivo"
+ ],
+ "design": "salvia",
+ "origen": "repositorio",
+ "licencia": "SIL Open Font License 1.1"
+}

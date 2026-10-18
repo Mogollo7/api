@@ -1,0 +1,29 @@
+{
+ "id": "stagger-grid",
+ "tipo": "animacion",
+ "nombre": "Cuadrícula escalonada",
+ "version": "1",
+ "descripcion": "Los elementos de una cuadrícula o lista entran uno tras otro (retraso corto entre ellos). Para tarjetas, cifras y logos.",
+ "tags": [
+  "escalonado",
+  "tarjetas",
+  "rejilla",
+  "cifras"
+ ],
+ "parametros": {
+  "duracion": "0.5 s",
+  "escalon": "0.08 s",
+  "desde": "start|center|end"
+ },
+ "origen": "GSAP 3.14.2 (servidor/video/gsap.min.js)",
+ "licencia": "GSAP «no charge» (uso propio; revisar usos prohibidos si se distribuye)",
+ "ejemplo": {
+  "options": {
+   "video": {
+    "escalon": 0.12
+   }
+  }
+ },
+ "uso": "Se activa con options.video: {\"options\": {\"video\": {\"escalon\": 0.12}}}",
+ "error_tipico": "Duraciones largas (> 1.5 s) retrasan la escena: el video de la API dura ≤ 120 s."
+}

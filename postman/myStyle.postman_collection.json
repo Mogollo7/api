@@ -1,0 +1,1115 @@
+{
+  "info": {
+    "name": "myStyle API",
+    "description": "Pruebas de la API de myStyle (recetas, render, calidad, estilos). Ejecuta de arriba abajo: la solicitud «receta → PDF» guarda `job` y `pdfUrl` para las siguientes. Guía: POSTMAN_DOCUMENTATION.md.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Verificar la API",
+      "item": [
+        {
+          "name": "GET herramientas (la API está viva)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/tools",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "tools"
+              ]
+            },
+            "description": "Respuesta esperada: lista de herramientas en function calling estilo OpenAI."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Estado 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Responde JSON\", () => pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"json\"));",
+                  "const t = pm.response.json();",
+                  "pm.test(\"Hay al menos 20 herramientas\", () => pm.expect(t.length).to.be.at.least(20));",
+                  "pm.test(\"Incluye list_recipes y create_from_recipe\", () => { const n = t.map(x => x.function.name); pm.expect(n).to.include.members([\"list_recipes\", \"create_from_recipe\"]); });",
+                  "pm.test(\"Responde en menos de 15 s\", () => pm.expect(pm.response.responseTime).to.be.below(15000));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "GET herramientas (perfil mínimo)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/tools?perfil=minimo",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "tools"
+              ],
+              "query": [
+                {
+                  "key": "perfil",
+                  "value": "minimo"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Estado 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"El perfil mínimo es corto (≤ 12)\", () => pm.expect(pm.response.json().length).to.be.at.most(12));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "GET diseños publicados",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/designs",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "designs"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Estado 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Hay diseños con id, nombre y versión\", () => pm.response.json().forEach(d => pm.expect(d).to.include.all.keys(\"id\", \"name\", \"version\")));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "GET openapi.json",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/openapi.json",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "openapi.json"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Estado 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Es un documento OpenAPI\", () => pm.expect(pm.response.json()).to.have.property(\"paths\"));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "2. Supermercado (recetas)",
+      "item": [
+        {
+          "name": "GET buscar recetas",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/recipes?q=informe de ventas",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "recipes"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "informe de ventas"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Estado 200\", () => pm.response.to.have.status(200));",
+                  "const r = pm.response.json();",
+                  "pm.test(\"Devuelve resultados con puntaje\", () => pm.expect(r.length).to.be.above(0));",
+                  "pm.test(\"informe_negocio es la mejor coincidencia\", () => pm.expect(r[0].id).to.eql(\"informe_negocio\"));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "GET huecos de una receta",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/recipes/informe_negocio",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "recipes",
+                "informe_negocio"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Estado 200\", () => pm.response.to.have.status(200));",
+                  "const r = pm.response.json();",
+                  "pm.test(\"Trae huecos con defecto\", () => { pm.expect(r.huecos).to.have.property(\"titulo\"); pm.expect(r.huecos.titulo).to.have.property(\"defecto\"); });",
+                  "pm.test(\"No devuelve la plantilla (solo huecos)\", () => pm.expect(r).to.not.have.property(\"markdown\"));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "GET receta inexistente",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/recipes/no_existe",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "recipes",
+                "no_existe"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Estado 404\", () => pm.response.to.have.status(404));",
+                  "pm.test(\"Explica cómo buscar\", () => pm.expect(pm.response.json()).to.have.property(\"ajuste\"));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "POST expandir receta a Markdown",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/recipes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "recipes"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"receta\": \"informe_negocio\",\n  \"valores\": {\n    \"titulo\": \"Ventas de prueba\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Estado 200\", () => pm.response.to.have.status(200));",
+                  "const r = pm.response.json();",
+                  "pm.test(\"El Markdown lleva el título pedido\", () => pm.expect(r.markdown).to.include(\"# Ventas de prueba\"));",
+                  "pm.test(\"Sin avisos\", () => pm.expect(r.avisos).to.eql([]));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "POST hueco inventado avisa",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/recipes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "recipes"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"receta\": \"informe_negocio\",\n  \"valores\": {\n    \"inventado\": 1\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Estado 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Avisa del hueco inexistente\", () => pm.expect(pm.response.json().avisos.length).to.eql(1));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "3. Crear archivos",
+      "item": [
+        {
+          "name": "POST receta → PDF",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/render",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "render"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"receta\": \"informe_negocio\",\n  \"valores\": {\n    \"titulo\": \"Informe desde Postman\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Estado 200\", () => pm.response.to.have.status(200));",
+                  "const r = pm.response.json();",
+                  "pm.test(\"Estado ok o con_avisos\", () => pm.expect(r.estado).to.be.oneOf([\"ok\", \"con_avisos\"]));",
+                  "pm.test(\"Trae job de 12 hex\", () => pm.expect(r.job).to.match(/^[0-9a-f]{12}$/));",
+                  "pm.test(\"Trae la URL firmada del PDF\", () => pm.expect(r.pdf).to.include(\"/v1/files/\"));",
+                  "pm.collectionVariables.set(\"job\", r.job);",
+                  "pm.collectionVariables.set(\"pdfUrl\", r.pdf);",
+                  "pm.test(\"Responde en menos de 15 s\", () => pm.expect(pm.response.responseTime).to.be.below(15000));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "GET descargar el PDF creado",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}{{pdfUrl}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{pdfUrl}}"
+              ]
+            },
+            "description": "Usa la URL firmada que devolvió la solicitud anterior."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Estado 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Es un PDF\", () => pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"pdf\"));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "POST Markdown → contrato",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/markdown",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "markdown"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"markdown\": \"---\\ntitulo: Prueba\\n---\\n\\n## Una hoja\\n\\n- uno\\n- dos\\n\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Estado 200\", () => pm.response.to.have.status(200));",
+                  "const r = pm.response.json();",
+                  "pm.test(\"Devuelve el documento\", () => pm.expect(r.document.document.parts.length).to.be.above(0));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "POST receta → PowerPoint",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/render",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "render"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"receta\": \"presentacion_ventas\",\n  \"format\": \"pptx-16x9\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Estado 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Devuelve el .pptx\", () => pm.expect(pm.response.json().pptx).to.include(\".pptx\"));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "POST receta → web animada",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/render",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "render"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"receta\": \"informe_negocio\",\n  \"format\": \"web-animada\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Estado 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Devuelve el .html\", () => pm.expect(pm.response.json().html).to.include(\".html\"));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "POST formato desconocido",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/render",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "render"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"receta\": \"informe_negocio\",\n  \"format\": \"gif\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Estado 400\", () => pm.response.to.have.status(400));",
+                  "pm.test(\"Dice qué formatos hay\", () => pm.expect(pm.response.json().error).to.include(\"no soportado\"));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "POST receta inexistente",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/render",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "render"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"receta\": \"no_existe\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Estado 400\", () => pm.response.to.have.status(400));",
+                  "pm.test(\"Sugiere list_recipes\", () => pm.expect(pm.response.json().ajuste).to.include(\"list_recipes\"));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "4. Revisar y corregir",
+      "item": [
+        {
+          "name": "POST auditar el PDF",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/audit",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "audit"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"job\": \"{{job}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Estado 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Responde JSON\", () => pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"json\"));",
+                  "pm.test(\"Responde en menos de 15 s\", () => pm.expect(pm.response.responseTime).to.be.below(15000));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "POST calidad: ortografía y accesibilidad",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/quality",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "quality"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"job\": \"{{job}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Estado 200\", () => pm.response.to.have.status(200));",
+                  "const r = pm.response.json();",
+                  "pm.test(\"El PDF está etiquetado y tiene idioma\", () => { pm.expect(r.accesibilidad.etiquetado).to.be.true; pm.expect(r.accesibilidad.idioma).to.eql(\"es\"); });",
+                  "pm.test(\"Trae resultado de ortografía\", () => pm.expect(r).to.have.property(\"ortografia\"));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "POST calidad de un texto",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/quality",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "quality"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"texto\": \"Una grabe equivocacion de ortografia.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Estado 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Detecta errores (si LanguageTool está instalado)\", () => { const o = pm.response.json().ortografia; if (o.disponible) pm.expect(o.errores).to.be.above(0); });"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "GET documento del trabajo (ids de bloque)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/jobs/{{job}}/doc",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "jobs",
+                "{{job}}",
+                "doc"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Estado 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Trae el documento con partes\", () => pm.expect(pm.response.json().document.parts.length).to.be.above(0));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "5. Biblioteca, estilos y recursos",
+      "item": [
+        {
+          "name": "GET buscar en la biblioteca",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/library?q=cifras clave&tipo=componente",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "library"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "cifras clave"
+                },
+                {
+                  "key": "tipo",
+                  "value": "componente"
+                }
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Estado 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Encuentra el bloque kpi\", () => pm.expect(pm.response.json().map(x => x.id)).to.include(\"kpi\"));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "GET validar un estilo",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/styles/anura/validate",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "styles",
+                "anura",
+                "validate"
+              ]
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Estado 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Pasa los 10 chequeos\", () => pm.expect(pm.response.json().ok).to.be.true);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "POST crear estilo sin clave de administración",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/styles",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "styles"
+              ]
+            },
+            "description": "Crear estilos escribe diseños: exige la clave de servidor/data/admin-key.txt.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"estilo-postman\",\n  \"acento\": \"#C2410C\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Estado 401 (es de administración)\", () => pm.response.to.have.status(401));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "POST crear un recurso (patrón de puntos)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/resources",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "resources"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tipo\": \"puntos\",\n  \"id\": \"puntos-postman\",\n  \"color\": \"#7C3AED\",\n  \"color2\": \"#F5F3F8\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Estado 201\", () => pm.response.to.have.status(201));",
+                  "pm.test(\"Devuelve el src del PNG\", () => pm.expect(pm.response.json().src).to.eql(\"recursos/puntos-postman.png\"));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "POST recurso con tipo inválido",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/resources",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "resources"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tipo\": \"estrella\",\n  \"id\": \"x1\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Estado 400\", () => pm.response.to.have.status(400));"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "POST captura de la primera página",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/v1/screenshot",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "screenshot"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"job\": \"{{job}}\",\n  \"pagina\": 1\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Estado 200\", () => pm.response.to.have.status(200));",
+                  "pm.test(\"Devuelve un PNG firmado\", () => pm.expect(pm.response.json().png).to.include(\"/v1/files/\"));"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8765"
+    },
+    {
+      "key": "job",
+      "value": ""
+    },
+    {
+      "key": "pdfUrl",
+      "value": ""
+    }
+  ]
+}

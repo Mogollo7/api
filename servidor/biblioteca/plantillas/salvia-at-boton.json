@@ -1,0 +1,24 @@
+{
+ "id": "salvia-at-boton",
+ "tipo": "plantilla",
+ "nombre": "Botón (átomo)",
+ "version": "1",
+ "descripcion": "Primario, secundario, píldora; sombra dura.",
+ "tags": [
+  "átomo",
+  "átomo",
+  "fabrica_estilo (redonda)",
+  "propuesta"
+ ],
+ "design": "salvia",
+ "uso": "Variante AT-boton del diseño salvia; se elige en options.variants.átomo.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "átomo": "AT-boton"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

@@ -1,0 +1,24 @@
+{
+ "id": "terracota-cv-3",
+ "tipo": "plantilla",
+ "nombre": "Portada color pleno (portada)",
+ "version": "1",
+ "descripcion": "Portada con fondo acento, generada por fabrica_estilo.py.",
+ "tags": [
+  "portada",
+  "organismo",
+  "fabrica_estilo",
+  "propuesta"
+ ],
+ "design": "terracota",
+ "uso": "Variante CV-3 del diseño terracota; se elige en options.variants.portada.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "portada": "CV-3"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

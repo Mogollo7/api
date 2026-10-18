@@ -1,0 +1,24 @@
+{
+ "id": "salvia-at-color",
+ "tipo": "plantilla",
+ "nombre": "Color por roles (átomo)",
+ "version": "1",
+ "descripcion": "Siete roles: negro, bosque, hoja, vivo, ocre, crema, arena.",
+ "tags": [
+  "átomo",
+  "átomo",
+  "fabrica_estilo (redonda)",
+  "propuesta"
+ ],
+ "design": "salvia",
+ "uso": "Variante AT-color del diseño salvia; se elige en options.variants.átomo.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "átomo": "AT-color"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

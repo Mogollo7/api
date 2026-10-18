@@ -1,0 +1,22 @@
+{
+ "version": "1",
+ "tags": [
+  "ondas",
+  "recurso",
+  "fondo",
+  "patron",
+  "imagen"
+ ],
+ "origen": "recursos.py",
+ "licencia": "propia (generado por código)",
+ "id": "recurso-fondo-ondas-terracota",
+ "tipo": "recurso",
+ "nombre": "Ondas fondo-ondas-terracota",
+ "descripcion": "Recurso gráfico «ondas» 1600×900, colores #C2410C sobre #FFF7F0.",
+ "uso": "Bloque figure con src «recursos/fondo-ondas-terracota.png»; úsalo de fondo o separador.",
+ "ejemplo": {
+  "type": "figure",
+  "src": "recursos/fondo-ondas-terracota.png",
+  "alt": "ondas decorativo"
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "id": "grafico-pie",
+ "tipo": "componente",
+ "nombre": "Gráfico «pie»",
+ "version": "1.0",
+ "descripcion": "Gráfico pie: partes de un todo (≤ 7). Máximo 7 elementos.",
+ "tags": [
+  "grafico",
+  "chart",
+  "pie"
+ ],
+ "uso": "partes de un todo (≤ 7)",
+ "parametros": {
+  "data": "items:[{l,v}] (suman el total); donut:true para dona"
+ },
+ "ejemplo": {
+  "type": "chart",
+  "chart": {
+   "type": "pie",
+   "data": "…"
+  }
+ },
+ "origen": "engine/charts.py",
+ "licencia": "propia",
+ "error_tipico": "Pasar más de 7 elementos: el motor lo degrada con aviso."
+}

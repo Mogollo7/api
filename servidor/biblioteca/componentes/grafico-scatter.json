@@ -1,0 +1,26 @@
+{
+ "id": "grafico-scatter",
+ "tipo": "componente",
+ "nombre": "Gráfico «scatter»",
+ "version": "1.0",
+ "descripcion": "Gráfico scatter: relación entre dos variables. Máximo 400 elementos.",
+ "tags": [
+  "grafico",
+  "chart",
+  "scatter"
+ ],
+ "uso": "relación entre dos variables",
+ "parametros": {
+  "data": "points:[[x,y]], trend:'auto'|{slope,intercept,label}, xrange,yrange,xticks,yticks,xlabel,ylabel"
+ },
+ "ejemplo": {
+  "type": "chart",
+  "chart": {
+   "type": "scatter",
+   "data": "…"
+  }
+ },
+ "origen": "engine/charts.py",
+ "licencia": "propia",
+ "error_tipico": "Pasar más de 400 elementos: el motor lo degrada con aviso."
+}

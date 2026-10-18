@@ -1,0 +1,13 @@
+{
+ "id": "seccion_texto", "tipo": "ingrediente", "version": "1", "nombre": "Sección de texto con subtítulo",
+ "descripcion": "Sección con título, un subtítulo y dos párrafos de texto corrido. Sirve para explicar un contexto, un proceso o una decisión.",
+ "tags": ["seccion", "texto", "parrafos", "subtitulo", "explicacion", "contexto", "narrativa", "redaccion", "descripcion", "prosa"],
+ "origen": "supermercado", "licencia": "propia",
+ "huecos": {
+  "titulo_seccion": {"desc": "Título de la sección (máx. 60 letras)", "defecto": "Contexto del cambio"},
+  "subtitulo": {"desc": "Subtítulo corto (máx. 60 letras)", "defecto": "Por qué cambiamos el proceso"},
+  "parrafo_1": {"desc": "Primer párrafo (máx. 300 letras)", "defecto": "Hasta septiembre, cada área cerraba sus cifras por separado y el informe mensual tardaba casi una semana en salir. Las diferencias entre áreas eran comunes y nadie sabía cuál era la cifra correcta."},
+  "parrafo_2": {"desc": "Segundo párrafo (máx. 300 letras)", "defecto": "Desde octubre, todas las áreas cargan sus datos en una sola hoja y el cierre se hace el tercer día hábil. Hoy el informe sale en dos días y las diferencias bajaron de once a dos en el último mes [SIM]."}
+ },
+ "markdown": "## {{titulo_seccion}}\n\n### {{subtitulo}}\n\n{{parrafo_1}}\n\n{{parrafo_2}}"
+}

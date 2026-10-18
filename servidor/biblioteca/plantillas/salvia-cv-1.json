@@ -1,0 +1,24 @@
+{
+ "id": "salvia-cv-1",
+ "tipo": "plantilla",
+ "nombre": "SaaS: etiqueta + título pesado (portada)",
+ "version": "1",
+ "descripcion": "Papel blanco, degradado violeta suave, etiqueta con regla y titular de dos líneas.",
+ "tags": [
+  "portada",
+  "organismo",
+  "fabrica_estilo (redonda)",
+  "propuesta"
+ ],
+ "design": "salvia",
+ "uso": "Variante CV-1 del diseño salvia; se elige en options.variants.portada.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "portada": "CV-1"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

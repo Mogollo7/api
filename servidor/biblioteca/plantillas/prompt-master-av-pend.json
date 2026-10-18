@@ -1,0 +1,24 @@
+{
+ "id": "prompt-master-av-pend",
+ "tipo": "plantilla",
+ "nombre": "Dato pendiente (punteado) (aviso)",
+ "version": "1",
+ "descripcion": "Falta una cifra",
+ "tags": [
+  "aviso",
+  "molécula",
+  "anura",
+  "propuesta"
+ ],
+ "design": "prompt-master",
+ "uso": "Variante AV-pend del diseño prompt-master; se elige en options.variants.aviso.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "aviso": "AV-pend"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

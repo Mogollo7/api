@@ -1,0 +1,24 @@
+{
+ "id": "terracota-at-campo",
+ "tipo": "plantilla",
+ "nombre": "Campo de formulario (átomo)",
+ "version": "1",
+ "descripcion": "Entrada con borde duro (web).",
+ "tags": [
+  "átomo",
+  "átomo",
+  "fabrica_estilo (recta)",
+  "propuesta"
+ ],
+ "design": "terracota",
+ "uso": "Variante AT-campo del diseño terracota; se elige en options.variants.átomo.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "átomo": "AT-campo"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

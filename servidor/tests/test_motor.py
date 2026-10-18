@@ -13,7 +13,7 @@ import render  # noqa: E402
 from engine import blocks, charts, contract, diagram, muestras, paleta, prompt, redundancia, spec, text, tpl, variants  # noqa: E402
 
 DD = HERE.parent / "designs/anura"
-M = json.loads((DD / "manifest.json").read_text())
+M = json.loads((DD / "manifest.json").read_text(encoding="utf-8"))
 EJ = HERE / "ejemplo_minimo.json"
 IMG = HERE.parent.parent / "teoria/imagenes"
 
@@ -31,7 +31,7 @@ class Texto(unittest.TestCase):
 
 class Contrato(unittest.TestCase):
     def doc(self):
-        return json.loads(EJ.read_text())
+        return json.loads(EJ.read_text(encoding="utf-8"))
 
     def test_valido(self):
         w = []
@@ -63,7 +63,7 @@ class Graficos(unittest.TestCase):
         }
         out = {}
         for t, d in datos.items():
-            out[t] = charts.draw({"type": t, "data": d}, self.R, {"colombia": json.loads((DD / "geo/colombia.json").read_text())["poligonos"]})
+            out[t] = charts.draw({"type": t, "data": d}, self.R, {"colombia": json.loads((DD / "geo/colombia.json").read_text(encoding="utf-8"))["poligonos"]})
             self.assertTrue(out[t].startswith("<svg"), t)
 
     def test_limites(self):
@@ -79,7 +79,7 @@ class Graficos(unittest.TestCase):
 
 class Paleta(unittest.TestCase):
     def test_anura_y_cine_sin_avisos_de_contraste(self):
-        pals = json.loads((DD / "palettes.json").read_text())
+        pals = json.loads((DD / "palettes.json").read_text(encoding="utf-8"))
         for k in ("anura", "cine"):
             r = dict(M["palette"]["roles"])
             r.update(pals[k])
@@ -113,7 +113,7 @@ class Render(unittest.TestCase):
         import subprocess
         with tempfile.TemporaryDirectory() as t:
             render.run(EJ, Path(t) / "x.pdf", IMG)
-            info = subprocess.run(["pdfinfo", str(Path(t) / "x.pdf")], capture_output=True, text=True).stdout
+            info = subprocess.run(["pdfinfo", "-enc", "UTF-8", str(Path(t) / "x.pdf")], capture_output=True, text=True, encoding="utf-8", errors="replace").stdout
         self.assertIn("Ejemplo mínimo", info)
         self.assertIn("Tagged:          yes", info)
 
@@ -133,7 +133,7 @@ class Render(unittest.TestCase):
         self.assertNotIn("onclick", html)
 
     def test_correccion_de_contraste(self):
-        d = json.loads(EJ.read_text())
+        d = json.loads(EJ.read_text(encoding="utf-8"))
         d["palette"] = {"hoja": "#bdbdbd"}   # texto en 'hoja' sobre papel: no se lee
         with tempfile.TemporaryDirectory() as t:
             p = Path(t) / "d.json"
@@ -152,7 +152,7 @@ class Redundancia(unittest.TestCase):
         self.assertFalse(redundancia.similar("Histograma de las calificaciones", "Nota vs. valoración pública"))
 
     def test_el_servidor_omite_lo_repetido(self):
-        d = json.loads(EJ.read_text())
+        d = json.loads(EJ.read_text(encoding="utf-8"))
         sec = d["document"]["parts"][0]["sections"][1]
         sec["title"], sec["tema"] = "Gráficos y tablas de muestra", "Gráficos y tablas"
         sec["blocks"].insert(0, {"type": "h", "text": "Gráficos y tablas"})
@@ -237,3 +237,88 @@ class Comons(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class Pptx(unittest.TestCase):
+    """El mismo JSON del PDF da un PPTX válido, con objetos nativos y sin formas fuera de la diapositiva; lo no estándar se degrada."""
+    def test_ejemplo_y_no_estandar(self):
+        import render_pptx
+        from pptx import Presentation
+        for src in (EJ, HERE / "no_estandar.json"):
+            with tempfile.TemporaryDirectory() as t:
+                out = Path(t) / "x.pptx"
+                rep = render_pptx.run(src, out, IMG)
+                self.assertNotEqual(rep["estado"], "rechazado", rep["errores"])
+                self.assertEqual(rep["auditoria"]["fuera_de_diapositiva"], [])
+                p = Presentation(out)
+                self.assertEqual(len(p.slides), rep["diapositivas"])
+                kinds = {sh.shape_type for s in p.slides for sh in s.shapes}
+                if src == EJ:
+                    from pptx.enum.shapes import MSO_SHAPE_TYPE
+                    self.assertIn(MSO_SHAPE_TYPE.CHART, kinds)      # gráfico nativo editable, no imagen
+                    self.assertIn(MSO_SHAPE_TYPE.TABLE, kinds)
+
+    def test_texto_solo_en_pares_permitidos(self):
+        import render_pptx
+        from engine import paleta as pal
+        dk = render_pptx.Deck(M["palette"]["roles"], M, IMG, {"avisos": [], "auditoria": {}, "imagenes_necesarias": []})
+        for bg in M["palette"]["roles"]:
+            self.assertGreaterEqual(pal.ratio(dk.roles[dk.fg(bg)], dk.roles[bg]), 4.5, bg)
+
+
+class Video(unittest.TestCase):
+    """El director arma una composición HyperFrames válida desde el mismo JSON, con el texto escapado (es dato, no HTML)."""
+    def test_composicion(self):
+        import render_video
+        doc = json.loads(EJ.read_text(encoding="utf-8"))
+        doc["document"]["cover"]["title"] = "<script>alert(1)</script> Título"
+        with tempfile.TemporaryDirectory() as t:
+            rep = {"avisos": []}
+            dr, f = render_video.build(doc, Path(t), "video-9x16", rep)
+            h = f.read_text(encoding="utf-8")
+            self.assertNotIn("<script>alert", h)
+            self.assertIn('data-composition-id="main"', h)
+            self.assertIn('window.__timelines["main"]=tl', h)
+            self.assertIn(f'data-duration="{dr.t:.3f}"', h)
+            self.assertGreater(len(dr.scenes), 2)
+            self.assertTrue((Path(t) / "assets" / "gsap.min.js").exists())
+
+    def test_cifra(self):
+        import render_video
+        self.assertEqual(render_video.number("$ 128 M"), ("$ ", 128.0, " M", 0))
+        self.assertEqual(render_video.number("62,9 %"), ("", 62.9, " %", 1))
+        self.assertIsNone(render_video.number("sin dato"))
+
+
+class Oficina(unittest.TestCase):
+    """Word y Excel desde el mismo contrato; Excel con números reales (coma decimal) y totales con fórmula."""
+    def test_numeros(self):
+        import render_office as ro
+        self.assertEqual(ro.num("1.234,5"), 1234.5)
+        self.assertEqual(ro.num("62,9 %"), 62.9)
+        self.assertEqual(ro.num(12), 12.0)
+        self.assertIsNone(ro.num("dato pendiente"))
+
+    def test_docx_y_xlsx(self):
+        import render_office as ro
+        with tempfile.TemporaryDirectory() as t:
+            for ext in ("docx", "xlsx"):
+                rep = ro.run(EJ, Path(t) / f"x.{ext}", IMG)
+                self.assertEqual(rep["estado"], "ok", rep["errores"])
+                self.assertGreater((Path(t) / f"x.{ext}").stat().st_size, 3000)
+
+
+class Api(unittest.TestCase):
+    def test_parches_y_firma(self):
+        import api
+        doc = json.loads(EJ.read_text(encoding="utf-8"))
+        sid = doc["document"]["parts"][0]["sections"][0]["id"]
+        api.apply_patch(doc, [{"op": "insert", "section": sid, "block": 0, "value": {"type": "p", "text": "nuevo"}}])
+        self.assertEqual(doc["document"]["parts"][0]["sections"][0]["blocks"][0]["text"], "nuevo")
+        with self.assertRaises(ValueError):
+            api.apply_patch(doc, [{"op": "set", "section": "no-existe", "block": 0, "value": {}}])
+        url = api.sign("/v1/files/abc.pdf")
+        path, q = url.split("?")
+        qs = {k: [v] for k, v in (x.split("=") for x in q.split("&"))}
+        self.assertTrue(api.signed_ok(path, qs))
+        self.assertFalse(api.signed_ok("/v1/files/otro.pdf", qs))           # la firma no sirve para otro archivo

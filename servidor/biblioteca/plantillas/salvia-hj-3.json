@@ -1,0 +1,24 @@
+{
+ "id": "salvia-hj-3",
+ "tipo": "plantilla",
+ "nombre": "Tablero (hoja)",
+ "version": "1",
+ "descripcion": "Gráficos lado a lado (half) y cifras.",
+ "tags": [
+  "hoja",
+  "plantilla",
+  "fabrica_estilo (redonda)",
+  "propuesta"
+ ],
+ "design": "salvia",
+ "uso": "Variante HJ-3 del diseño salvia; se elige en options.variants.hoja.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "hoja": "HJ-3"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

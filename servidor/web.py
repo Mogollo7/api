@@ -10,6 +10,7 @@ Los demás (timeline, ranks, toc, custom…) se degradan a una nota con su texto
 """
 import argparse
 import json
+import shutil
 import sys
 from pathlib import Path
 
@@ -93,8 +94,8 @@ def w_block(b, ctx):
 def build(doc_path, out_path, images_root):
     doc = json.loads(Path(doc_path).read_text(encoding="utf-8"))
     design_dir = HERE / "designs/anura"
-    m = json.loads((design_dir / "manifest.json").read_text())
-    pals = json.loads((design_dir / "palettes.json").read_text())
+    m = json.loads((design_dir / "manifest.json").read_text(encoding="utf-8"))
+    pals = json.loads((design_dir / "palettes.json").read_text(encoding="utf-8"))
     roles = dict(m["palette"]["roles"])
     pal = doc.get("palette", "default")
     roles.update(pals.get(pal, {}) if isinstance(pal, str) else pal)
@@ -117,7 +118,7 @@ def build(doc_path, out_path, images_root):
         for sec in part["sections"]:
             lead = f'<p class="a-mono">{inline(sec["lead"])}</p>' if sec.get("lead") else ""
             body.append(f'<article class="o-section t-article" id="{esc(sec["id"])}"><h3>{inline(sec["title"])}</h3>{lead}' + "".join(w_block(b, ctx) for b in sec.get("blocks", [])) + "</article>")
-    css = "\n".join([assets.font_css(design_dir, m), assets.root_css(roles), (HERE / "web/web.css").read_text()])
+    css = "\n".join([assets.font_css(design_dir, m), assets.root_css(roles, m), (HERE / "web/web.css").read_text(encoding="utf-8")])
     html = (f'<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(plain(meta.get("title","Documento")))}</title><style>{css}</style></head><body>'
             f'<a class="skip" href="#main">Saltar al contenido</a><div class="o-header"><div class="in"><b class="a-title" style="font-size:1.4rem">{esc(cov["vertical"])}</b><nav aria-label="Secciones">{nav}</nav></div></div>'
             f'{hero}<main id="main">{"".join(body)}</main><footer class="o-footer"><div class="in"><span>{esc(meta.get("footer",""))}</span><span>{esc(meta.get("date",""))}</span></div></footer></body></html>')
@@ -127,13 +128,46 @@ def build(doc_path, out_path, images_root):
     return ctx.warn, ctx.missing
 
 
+ANIMAR_JS = """
+(()=>{if(matchMedia('(prefers-reduced-motion: reduce)').matches||!window.anime)return;
+const {animate,stagger}=anime,vis=new IntersectionObserver((es)=>es.forEach(e=>{if(!e.isIntersecting)return;vis.unobserve(e.target);const t=e.target;
+ animate(t.querySelectorAll(':scope > *'),{opacity:[0,1],translateY:[28,0],duration:700,delay:stagger(90),ease:'outExpo'});
+ t.querySelectorAll('.m-kpi b').forEach(b=>{const m=b.textContent.match(/^([^\d-]*)(-?[\d.,\s]+)(.*)$/);if(!m)return;const n=parseFloat(m[2].replace(/\s/g,'').replace(/\.(?=\d{3}\b)/g,'').replace(',','.'));if(isNaN(n))return;
+  const dec=(m[2].split(/[.,]/)[1]||'').length>2?0:(m[2].split(/[.,]/)[1]||'').length,o={v:0};animate(o,{v:n,duration:1100,ease:'outCubic',onUpdate:()=>{b.textContent=m[1]+o.v.toLocaleString('es-CO',{minimumFractionDigits:dec,maximumFractionDigits:dec})+m[3]}})})}),{threshold:.2});
+document.querySelectorAll('.o-section').forEach(s=>{[...s.children].forEach(c=>c.style.opacity=0);vis.observe(s)});
+animate('.o-hero .in > *',{opacity:[0,1],translateY:[30,0],duration:900,delay:stagger(120),ease:'outExpo'});})();
+"""
+THREE_JS = """
+import * as THREE from './three.module.js';
+const c=document.createElement('canvas');c.setAttribute('aria-hidden','true');c.style.cssText='position:absolute;inset:0;width:100%;height:100%;opacity:.35;pointer-events:none';
+const h=document.querySelector('.o-hero');if(h&&!matchMedia('(prefers-reduced-motion: reduce)').matches){h.style.position='relative';h.prepend(c);
+const r=new THREE.WebGLRenderer({canvas:c,alpha:true,antialias:true}),s=new THREE.Scene(),k=new THREE.PerspectiveCamera(45,1,.1,100);k.position.z=6;
+const m=new THREE.Mesh(new THREE.IcosahedronGeometry(2,1),new THREE.MeshBasicMaterial({color:getComputedStyle(document.documentElement).getPropertyValue('--vivo').trim()||'#fe0032',wireframe:true}));s.add(m);
+const f=()=>{const w=h.clientWidth,H=h.clientHeight;r.setSize(w,H,false);k.aspect=w/H;k.updateProjectionMatrix()};f();addEventListener('resize',f);
+(function t(){m.rotation.x+=.003;m.rotation.y+=.005;r.render(s,k);requestAnimationFrame(t)})()}
+"""
+
+
+def animar(html_path, fondo3d=False):
+    """Salida web animada: inserta anime.js (entrada escalonada y contadores en las cifras) y, si se pide, un fondo 3D con three.js. Un solo HTML; three va en un archivo junto al HTML."""
+    p = Path(html_path)
+    h = p.read_text(encoding="utf-8")
+    vend = HERE / "video" / "vendor"
+    extra = f"<script>{(vend / 'anime.umd.min.js').read_text(encoding='utf-8')}</script><script>{ANIMAR_JS}</script>"
+    if fondo3d:
+        for f in ("three.module.js", "three.core.js"):
+            shutil.copy(vend / f, p.parent / f)
+        extra += f'<script type="module">{THREE_JS}</script>'
+    p.write_text(h.replace("</body>", extra + "</body>", 1), encoding="utf-8")
+
+
 def estilo(out_path):
     """Guía de estilo atómica: una página por nivel, con los componentes reales."""
     design_dir = HERE / "designs/anura"
-    m = json.loads((design_dir / "manifest.json").read_text())
+    m = json.loads((design_dir / "manifest.json").read_text(encoding="utf-8"))
     roles = m["palette"]["roles"]
     sw = "".join(f'<div style="background:var(--{k});color:{"var(--crema)" if k in ("negro","bosque","hoja") else "var(--negro)"};padding:1rem;border:.15rem solid var(--negro)"><b>{k}</b><br><span class="a-mono">{v}</span></div>' for k, v in roles.items())
-    css = "\n".join([assets.font_css(design_dir, m), assets.root_css(roles), (HERE / "web/web.css").read_text()])
+    css = "\n".join([assets.font_css(design_dir, m), assets.root_css(roles, m), (HERE / "web/web.css").read_text(encoding="utf-8")])
     sec = lambda t, s, inner: f'<article class="o-section"><h3>{t}</h3><p class="a-mono">{s}</p>{inner}</article>'
     html = (f'<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Guía de estilo web · diseño atómico</title><style>{css}</style></head><body>'
             '<div class="o-header"><div class="in"><b class="a-title" style="font-size:1.4rem">Estilo web</b><nav><a href="#atomos">átomos</a><a href="#moleculas">moléculas</a><a href="#organismos">organismos</a><a href="#plantillas">plantillas</a></nav></div></div><main>'
@@ -151,14 +185,38 @@ def estilo(out_path):
     Path(out_path).write_text(html, encoding="utf-8")
 
 
+def run(src, out, images_root):
+    """Para la API (formato `web-animada`): valida el contrato, dibuja la web y le añade las animaciones. Devuelve el informe."""
+    import render
+    from engine import contract
+    doc = json.loads(Path(src).read_text(encoding="utf-8"))
+    _, m = render.load_design(doc.get("design", "anura"))
+    warns = []
+    errs = contract.validate({**doc, "format": "pdf-a4"}, m, warns)
+    rep = {"estado": "ok", "errores": errs, "avisos": warns, "auditoria": {}, "imagenes_necesarias": []}
+    if errs:
+        rep["estado"] = "rechazado"
+        return rep
+    w, miss = build(src, out, images_root)
+    animar(out)
+    rep.update({"avisos": warns + list(w), "imagenes_necesarias": miss, "nota": "una sola página HTML con anime.js; usa el diseño anura"})
+    if rep["avisos"] or miss:
+        rep["estado"] = "con_avisos"
+    return rep
+
+
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("doc")
     ap.add_argument("-o", "--out", default="salida/web/index.html")
     ap.add_argument("--imagenes", default="imagenes")
     ap.add_argument("--estilo", action="store_true")
+    ap.add_argument("--animar", action="store_true", help="añade anime.js (entrada escalonada y contadores)")
+    ap.add_argument("--fondo3d", action="store_true", help="con --animar: fondo 3D con three.js en la portada (copia three junto al HTML)")
     a = ap.parse_args()
     warn, miss = build(a.doc, a.out, a.imagenes)
+    if a.animar:
+        animar(a.out, a.fondo3d)
     if a.estilo:
         estilo(Path(a.out).with_name("estilo.html"))
     print(json.dumps({"avisos": warn, "imagenes_necesarias": miss}, ensure_ascii=False)[:1500])

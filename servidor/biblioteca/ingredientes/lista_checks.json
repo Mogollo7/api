@@ -1,0 +1,11 @@
+{
+ "id": "lista_checks", "tipo": "ingrediente", "version": "1", "nombre": "Lista de verificación",
+ "descripcion": "Sección con una lista de seis verificaciones para revisar antes de entregar un documento. Sirve para cerrar un informe con controles de calidad.",
+ "tags": ["lista", "checklist", "verificacion", "revision", "control", "calidad", "pendientes", "entrega", "validar", "chequeo"],
+ "origen": "supermercado", "licencia": "propia",
+ "huecos": {
+  "titulo_seccion": {"desc": "Título de la sección (máx. 60 letras)", "defecto": "Antes de enviar"},
+  "items": {"desc": "De 3 a 6 verificaciones, una frase corta cada una (máx. 90 letras)", "max": 6, "defecto": ["Cifras revisadas contra el cierre del mes", "Fechas y periodo correctos en el título", "Gráficos con escala y unidades visibles", "Fuente indicada debajo de cada tabla", "Ninguna cifra de ejemplo [SIM] sin marcar", "Autor y fecha de publicación indicados"]}
+ },
+ "markdown": "## {{titulo_seccion}}\n\n{{#items}}- {{.}}\n{{/items}}"
+}

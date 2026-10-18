@@ -1,0 +1,59 @@
+{
+ "id": "tabla_comparativa",
+ "tipo": "ingrediente",
+ "version": "1",
+ "nombre": "Tabla comparativa de tres columnas",
+ "descripcion": "Sección con una tabla de tres columnas y cuatro filas para comparar opciones por ventaja y limitación. Sirve para incluir un comparativo corto dentro de cualquier documento.",
+ "tags": [
+  "tabla",
+  "tabla comparativa",
+  "comparación",
+  "cuadro comparativo",
+  "ventajas y limitaciones",
+  "opciones",
+  "columnas",
+  "filas",
+  "comparar",
+  "cuadro"
+ ],
+ "origen": "supermercado",
+ "licencia": "propia",
+ "huecos": {
+  "titulo": {
+   "desc": "Título de la sección (máx. 60 letras)",
+   "defecto": "Opciones disponibles"
+  },
+  "filas": {
+   "desc": "Cuatro filas: opción | ventaja | limitación (texto corto)",
+   "lista": [
+    "opcion",
+    "ventaja",
+    "limitacion"
+   ],
+   "max": 4,
+   "defecto": [
+    [
+     "Tienda propia",
+     "Control total del servicio",
+     "Requiere inversión inicial"
+    ],
+    [
+     "Distribuidor",
+     "Llega a más zonas",
+     "Menor margen por venta"
+    ],
+    [
+     "Venta en línea",
+     "Opera las 24 horas",
+     "Depende de la logística"
+    ],
+    [
+     "Alianza local",
+     "Costo bajo de entrada",
+     "Poca presencia de marca"
+    ]
+   ]
+  }
+ },
+ "markdown": "## {{titulo}}\n\n| Opción | Ventaja | Limitación |\n|---|---|---|\n{{#filas}}| {{opcion}} | {{ventaja}} | {{limitacion}} |\n{{/filas}}"
+}

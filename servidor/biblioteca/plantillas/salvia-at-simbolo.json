@@ -1,0 +1,24 @@
+{
+ "id": "salvia-at-simbolo",
+ "tipo": "plantilla",
+ "nombre": "Símbolo (átomo)",
+ "version": "1",
+ "descripcion": "73 formas vectoriales sueltas; nunca en fila.",
+ "tags": [
+  "átomo",
+  "átomo",
+  "fabrica_estilo (redonda)",
+  "propuesta"
+ ],
+ "design": "salvia",
+ "uso": "Variante AT-simbolo del diseño salvia; se elige en options.variants.átomo.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "átomo": "AT-simbolo"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

@@ -1,0 +1,24 @@
+{
+ "id": "terracota-av-hueco",
+ "tipo": "plantilla",
+ "nombre": "Hueco (borde) (aviso)",
+ "version": "1",
+ "descripcion": "Bloque no estándar degradado",
+ "tags": [
+  "aviso",
+  "molécula",
+  "fabrica_estilo (recta)",
+  "propuesta"
+ ],
+ "design": "terracota",
+ "uso": "Variante AV-hueco del diseño terracota; se elige en options.variants.aviso.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "aviso": "AV-hueco"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

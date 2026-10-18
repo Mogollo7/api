@@ -1,0 +1,24 @@
+{
+ "id": "anura-av-sim",
+ "tipo": "plantilla",
+ "nombre": "Simulación (rayado) (aviso)",
+ "version": "1",
+ "descripcion": "Estimación, nunca medición",
+ "tags": [
+  "aviso",
+  "molécula",
+  "anura",
+  "propuesta"
+ ],
+ "design": "anura",
+ "uso": "Variante AV-sim del diseño anura; se elige en options.variants.aviso.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "aviso": "AV-sim"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

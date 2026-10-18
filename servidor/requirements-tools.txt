@@ -3,3 +3,4 @@ scipy
 potracer
 opencv-python-headless
 pdfplumber
+brotli

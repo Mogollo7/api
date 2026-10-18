@@ -1,0 +1,24 @@
+{
+ "id": "salvia-av-clave",
+ "tipo": "plantilla",
+ "nombre": "Punto clave (bosque) (aviso)",
+ "version": "1",
+ "descripcion": "La idea que hay que llevarse",
+ "tags": [
+  "aviso",
+  "molécula",
+  "fabrica_estilo (redonda)",
+  "propuesta"
+ ],
+ "design": "salvia",
+ "uso": "Variante AV-clave del diseño salvia; se elige en options.variants.aviso.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "aviso": "AV-clave"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

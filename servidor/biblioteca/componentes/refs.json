@@ -1,0 +1,24 @@
+{
+ "id": "refs",
+ "tipo": "componente",
+ "nombre": "Bloque «refs»",
+ "version": "1.0",
+ "descripcion": "Referencias o bibliografía numerada.",
+ "tags": [
+  "refs"
+ ],
+ "uso": "Referencias o bibliografía numerada.",
+ "parametros": {
+  "items": "list (obligatorio) — Cada referencia como texto. Máx. 40.",
+  "title": "markup — Título."
+ },
+ "ejemplo": {
+  "type": "refs",
+  "items": [
+   "Autor (2024). Título. Revista."
+  ]
+ },
+ "origen": "engine/spec.py",
+ "licencia": "propia",
+ "error_tipico": "Pasarse del límite de longitud (items ≤ 40): el motor recorta o reduce con aviso."
+}

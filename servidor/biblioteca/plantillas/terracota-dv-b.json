@@ -1,0 +1,24 @@
+{
+ "id": "terracota-dv-b",
+ "tipo": "plantilla",
+ "nombre": "SaaS: panel oscuro (divisor)",
+ "version": "1",
+ "descripcion": "Panel oscuro con degradado violeta y numeral en acento.",
+ "tags": [
+  "divisor",
+  "organismo",
+  "fabrica_estilo (recta)",
+  "propuesta"
+ ],
+ "design": "terracota",
+ "uso": "Variante DV-B del diseño terracota; se elige en options.variants.divisor.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "divisor": "DV-B"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

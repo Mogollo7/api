@@ -18,14 +18,14 @@ sys.path.insert(0, str(HERE))
 from engine import assets, blocks, contract, layout, pages, paleta, redundancia, variants  # noqa: E402
 from engine.text import esc, inline, plain  # noqa: E402
 
-AUDIT_JS = (HERE / "engine/audit.js").read_text()
-FIT_JS = (HERE / "engine/fit.js").read_text()
-FIX_JS = (HERE / "engine/contrast_fix.js").read_text()
+AUDIT_JS = (HERE / "engine/audit.js").read_text(encoding="utf-8")
+FIT_JS = (HERE / "engine/fit.js").read_text(encoding="utf-8")
+FIX_JS = (HERE / "engine/contrast_fix.js").read_text(encoding="utf-8")
 
 
 def load_design(design_id: str):
     d = HERE / "designs" / design_id
-    return d, json.loads((d / "manifest.json").read_text())
+    return d, json.loads((d / "manifest.json").read_text(encoding="utf-8"))
 
 
 def heading_unit(sec, n):
@@ -103,14 +103,28 @@ def credits_section(ctx):
 def make_head(doc, design_dir, m, roles, ph=141.4):
     meta = doc.get("meta", {})
     css = "\n".join([
-        assets.font_css(design_dir, m), assets.root_css(roles),
-        (design_dir / "bundle.css").read_text(), (design_dir / "extras.css").read_text(),
+        assets.font_css(design_dir, m), assets.root_css(roles, m),
+        (design_dir / "bundle.css").read_text(encoding="utf-8"), (design_dir / "extras.css").read_text(encoding="utf-8"),
         f".page{{aspect-ratio:1/{ph/100:.4f}}}@page{{size:{(m.get('formats_dims') or {}).get(doc.get('format'), {}).get('pdf', 'A4')};margin:0}}",
         ".page.measure{aspect-ratio:auto;height:auto;overflow:visible;border:0;box-shadow:none}"
         ".page.measure .cont{margin:0 5cqw;width:90cqw}",
     ])
     return (f'<!doctype html><html lang="es"><head><meta charset="utf-8"><title>{esc(plain(meta.get("title","Documento")))}</title>'
             f'<style>{css}</style></head><body style="margin:0">')
+
+
+def resolve_roles(doc, design_dir, m, avisos):
+    """Paleta activa: la del diseño + una paleta con nombre (palettes.json) o propia ({rol:#hex}). Común a PDF y PPTX."""
+    palettes = json.loads((design_dir / "palettes.json").read_text(encoding="utf-8"))
+    roles = dict(m["palette"]["roles"])
+    pal = doc.get("palette", "default")
+    if isinstance(pal, dict):
+        roles.update(pal)
+    elif pal in palettes and pal != "_marca":
+        roles.update(palettes[pal])
+    elif pal not in ("default", None):
+        avisos.append({"bloque": "palette", "causa": f"paleta '{pal}' no existe", "ajuste": "se usó la paleta por defecto"})
+    return roles
 
 
 def expects_credits(doc, images_root, credits):
@@ -134,15 +148,7 @@ def run(doc_path, out_pdf, images_root):
     if errs:
         report["estado"] = "rechazado"
         return report
-    palettes = json.loads((design_dir / "palettes.json").read_text(encoding="utf-8"))
-    roles = dict(m["palette"]["roles"])
-    pal = doc.get("palette", "default")
-    if isinstance(pal, dict):
-        roles.update(pal)
-    elif pal in palettes and pal != "_marca":
-        roles.update(palettes[pal])
-    elif pal not in ("default", None):
-        report["avisos"].append({"bloque": "palette", "causa": f"paleta '{pal}' no existe", "ajuste": "se usó la paleta por defecto"})
+    roles = resolve_roles(doc, design_dir, m, report["avisos"])
     report["avisos"] += paleta.check(roles, m)
     reg = variants.Registry(design_dir)
     seed = int(doc.get("options", {}).get("seed", 7))
@@ -267,7 +273,7 @@ def run(doc_path, out_pdf, images_root):
                 tope = tope if len(tope) <= 54 else tope[:53] + "…"
                 body.append(pages.light(inner, tope, meta.get("footer", "Documento"), item[2], sym, sid,
                                         f"{plain(sec['title'])} · {item[2]}", sec.get("kind") == "clave"))
-        drip = ((design_dir / "defs.svg.txt").read_text() if (design_dir / "defs.svg.txt").exists() else "")
+        drip = ((design_dir / "defs.svg.txt").read_text(encoding="utf-8") if (design_dir / "defs.svg.txt").exists() else "")
         defs = sym.defs().replace("</svg>", drip + "</svg>")
         final = head + defs + "".join(body) + "<script>" + FIT_JS + "</script></body></html>"
         out_pdf = Path(out_pdf)
@@ -318,7 +324,7 @@ def run(doc_path, out_pdf, images_root):
         report["avisos"].append({"bloque": src, "causa": "imagen usada sin fila en creditos.csv", "ajuste": "añade autor y licencia al CSV"})
     n_hojas = 1 + len(plan)
     try:
-        info = subprocess.run(["pdfinfo", str(out_pdf)], capture_output=True, text=True).stdout
+        info = subprocess.run(["pdfinfo", "-enc", "UTF-8", str(out_pdf)], capture_output=True, text=True, encoding="utf-8", errors="replace").stdout
         report["paginas"] = int([l for l in info.splitlines() if l.startswith("Pages")][0].split()[1])
     except Exception:
         report["paginas"] = None
@@ -344,4 +350,5 @@ def main():
 
 
 if __name__ == "__main__":
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")      # Windows: la consola cp1252 no acepta ✔ → ·
     main()

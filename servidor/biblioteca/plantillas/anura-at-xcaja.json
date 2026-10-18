@@ -1,0 +1,24 @@
+{
+ "id": "anura-at-xcaja",
+ "tipo": "plantilla",
+ "nombre": "X en caja (átomo)",
+ "version": "1",
+ "descripcion": "Casilla tachada.",
+ "tags": [
+  "átomo",
+  "átomo",
+  "referencia cartel",
+  "propuesta"
+ ],
+ "design": "anura",
+ "uso": "Variante AT-xcaja del diseño anura; se elige en options.variants.átomo.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "átomo": "AT-xcaja"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

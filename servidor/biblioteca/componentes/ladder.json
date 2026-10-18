@@ -1,0 +1,27 @@
+{
+ "id": "ladder",
+ "tipo": "componente",
+ "nombre": "Bloque «ladder»",
+ "version": "1.0",
+ "descripcion": "Escalera de opciones de simple a complejo.",
+ "tags": [
+  "ladder"
+ ],
+ "uso": "Escalera de opciones de simple a complejo.",
+ "parametros": {
+  "items": "list (obligatorio) — [{title,text,cost?}] Máx. 9."
+ },
+ "ejemplo": {
+  "type": "ladder",
+  "items": [
+   {
+    "title": "Simple",
+    "text": "…",
+    "cost": "costo: bajo"
+   }
+  ]
+ },
+ "origen": "engine/spec.py",
+ "licencia": "propia",
+ "error_tipico": "Pasarse del límite de longitud (items ≤ 9): el motor recorta o reduce con aviso."
+}

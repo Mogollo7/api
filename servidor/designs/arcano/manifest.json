@@ -1,0 +1,353 @@
+{
+  "_marca": "[CLAUDE-CONSTRUCTOR] Diseño 'arcano' generado por fabrica_estilo.py (acento #DC84EB, piel recta) desde 'prompt-master'.",
+  "id": "arcano",
+  "name": "Arcano (neón)",
+  "version": "0.1.0",
+  "formats": [
+    "pdf-a4",
+    "pptx-16x9"
+  ],
+  "palette": {
+    "roles": {
+      "negro": "#F4F0F4",
+      "crema": "#150817",
+      "arena": "#210F24",
+      "bosque": "#EDCEF3",
+      "ocre": "#45194D",
+      "vivo": "#DC84EB",
+      "hoja": "#CA46E2"
+    },
+    "pares_texto_permitidos": [
+      [
+        "crema",
+        "negro"
+      ],
+      [
+        "crema",
+        "bosque"
+      ],
+      [
+        "crema",
+        "hoja"
+      ],
+      [
+        "crema",
+        "vivo"
+      ],
+      [
+        "ocre",
+        "negro"
+      ],
+      [
+        "ocre",
+        "bosque"
+      ],
+      [
+        "arena",
+        "negro"
+      ],
+      [
+        "negro",
+        "crema"
+      ],
+      [
+        "negro",
+        "arena"
+      ],
+      [
+        "negro",
+        "ocre"
+      ],
+      [
+        "bosque",
+        "crema"
+      ],
+      [
+        "bosque",
+        "ocre"
+      ],
+      [
+        "hoja",
+        "crema"
+      ],
+      [
+        "vivo",
+        "crema"
+      ]
+    ],
+    "min_contraste_texto": 4.5,
+    "min_contraste_texto_grande": 3.0
+  },
+  "fonts": [
+    {
+      "family": "Archivo",
+      "file": "fonts/Archivo-Variable.woff2",
+      "weight": "100 900",
+      "stretch": "62% 125%",
+      "licencia": "SIL Open Font License 1.1"
+    }
+  ],
+  "page": {
+    "unit": "cqw",
+    "width": 100,
+    "height": 141.4,
+    "cont_top": 13.5,
+    "cont_bottom": 12,
+    "cont_side": 5,
+    "gap": 3
+  },
+  "templates": {
+    "cover": {
+      "image": null,
+      "symbols": [
+        {
+          "left": 73,
+          "top": 12.4,
+          "size": 2.6,
+          "color": "vivo"
+        },
+        {
+          "left": 78.5,
+          "top": 12.4,
+          "size": 2.6,
+          "color": "vivo"
+        },
+        {
+          "left": 84,
+          "top": 12.4,
+          "size": 2.6,
+          "color": "vivo"
+        }
+      ],
+      "foot_symbol": {
+        "size": 3.2,
+        "color": "vivo"
+      },
+      "symbols_by_variant": {
+        "CV-2": [
+          {
+            "left": 73,
+            "top": 12.4,
+            "size": 2.6,
+            "color": "ocre"
+          },
+          {
+            "left": 78.5,
+            "top": 12.4,
+            "size": 2.6,
+            "color": "ocre"
+          },
+          {
+            "left": 84,
+            "top": 12.4,
+            "size": 2.6,
+            "color": "ocre"
+          }
+        ],
+        "CV-3": [
+          {
+            "left": 73,
+            "top": 12.4,
+            "size": 2.6,
+            "color": "vivo"
+          },
+          {
+            "left": 78.5,
+            "top": 12.4,
+            "size": 2.6,
+            "color": "vivo"
+          },
+          {
+            "left": 84,
+            "top": 12.4,
+            "size": 2.6,
+            "color": "vivo"
+          }
+        ]
+      },
+      "words_height": 62
+    },
+    "divider": {
+      "A": {
+        "image": null,
+        "head_symbol": "g01",
+        "loose": {
+          "left": 84,
+          "top": 124,
+          "size": 6,
+          "color": "negro",
+          "id": "g22"
+        }
+      },
+      "B": {
+        "image": null,
+        "head_symbol": "g64",
+        "loose": {
+          "left": 84,
+          "top": 124,
+          "size": 6,
+          "color": "ocre",
+          "id": "g79"
+        }
+      }
+    },
+    "light": {
+      "head_symbol_pool": [
+        "g01",
+        "g16",
+        "g22",
+        "g67",
+        "g68",
+        "g75",
+        "g79",
+        "g86",
+        "g87",
+        "g97",
+        "g02",
+        "g25",
+        "g45",
+        "g47",
+        "g48",
+        "g50",
+        "g64",
+        "g66",
+        "g72",
+        "g76",
+        "g03",
+        "g05",
+        "g08",
+        "g12",
+        "g09",
+        "g10",
+        "g13",
+        "g11",
+        "g15",
+        "g17",
+        "g32",
+        "g35",
+        "g46",
+        "g49",
+        "g54",
+        "g55",
+        "g56"
+      ]
+    }
+  },
+  "blocks": {
+    "vocabulario": [
+      "p",
+      "h",
+      "list",
+      "table",
+      "chart",
+      "figure",
+      "kpi",
+      "stats",
+      "big",
+      "callout",
+      "image",
+      "media",
+      "flow",
+      "ladder",
+      "ranks",
+      "timeline",
+      "compare",
+      "toc",
+      "form",
+      "flowchart",
+      "quote",
+      "code",
+      "refs",
+      "custom"
+    ],
+    "chart_types": [
+      "bar",
+      "hbar",
+      "line",
+      "stack",
+      "pie",
+      "hist",
+      "box",
+      "scatter",
+      "heat",
+      "map"
+    ],
+    "limites": {
+      "texto_p": 1400,
+      "items_lista": 14,
+      "filas_tabla": 40,
+      "puntos_grafico": 14
+    }
+  },
+  "image_treatments": {
+    "ocre": [
+      "negro",
+      "ocre"
+    ],
+    "crema": [
+      "negro",
+      "crema"
+    ],
+    "verde": [
+      "bosque",
+      "vivo"
+    ],
+    "negroverde": [
+      "negro",
+      "vivo"
+    ],
+    "acento": [
+      "bosque",
+      "vivo"
+    ],
+    "claro": [
+      "negro",
+      "crema"
+    ],
+    "calido": [
+      "negro",
+      "ocre"
+    ],
+    "rojo": [
+      "bosque",
+      "vivo"
+    ]
+  },
+  "reglas_medibles": {
+    "R03_margen_lateral_cqw": 5,
+    "R05_vivo_ocre_nunca_texto_sobre_crema": true,
+    "R08_sin_texto_sobre_foto": true,
+    "R09_simbolos_por_portada": [
+      3,
+      5
+    ],
+    "radio": 0,
+    "sin_degradados": true,
+    "sin_sombras_suaves": true
+  },
+  "reglas_texto": {
+    "idioma": "español neutro, frases cortas, coma decimal",
+    "titulos": "se escriben en minúsculas normales; el diseño los pone en mayúsculas",
+    "titular_max": 60,
+    "parte_max": 34,
+    "un_dato_una_vez": true
+  },
+  "plantillas_requeridas": {
+    "portada": [
+      "CV-1"
+    ],
+    "divisor": [
+      "DV-A"
+    ]
+  },
+  "base": "prompt-master",
+  "estilo": "recta",
+  "descripcion": "Editorial claro tipo SaaS: papel blanco, titulares pesados en dos tonos, acento violeta, pasos con numerales gigantes y paneles oscuros con listas de verificación.",
+  "font_roles": {
+    "display": "Archivo",
+    "body": "Archivo",
+    "mono": "Archivo"
+  },
+  "estado": "propuesta",
+  "modo": "oscuro"
+}

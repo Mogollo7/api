@@ -1,0 +1,44 @@
+{
+ "id": "cifra_grande",
+ "tipo": "ingrediente",
+ "version": "1",
+ "nombre": "Cifra grande con frase",
+ "descripcion": "Sección con una cifra destacada en tamaño grande y una frase que la explica. Sirve para resaltar un resultado o un indicador clave dentro de un documento.",
+ "tags": [
+  "cifra grande",
+  "número destacado",
+  "dato clave",
+  "indicador",
+  "métrica",
+  "resultado destacado",
+  "big number",
+  "kpi",
+  "frase",
+  "cifra destacada"
+ ],
+ "origen": "supermercado",
+ "licencia": "propia",
+ "huecos": {
+  "titulo": {
+   "desc": "Título de la sección (máx. 60 letras)",
+   "defecto": "Resultado del trimestre"
+  },
+  "valor": {
+   "desc": "La cifra (corta, máx. 12 caracteres)",
+   "defecto": "+12 %"
+  },
+  "unidad": {
+   "desc": "Unidad o concepto de la cifra (máx. 20 letras)",
+   "defecto": "ingresos"
+  },
+  "pie": {
+   "desc": "Nota bajo la cifra (máx. 30 letras)",
+   "defecto": "frente al año anterior [SIM]"
+  },
+  "frase": {
+   "desc": "Frase que explica la cifra (máx. 300 letras)",
+   "defecto": "Crecimiento sostenido en las tres líneas, con mayor fuerza en la línea A."
+  }
+ },
+ "markdown": "## {{titulo}}\n\n:::big\n{{valor}} | {{unidad}} | {{pie}}\n:::\n\n{{frase}}\n"
+}

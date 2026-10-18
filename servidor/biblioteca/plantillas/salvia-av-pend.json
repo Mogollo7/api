@@ -1,0 +1,24 @@
+{
+ "id": "salvia-av-pend",
+ "tipo": "plantilla",
+ "nombre": "Dato pendiente (punteado) (aviso)",
+ "version": "1",
+ "descripcion": "Falta una cifra",
+ "tags": [
+  "aviso",
+  "molécula",
+  "fabrica_estilo (redonda)",
+  "propuesta"
+ ],
+ "design": "salvia",
+ "uso": "Variante AV-pend del diseño salvia; se elige en options.variants.aviso.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "aviso": "AV-pend"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

@@ -1,0 +1,24 @@
+{
+ "id": "editorial-gr-hbar",
+ "tipo": "plantilla",
+ "nombre": "Barras horizontales (gráfico)",
+ "version": "1",
+ "descripcion": "Gráfico estándar: ver ESTANDARES.md",
+ "tags": [
+  "gráfico",
+  "molécula",
+  "nueva",
+  "propuesta"
+ ],
+ "design": "editorial",
+ "uso": "Variante GR-hbar del diseño editorial; se elige en options.variants.gráfico.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "gráfico": "GR-hbar"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

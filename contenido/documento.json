@@ -1,0 +1,680 @@
+{
+ "contract": "1.0",
+ "design": "anura",
+ "format": "pdf-a4",
+ "palette": "default",
+ "options": {
+  "seed": 7
+ },
+ "meta": {
+  "title": "Aportes de la psicología a la PITB Antioquia",
+  "author": "Equipo PITB Antioquia",
+  "subject": "Marco teórico, evidencia formativa y justificación ética desde la psicología",
+  "keywords": [
+   "PITB",
+   "Psicología ambiental",
+   "Psicología cognitiva",
+   "Inteligencia artificial",
+   "Participación ciudadana"
+  ],
+  "date": "Octubre 2026",
+  "version": "Vol. 01 · v0.1",
+  "header_left": [
+   "Informe Técnico",
+   "PITB Antioquia"
+  ],
+  "footer": "Psicología · PITB Antioquia · v1"
+ },
+ "document": {
+  "cover": {
+   "variant": "CV-4",
+   "vertical": "PSICOLOGÍA",
+   "title": "Aportes de la psicología a la PITB Antioquia",
+   "text": "Marco teórico, evidencia formativa y justificación ética para la interacción humana con inteligencia artificial.",
+   "stack": [
+    "PSICOLOGÍA",
+    "BIODIVERSIDAD",
+    "TERRITORIO"
+   ],
+   "badge": {
+    "lines": [
+     "PITB",
+     "ANTIOQUIA"
+    ],
+    "tag": "VOL. 01"
+   },
+   "quote": [
+    "CONFIANZA",
+    "INFORMADA"
+   ],
+   "strip": [
+    "AMBIENTE",
+    "COGNICIÓN",
+    "CONFIANZA",
+    "COMUNIDAD"
+   ],
+   "number": "01",
+   "list": [
+    "Psicología ambiental",
+    "Cognición y sesgos",
+    "Investigación piloto",
+    "Gobernanza ética"
+   ],
+   "notes": [
+    "INFORME",
+    "PILOTO",
+    "ANTIOQUIA"
+   ],
+   "image": "campo.png",
+   "alt": "Persona mayor con guante azul revisando vegetación en campo",
+   "treatment": "negroverde"
+  },
+  "parts": [
+   {
+    "id": "p1",
+    "title": "Marco teórico",
+    "desc": "Psicología ambiental, teoría del comportamiento planificado y brecha entre conciencia y acción.",
+    "divider": "DV-B",
+    "image": "campo.png",
+    "alt": "Trabajo de campo en biodiversidad",
+    "sections": [
+     {
+      "id": "s01",
+      "title": "La dimensión psicológica en la PITB",
+      "tema": "Fundamentos",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "La Plataforma de Inteligencia Territorial y Biodiversidad (PITB) Antioquia integra inteligencia artificial para identificar y registrar especies de fauna y flora, aportando información al ordenamiento territorial del departamento [FUENTE]."
+       },
+       {
+        "type": "p",
+        "text": "El éxito de una herramienta tecnológica no depende únicamente de sus especificaciones de ingeniería: reside en cómo las personas perciben, asimilan, utilizan y valoran la información disponible [INF]."
+       },
+       {
+        "type": "flow",
+        "cols": 3,
+        "steps": [
+         {
+          "title": "Percepción inicial",
+          "text": "Contacto inicial con la plataforma y valoración de su pertinencia territorial."
+         },
+         {
+          "title": "Apropiación técnica",
+          "text": "Desarrollo de autoeficacia y seguridad en la captura de registros de especies.",
+          "on": true
+         },
+         {
+          "title": "Compromiso sostenido",
+          "text": "Participación comunitaria continua en el monitoreo ecológico local."
+         }
+        ]
+       },
+       {
+        "type": "callout",
+        "tone": "clave",
+        "text": "El aprovechamiento real de la PITB se define en la interacción cotidiana entre la ciudadanía y los datos generados."
+       }
+      ]
+     },
+     {
+      "id": "s02",
+      "title": "Psicología ambiental y conducta ecológica",
+      "tema": "Ambiente",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "La psicología ambiental analiza la relación recíproca entre los individuos y su entorno. Gifford (2014) señala que la conducta favorable al ambiente resulta de actitudes, creencias, normas sociales compartidas y barreras estructurales o personales [FUENTE]."
+       },
+       {
+        "type": "p",
+        "text": "En la PITB, disponer de una aplicación tecnológica no asegura por sí mismo el registro activo de fauna o flora. Es indispensable activar motivaciones intrínsecas, sentido de pertenencia y condiciones que faciliten el compromiso ciudadano [INF]."
+       },
+       {
+        "type": "table",
+        "head": [
+         "Dimensión psicosocial",
+         "Incidencia en la plataforma",
+         "Estrategia de fortalecimiento"
+        ],
+        "rows": [
+         [
+          "Actitudes y creencias",
+          "Interés genuino por conservar ecosistemas",
+          "Sensibilización sobre valor de la biodiversidad"
+         ],
+         [
+          "Normas subjetivas",
+          "Percepción de respaldo en la comunidad",
+          "Reconocimiento público a participantes locales"
+         ],
+         [
+          "Barreras percibidas",
+          "Inseguridad ante el uso digital o biológico",
+          "Guías prácticas y retroalimentación pedagógica"
+         ]
+        ],
+        "widths": [
+         28,
+         36,
+         36
+        ],
+        "caption": "Tabla 1. Factores psicosociales asociados al registro participativo de especies."
+       },
+       {
+        "type": "callout",
+        "tone": "nota",
+        "text": "El compromiso ambiental se consolida cuando la actividad comunitaria se acompaña de retroalimentación oportuna."
+       }
+      ]
+     },
+     {
+      "id": "s03",
+      "title": "Teoría del comportamiento planificado",
+      "tema": "Comportamiento",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "El modelo de Ajzen (1991) establece que la intención conductual se fundamenta en las actitudes hacia la acción, las normas subjetivas y el control conductual percibido (autoeficacia) [FUENTE]."
+       },
+       {
+        "type": "p",
+        "text": "Una persona puede considerar fundamental proteger la fauna, pero abstenerse de reportar hallazgos si asume que carece de conocimientos para identificar especies o manejar la plataforma [INF]."
+       },
+       {
+        "type": "flowchart",
+        "title": "Determinantes de la intención de registro biológico",
+        "nodes": [
+         {
+          "id": "a",
+          "label": "Actitud hacia la conservación",
+          "kind": "start"
+         },
+         {
+          "id": "b",
+          "label": "Normas comunitarias favorables",
+          "kind": "process"
+         },
+         {
+          "id": "c",
+          "label": "Autoeficacia técnica percibida",
+          "kind": "process"
+         },
+         {
+          "id": "d",
+          "label": "Intención de reporte",
+          "kind": "decision"
+         },
+         {
+          "id": "e",
+          "label": "Conducta efectiva de registro",
+          "kind": "end"
+         }
+        ],
+        "edges": [
+         {
+          "from": "a",
+          "to": "d"
+         },
+         {
+          "from": "b",
+          "to": "d"
+         },
+         {
+          "from": "c",
+          "to": "d"
+         },
+         {
+          "from": "d",
+          "to": "e",
+          "label": "sí"
+         }
+        ],
+        "caption": "Figura 1. Ruta explicativa de la conducta de registro basada en Ajzen (1991)."
+       },
+       {
+        "type": "callout",
+        "tone": "ojo",
+        "text": "Ofrecer orientación accesible y actividades de familiarización eleva la percepción de capacidad y previene la frustración."
+       }
+      ]
+     },
+     {
+      "id": "s04",
+      "title": "La brecha entre conciencia y acción",
+      "tema": "Conciencia",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "Kollmuss y Agyeman (2002) demostraron que un mayor nivel de información ecológica no genera automáticamente conductas proambientales sostenidas [FUENTE]."
+       },
+       {
+        "type": "p",
+        "text": "Para movilizar a la ciudadanía no basta con informar sobre la riqueza biológica de Antioquia. Se deben diseñar experiencias significativas y accesibles donde el ciudadano perciba la trascendencia de su contribución [INF]."
+       },
+       {
+        "type": "compare",
+        "left": {
+         "title": "Modelo informativo clásico",
+         "items": [
+          "Supone que transmitir datos produce acción directa",
+          "Enfoque unidireccional y teórico",
+          "Desestima barreras cotidianas y motivaciones"
+         ]
+        },
+        "right": {
+         "title": "Enfoque psicosocial integral",
+         "items": [
+          "Articula motivaciones, normas y autoeficacia",
+          "Propone experiencias guiadas y significativas",
+          "Elimina fricciones en la interacción digital"
+         ]
+        },
+        "verdict": "El enfoque psicosocial integral supera la brecha informativa y estimula la participación comunitaria activa."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "p2",
+    "title": "Cognición y tecnología",
+    "desc": "Procesos cognitivos, heurísticas de juicio y calibración de la confianza en inteligencia artificial.",
+    "divider": "DV-B",
+    "image": "campo.png",
+    "alt": "Observación y registro en campo",
+    "sections": [
+     {
+      "id": "s05",
+      "title": "Procesos cognitivos y heurísticas de juicio",
+      "tema": "Cognición",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "La psicología cognitiva estudia cómo las personas perciben, interpretan y utilizan la información para tomar decisiones. Kahneman (2011) analiza cómo los juicios humanos están mediados por heurísticas y sesgos cognitivos que pueden inducir a errores ante la incertidumbre [FUENTE]."
+       },
+       {
+        "type": "p",
+        "text": "En la PITB, un usuario puede asumir que la clasificación automática de la IA es infalible, pasando por alto limitaciones de resolución, ángulo de captura o semejanza entre especies afines [INF]."
+       },
+       {
+        "type": "ladder",
+        "items": [
+         {
+          "title": "Sugerencia inicial automatizada",
+          "text": "Clasificación preliminar probabilística aportada por el modelo de visión.",
+          "cost": "Nivel 1"
+         },
+         {
+          "title": "Revisión crítica de rasgos clave",
+          "text": "Contraste visual de morfología y hábitat por parte de la persona usuaria.",
+          "cost": "Nivel 2"
+         },
+         {
+          "title": "Confirmación experta o comunitaria",
+          "text": "Validación botánica o zoológica en casos de alta incertidumbre.",
+          "cost": "Nivel 3"
+         }
+        ]
+       },
+       {
+        "type": "callout",
+        "tone": "regla",
+        "text": "Las predicciones algorítmicas deben comunicarse como hipótesis de trabajo y no como veredictos definitivos."
+       }
+      ]
+     },
+     {
+      "id": "s06",
+      "title": "Confianza calibrada en sistemas automatizados",
+      "tema": "Confianza",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "Lee y See (2004) investigan la confianza en la automatización y la necesidad de diseñar condiciones para una dependencia adecuada, ajustada a las capacidades efectivas del sistema [FUENTE]."
+       },
+       {
+        "type": "p",
+        "text": "Una confianza desmedida conlleva la aceptación ciega de falsos positivos taxonómicos; una desconfianza excesiva desincentiva el uso de la herramienta. Se requiere propiciar una confianza informada [INF]."
+       },
+       {
+        "type": "table",
+        "head": [
+         "Estado de confianza",
+         "Conducta del usuario",
+         "Impacto en la plataforma",
+         "Intervención de diseño"
+        ],
+        "rows": [
+         [
+          "Sobreconfianza",
+          "Aceptación automática y acrítica",
+          "Dispersión de registros erróneos",
+          "Exhibir márgenes de duda y rasgos clave"
+         ],
+         [
+          "Confianza calibrada",
+          "Verificación consciente y equilibrada",
+          "Aprovechamiento óptimo de la IA",
+          "Explicabilidad e interfaces transparentes"
+         ],
+         [
+          "Subconfianza",
+          "Descarte sistemático del sistema",
+          "Subutilización y deserción",
+          "Evidenciar la precisión y utilidad real"
+         ]
+        ],
+        "widths": [
+         20,
+         26,
+         27,
+         27
+        ],
+        "caption": "Tabla 2. Matriz de calibración de confianza en automatización según Lee y See."
+       },
+       {
+        "type": "callout",
+        "tone": "clave",
+        "text": "La transparencia en las limitaciones del algoritmo es el cimiento de una relación equilibrada con la tecnología."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "p3",
+    "title": "Investigación formativa",
+    "desc": "Diagnóstico inicial, evaluación en fase piloto y variables operativas para la validación empírica.",
+    "divider": "DV-B",
+    "image": "campo.png",
+    "alt": "Medición y evaluación en terreno",
+    "sections": [
+     {
+      "id": "s07",
+      "title": "Estrategia metodológica en fase piloto",
+      "tema": "Metodología",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "Los antecedentes teóricos orientan la investigación formativa desde la psicología para indagar cómo las personas interactúan con la herramienta y qué variables facilitan o frenan su participación [FUENTE]."
+       },
+       {
+        "type": "p",
+        "text": "Se estructura un proceso iterativo de recolección de evidencia empírica en terreno que acompaña la evolución del software [INF]."
+       },
+       {
+        "type": "flow",
+        "cols": 3,
+        "steps": [
+         {
+          "title": "1. Diagnóstico de entrada",
+          "text": "Encuesta breve sobre actitudes ambientales, autoeficacia y dificultades anticipadas."
+         },
+         {
+          "title": "2. Prueba de experiencia",
+          "text": "Medición de usabilidad, comprensión de resultados y confianza percibida.",
+          "on": true
+         },
+         {
+          "title": "3. Análisis y refinamiento",
+          "text": "Identificación de necesidades educativas y ajuste de las interfaces de usuario."
+         }
+        ]
+       },
+       {
+        "type": "callout",
+        "tone": "sim",
+        "text": "Los indicadores y fases metodológicas son propuestas para el piloto y sus resultados dependerán de los datos empíricos obtenidos."
+       }
+      ]
+     },
+     {
+      "id": "s08",
+      "title": "Matriz operacional de variables",
+      "tema": "Variables",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "Las variables de interés integran constructos actitudinales, de percepción de control y de juicio crítico frente a las clasificaciones biológicas automatizadas."
+       },
+       {
+        "type": "table",
+        "head": [
+         "Constructo",
+         "Referente teórico",
+         "Indicador de medición",
+         "Instrumento"
+        ],
+        "rows": [
+         [
+          "Actitud hacia la conservación",
+          "Gifford (2014)",
+          "Valor asignado a la protección ecosistémica",
+          "Escala breve Likert"
+         ],
+         [
+          "Autoeficacia tecnológica",
+          "Ajzen (1991)",
+          "Percepción de facilidad para registrar datos",
+          "Cuestionario diagnóstico"
+         ],
+         [
+          "Pensamiento crítico en IA",
+          "Kahneman (2011)",
+          "Capacidad para cuestionar identificaciones dudosas",
+          "Prueba de caso con discrepancia"
+         ],
+         [
+          "Calibración de confianza",
+          "Lee y See (2004)",
+          "Disposición a verificar y reportar incertidumbre",
+          "Registro de interacción en la app"
+         ]
+        ],
+        "widths": [
+         24,
+         24,
+         32,
+         20
+        ],
+        "caption": "Tabla 3. Operacionalización de dimensiones psicológicas para la investigación formativa."
+       },
+       {
+        "type": "callout",
+        "tone": "pend",
+        "text": "Los instrumentos de evaluación deberán someterse a validación de contenido en municipios seleccionados de Antioquia."
+       }
+      ]
+     },
+     {
+      "id": "s09",
+      "title": "Ciencia ciudadana y experiencia en campo",
+      "tema": "Comunidad",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "Las jornadas comunitarias de ciencia ciudadana constituyen espacios de socialización donde la fotografía biológica se vincula con la experiencia directa de la naturaleza [FUENTE]."
+       },
+       {
+        "type": "image",
+        "src": "campo.png",
+        "ratio": "16/9",
+        "treatment": "negroverde",
+        "caption": "Trabajo de campo: observación comunitaria y registro de flora en territorio [FUENTE]."
+       },
+       {
+        "type": "p",
+        "text": "El contacto directo con el entorno rural o periurbano propicia la valoración compartida del patrimonio natural y fortalece el tejido social alrededor de la custodia territorial [INF]."
+       },
+       {
+        "type": "callout",
+        "tone": "nota",
+        "text": "La práctica de campo afianza el aprendizaje vivencial y consolida la motivación para el cuidado colectivo de los ecosistemas."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "p4",
+    "title": "Ética y gobernanza",
+    "desc": "Autonomía personal, gobernanza ética de datos, inclusión comunitaria y síntesis interdisciplinaria.",
+    "divider": "DV-B",
+    "image": "campo.png",
+    "alt": "Gobernanza ética y comunidades",
+    "sections": [
+     {
+      "id": "s10",
+      "title": "Principios éticos e interacción con IA",
+      "tema": "Ética",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "El despliegue de sistemas de inteligencia artificial en ámbitos comunitarios exige salvaguardar la autonomía humana y prevenir la delegación acrítica de decisiones cognitivas en software automatizado [FUENTE]."
+       },
+       {
+        "type": "p",
+        "text": "Para evitar la aceptación mecánica de clasificaciones dudosas, la plataforma debe promover el pensamiento crítico y facilitar la consulta con biólogos y especialistas territoriales [INF]."
+       },
+       {
+        "type": "list",
+        "ordered": false,
+        "items": [
+         "Promover el pensamiento crítico frente a cada salida y grado de certeza algorítmica.",
+         "Comunicar con transparencia los márgenes de incertidumbre y las posibles confusiones taxonómicas.",
+         "Habilitar canales expeditos para solicitar la verificación de registros por profesionales competentes.",
+         "Diseñar interfaces accesibles e inclusivas para personas con diversos grados de alfabetización digital."
+        ]
+       },
+       {
+        "type": "callout",
+        "tone": "ojo",
+        "text": "La inteligencia artificial en la PITB actúa como asistente cognitivo y nunca como autoridad incuestionable."
+       }
+      ]
+     },
+     {
+      "id": "s11",
+      "title": "Protección comunitaria y gobernanza de datos",
+      "tema": "Gobernanza",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "La participación de personas en actividades de registro o evaluación demanda rigurosidad en consentimiento informado, confidencialidad y custodia responsable de la información ciudadana [FUENTE]."
+       },
+       {
+        "type": "p",
+        "text": "Asimismo, la georreferenciación de especies amenazadas o endémicas exige salvaguardas especiales para impedir que la divulgación de coordenadas facilite su extracción ilícita o perturbación [INF]."
+       },
+       {
+        "type": "flowchart",
+        "title": "Ruta de protección de datos y biodiversidad sensible",
+        "nodes": [
+         {
+          "id": "g1",
+          "label": "Consentimiento informado voluntario",
+          "kind": "start"
+         },
+         {
+          "id": "g2",
+          "label": "Minimización y anonimización de datos",
+          "kind": "process"
+         },
+         {
+          "id": "g3",
+          "label": "¿Especie vulnerable o amenazada?",
+          "kind": "decision"
+         },
+         {
+          "id": "g4",
+          "label": "Ofuscación de coordenadas precisas",
+          "kind": "process"
+         },
+         {
+          "id": "g5",
+          "label": "Publicación abierta en catálogo PITB",
+          "kind": "end"
+         }
+        ],
+        "edges": [
+         {
+          "from": "g1",
+          "to": "g2"
+         },
+         {
+          "from": "g2",
+          "to": "g3"
+         },
+         {
+          "from": "g3",
+          "to": "g4",
+          "label": "sí"
+         },
+         {
+          "from": "g3",
+          "to": "g5",
+          "label": "no"
+         },
+         {
+          "from": "g4",
+          "to": "g5"
+         }
+        ],
+        "caption": "Figura 2. Protocolo ético para la salvaguarda de datos personales y especies sensibles."
+       },
+       {
+        "type": "callout",
+        "tone": "clave",
+        "text": "La ética territorial demanda proteger tanto la dignidad de las comunidades como la integridad de las especies vulnerables."
+       }
+      ]
+     },
+     {
+      "id": "s12",
+      "title": "Conclusiones y articulación transdisciplinar",
+      "tema": "Síntesis",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "La psicología aporta a la PITB Antioquia herramientas conceptuales y metodológicas para comprender los factores que orientan la conducta ambiental, la apropiación comunitaria y la interpretación crítica de la inteligencia artificial [FUENTE]."
+       },
+       {
+        "type": "p",
+        "text": "Integrar la psicología ambiental y cognitiva en el diseño de la plataforma asegura que el avance técnico dialogue de forma armónica con las necesidades, capacidades y valores de las personas en los territorios [INF]."
+       },
+       {
+        "type": "quote",
+        "text": "El verdadero potencial de la inteligencia territorial emerge cuando el poder computacional se orienta a fortalecer la autonomía, el conocimiento y el bienestar de las comunidades.",
+        "by": "Equipo de investigación PITB Antioquia"
+       },
+       {
+        "type": "callout",
+        "tone": "nota",
+        "text": "La efectividad de estas propuestas psicosociales se contrastará durante la fase piloto de implementación."
+       }
+      ]
+     },
+     {
+      "id": "s13",
+      "title": "Referencias bibliográficas",
+      "tema": "Referencias",
+      "blocks": [
+       {
+        "type": "refs",
+        "title": "Fuentes citadas en el documento",
+        "items": [
+         "Ajzen, I. (1991). The theory of planned behavior. Organizational Behavior and Human Decision Processes, 50(2), 179–211. https://doi.org/10.1016/0749-5978(91)90020-T",
+         "Gifford, R. (2014). Environmental psychology matters. Annual Review of Psychology, 65, 541–579. https://doi.org/10.1146/annurev-psych-010213-115048",
+         "Kahneman, D. (2011). Thinking, fast and slow. Farrar, Straus and Giroux.",
+         "Kollmuss, A., & Agyeman, J. (2002). Mind the gap: Why do people act environmentally and what are the barriers to pro-environmental behavior? Environmental Education Research, 8(3), 239–260. https://doi.org/10.1080/13504620220145401",
+         "Lee, J. D., & See, K. A. (2004). Trust in automation: Designing for appropriate reliance. Human Factors, 46(1), 50–80. https://doi.org/10.1518/hfes.46.1.50_30392"
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

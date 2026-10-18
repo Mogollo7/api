@@ -21,7 +21,7 @@ from engine import assets, atoms_svg, blocks, pages, variants  # noqa: E402
 from engine.muestras import samples  # noqa: E402
 from engine.text import esc  # noqa: E402
 
-FIT_JS = (HERE / "engine/fit.js").read_text()
+FIT_JS = (HERE / "engine/fit.js").read_text(encoding="utf-8")
 
 
 ATOMS = {
@@ -74,12 +74,13 @@ paint();
 """
 
 
-def build(out_dir: Path, images_root: Path, palette: str, design: str = "anura"):
+def build(out_dir: Path, images_root: Path, palette, design: str = "anura", nav: bool = True):   # palette: nombre o {rol: #hex}
     design_dir = HERE / "designs" / design
-    m = json.loads((design_dir / "manifest.json").read_text())
-    pals = json.loads((design_dir / "palettes.json").read_text())
+    m = json.loads((design_dir / "manifest.json").read_text(encoding="utf-8"))
+    pals = json.loads((design_dir / "palettes.json").read_text(encoding="utf-8"))
     roles = dict(m["palette"]["roles"])
-    roles.update(pals.get(palette, {}))
+    roles.update(palette if isinstance(palette, dict) else pals.get(palette, {}))
+    palette = "personalizada" if isinstance(palette, dict) else palette
     DESIGN = design
     reg = variants.Registry(design_dir)
     sym = assets.Symbols(design_dir)
@@ -134,14 +135,14 @@ def build(out_dir: Path, images_root: Path, palette: str, design: str = "anura")
     cards = [c.replace(f'<option value="{v["estado"]}">', f'<option value="{v["estado"]}" selected>') for c, v in zip(cards, shown)]
     kinds = sorted({v["tipo"] for v in reg.data["variantes"]})
     other = [p for p in pals if p != "_marca" and p != palette]
-    nav = "".join(f'<a href="galeria_{design}_{p}.html">paleta {p}</a>' for p in other)
+    nav = "".join(f'<a href="galeria_{design}_{p}.html">paleta {p}</a>' for p in other) if nav else ""
     head = (f'<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
-            f'<title>Galería de variantes · {palette}</title><style>{assets.font_css(design_dir, m)}{assets.root_css(roles)}'
-            f'{(design_dir/"bundle.css").read_text()}{(design_dir/"extras.css").read_text()}{CSS}</style></head><body>')
+            f'<title>Galería de variantes · {palette}</title><style>{assets.font_css(design_dir, m)}{assets.root_css(roles, m)}'
+            f'{(design_dir/"bundle.css").read_text(encoding="utf-8")}{(design_dir/"extras.css").read_text(encoding="utf-8")}{CSS}</style></head><body>')
     top = (f'<div class="top"><h1>Galería de variantes · {palette}</h1><button class="f on" data-k="*">todas</button>'
            + "".join(f'<button class="f" data-k="{k}">{k}</button>' for k in kinds) + nav
            + '<span class="cnt" id="cnt"></span><button class="p" id="exp">Exportar aprobaciones</button></div>')
-    html = head + sym.defs().replace("</svg>", ((design_dir / "defs.svg.txt").read_text() if (design_dir / "defs.svg.txt").exists() else "") + "</svg>") + top + "<main>" + "".join(cards) + f"</main><script>{FIT_JS}</script><script>{JS}</script></body></html>"
+    html = head + sym.defs().replace("</svg>", ((design_dir / "defs.svg.txt").read_text(encoding="utf-8") if (design_dir / "defs.svg.txt").exists() else "") + "</svg>") + top + "<main>" + "".join(cards) + f"</main><script>{FIT_JS}</script><script>{JS}</script></body></html>"
     out_dir.mkdir(parents=True, exist_ok=True)
     f = out_dir / (f"galeria_{palette}.html" if design == "anura" else f"galeria_{design}_{palette}.html")
     f.write_text(html, encoding="utf-8")
@@ -157,7 +158,7 @@ def main():
     a = ap.parse_args()
     out = Path(a.salida)
     files = []
-    pals = [k for k in json.loads((HERE / "designs" / a.design / "palettes.json").read_text()) if k != "_marca"]
+    pals = [k for k in json.loads((HERE / "designs" / a.design / "palettes.json").read_text(encoding="utf-8")) if k != "_marca"]
     for pal in pals:
         f, w = build(out, Path(a.imagenes), pal, a.design)
         files.append(f)
@@ -179,4 +180,5 @@ def main():
 
 
 if __name__ == "__main__":
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")      # Windows: la consola cp1252 no acepta ✔ → ·
     main()

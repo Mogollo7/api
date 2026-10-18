@@ -1,0 +1,9 @@
+
+# claves locales de la API (no se versionan)
+servidor/data/
+servidor/entrenamiento/dataset/
+salida/evaluacion/
+salida/director/
+salida/_fmt_tmp/
+servidor/tools/node/node_modules/
+servidor/tools/vendor/

@@ -1,0 +1,24 @@
+{
+ "id": "prompt-master-cv-1",
+ "tipo": "plantilla",
+ "nombre": "SaaS: etiqueta + título pesado (portada)",
+ "version": "1",
+ "descripcion": "Papel blanco, degradado violeta suave, etiqueta con regla y titular de dos líneas.",
+ "tags": [
+  "portada",
+  "organismo",
+  "guia-prompt-master-v2.pdf (inspirada)",
+  "propuesta"
+ ],
+ "design": "prompt-master",
+ "uso": "Variante CV-1 del diseño prompt-master; se elige en options.variants.portada.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "portada": "CV-1"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

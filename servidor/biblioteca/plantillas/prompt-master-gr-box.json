@@ -1,0 +1,24 @@
+{
+ "id": "prompt-master-gr-box",
+ "tipo": "plantilla",
+ "nombre": "Cajas (gráfico)",
+ "version": "1",
+ "descripcion": "Gráfico estándar: ver ESTANDARES.md",
+ "tags": [
+  "gráfico",
+  "molécula",
+  "referencia cine",
+  "propuesta"
+ ],
+ "design": "prompt-master",
+ "uso": "Variante GR-box del diseño prompt-master; se elige en options.variants.gráfico.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "gráfico": "GR-box"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

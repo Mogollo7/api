@@ -1,0 +1,24 @@
+{
+ "id": "prompt-master-gr-hbar",
+ "tipo": "plantilla",
+ "nombre": "Barras horizontales (gráfico)",
+ "version": "1",
+ "descripcion": "Gráfico estándar: ver ESTANDARES.md",
+ "tags": [
+  "gráfico",
+  "molécula",
+  "nueva",
+  "propuesta"
+ ],
+ "design": "prompt-master",
+ "uso": "Variante GR-hbar del diseño prompt-master; se elige en options.variants.gráfico.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "gráfico": "GR-hbar"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

@@ -1,0 +1,24 @@
+{
+ "id": "anura-dv-a",
+ "tipo": "plantilla",
+ "nombre": "Disco (divisor)",
+ "version": "1",
+ "descripcion": "Foto circular que sangra abajo a la derecha",
+ "tags": [
+  "divisor",
+  "organismo",
+  "anura",
+  "propuesta"
+ ],
+ "design": "anura",
+ "uso": "Variante DV-A del diseño anura; se elige en options.variants.divisor.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "divisor": "DV-A"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

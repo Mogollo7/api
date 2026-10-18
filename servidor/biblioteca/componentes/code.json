@@ -1,0 +1,25 @@
+{
+ "id": "code",
+ "tipo": "componente",
+ "nombre": "Bloque «code»",
+ "version": "1.0",
+ "descripcion": "Bloque de código o texto monoespaciado (no se interpreta).",
+ "tags": [
+  "code",
+  "código"
+ ],
+ "uso": "Bloque de código o texto monoespaciado (no se interpreta).",
+ "parametros": {
+  "code": "str (obligatorio) — Código. Máx. 1500.",
+  "lang": "str — Lenguaje.",
+  "caption": "markup — Pie."
+ },
+ "ejemplo": {
+  "type": "code",
+  "lang": "python",
+  "code": "df.info()"
+ },
+ "origen": "engine/spec.py",
+ "licencia": "propia",
+ "error_tipico": "Pasarse del límite de longitud (code ≤ 1500): el motor recorta o reduce con aviso."
+}

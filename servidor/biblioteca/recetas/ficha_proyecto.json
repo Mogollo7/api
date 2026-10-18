@@ -1,0 +1,112 @@
+{
+ "id": "ficha_proyecto",
+ "tipo": "receta",
+ "version": "1",
+ "nombre": "Ficha de proyecto",
+ "descripcion": "Ficha de un proyecto con su objetivo, responsables, cronograma en lista y tres cifras de seguimiento. Sirve para presentar un proyecto a la dirección o al equipo.",
+ "tags": [
+  "ficha",
+  "proyecto",
+  "cronograma",
+  "responsables",
+  "objetivo",
+  "seguimiento",
+  "avance",
+  "indicadores",
+  "plan",
+  "resumen de proyecto"
+ ],
+ "formato": "pdf",
+ "estilo": "editorial",
+ "origen": "supermercado",
+ "licencia": "propia",
+ "huecos": {
+  "titulo": {
+   "desc": "Nombre del proyecto (máx. 60 letras)",
+   "defecto": "Plan de renovación para la tienda Norte"
+  },
+  "objetivo": {
+   "desc": "Qué se quiere lograr y por qué, en 2 o 3 frases (máx. 300 letras)",
+   "defecto": "Subir las ventas de la tienda Norte un 15 % en el primer año con una distribución nueva y mejor señalización. El proyecto cubre piso de venta, caja y bodega [SIM]."
+  },
+  "responsables": {
+   "desc": "Rol y nombre, una fila por persona (2 a 4)",
+   "lista": [
+    "rol",
+    "nombre"
+   ],
+   "max": 4,
+   "defecto": [
+    [
+     "Patrocinador",
+     "Carolina Vélez"
+    ],
+    [
+     "Líder del proyecto",
+     "Andrés Molina"
+    ],
+    [
+     "Diseño y obra",
+     "Estudio Trazo SAS"
+    ]
+   ]
+  },
+  "cronograma": {
+   "desc": "Fases y fechas, una fila por fase (3 a 6)",
+   "lista": [
+    "fase",
+    "fecha"
+   ],
+   "max": 6,
+   "defecto": [
+    [
+     "Diagnóstico y medidas",
+     "1 al 15 de noviembre"
+    ],
+    [
+     "Diseño y compras",
+     "16 de noviembre al 10 de diciembre"
+    ],
+    [
+     "Obra en horario nocturno",
+     "11 al 20 de diciembre"
+    ],
+    [
+     "Entrega y medición",
+     "2 de enero de 2027"
+    ]
+   ]
+  },
+  "seguimiento": {
+   "desc": "Tres cifras de seguimiento: valor | etiqueta | nota (2 a 4)",
+   "lista": [
+    "valor",
+    "etiqueta",
+    "nota"
+   ],
+   "max": 4,
+   "defecto": [
+    [
+     "62 %",
+     "avance de obra",
+     "meta 100 % al 20 dic. [SIM]"
+    ],
+    [
+     "$ 186 M",
+     "presupuesto ejecutado",
+     "de $ 240 M [SIM]"
+    ],
+    [
+     "2 de 4",
+     "hitos cumplidos",
+     "el tercero vence el 10 dic."
+    ]
+   ]
+  },
+  "fecha": {
+   "desc": "Fecha de corte del seguimiento (máx. 30 letras)",
+   "defecto": "Octubre 2026"
+  }
+ },
+ "markdown": "---\ntitulo: {{titulo}}\nobjetivo: {{objetivo}}\nfecha: {{fecha}}\n---\n\n# {{titulo}}\n\n## Objetivo\n\n{{objetivo}}\n\n## Responsables\n\n{{#responsables}}- {{rol}}: {{nombre}}\n{{/responsables}}\n## Cronograma\n\n{{#cronograma}}- {{fase}}: {{fecha}}\n{{/cronograma}}\n## Seguimiento\n\n:::kpi\n{{#seguimiento}}{{valor}} | {{etiqueta}} | {{nota}}\n{{/seguimiento}}:::"
+}

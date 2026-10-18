@@ -1,0 +1,24 @@
+{
+ "id": "prompt-master-gr-bar",
+ "tipo": "plantilla",
+ "nombre": "Barras (gráfico)",
+ "version": "1",
+ "descripcion": "Gráfico estándar: ver ESTANDARES.md",
+ "tags": [
+  "gráfico",
+  "molécula",
+  "nueva",
+  "propuesta"
+ ],
+ "design": "prompt-master",
+ "uso": "Variante GR-bar del diseño prompt-master; se elige en options.variants.gráfico.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "gráfico": "GR-bar"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

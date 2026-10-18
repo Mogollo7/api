@@ -42,6 +42,13 @@ def fmt(x, dec=None):
     return t.replace("-", "−")
 
 
+def nice_max(v):
+    """Tope «redondo» del eje que NUNCA queda por debajo de v (ticks() solo devuelve marcas ≤ v)."""
+    t = ticks(0, v)
+    step = t[1] - t[0] if len(t) > 1 else (v or 1)
+    return t[-1] if t[-1] >= v - 1e-9 else round(t[-1] + step, 10)
+
+
 def ticks(lo, hi, n=5):
     span = hi - lo
     if span <= 0:
@@ -106,7 +113,8 @@ def _open(H):
 # ---------------- barras / líneas / apiladas ----------------
 def bar_simple(d, roles=None, H=230):
     items = d["items"]
-    vmax = d.get("max", 100)
+    mv = max((i["v"] for i in items), default=0)
+    vmax = d.get("max") or (100 if mv <= 100 else nice_max(mv * 1.05))   # 100 por defecto (porcentajes) sin cortar valores mayores
     w, h = W - PL - PR, H - PT - PB
     gap = w / len(items)
     bw = min(gap * 0.62, 70)
@@ -191,7 +199,7 @@ def hist(d, roles=None, H=250):
     bw = d.get("width", 0.5)
     xr = d.get("xrange") or [min(b[0] for b in bars) - bw, max(b[0] for b in bars) + bw]
     ymax = max(b[1] for b in bars)
-    yr = [0, ticks(0, ymax * 1.12)[-1]]
+    yr = [0, nice_max(ymax * 1.12)]
     ax, X, Y = _axes(xr, yr, d.get("xlabel", ""), d.get("ylabel", ""), H, xt=d.get("xticks"))
     s = [_open(H), ax]
     for x, c in bars:
@@ -388,7 +396,7 @@ def bar(d, roles=None, H=230):
     stacked = d.get("mode") == "stacked"
     n, m = len(cats), len(ser)
     tot = [sum(sr["values"][i] for sr in ser) for i in range(n)]
-    vmax = d.get("max") or ticks(0, max(tot) if stacked else max(v for sr in ser for v in sr["values"]) * 1.1)[-1]
+    vmax = d.get("max") or nice_max(max(tot) if stacked else max(v for sr in ser for v in sr["values"]) * 1.1)
     w, h = W - PL - PR, H - PT - PB
     gap = w / n
     gw = gap * 0.74
@@ -435,7 +443,7 @@ def line(d, roles=None, H=240):
         xr = d.get("xrange") or [min(allx), max(allx)]
         pos = lambda x: x
     ally = [p[1] for sr in series for p in sr["points"]]
-    yr = d.get("yrange") or [min(0, min(ally)), ticks(0, max(ally) * 1.08)[-1]]
+    yr = d.get("yrange") or [min(0, min(ally)), nice_max(max(ally) * 1.08)]
     ax, X, Y = _axes(xr, yr, d.get("xlabel", ""), d.get("ylabel", ""), H, x_is_cat=cat, h=H - PT - PB - 12)
     s = [_open(H), ax]
     if cat:

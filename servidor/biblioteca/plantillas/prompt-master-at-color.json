@@ -1,0 +1,24 @@
+{
+ "id": "prompt-master-at-color",
+ "tipo": "plantilla",
+ "nombre": "Color por roles (átomo)",
+ "version": "1",
+ "descripcion": "Siete roles: negro, bosque, hoja, vivo, ocre, crema, arena.",
+ "tags": [
+  "átomo",
+  "átomo",
+  "anura",
+  "propuesta"
+ ],
+ "design": "prompt-master",
+ "uso": "Variante AT-color del diseño prompt-master; se elige en options.variants.átomo.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "átomo": "AT-color"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

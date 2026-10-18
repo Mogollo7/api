@@ -1,0 +1,24 @@
+{
+ "id": "salvia-fg-2",
+ "tipo": "plantilla",
+ "nombre": "Figura + cifras (figura)",
+ "version": "1",
+ "descripcion": "Figura 7/10 y cifras laterales 3/10.",
+ "tags": [
+  "figura",
+  "organismo",
+  "fabrica_estilo (redonda)",
+  "propuesta"
+ ],
+ "design": "salvia",
+ "uso": "Variante FG-2 del diseño salvia; se elige en options.variants.figura.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "figura": "FG-2"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

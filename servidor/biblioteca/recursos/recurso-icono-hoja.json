@@ -1,0 +1,22 @@
+{
+ "version": "1",
+ "tags": [
+  "icono",
+  "recurso",
+  "fondo",
+  "patron",
+  "imagen"
+ ],
+ "origen": "recursos.py",
+ "licencia": "ISC (Lucide)",
+ "id": "recurso-icono-hoja",
+ "tipo": "recurso",
+ "nombre": "Icono icono-hoja",
+ "descripcion": "Recurso gráfico «icono» 400×400, colores #2F7D5B sobre none.",
+ "uso": "Bloque figure con src «recursos/icono-hoja.png»; úsalo de fondo o separador.",
+ "ejemplo": {
+  "type": "figure",
+  "src": "recursos/icono-hoja.png",
+  "alt": "icono decorativo"
+ }
+}

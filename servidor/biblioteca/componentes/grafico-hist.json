@@ -1,0 +1,26 @@
+{
+ "id": "grafico-hist",
+ "tipo": "componente",
+ "nombre": "Gráfico «hist»",
+ "version": "1.0",
+ "descripcion": "Gráfico hist: distribución de una variable. Máximo 40 elementos.",
+ "tags": [
+  "grafico",
+  "chart",
+  "hist"
+ ],
+ "uso": "distribución de una variable",
+ "parametros": {
+  "data": "bars:[[x,conteo]], width, xrange, xticks, lines:[{x,label,style:'mean'|'median'}], xlabel, ylabel"
+ },
+ "ejemplo": {
+  "type": "chart",
+  "chart": {
+   "type": "hist",
+   "data": "…"
+  }
+ },
+ "origen": "engine/charts.py",
+ "licencia": "propia",
+ "error_tipico": "Pasar más de 40 elementos: el motor lo degrada con aviso."
+}

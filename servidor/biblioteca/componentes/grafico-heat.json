@@ -1,0 +1,26 @@
+{
+ "id": "grafico-heat",
+ "tipo": "componente",
+ "nombre": "Gráfico «heat»",
+ "version": "1.0",
+ "descripcion": "Gráfico heat: correlaciones. Máximo 12 elementos.",
+ "tags": [
+  "grafico",
+  "chart",
+  "heat"
+ ],
+ "uso": "correlaciones",
+ "parametros": {
+  "data": "labels:[..], matrix:[[..]], range:[min,max]"
+ },
+ "ejemplo": {
+  "type": "chart",
+  "chart": {
+   "type": "heat",
+   "data": "…"
+  }
+ },
+ "origen": "engine/charts.py",
+ "licencia": "propia",
+ "error_tipico": "Pasar más de 12 elementos: el motor lo degrada con aviso."
+}

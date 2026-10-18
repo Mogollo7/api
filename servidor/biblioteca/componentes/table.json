@@ -1,0 +1,41 @@
+{
+ "id": "table",
+ "tipo": "componente",
+ "nombre": "Bloque «table»",
+ "version": "1.0",
+ "descripcion": "Tabla; se parte por filas entre hojas repitiendo la cabecera.",
+ "tags": [
+  "table",
+  "tabla",
+  "filas",
+  "columnas"
+ ],
+ "uso": "Tabla; se parte por filas entre hojas repitiendo la cabecera.",
+ "parametros": {
+  "head": "list — Encabezados.",
+  "rows": "list (obligatorio) — Filas: listas de celdas (texto, número o {t,tone:'f|p|l|n',hi}). Máx. 40.",
+  "widths": "list — Anchos relativos.",
+  "caption": "markup — Pie de tabla.",
+  "variant": "str — Variante."
+ },
+ "ejemplo": {
+  "type": "table",
+  "head": [
+   "Variable",
+   "Tipo"
+  ],
+  "rows": [
+   [
+    "edad",
+    "int8"
+   ],
+   [
+    "año",
+    "int16"
+   ]
+  ]
+ },
+ "origen": "engine/spec.py",
+ "licencia": "propia",
+ "error_tipico": "Pasarse del límite de longitud (rows ≤ 40): el motor recorta o reduce con aviso."
+}

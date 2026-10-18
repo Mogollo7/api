@@ -1,0 +1,24 @@
+{
+ "id": "salvia-av-sim",
+ "tipo": "plantilla",
+ "nombre": "Simulación (rayado) (aviso)",
+ "version": "1",
+ "descripcion": "Estimación, nunca medición",
+ "tags": [
+  "aviso",
+  "molécula",
+  "fabrica_estilo (redonda)",
+  "propuesta"
+ ],
+ "design": "salvia",
+ "uso": "Variante AV-sim del diseño salvia; se elige en options.variants.aviso.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "aviso": "AV-sim"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

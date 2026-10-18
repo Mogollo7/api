@@ -1,0 +1,26 @@
+{
+ "id": "form",
+ "tipo": "componente",
+ "nombre": "Bloque «form»",
+ "version": "1.0",
+ "descripcion": "Ficha de datos con filas para completar.",
+ "tags": [
+  "form"
+ ],
+ "uso": "Ficha de datos con filas para completar.",
+ "parametros": {
+  "title": "markup — Título.",
+  "rows": "list (obligatorio) — Etiquetas."
+ },
+ "ejemplo": {
+  "type": "form",
+  "title": "Datos del estudiante",
+  "rows": [
+   "Nombre completo",
+   "Fecha"
+  ]
+ },
+ "origen": "engine/spec.py",
+ "licencia": "propia",
+ "error_tipico": "Olvidar un campo obligatorio: el contrato rechaza el documento."
+}

@@ -34,7 +34,7 @@ class Ctx:
             self._outlines = {}
             if self.design_dir and (self.design_dir / "geo").exists():
                 for f in (self.design_dir / "geo").glob("*.json"):
-                    self._outlines[f.stem] = json.loads(f.read_text())["poligonos"]
+                    self._outlines[f.stem] = json.loads(f.read_text(encoding="utf-8"))["poligonos"]
         return self._outlines
 
 
@@ -78,6 +78,22 @@ def _cell(c, tag="td", first=False):
     return f'<{tag}{f" class={chr(34)}{cls}{chr(34)}" if cls else ""}>{inline(s)}</{tag}>'
 
 
+def attr_class(head, rows, avail=88.0):
+    """Atributos (encabezados y primera columna) en UNA línea solo si las columnas caben en el ancho de la hoja (cqw);
+    si no, se parten entre palabras, nunca a mitad de palabra (extras.css: .tab th). Ancho estimado: mono 1,7 cqw ≈ 1,2 cqw/carácter, cuerpo ≈ 1,05."""
+    txt = lambda c: plain(str(c.get("t", "") if isinstance(c, dict) else c))
+    nc = max(len(head), max((len(r) for r in rows), default=0))
+    if not nc:
+        return ""
+    need = 0.0
+    for j in range(nc):
+        h = len(txt(head[j])) * 1.2 if j < len(head) else 0
+        col = [txt(r[j]) for r in rows if j < len(r)]
+        body = max((len(c) if j == 0 else max((len(w) for w in c.split()), default=0)) for c in col) * 1.05 if col else 0
+        need += max(h, body) + 2.6
+    return " k1" if need <= avail else ""
+
+
 def table_part(b, r0, r1, with_head=True):
     head = b.get("head") or []
     widths = b.get("widths")
@@ -86,11 +102,12 @@ def table_part(b, r0, r1, with_head=True):
         t = sum(widths)
         colg = "<colgroup>" + "".join(f'<col style="width:{100*w/t:.1f}%">' for w in widths) + "</colgroup>"
     th = "<thead><tr>" + "".join(f"<th>{inline(x)}</th>" for x in head) + "</tr></thead>" if head and with_head else ""
+    vc0 = attr_class(head, b["rows"])
     rows = "".join("<tr>" + "".join(_cell(c) for c in r) + "</tr>" for r in b["rows"][r0:r1])
     cap = f'<div class="k" style="margin-top:1cqw">{inline(b["caption"])}</div>' if b.get("caption") and r1 >= len(b["rows"]) else ""
     v = b.get("variant")
     vc = f" v-{v}" if v in ("compact", "ficha") else ""
-    return f'<div class="tabw"><table class="tab{vc}">{colg}{th}<tbody>{rows}</tbody></table>{cap}</div>'
+    return f'<div class="tabw"><table class="tab{vc}{vc0}">{colg}{th}<tbody>{rows}</tbody></table>{cap}</div>'
 
 
 # ---------- llamadas, cifras ----------

@@ -1,0 +1,24 @@
+{
+ "id": "terracota-tb-1",
+ "tipo": "plantilla",
+ "nombre": "Estándar (tabla)",
+ "version": "1",
+ "descripcion": "Cabecera negra, primera columna en negrita, regla gruesa al final.",
+ "tags": [
+  "tabla",
+  "molécula",
+  "fabrica_estilo (recta)",
+  "propuesta"
+ ],
+ "design": "terracota",
+ "uso": "Variante TB-1 del diseño terracota; se elige en options.variants.tabla.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "tabla": "TB-1"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

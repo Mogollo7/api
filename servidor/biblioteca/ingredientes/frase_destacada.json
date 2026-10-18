@@ -1,0 +1,11 @@
+{
+ "id": "frase_destacada", "tipo": "ingrediente", "version": "1", "nombre": "Frase destacada",
+ "descripcion": "Sección con un título y una cita corta de una sola línea que resalta la idea central. Sirve para cerrar un bloque o subrayar un mensaje.",
+ "tags": ["frase", "cita", "destacada", "idea", "mensaje", "subrayar", "lema", "resaltar", "conclusion", "titular"],
+ "origen": "supermercado", "licencia": "propia",
+ "huecos": {
+  "titulo_seccion": {"desc": "Título de la sección (máx. 60 letras)", "defecto": "Idea central"},
+  "frase": {"desc": "Una sola línea (máx. 90 letras)", "defecto": "Medir cada semana sirve más que corregir cada mes."}
+ },
+ "markdown": "## {{titulo_seccion}}\n\n> {{frase}}"
+}

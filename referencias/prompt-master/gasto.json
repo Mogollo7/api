@@ -1,0 +1,8 @@
+{
+  "fuente": "referencias/prompt-master/gasto.md",
+  "medicion": "diferencia del contador total_tokens de la sesión entre lecturas (aproximado)",
+  "modelo": "claude-sonnet-5-5",
+  "pasos": {"leer_referencia": 9000, "crear_diseno": 35000, "validar": 8000, "documento_pdf_pptx": 18000, "publicar_catalogo": 6000},
+  "total": 76000,
+  "iteraciones_visuales": 4
+}

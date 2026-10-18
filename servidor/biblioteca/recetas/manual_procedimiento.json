@@ -1,0 +1,83 @@
+{
+ "id": "manual_procedimiento",
+ "tipo": "receta",
+ "version": "1",
+ "nombre": "Manual de procedimiento",
+ "descripcion": "Manual corto de un procedimiento en cinco pasos numerados, con un aviso de precaución y una cita final. Sirve para instructivos de trabajo, guías de uso o protocolos internos.",
+ "tags": [
+  "manual",
+  "procedimiento",
+  "instructivo",
+  "pasos",
+  "guía",
+  "protocolo",
+  "instrucciones",
+  "precaución",
+  "seguridad",
+  "paso a paso"
+ ],
+ "formato": "pdf",
+ "estilo": "anura",
+ "origen": "supermercado",
+ "licencia": "propia",
+ "huecos": {
+  "herramientas": {
+   "desc": "Herramientas necesarias: herramienta | cantidad (1 a 4)",
+   "lista": [
+    "herramienta",
+    "cantidad"
+   ],
+   "max": 4,
+   "defecto": [
+    [
+     "Destornillador de punta plana",
+     "1"
+    ],
+    [
+     "Paño de microfibra",
+     "2"
+    ],
+    [
+     "Aspiradora manual",
+     "1"
+    ]
+   ]
+  },
+  "titulo": {
+   "desc": "Título del manual, que diga qué se hace (máx. 60 letras)",
+   "defecto": "Cómo cambiar el filtro del aire acondicionado"
+  },
+  "responsable": {
+   "desc": "Área o persona que mantiene el procedimiento (máx. 60 letras)",
+   "defecto": "Área de mantenimiento"
+  },
+  "objetivo": {
+   "desc": "Qué se logra y cuándo aplica, en 2 o 3 frases (máx. 300 letras)",
+   "defecto": "Mantener el equipo limpio para que enfríe mejor y consuma menos. Aplica cada tres meses en oficinas y salas de reunión."
+  },
+  "precaucion": {
+   "desc": "Riesgo principal y cómo evitarlo, en 1 o 2 frases (máx. 300 letras)",
+   "defecto": "No use agua caliente ni productos químicos: pueden dañar las láminas del filtro. Use guantes para evitar cortes con los bordes metálicos."
+  },
+  "pasos": {
+   "desc": "Cinco pasos en orden, una frase corta cada uno (máx. 5)",
+   "max": 5,
+   "defecto": [
+    "Apague el equipo con el control y espere dos minutos.",
+    "Desconecte el cable de la toma de corriente.",
+    "Retire la tapa frontal y saque el filtro con cuidado.",
+    "Limpie el filtro con agua tibia y déjelo secar por completo.",
+    "Vuelva a colocar el filtro, cierre la tapa y encienda el equipo."
+   ]
+  },
+  "cita": {
+   "desc": "Frase final de una línea (máx. 200 letras)",
+   "defecto": "Un equipo limpio trabaja menos y dura más."
+  },
+  "cita_autor": {
+   "desc": "Quién dice la frase (máx. 60 letras)",
+   "defecto": "Área de mantenimiento"
+  }
+ },
+ "markdown": "---\ntitulo: {{titulo}}\nautor: {{responsable}}\n---\n\n# {{titulo}}\n\n## Antes de empezar\n\n{{objetivo}}\n\n> [!NOTA] {{precaucion}}\n\n## Herramientas\n\n| Herramienta | Cantidad |\n|---|---|\n{{#herramientas}}| {{herramienta}} | {{cantidad}} |\n{{/herramientas}}\n## Pasos\n\n{{#pasos}}1. {{.}}\n{{/pasos}}\n## Cierre\n\n> {{cita}}\n> — {{cita_autor}}"
+}

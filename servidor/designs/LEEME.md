@@ -30,3 +30,11 @@ Cuando todo sale ✔: `python servidor/galeria.py --design <id>` para aprobar va
 
 ## Formatos de hoja
 `manifest.formats_dims` puede declarar `{"pdf-letter": {"ph": 129.4, "pdf": "Letter"}}`. El diseño debe traer posiciones válidas para esa altura; ANURA solo declara A4.
+
+## Protocolo de estilos nuevos (probado con `prompt-master`)
+1. **Extraer** de la referencia (`leer_pdf.py` / `descomponer.py`): paleta vectorial exacta, tipografías, espaciado, bordes y sombras.
+2. **Buscar parecido** antes de crear: `python servidor/biblioteca.py buscar "<descripción>" --tipo estilo`. Si hay uno cercano, ajústalo en vez de crear otro.
+3. **Nombrar y versionar:** `crear_diseno.py <id> --base <parecido>`; `estilo` (familia) y `version` en el manifiesto. Al cambiar el CSS sube `version`: la API cachea por contenido + versión.
+4. **Normas de base:** contraste de texto ≥ 4,5:1 (3:1 si es grande), rejilla de espaciado, márgenes mínimos, jerarquía tipográfica, sin superposición. `validar_diseno.py` las comprueba.
+5. **Fuentes distintas a Anton/Archivo/Plex:** declara `font_roles: {display, body, mono}` en el manifiesto (si usas una sola fuente, el peso y el trazo se fijan en la capa CSS del diseño).
+6. **Validar** hasta 10/10 ✔, **guardar con un ejemplo de uso** (`contenido/*.md|json` + catálogo) y registrar la entrada: `python servidor/tools/biblioteca_cargar.py`.

@@ -1,0 +1,24 @@
+{
+ "id": "editorial-tb-3",
+ "tipo": "plantilla",
+ "nombre": "Ficha (tabla)",
+ "version": "1",
+ "descripcion": "Sin cabecera rellena: etiqueta a la izquierda, valor a la derecha (como «Revisión / Resultado»).",
+ "tags": [
+  "tabla",
+  "molécula",
+  "nueva",
+  "propuesta"
+ ],
+ "design": "editorial",
+ "uso": "Variante TB-3 del diseño editorial; se elige en options.variants.tabla.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "tabla": "TB-3"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

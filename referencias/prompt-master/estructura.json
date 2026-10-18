@@ -1,0 +1,2526 @@
+[
+ {
+  "pagina": 1,
+  "fondo": "#ffffff",
+  "oscura": false,
+  "bloques": [
+   {
+    "texto": "Gabriel Cabrera",
+    "fuente": "ArchivoSemiBold-Bold",
+    "tam_cqw": 1.64,
+    "color": "#0b0b0c",
+    "x": 74.5,
+    "y": 4.2,
+    "w": 12.5,
+    "h": 1.6,
+    "alinea": "der"
+   },
+   {
+    "texto": "Logicvalia",
+    "fuente": "ArchivoSemiBold-ExtraBold",
+    "tam_cqw": 2.14,
+    "color": "#0b0b0c",
+    "x": 13.6,
+    "y": 5.6,
+    "w": 10.8,
+    "h": 2.1,
+    "alinea": "izq"
+   },
+   {
+    "texto": "@GABRIELAUTOMATIZA",
+    "fuente": "ArchivoSemiBold-Bold",
+    "tam_cqw": 1.32,
+    "color": "#6b6b72",
+    "x": 67.4,
+    "y": 7.0,
+    "w": 19.4,
+    "h": 1.3,
+    "alinea": "der"
+   },
+   {
+    "texto": "LA SKILL QUE ESCRIBE TUS PROMPTS",
+    "fuente": "ArchivoSemiBold-ExtraBold",
+    "tam_cqw": 1.32,
+    "color": "#0b0b0c",
+    "x": 10.6,
+    "y": 77.0,
+    "w": 31.8,
+    "h": 1.3,
+    "alinea": "izq"
+   },
+   {
+    "texto": "09",
+    "fuente": "SpaceGroteskLight-Bold",
+    "tam_cqw": 21.4,
+    "color": "#0b0b0c",
+    "x": 6.5,
+    "y": 81.6,
+    "w": 25.9,
+    "h": 21.4,
+    "alinea": "izq"
+   },
+   {
+    "texto": "NIVELES",
+    "fuente": "ArchivoSemiBold-Bold",
+    "tam_cqw": 1.38,
+    "color": "#6b6b72",
+    "x": 33.6,
+    "y": 94.1,
+    "w": 7.4,
+    "h": 1.4,
+    "alinea": "der"
+   },
+   {
+    "texto": "Prompt",
+    "fuente": "ArchivoSemiBold-Black",
+    "tam_cqw": 9.82,
+    "color": "#0b0b0c",
+    "x": 6.5,
+    "y": 99.3,
+    "w": 36.3,
+    "h": 9.8,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Master",
+    "fuente": "ArchivoSemiBold-Black",
+    "tam_cqw": 9.82,
+    "color": "#0b0b0c",
+    "x": 6.5,
+    "y": 108.5,
+    "w": 35.2,
+    "h": 9.8,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Prompts que aciertan a la primera",
+    "fuente": "SpaceGroteskLight-Medium",
+    "tam_cqw": 2.27,
+    "color": "#0b0b0c",
+    "x": 6.5,
+    "y": 124.4,
+    "w": 35.8,
+    "h": 2.3,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Qué es y cómo usarla",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.89,
+    "color": "#6b6b72",
+    "x": 46.4,
+    "y": 124.2,
+    "w": 18.0,
+    "h": 1.9,
+    "alinea": "der"
+   },
+   {
+    "texto": "Preparado por · Partner de crecimiento en Logicvalia",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.57,
+    "color": "#6b6b72",
+    "x": 11.6,
+    "y": 130.5,
+    "w": 48.7,
+    "h": 1.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Gabriel Cabrera",
+    "fuente": "ArchivoSemiBold-Bold",
+    "tam_cqw": 1.57,
+    "color": "#0b0b0c",
+    "x": 21.9,
+    "y": 130.5,
+    "w": 11.7,
+    "h": 1.6,
+    "alinea": "der"
+   }
+  ],
+  "imagenes": [
+   {
+    "x": 6.5,
+    "y": 3.8,
+    "w": 5.8,
+    "h": 5.8
+   },
+   {
+    "x": 88.4,
+    "y": 3.9,
+    "w": 5.0,
+    "h": 5.0
+   },
+   {
+    "x": 6.5,
+    "y": 129.5,
+    "w": 3.8,
+    "h": 3.8
+   }
+  ],
+  "recuadros": [
+   {
+    "x": 0.0,
+    "y": 0.0,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.0,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.0,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 42.0,
+    "y": -32.7,
+    "w": 95.7,
+    "h": 95.7,
+    "relleno": null,
+    "borde": null
+   },
+   {
+    "x": 49.6,
+    "y": 15.1,
+    "w": 65.4,
+    "h": 65.4,
+    "relleno": null,
+    "borde": null
+   },
+   {
+    "x": -37.8,
+    "y": 65.4,
+    "w": 70.5,
+    "h": 70.5,
+    "relleno": null,
+    "borde": null
+   }
+  ],
+  "tipo": "portada",
+  "paleta": [
+   {
+    "hex": "#ffffff",
+    "pct": 57.8
+   },
+   {
+    "hex": "#f2e6f8",
+    "pct": 14.7
+   },
+   {
+    "hex": "#f7f3fb",
+    "pct": 10.1
+   },
+   {
+    "hex": "#fcfbfe",
+    "pct": 9.7
+   },
+   {
+    "hex": "#938c97",
+    "pct": 5.1
+   }
+  ]
+ },
+ {
+  "pagina": 2,
+  "fondo": "#ffffff",
+  "oscura": false,
+  "bloques": [
+   {
+    "texto": "LOGICVALIA ANTES DE EMPEZAR",
+    "fuente": "ArchivoSemiBold-Bold",
+    "tam_cqw": 1.26,
+    "color": "#2a2a2e",
+    "x": 10.1,
+    "y": 3.2,
+    "w": 83.1,
+    "h": 1.3,
+    "alinea": "centro"
+   },
+   {
+    "texto": "ANTES DE EMPEZAR",
+    "fuente": "ArchivoSemiBold-ExtraBold",
+    "tam_cqw": 1.32,
+    "color": "#0b0b0c",
+    "x": 10.6,
+    "y": 12.5,
+    "w": 16.7,
+    "h": 1.3,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Por qué se te acaba / el plan antes de tiempo",
+    "fuente": "ArchivoSemiBold-Black",
+    "tam_cqw": 4.78,
+    "color": "#0b0b0c",
+    "x": 6.5,
+    "y": 15.9,
+    "w": 53.4,
+    "h": 9.7,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Casi nunca es por pedir demasiado. Es por pedirlo mal. Un prompt vago da una / respuesta a medias, la corriges, vuelves a pedir y cada vuelta gasta mensajes y /",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.95,
+    "color": "#2a2a2e",
+    "x": 6.5,
+    "y": 27.9,
+    "w": 67.3,
+    "h": 7.7,
+    "alinea": "izq"
+   },
+   {
+    "texto": "TU PROMPT DE SIEMPRE CON PROMPT MASTER",
+    "fuente": "ArchivoSemiBold-Bold",
+    "tam_cqw": 1.26,
+    "color": "#a1a1a8",
+    "x": 9.2,
+    "y": 42.0,
+    "w": 60.7,
+    "h": 1.3,
+    "alinea": "izq"
+   },
+   {
+    "texto": "✓",
+    "fuente": "DejaVuSans",
+    "tam_cqw": 1.64,
+    "color": "#ffffff",
+    "x": 52.5,
+    "y": 46.3,
+    "w": 1.4,
+    "h": 1.6,
+    "alinea": "der"
+   },
+   {
+    "texto": "×",
+    "fuente": "SpaceGroteskLight-Bold",
+    "tam_cqw": 1.64,
+    "color": "#a1a1a8",
+    "x": 9.2,
+    "y": 46.8,
+    "w": 1.0,
+    "h": 1.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Una frase suelta y a ver qué sale Le cuentas la idea en dos líneas",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.64,
+    "color": "#6b6b72",
+    "x": 11.5,
+    "y": 46.7,
+    "w": 66.4,
+    "h": 1.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "✓",
+    "fuente": "DejaVuSans",
+    "tam_cqw": 1.64,
+    "color": "#ffffff",
+    "x": 52.5,
+    "y": 51.1,
+    "w": 1.4,
+    "h": 1.6,
+    "alinea": "der"
+   },
+   {
+    "texto": "×",
+    "fuente": "SpaceGroteskLight-Bold",
+    "tam_cqw": 1.64,
+    "color": "#a1a1a8",
+    "x": 9.2,
+    "y": 51.6,
+    "w": 1.0,
+    "h": 1.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "La IA rellena los huecos a su manera Revisa 9 niveles y pregunta lo que falta",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.64,
+    "color": "#6b6b72",
+    "x": 11.5,
+    "y": 51.4,
+    "w": 71.6,
+    "h": 1.6,
+    "alinea": "centro"
+   },
+   {
+    "texto": "✓",
+    "fuente": "DejaVuSans",
+    "tam_cqw": 1.64,
+    "color": "#ffffff",
+    "x": 52.5,
+    "y": 55.8,
+    "w": 1.4,
+    "h": 1.6,
+    "alinea": "der"
+   },
+   {
+    "texto": "×",
+    "fuente": "SpaceGroteskLight-Bold",
+    "tam_cqw": 1.64,
+    "color": "#a1a1a8",
+    "x": 9.2,
+    "y": 56.2,
+    "w": 1.0,
+    "h": 1.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Tres o cuatro vueltas hasta acertar Sale bien a la primera casi siempre",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.64,
+    "color": "#6b6b72",
+    "x": 11.5,
+    "y": 56.1,
+    "w": 68.6,
+    "h": 1.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "✓",
+    "fuente": "DejaVuSans",
+    "tam_cqw": 1.64,
+    "color": "#ffffff",
+    "x": 52.5,
+    "y": 60.4,
+    "w": 1.4,
+    "h": 1.6,
+    "alinea": "der"
+   },
+   {
+    "texto": "×",
+    "fuente": "SpaceGroteskLight-Bold",
+    "tam_cqw": 1.64,
+    "color": "#a1a1a8",
+    "x": 9.2,
+    "y": 60.9,
+    "w": 1.0,
+    "h": 1.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Olvida lo que decidiste hace diez mensajes Recuerda tus decisiones entre prompts",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.64,
+    "color": "#6b6b72",
+    "x": 11.5,
+    "y": 60.8,
+    "w": 71.7,
+    "h": 1.6,
+    "alinea": "centro"
+   },
+   {
+    "texto": "LA SKILL",
+    "fuente": "ArchivoSemiBold-Bold",
+    "tam_cqw": 1.26,
+    "color": "#a1a1a8",
+    "x": 8.9,
+    "y": 71.4,
+    "w": 6.8,
+    "h": 1.3,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Prompt Master",
+    "fuente": "ArchivoSemiBold-Bold",
+    "tam_cqw": 1.76,
+    "color": "#0b0b0c",
+    "x": 8.9,
+    "y": 74.5,
+    "w": 12.5,
+    "h": 1.8,
+    "alinea": "izq"
+   },
+   {
+    "texto": ", de código abierto y con miles de estrellas en GitHub",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.76,
+    "color": "#2a2a2e",
+    "x": 21.4,
+    "y": 74.5,
+    "w": 41.3,
+    "h": 1.8,
+    "alinea": "der"
+   },
+   {
+    "texto": "github.com/nidhinjs/prompt-master",
+    "fuente": "JetBrainsMono-Medium",
+    "tam_cqw": 1.38,
+    "color": "#0b0b0c",
+    "x": 9.7,
+    "y": 77.9,
+    "w": 29.0,
+    "h": 1.4,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Al final de la guía.",
+    "fuente": "ArchivoSemiBold-Bold",
+    "tam_cqw": 1.55,
+    "color": "#8b3fd9",
+    "x": 8.4,
+    "y": 83.7,
+    "w": 12.1,
+    "h": 1.5,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Tienes cómo tener skills así hechas a medida para tu negocio",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.55,
+    "color": "#2a2a2e",
+    "x": 20.9,
+    "y": 83.7,
+    "w": 42.7,
+    "h": 1.5,
+    "alinea": "der"
+   },
+   {
+    "texto": "Prompt Master",
+    "fuente": "SpaceGroteskLight-Medium",
+    "tam_cqw": 1.26,
+    "color": "#a1a1a8",
+    "x": 6.5,
+    "y": 137.6,
+    "w": 10.1,
+    "h": 1.3,
+    "alinea": "izq"
+   }
+  ],
+  "imagenes": [
+   {
+    "x": 6.5,
+    "y": 2.5,
+    "w": 2.5,
+    "h": 2.5
+   }
+  ],
+  "recuadros": [
+   {
+    "x": 0.0,
+    "y": 0.0,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.0,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.0,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 50.0,
+    "y": 39.3,
+    "w": 43.3,
+    "h": 26.6,
+    "relleno": "#0b0b0c",
+    "borde": null
+   }
+  ],
+  "tipo": "clara",
+  "paleta": [
+   {
+    "hex": "#ffffff",
+    "pct": 78.2
+   },
+   {
+    "hex": "#0a0a0b",
+    "pct": 7.2
+   },
+   {
+    "hex": "#dfdfe1",
+    "pct": 4.9
+   },
+   {
+    "hex": "#f8f8f9",
+    "pct": 3.7
+   },
+   {
+    "hex": "#fcfcfc",
+    "pct": 3.2
+   }
+  ]
+ },
+ {
+  "pagina": 3,
+  "fondo": "#ffffff",
+  "oscura": false,
+  "bloques": [
+   {
+    "texto": "LOGICVALIA PASO A PASO",
+    "fuente": "ArchivoSemiBold-Bold",
+    "tam_cqw": 1.26,
+    "color": "#2a2a2e",
+    "x": 10.1,
+    "y": 3.2,
+    "w": 83.1,
+    "h": 1.3,
+    "alinea": "centro"
+   },
+   {
+    "texto": "PASO A PASO · CÓMO SACARLE TODO EL PARTIDO",
+    "fuente": "ArchivoSemiBold-ExtraBold",
+    "tam_cqw": 1.32,
+    "color": "#0b0b0c",
+    "x": 10.6,
+    "y": 12.5,
+    "w": 42.0,
+    "h": 1.3,
+    "alinea": "izq"
+   },
+   {
+    "texto": "01",
+    "fuente": "SpaceGroteskLight-Bold",
+    "tam_cqw": 8.05,
+    "color": "#0b0b0c",
+    "x": 6.5,
+    "y": 16.2,
+    "w": 8.3,
+    "h": 8.1,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Instálala en Claude",
+    "fuente": "ArchivoSemiBold-ExtraBold",
+    "tam_cqw": 2.52,
+    "color": "#0b0b0c",
+    "x": 18.4,
+    "y": 16.4,
+    "w": 23.3,
+    "h": 2.5,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Funciona dentro de Claude, en la web o en Claude Code.",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.57,
+    "color": "#6b6b72",
+    "x": 18.4,
+    "y": 20.0,
+    "w": 39.8,
+    "h": 1.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Ten una cuenta de Claude, vale desde el plan gratuito",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.67,
+    "color": "#2a2a2e",
+    "x": 23.7,
+    "y": 24.7,
+    "w": 38.8,
+    "h": 1.7,
+    "alinea": "der"
+   },
+   {
+    "texto": "1",
+    "fuente": "SpaceGroteskLight-Bold",
+    "tam_cqw": 1.45,
+    "color": "#ffffff",
+    "x": 19.6,
+    "y": 25.3,
+    "w": 0.7,
+    "h": 1.4,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Activa la ejecución de código, sin ella no funcionan las skills",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.67,
+    "color": "#2a2a2e",
+    "x": 23.7,
+    "y": 30.3,
+    "w": 43.9,
+    "h": 1.7,
+    "alinea": "der"
+   },
+   {
+    "texto": "2",
+    "fuente": "SpaceGroteskLight-Bold",
+    "tam_cqw": 1.45,
+    "color": "#ffffff",
+    "x": 19.4,
+    "y": 30.8,
+    "w": 0.9,
+    "h": 1.4,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Descarga la skill desde su repositorio de GitHub",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.67,
+    "color": "#2a2a2e",
+    "x": 23.7,
+    "y": 35.8,
+    "w": 35.6,
+    "h": 1.7,
+    "alinea": "der"
+   },
+   {
+    "texto": "3",
+    "fuente": "SpaceGroteskLight-Bold",
+    "tam_cqw": 1.45,
+    "color": "#ffffff",
+    "x": 19.4,
+    "y": 36.4,
+    "w": 0.9,
+    "h": 1.4,
+    "alinea": "izq"
+   },
+   {
+    "texto": "4",
+    "fuente": "SpaceGroteskLight-Bold",
+    "tam_cqw": 1.45,
+    "color": "#ffffff",
+    "x": 19.4,
+    "y": 41.9,
+    "w": 0.9,
+    "h": 1.4,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Súbela a tus skills y comprueba que aparece activada",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.67,
+    "color": "#2a2a2e",
+    "x": 23.7,
+    "y": 41.3,
+    "w": 39.4,
+    "h": 1.7,
+    "alinea": "der"
+   },
+   {
+    "texto": "Lo que consigues.",
+    "fuente": "ArchivoSemiBold-Bold",
+    "tam_cqw": 1.55,
+    "color": "#8b3fd9",
+    "x": 20.3,
+    "y": 47.1,
+    "w": 13.1,
+    "h": 1.5,
+    "alinea": "der"
+   },
+   {
+    "texto": "A partir de aquí cada prompt sale revisado antes de gastar un solo mensaje",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.55,
+    "color": "#2a2a2e",
+    "x": 33.7,
+    "y": 47.1,
+    "w": 52.3,
+    "h": 1.5,
+    "alinea": "der"
+   },
+   {
+    "texto": "02",
+    "fuente": "SpaceGroteskLight-Bold",
+    "tam_cqw": 8.05,
+    "color": "#0b0b0c",
+    "x": 6.5,
+    "y": 53.2,
+    "w": 9.4,
+    "h": 8.1,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Descríbele lo que quieres",
+    "fuente": "ArchivoSemiBold-ExtraBold",
+    "tam_cqw": 2.52,
+    "color": "#0b0b0c",
+    "x": 18.4,
+    "y": 53.4,
+    "w": 30.6,
+    "h": 2.5,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Tú pones la idea, ella pone la estructura.",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.57,
+    "color": "#6b6b72",
+    "x": 18.4,
+    "y": 57.0,
+    "w": 28.1,
+    "h": 1.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Cuéntale la idea en dos líneas, sin preocuparte por el formato",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.67,
+    "color": "#2a2a2e",
+    "x": 23.7,
+    "y": 61.6,
+    "w": 44.8,
+    "h": 1.7,
+    "alinea": "der"
+   },
+   {
+    "texto": "1",
+    "fuente": "SpaceGroteskLight-Bold",
+    "tam_cqw": 1.45,
+    "color": "#ffffff",
+    "x": 19.6,
+    "y": 62.2,
+    "w": 0.7,
+    "h": 1.4,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Dile para qué IA es el prompt",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.67,
+    "color": "#2a2a2e",
+    "x": 23.7,
+    "y": 67.1,
+    "w": 21.3,
+    "h": 1.7,
+    "alinea": "der"
+   },
+   {
+    "texto": "2",
+    "fuente": "SpaceGroteskLight-Bold",
+    "tam_cqw": 1.45,
+    "color": "#ffffff",
+    "x": 19.4,
+    "y": 67.7,
+    "w": 0.9,
+    "h": 1.4,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Responde las preguntas que te haga si le falta algo",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.67,
+    "color": "#2a2a2e",
+    "x": 23.7,
+    "y": 72.7,
+    "w": 37.1,
+    "h": 1.7,
+    "alinea": "der"
+   },
+   {
+    "texto": "3",
+    "fuente": "SpaceGroteskLight-Bold",
+    "tam_cqw": 1.45,
+    "color": "#ffffff",
+    "x": 19.4,
+    "y": 73.2,
+    "w": 0.9,
+    "h": 1.4,
+    "alinea": "izq"
+   },
+   {
+    "texto": "4",
+    "fuente": "SpaceGroteskLight-Bold",
+    "tam_cqw": 1.45,
+    "color": "#ffffff",
+    "x": 19.4,
+    "y": 78.8,
+    "w": 0.9,
+    "h": 1.4,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Copia el prompt que te devuelve y úsalo",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.67,
+    "color": "#2a2a2e",
+    "x": 23.7,
+    "y": 78.2,
+    "w": 29.5,
+    "h": 1.7,
+    "alinea": "der"
+   },
+   {
+    "texto": "Ejemplo.",
+    "fuente": "ArchivoSemiBold-Bold",
+    "tam_cqw": 1.55,
+    "color": "#8b3fd9",
+    "x": 20.3,
+    "y": 84.0,
+    "w": 6.4,
+    "h": 1.5,
+    "alinea": "der"
+   },
+   {
+    "texto": "Con dos líneas sobre la web de una clínica dental te devuelve la tarea, el contexto, el formato,",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.55,
+    "color": "#2a2a2e",
+    "x": 27.1,
+    "y": 84.0,
+    "w": 65.0,
+    "h": 1.5,
+    "alinea": "der"
+   },
+   {
+    "texto": "las restricciones y cómo saber si está bien",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.55,
+    "color": "#2a2a2e",
+    "x": 20.3,
+    "y": 86.4,
+    "w": 29.2,
+    "h": 1.5,
+    "alinea": "der"
+   },
+   {
+    "texto": "Prompt Master",
+    "fuente": "SpaceGroteskLight-Medium",
+    "tam_cqw": 1.26,
+    "color": "#a1a1a8",
+    "x": 6.5,
+    "y": 137.6,
+    "w": 10.1,
+    "h": 1.3,
+    "alinea": "izq"
+   }
+  ],
+  "imagenes": [
+   {
+    "x": 6.5,
+    "y": 2.5,
+    "w": 2.5,
+    "h": 2.5
+   }
+  ],
+  "recuadros": [
+   {
+    "x": 0.0,
+    "y": 0.0,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": -0.0,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": -0.0,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   }
+  ],
+  "tipo": "clara",
+  "paleta": [
+   {
+    "hex": "#ffffff",
+    "pct": 84.6
+   },
+   {
+    "hex": "#f5f5f6",
+    "pct": 4.4
+   },
+   {
+    "hex": "#dedee0",
+    "pct": 4.3
+   },
+   {
+    "hex": "#939195",
+    "pct": 2.6
+   },
+   {
+    "hex": "#f9f9fa",
+    "pct": 2.1
+   }
+  ]
+ },
+ {
+  "pagina": 4,
+  "fondo": "#ffffff",
+  "oscura": false,
+  "bloques": [
+   {
+    "texto": "LOGICVALIA PASO A PASO",
+    "fuente": "ArchivoSemiBold-Bold",
+    "tam_cqw": 1.26,
+    "color": "#2a2a2e",
+    "x": 10.1,
+    "y": 3.2,
+    "w": 83.1,
+    "h": 1.3,
+    "alinea": "centro"
+   },
+   {
+    "texto": "PASO A PASO",
+    "fuente": "ArchivoSemiBold-ExtraBold",
+    "tam_cqw": 1.32,
+    "color": "#0b0b0c",
+    "x": 10.6,
+    "y": 12.5,
+    "w": 10.9,
+    "h": 1.3,
+    "alinea": "izq"
+   },
+   {
+    "texto": "03",
+    "fuente": "SpaceGroteskLight-Bold",
+    "tam_cqw": 8.05,
+    "color": "#0b0b0c",
+    "x": 6.5,
+    "y": 16.2,
+    "w": 9.6,
+    "h": 8.1,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Deja que revise los 9 niveles",
+    "fuente": "ArchivoSemiBold-ExtraBold",
+    "tam_cqw": 2.52,
+    "color": "#0b0b0c",
+    "x": 18.4,
+    "y": 16.4,
+    "w": 33.8,
+    "h": 2.5,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Lo que casi nadie le da a la IA y marca la diferencia.",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.57,
+    "color": "#6b6b72",
+    "x": 18.4,
+    "y": 20.0,
+    "w": 36.1,
+    "h": 1.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Tarea, entrada y salida, lo básico que casi todos dejan a medias",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.67,
+    "color": "#2a2a2e",
+    "x": 23.7,
+    "y": 24.7,
+    "w": 46.9,
+    "h": 1.7,
+    "alinea": "centro"
+   },
+   {
+    "texto": "1",
+    "fuente": "SpaceGroteskLight-Bold",
+    "tam_cqw": 1.45,
+    "color": "#ffffff",
+    "x": 19.6,
+    "y": 25.3,
+    "w": 0.7,
+    "h": 1.4,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Restricciones y contexto, lo que evita que se invente cosas",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.67,
+    "color": "#2a2a2e",
+    "x": 23.7,
+    "y": 30.3,
+    "w": 43.5,
+    "h": 1.7,
+    "alinea": "der"
+   },
+   {
+    "texto": "2",
+    "fuente": "SpaceGroteskLight-Bold",
+    "tam_cqw": 1.45,
+    "color": "#ffffff",
+    "x": 19.4,
+    "y": 30.8,
+    "w": 0.9,
+    "h": 1.4,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Audiencia y memoria, para quién es y qué se decidió antes",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.67,
+    "color": "#2a2a2e",
+    "x": 23.7,
+    "y": 35.8,
+    "w": 42.9,
+    "h": 1.7,
+    "alinea": "der"
+   },
+   {
+    "texto": "3",
+    "fuente": "SpaceGroteskLight-Bold",
+    "tam_cqw": 1.45,
+    "color": "#ffffff",
+    "x": 19.4,
+    "y": 36.4,
+    "w": 0.9,
+    "h": 1.4,
+    "alinea": "izq"
+   },
+   {
+    "texto": "4",
+    "fuente": "SpaceGroteskLight-Bold",
+    "tam_cqw": 1.45,
+    "color": "#ffffff",
+    "x": 19.4,
+    "y": 41.9,
+    "w": 0.9,
+    "h": 1.4,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Criterio de éxito y ejemplos, cómo sabe que lo ha hecho bien",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.67,
+    "color": "#2a2a2e",
+    "x": 23.7,
+    "y": 41.3,
+    "w": 44.9,
+    "h": 1.7,
+    "alinea": "der"
+   },
+   {
+    "texto": "Lo que no cuenta nadie.",
+    "fuente": "ArchivoSemiBold-Bold",
+    "tam_cqw": 1.55,
+    "color": "#8b3fd9",
+    "x": 20.3,
+    "y": 47.1,
+    "w": 16.7,
+    "h": 1.5,
+    "alinea": "der"
+   },
+   {
+    "texto": "Si le das tú de antemano tres de estos niveles, el resultado mejora muchísimo.",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.55,
+    "color": "#2a2a2e",
+    "x": 37.4,
+    "y": 47.1,
+    "w": 54.7,
+    "h": 1.5,
+    "alinea": "der"
+   },
+   {
+    "texto": "Si me escribes te digo cuáles para tu caso",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.55,
+    "color": "#2a2a2e",
+    "x": 20.3,
+    "y": 49.5,
+    "w": 29.2,
+    "h": 1.5,
+    "alinea": "der"
+   },
+   {
+    "texto": "04",
+    "fuente": "SpaceGroteskLight-Bold",
+    "tam_cqw": 8.05,
+    "color": "#0b0b0c",
+    "x": 6.5,
+    "y": 55.6,
+    "w": 9.8,
+    "h": 8.1,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Adáptalo a cada IA",
+    "fuente": "ArchivoSemiBold-ExtraBold",
+    "tam_cqw": 2.52,
+    "color": "#0b0b0c",
+    "x": 18.4,
+    "y": 55.8,
+    "w": 22.7,
+    "h": 2.5,
+    "alinea": "izq"
+   },
+   {
+    "texto": "No se escribe igual para una imagen que para código.",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.57,
+    "color": "#6b6b72",
+    "x": 18.4,
+    "y": 59.4,
+    "w": 37.4,
+    "h": 1.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Detecta sola si hablas con Claude, ChatGPT, Midjourney o Cursor",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.67,
+    "color": "#2a2a2e",
+    "x": 23.7,
+    "y": 64.0,
+    "w": 48.8,
+    "h": 1.7,
+    "alinea": "centro"
+   },
+   {
+    "texto": "1",
+    "fuente": "SpaceGroteskLight-Bold",
+    "tam_cqw": 1.45,
+    "color": "#ffffff",
+    "x": 19.6,
+    "y": 64.5,
+    "w": 0.7,
+    "h": 1.4,
+    "alinea": "izq"
+   },
+   {
+    "texto": "2",
+    "fuente": "SpaceGroteskLight-Bold",
+    "tam_cqw": 1.45,
+    "color": "#ffffff",
+    "x": 19.4,
+    "y": 70.1,
+    "w": 0.9,
+    "h": 1.4,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Cambia el formato del prompt según la herramienta",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.67,
+    "color": "#2a2a2e",
+    "x": 23.7,
+    "y": 69.5,
+    "w": 37.4,
+    "h": 1.7,
+    "alinea": "der"
+   },
+   {
+    "texto": "Funciona con más de 30 IAs distintas",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.67,
+    "color": "#2a2a2e",
+    "x": 23.7,
+    "y": 75.1,
+    "w": 27.7,
+    "h": 1.7,
+    "alinea": "der"
+   },
+   {
+    "texto": "3",
+    "fuente": "SpaceGroteskLight-Bold",
+    "tam_cqw": 1.45,
+    "color": "#ffffff",
+    "x": 19.4,
+    "y": 75.6,
+    "w": 0.9,
+    "h": 1.4,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Usa el mismo método para todas las que uses",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.67,
+    "color": "#2a2a2e",
+    "x": 23.7,
+    "y": 80.6,
+    "w": 34.1,
+    "h": 1.7,
+    "alinea": "der"
+   },
+   {
+    "texto": "4",
+    "fuente": "SpaceGroteskLight-Bold",
+    "tam_cqw": 1.45,
+    "color": "#ffffff",
+    "x": 19.4,
+    "y": 81.2,
+    "w": 0.9,
+    "h": 1.4,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Así se usa.",
+    "fuente": "ArchivoSemiBold-Bold",
+    "tam_cqw": 1.55,
+    "color": "#8b3fd9",
+    "x": 20.3,
+    "y": 86.4,
+    "w": 7.8,
+    "h": 1.5,
+    "alinea": "der"
+   },
+   {
+    "texto": "El mismo pedido te sirve para el texto en Claude, la imagen en Midjourney y el código en",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.55,
+    "color": "#2a2a2e",
+    "x": 28.4,
+    "y": 86.4,
+    "w": 61.5,
+    "h": 1.5,
+    "alinea": "der"
+   },
+   {
+    "texto": "Cursor, cada uno en su idioma",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.55,
+    "color": "#2a2a2e",
+    "x": 20.3,
+    "y": 88.8,
+    "w": 21.0,
+    "h": 1.5,
+    "alinea": "der"
+   },
+   {
+    "texto": "05",
+    "fuente": "SpaceGroteskLight-Bold",
+    "tam_cqw": 8.05,
+    "color": "#0b0b0c",
+    "x": 6.5,
+    "y": 94.9,
+    "w": 9.5,
+    "h": 8.1,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Aprovecha la memoria",
+    "fuente": "ArchivoSemiBold-ExtraBold",
+    "tam_cqw": 2.52,
+    "color": "#0b0b0c",
+    "x": 18.4,
+    "y": 95.0,
+    "w": 27.3,
+    "h": 2.5,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Proyectos largos sin que se contradiga.",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.57,
+    "color": "#6b6b72",
+    "x": 18.4,
+    "y": 98.7,
+    "w": 27.2,
+    "h": 1.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Trabaja un proyecto entero en la misma conversación",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.67,
+    "color": "#2a2a2e",
+    "x": 23.7,
+    "y": 103.4,
+    "w": 39.1,
+    "h": 1.7,
+    "alinea": "der"
+   },
+   {
+    "texto": "1",
+    "fuente": "SpaceGroteskLight-Bold",
+    "tam_cqw": 1.45,
+    "color": "#ffffff",
+    "x": 19.6,
+    "y": 103.9,
+    "w": 0.7,
+    "h": 1.4,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Lo que decidiste en el prompt 2 lo tiene en cuenta en el 15",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.67,
+    "color": "#2a2a2e",
+    "x": 23.7,
+    "y": 108.9,
+    "w": 42.2,
+    "h": 1.7,
+    "alinea": "der"
+   },
+   {
+    "texto": "2",
+    "fuente": "SpaceGroteskLight-Bold",
+    "tam_cqw": 1.45,
+    "color": "#ffffff",
+    "x": 19.4,
+    "y": 109.5,
+    "w": 0.9,
+    "h": 1.4,
+    "alinea": "izq"
+   },
+   {
+    "texto": "3",
+    "fuente": "SpaceGroteskLight-Bold",
+    "tam_cqw": 1.45,
+    "color": "#ffffff",
+    "x": 19.4,
+    "y": 115.0,
+    "w": 0.9,
+    "h": 1.4,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Revisa de vez en cuando que recuerda bien lo importante",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.67,
+    "color": "#2a2a2e",
+    "x": 23.7,
+    "y": 114.5,
+    "w": 42.1,
+    "h": 1.7,
+    "alinea": "der"
+   },
+   {
+    "texto": "Empieza una conversación nueva al cambiar de proyecto",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.67,
+    "color": "#2a2a2e",
+    "x": 23.7,
+    "y": 120.0,
+    "w": 41.9,
+    "h": 1.7,
+    "alinea": "der"
+   },
+   {
+    "texto": "4",
+    "fuente": "SpaceGroteskLight-Bold",
+    "tam_cqw": 1.45,
+    "color": "#ffffff",
+    "x": 19.4,
+    "y": 120.6,
+    "w": 0.9,
+    "h": 1.4,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Si tienes un negocio.",
+    "fuente": "ArchivoSemiBold-Bold",
+    "tam_cqw": 1.55,
+    "color": "#8b3fd9",
+    "x": 20.3,
+    "y": 125.8,
+    "w": 14.7,
+    "h": 1.5,
+    "alinea": "der"
+   },
+   {
+    "texto": "Esto mismo se puede montar para tu empresa, con tus datos y tu forma de trabajar.",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.55,
+    "color": "#2a2a2e",
+    "x": 35.4,
+    "y": 125.8,
+    "w": 57.9,
+    "h": 1.5,
+    "alinea": "der"
+   },
+   {
+    "texto": "Cuéntame a qué te dedicas y te digo qué skills tendría sentido tener",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.55,
+    "color": "#2a2a2e",
+    "x": 20.3,
+    "y": 128.2,
+    "w": 47.2,
+    "h": 1.5,
+    "alinea": "der"
+   },
+   {
+    "texto": "Prompt Master",
+    "fuente": "SpaceGroteskLight-Medium",
+    "tam_cqw": 1.26,
+    "color": "#a1a1a8",
+    "x": 6.5,
+    "y": 137.6,
+    "w": 10.1,
+    "h": 1.3,
+    "alinea": "izq"
+   }
+  ],
+  "imagenes": [
+   {
+    "x": 6.5,
+    "y": 2.5,
+    "w": 2.5,
+    "h": 2.5
+   }
+  ],
+  "recuadros": [
+   {
+    "x": 0.0,
+    "y": 0.0,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": -0.0,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": -0.0,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   }
+  ],
+  "tipo": "clara",
+  "paleta": [
+   {
+    "hex": "#ffffff",
+    "pct": 75.7
+   },
+   {
+    "hex": "#f5f5f6",
+    "pct": 7.0
+   },
+   {
+    "hex": "#dededf",
+    "pct": 6.7
+   },
+   {
+    "hex": "#949296",
+    "pct": 4.2
+   },
+   {
+    "hex": "#fdfdfd",
+    "pct": 3.0
+   }
+  ]
+ },
+ {
+  "pagina": 5,
+  "fondo": "#ffffff",
+  "oscura": false,
+  "bloques": [
+   {
+    "texto": "LOGICVALIA PASO A PASO",
+    "fuente": "ArchivoSemiBold-Bold",
+    "tam_cqw": 1.26,
+    "color": "#2a2a2e",
+    "x": 10.1,
+    "y": 3.2,
+    "w": 83.1,
+    "h": 1.3,
+    "alinea": "centro"
+   },
+   {
+    "texto": "Y AHORA QUÉ",
+    "fuente": "ArchivoSemiBold-ExtraBold",
+    "tam_cqw": 1.32,
+    "color": "#0b0b0c",
+    "x": 10.6,
+    "y": 12.5,
+    "w": 11.5,
+    "h": 1.3,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Un buen prompt / es solo el principio",
+    "fuente": "ArchivoSemiBold-Black",
+    "tam_cqw": 4.78,
+    "color": "#0b0b0c",
+    "x": 6.5,
+    "y": 15.9,
+    "w": 42.7,
+    "h": 9.7,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Prompt Master te ahorra vueltas en cada pedido. El siguiente nivel es que la IA ya / sepa cómo trabaja tu negocio y lo haga sola.",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.95,
+    "color": "#2a2a2e",
+    "x": 6.5,
+    "y": 27.9,
+    "w": 69.4,
+    "h": 4.8,
+    "alinea": "izq"
+   },
+   {
+    "texto": "LO QUE NO CABE EN UNA GUÍA CON TOTAL SINCERIDAD",
+    "fuente": "ArchivoSemiBold-Bold",
+    "tam_cqw": 1.26,
+    "color": "#a1a1a8",
+    "x": 8.9,
+    "y": 38.5,
+    "w": 63.1,
+    "h": 1.3,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Convertir tus procesos en skills propias, conectarlas a Un buen prompt te ahorra mensajes. Tener las skills / tus herramientas y que todo tu equipo las use igua",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.57,
+    "color": "#2a2a2e",
+    "x": 8.9,
+    "y": 41.5,
+    "w": 80.3,
+    "h": 6.5,
+    "alinea": "centro"
+   },
+   {
+    "texto": "Al final de la guía.",
+    "fuente": "ArchivoSemiBold-Bold",
+    "tam_cqw": 1.55,
+    "color": "#8b3fd9",
+    "x": 8.4,
+    "y": 52.5,
+    "w": 12.1,
+    "h": 1.5,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Tienes las dos formas de conseguirlo conmigo",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.55,
+    "color": "#2a2a2e",
+    "x": 20.9,
+    "y": 52.5,
+    "w": 32.1,
+    "h": 1.5,
+    "alinea": "der"
+   },
+   {
+    "texto": "Prompt Master",
+    "fuente": "SpaceGroteskLight-Medium",
+    "tam_cqw": 1.26,
+    "color": "#a1a1a8",
+    "x": 6.5,
+    "y": 137.6,
+    "w": 10.1,
+    "h": 1.3,
+    "alinea": "izq"
+   }
+  ],
+  "imagenes": [
+   {
+    "x": 6.5,
+    "y": 2.5,
+    "w": 2.5,
+    "h": 2.5
+   }
+  ],
+  "recuadros": [
+   {
+    "x": 0.0,
+    "y": 0.0,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.0,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.0,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   }
+  ],
+  "tipo": "clara",
+  "paleta": [
+   {
+    "hex": "#ffffff",
+    "pct": 85.4
+   },
+   {
+    "hex": "#0c0c0d",
+    "pct": 4.3
+   },
+   {
+    "hex": "#f4f4f5",
+    "pct": 3.9
+   },
+   {
+    "hex": "#bab9bc",
+    "pct": 2.7
+   },
+   {
+    "hex": "#e4e3e5",
+    "pct": 1.7
+   }
+  ]
+ },
+ {
+  "pagina": 6,
+  "fondo": "#ffffff",
+  "oscura": false,
+  "bloques": [
+   {
+    "texto": "LOGICVALIA TRABAJAR CONMIGO",
+    "fuente": "ArchivoSemiBold-Bold",
+    "tam_cqw": 1.26,
+    "color": "#2a2a2e",
+    "x": 10.1,
+    "y": 3.2,
+    "w": 83.1,
+    "h": 1.3,
+    "alinea": "centro"
+   },
+   {
+    "texto": "TRABAJAR CONMIGO",
+    "fuente": "ArchivoSemiBold-ExtraBold",
+    "tam_cqw": 1.32,
+    "color": "#0b0b0c",
+    "x": 10.6,
+    "y": 12.5,
+    "w": 17.9,
+    "h": 1.3,
+    "alinea": "izq"
+   },
+   {
+    "texto": "No es escribir mejores prompts. / Es que la IA trabaje para tu negocio",
+    "fuente": "ArchivoSemiBold-Black",
+    "tam_cqw": 4.78,
+    "color": "#0b0b0c",
+    "x": 6.5,
+    "y": 15.9,
+    "w": 80.7,
+    "h": 9.7,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Sacarle partido de verdad a la IA en un negocio no va de trucos. Va de entender / cómo trabajas y convertirlo en skills que lo hacen solas.",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.95,
+    "color": "#2a2a2e",
+    "x": 6.5,
+    "y": 27.9,
+    "w": 67.7,
+    "h": 4.8,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Menos vueltas y menos gasto Todo tu equipo igual",
+    "fuente": "ArchivoSemiBold-ExtraBold",
+    "tam_cqw": 2.14,
+    "color": "#2a2a2e",
+    "x": 8.9,
+    "y": 38.0,
+    "w": 64.8,
+    "h": 2.1,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Cada tarea sale bien a la primera y el plan te dura el Las mismas skills para todos, con tu tono y tus / mes entero criterios",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.55,
+    "color": "#2a2a2e",
+    "x": 8.9,
+    "y": 41.6,
+    "w": 76.4,
+    "h": 3.9,
+    "alinea": "centro"
+   },
+   {
+    "texto": "Lo repetitivo, resuelto Crece contigo",
+    "fuente": "ArchivoSemiBold-ExtraBold",
+    "tam_cqw": 2.14,
+    "color": "#2a2a2e",
+    "x": 8.9,
+    "y": 51.9,
+    "w": 58.8,
+    "h": 2.1,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Propuestas, correos, informes o contenido en minutos Empezamos por lo que más tiempo te quita y vamos",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.55,
+    "color": "#2a2a2e",
+    "x": 8.9,
+    "y": 55.4,
+    "w": 80.8,
+    "h": 1.5,
+    "alinea": "centro"
+   },
+   {
+    "texto": "ampliando",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.55,
+    "color": "#2a2a2e",
+    "x": 53.1,
+    "y": 57.8,
+    "w": 7.4,
+    "h": 1.5,
+    "alinea": "der"
+   },
+   {
+    "texto": "CÓMO TRABAJO",
+    "fuente": "ArchivoSemiBold-ExtraBold",
+    "tam_cqw": 1.32,
+    "color": "#6b6b72",
+    "x": 10.6,
+    "y": 65.8,
+    "w": 13.7,
+    "h": 1.3,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Veo cómo trabajas hoy",
+    "fuente": "ArchivoSemiBold-Bold",
+    "tam_cqw": 1.89,
+    "color": "#ffffff",
+    "x": 30.3,
+    "y": 71.8,
+    "w": 19.8,
+    "h": 1.9,
+    "alinea": "der"
+   },
+   {
+    "texto": "01",
+    "fuente": "SpaceGroteskLight-Bold",
+    "tam_cqw": 1.64,
+    "color": "#ffffff",
+    "x": 9.2,
+    "y": 73.3,
+    "w": 1.7,
+    "h": 1.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Dónde se te van las horas y qué problemas se / repiten",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.57,
+    "color": "#ffffff",
+    "x": 30.3,
+    "y": 74.8,
+    "w": 31.9,
+    "h": 4.0,
+    "alinea": "der"
+   },
+   {
+    "texto": "Sabes qué automatizar",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.51,
+    "color": "#ffffff",
+    "x": 68.6,
+    "y": 74.4,
+    "w": 16.1,
+    "h": 1.5,
+    "alinea": "der"
+   },
+   {
+    "texto": "Auditoría",
+    "fuente": "ArchivoSemiBold-Medium",
+    "tam_cqw": 1.45,
+    "color": "#ffffff",
+    "x": 9.2,
+    "y": 75.9,
+    "w": 6.2,
+    "h": 1.4,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Diseño la solución a medida",
+    "fuente": "ArchivoSemiBold-Bold",
+    "tam_cqw": 1.89,
+    "color": "#0b0b0c",
+    "x": 30.3,
+    "y": 85.3,
+    "w": 24.2,
+    "h": 1.9,
+    "alinea": "der"
+   },
+   {
+    "texto": "02",
+    "fuente": "SpaceGroteskLight-Bold",
+    "tam_cqw": 1.64,
+    "color": "#0b0b0c",
+    "x": 9.2,
+    "y": 86.9,
+    "w": 2.0,
+    "h": 1.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Solo lo que necesitas",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.51,
+    "color": "#2a2a2e",
+    "x": 68.6,
+    "y": 88.0,
+    "w": 14.9,
+    "h": 1.5,
+    "alinea": "der"
+   },
+   {
+    "texto": "Qué montar, con qué herramientas y en qué / orden",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.57,
+    "color": "#6b6b72",
+    "x": 30.3,
+    "y": 88.4,
+    "w": 30.6,
+    "h": 4.0,
+    "alinea": "der"
+   },
+   {
+    "texto": "Plan",
+    "fuente": "ArchivoSemiBold-Medium",
+    "tam_cqw": 1.45,
+    "color": "#6b6b72",
+    "x": 9.2,
+    "y": 89.5,
+    "w": 3.0,
+    "h": 1.4,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Lo dejo funcionando",
+    "fuente": "ArchivoSemiBold-Bold",
+    "tam_cqw": 1.89,
+    "color": "#0b0b0c",
+    "x": 30.3,
+    "y": 98.9,
+    "w": 17.8,
+    "h": 1.9,
+    "alinea": "der"
+   },
+   {
+    "texto": "03",
+    "fuente": "SpaceGroteskLight-Bold",
+    "tam_cqw": 1.64,
+    "color": "#0b0b0c",
+    "x": 9.2,
+    "y": 100.5,
+    "w": 2.0,
+    "h": 1.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Funciona desde el día uno",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.51,
+    "color": "#2a2a2e",
+    "x": 68.6,
+    "y": 101.6,
+    "w": 18.2,
+    "h": 1.5,
+    "alinea": "der"
+   },
+   {
+    "texto": "Conectado a tus herramientas y probado con / casos reales",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.57,
+    "color": "#6b6b72",
+    "x": 30.3,
+    "y": 102.0,
+    "w": 31.3,
+    "h": 4.0,
+    "alinea": "der"
+   },
+   {
+    "texto": "Montaje",
+    "fuente": "ArchivoSemiBold-Medium",
+    "tam_cqw": 1.45,
+    "color": "#6b6b72",
+    "x": 9.2,
+    "y": 103.1,
+    "w": 5.5,
+    "h": 1.4,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Te acompaño",
+    "fuente": "ArchivoSemiBold-Bold",
+    "tam_cqw": 1.89,
+    "color": "#0b0b0c",
+    "x": 30.3,
+    "y": 112.5,
+    "w": 12.0,
+    "h": 1.9,
+    "alinea": "der"
+   },
+   {
+    "texto": "04",
+    "fuente": "SpaceGroteskLight-Bold",
+    "tam_cqw": 1.64,
+    "color": "#0b0b0c",
+    "x": 9.2,
+    "y": 114.1,
+    "w": 2.0,
+    "h": 1.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Ajustamos, te enseño a usarlo y lo mantengo al / día",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.57,
+    "color": "#6b6b72",
+    "x": 30.3,
+    "y": 115.6,
+    "w": 33.1,
+    "h": 4.0,
+    "alinea": "der"
+   },
+   {
+    "texto": "No se rompe con el tiempo",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.51,
+    "color": "#2a2a2e",
+    "x": 68.6,
+    "y": 115.2,
+    "w": 18.5,
+    "h": 1.5,
+    "alinea": "der"
+   },
+   {
+    "texto": "Después",
+    "fuente": "ArchivoSemiBold-Medium",
+    "tam_cqw": 1.45,
+    "color": "#6b6b72",
+    "x": 9.2,
+    "y": 116.7,
+    "w": 5.8,
+    "h": 1.4,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Prompt Master",
+    "fuente": "SpaceGroteskLight-Medium",
+    "tam_cqw": 1.26,
+    "color": "#a1a1a8",
+    "x": 6.5,
+    "y": 137.6,
+    "w": 10.1,
+    "h": 1.3,
+    "alinea": "izq"
+   }
+  ],
+  "imagenes": [
+   {
+    "x": 6.5,
+    "y": 2.5,
+    "w": 2.5,
+    "h": 2.5
+   }
+  ],
+  "recuadros": [
+   {
+    "x": 0.0,
+    "y": 0.0,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.0,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.0,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   }
+  ],
+  "tipo": "clara",
+  "paleta": [
+   {
+    "hex": "#ffffff",
+    "pct": 69.5
+   },
+   {
+    "hex": "#101011",
+    "pct": 8.3
+   },
+   {
+    "hex": "#fafafb",
+    "pct": 6.3
+   },
+   {
+    "hex": "#efeff0",
+    "pct": 5.6
+   },
+   {
+    "hex": "#a8a7aa",
+    "pct": 5.3
+   }
+  ]
+ },
+ {
+  "pagina": 7,
+  "fondo": "#0b0b0c",
+  "oscura": true,
+  "bloques": [
+   {
+    "texto": "LOGICVALIA LOGICVALIA · PARTNER DE CRECIMIENTO",
+    "fuente": "ArchivoSemiBold-Bold",
+    "tam_cqw": 1.26,
+    "color": "#ffffff",
+    "x": 10.1,
+    "y": 3.2,
+    "w": 83.1,
+    "h": 1.3,
+    "alinea": "centro"
+   },
+   {
+    "texto": "SIGUIENTE PASO",
+    "fuente": "ArchivoSemiBold-ExtraBold",
+    "tam_cqw": 1.32,
+    "color": "#ffffff",
+    "x": 10.6,
+    "y": 25.9,
+    "w": 13.8,
+    "h": 1.3,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Dos formas de / trabajar conmigo",
+    "fuente": "ArchivoSemiBold-Black",
+    "tam_cqw": 5.29,
+    "color": "#ffffff",
+    "x": 6.5,
+    "y": 29.3,
+    "w": 45.3,
+    "h": 10.7,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Te ayudo a montar tus skills paso a paso",
+    "fuente": "ArchivoSemiBold-ExtraBold",
+    "tam_cqw": 2.39,
+    "color": "#ffffff",
+    "x": 9.4,
+    "y": 46.3,
+    "w": 45.4,
+    "h": 2.4,
+    "alinea": "izq"
+   },
+   {
+    "texto": "✓",
+    "fuente": "DejaVuSans-Bold",
+    "tam_cqw": 1.57,
+    "color": "#ffffff",
+    "x": 9.4,
+    "y": 50.9,
+    "w": 1.3,
+    "h": 1.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Sesiones en directo contigo, a tu ritmo",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.57,
+    "color": "#ffffff",
+    "x": 12.5,
+    "y": 50.9,
+    "w": 26.7,
+    "h": 1.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Instalamos y probamos las skills que necesitas",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.57,
+    "color": "#ffffff",
+    "x": 12.5,
+    "y": 54.0,
+    "w": 32.5,
+    "h": 1.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "✓",
+    "fuente": "DejaVuSans-Bold",
+    "tam_cqw": 1.57,
+    "color": "#ffffff",
+    "x": 9.4,
+    "y": 54.0,
+    "w": 1.3,
+    "h": 1.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "✓",
+    "fuente": "DejaVuSans-Bold",
+    "tam_cqw": 1.57,
+    "color": "#ffffff",
+    "x": 9.4,
+    "y": 57.3,
+    "w": 1.3,
+    "h": 1.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Creamos juntos tus primeras skills propias",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.57,
+    "color": "#ffffff",
+    "x": 12.5,
+    "y": 57.3,
+    "w": 29.5,
+    "h": 1.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "✓",
+    "fuente": "DejaVuSans-Bold",
+    "tam_cqw": 1.57,
+    "color": "#ffffff",
+    "x": 9.4,
+    "y": 60.5,
+    "w": 1.3,
+    "h": 1.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Acabas sabiendo crear y mejorar las tuyas solo",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.57,
+    "color": "#ffffff",
+    "x": 12.5,
+    "y": 60.4,
+    "w": 32.7,
+    "h": 1.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Para ti si quieres aprender y tenerlo bajo control",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.51,
+    "color": "#ffffff",
+    "x": 9.4,
+    "y": 63.9,
+    "w": 33.2,
+    "h": 1.5,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Quiero montarlo contigo",
+    "fuente": "ArchivoSemiBold-ExtraBold",
+    "tam_cqw": 1.51,
+    "color": "#0b0b0c",
+    "x": 11.5,
+    "y": 68.9,
+    "w": 18.5,
+    "h": 1.5,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Te monto la IA de tu negocio a medida",
+    "fuente": "ArchivoSemiBold-ExtraBold",
+    "tam_cqw": 2.39,
+    "color": "#0b0b0c",
+    "x": 9.4,
+    "y": 79.3,
+    "w": 42.5,
+    "h": 2.4,
+    "alinea": "izq"
+   },
+   {
+    "texto": "PARA NEGOCIOS",
+    "fuente": "ArchivoSemiBold-ExtraBold",
+    "tam_cqw": 1.2,
+    "color": "#ffffff",
+    "x": 77.8,
+    "y": 79.2,
+    "w": 11.9,
+    "h": 1.2,
+    "alinea": "der"
+   },
+   {
+    "texto": "✓",
+    "fuente": "DejaVuSans-Bold",
+    "tam_cqw": 1.57,
+    "color": "#2a2a2e",
+    "x": 9.4,
+    "y": 83.9,
+    "w": 1.3,
+    "h": 1.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Auditoría para ver dónde se te van las horas",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.57,
+    "color": "#2a2a2e",
+    "x": 12.5,
+    "y": 83.8,
+    "w": 30.6,
+    "h": 1.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "✓",
+    "fuente": "DejaVuSans-Bold",
+    "tam_cqw": 1.57,
+    "color": "#2a2a2e",
+    "x": 9.4,
+    "y": 87.0,
+    "w": 1.3,
+    "h": 1.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Skills propias con tus procesos, tono y criterios",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.57,
+    "color": "#2a2a2e",
+    "x": 12.5,
+    "y": 87.0,
+    "w": 32.3,
+    "h": 1.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Conectadas a tus herramientas de trabajo",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.57,
+    "color": "#2a2a2e",
+    "x": 12.5,
+    "y": 90.3,
+    "w": 29.3,
+    "h": 1.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "✓",
+    "fuente": "DejaVuSans-Bold",
+    "tam_cqw": 1.57,
+    "color": "#2a2a2e",
+    "x": 9.4,
+    "y": 90.3,
+    "w": 1.3,
+    "h": 1.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "✓",
+    "fuente": "DejaVuSans-Bold",
+    "tam_cqw": 1.57,
+    "color": "#2a2a2e",
+    "x": 9.4,
+    "y": 93.4,
+    "w": 1.3,
+    "h": 1.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Acompañamiento y ajustes después del montaje",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.57,
+    "color": "#2a2a2e",
+    "x": 12.5,
+    "y": 93.4,
+    "w": 34.1,
+    "h": 1.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Para ti si tienes un negocio y quieres el resultado, no el proceso",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.51,
+    "color": "#a1a1a8",
+    "x": 9.4,
+    "y": 97.0,
+    "w": 44.0,
+    "h": 1.5,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Quiero que me lo montes",
+    "fuente": "ArchivoSemiBold-ExtraBold",
+    "tam_cqw": 1.51,
+    "color": "#0b0b0c",
+    "x": 11.5,
+    "y": 101.9,
+    "w": 18.5,
+    "h": 1.5,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Gabriel Cabrera",
+    "fuente": "ArchivoSemiBold-Bold",
+    "tam_cqw": 1.57,
+    "color": "#ffffff",
+    "x": 12.8,
+    "y": 110.6,
+    "w": 11.7,
+    "h": 1.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "· Partner de crecimiento",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.57,
+    "color": "#ffffff",
+    "x": 24.9,
+    "y": 110.6,
+    "w": 16.8,
+    "h": 1.6,
+    "alinea": "der"
+   },
+   {
+    "texto": "+34 624 83 98 93 · @gabrielautomatiza",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.57,
+    "color": "#ffffff",
+    "x": 12.8,
+    "y": 112.9,
+    "w": 27.8,
+    "h": 1.6,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Si esta guía te ha servido, pásasela a quien le vaya a hacer falta",
+    "fuente": "ArchivoSemiBold-Regular",
+    "tam_cqw": 1.51,
+    "color": "#ffffff",
+    "x": 6.5,
+    "y": 117.9,
+    "w": 44.2,
+    "h": 1.5,
+    "alinea": "izq"
+   },
+   {
+    "texto": "Prompt Master",
+    "fuente": "SpaceGroteskLight-Medium",
+    "tam_cqw": 1.26,
+    "color": "#ffffff",
+    "x": 6.5,
+    "y": 137.6,
+    "w": 10.1,
+    "h": 1.3,
+    "alinea": "izq"
+   }
+  ],
+  "imagenes": [
+   {
+    "x": 6.5,
+    "y": 2.5,
+    "w": 2.5,
+    "h": 2.5
+   },
+   {
+    "x": 6.5,
+    "y": 110.1,
+    "w": 5.0,
+    "h": 5.0
+   }
+  ],
+  "recuadros": [
+   {
+    "x": 0.0,
+    "y": 0.0,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.0,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#ffffff",
+    "borde": null
+   },
+   {
+    "x": 0.0,
+    "y": 0.0,
+    "w": 99.9,
+    "h": 141.3,
+    "relleno": "#0b0b0c",
+    "borde": null
+   },
+   {
+    "x": 52.1,
+    "y": 93.5,
+    "w": 88.1,
+    "h": 88.1,
+    "relleno": null,
+    "borde": null
+   },
+   {
+    "x": -25.2,
+    "y": -20.1,
+    "w": 52.9,
+    "h": 52.9,
+    "relleno": null,
+    "borde": null
+   },
+   {
+    "x": 76.6,
+    "y": 78.5,
+    "w": 14.3,
+    "h": 2.5,
+    "relleno": null,
+    "borde": null
+   }
+  ],
+  "tipo": "oscura",
+  "paleta": [
+   {
+    "hex": "#0b0b0c",
+    "pct": 47.8
+   },
+   {
+    "hex": "#837f86",
+    "pct": 23.4
+   },
+   {
+    "hex": "#0d0b0e",
+    "pct": 21.8
+   },
+   {
+    "hex": "#09090a",
+    "pct": 3.3
+   },
+   {
+    "hex": "#0a0b0b",
+    "pct": 2.8
+   }
+  ]
+ }
+]

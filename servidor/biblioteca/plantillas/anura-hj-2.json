@@ -1,0 +1,24 @@
+{
+ "id": "anura-hj-2",
+ "tipo": "plantilla",
+ "nombre": "Punto clave (hoja)",
+ "version": "1",
+ "descripcion": "Hoja con tarjeta bosque al inicio y etiqueta en la cabecera.",
+ "tags": [
+  "hoja",
+  "plantilla",
+  "anura",
+  "propuesta"
+ ],
+ "design": "anura",
+ "uso": "Variante HJ-2 del diseño anura; se elige en options.variants.hoja.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "hoja": "HJ-2"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

@@ -1,0 +1,25 @@
+{
+ "id": "big",
+ "tipo": "componente",
+ "nombre": "Bloque «big»",
+ "version": "1.0",
+ "descripcion": "Una cifra gigante con su leyenda.",
+ "tags": [
+  "big"
+ ],
+ "uso": "Una cifra gigante con su leyenda.",
+ "parametros": {
+  "value": "str (obligatorio) — Cifra.",
+  "unit": "str — Unidad.",
+  "caption": "markup (obligatorio) — Leyenda."
+ },
+ "ejemplo": {
+  "type": "big",
+  "value": "62,9",
+  "unit": "%",
+  "caption": "Acierto top-1"
+ },
+ "origen": "engine/spec.py",
+ "licencia": "propia",
+ "error_tipico": "Olvidar un campo obligatorio: el contrato rechaza el documento."
+}

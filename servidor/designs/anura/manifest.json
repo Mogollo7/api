@@ -4,7 +4,8 @@
   "name": "ANURA · brutalista",
   "version": "0.2.0",
   "formats": [
-    "pdf-a4"
+    "pdf-a4",
+    "pptx-16x9"
   ],
   "palette": {
     "roles": {

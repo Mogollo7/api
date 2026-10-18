@@ -1,0 +1,34 @@
+{
+ "id": "ranks",
+ "tipo": "componente",
+ "nombre": "Bloque «ranks»",
+ "version": "1.0",
+ "descripcion": "Embudo de rangos con dos columnas de ejemplo.",
+ "tags": [
+  "ranks"
+ ],
+ "uso": "Embudo de rangos con dos columnas de ejemplo.",
+ "parametros": {
+  "head": "list — Rótulos de columnas.",
+  "rows": "list (obligatorio) — [{rank, v:[a,b]}]"
+ },
+ "ejemplo": {
+  "type": "ranks",
+  "head": [
+   "Rana",
+   "Planta"
+  ],
+  "rows": [
+   {
+    "rank": "Reino",
+    "v": [
+     "Animalia",
+     "Plantae"
+    ]
+   }
+  ]
+ },
+ "origen": "engine/spec.py",
+ "licencia": "propia",
+ "error_tipico": "Olvidar un campo obligatorio: el contrato rechaza el documento."
+}

@@ -1,0 +1,24 @@
+{
+ "id": "editorial-at-simbolo",
+ "tipo": "plantilla",
+ "nombre": "Símbolo (átomo)",
+ "version": "1",
+ "descripcion": "73 formas vectoriales sueltas; nunca en fila.",
+ "tags": [
+  "átomo",
+  "átomo",
+  "anura",
+  "propuesta"
+ ],
+ "design": "editorial",
+ "uso": "Variante AT-simbolo del diseño editorial; se elige en options.variants.átomo.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "átomo": "AT-simbolo"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

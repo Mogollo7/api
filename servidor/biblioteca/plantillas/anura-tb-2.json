@@ -1,0 +1,24 @@
+{
+ "id": "anura-tb-2",
+ "tipo": "plantilla",
+ "nombre": "Compacta (tabla)",
+ "version": "1",
+ "descripcion": "Letra menor y relleno corto para tablas largas.",
+ "tags": [
+  "tabla",
+  "molécula",
+  "nueva",
+  "propuesta"
+ ],
+ "design": "anura",
+ "uso": "Variante TB-2 del diseño anura; se elige en options.variants.tabla.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "tabla": "TB-2"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

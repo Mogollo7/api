@@ -1,0 +1,24 @@
+{
+ "id": "editorial-at-boton",
+ "tipo": "plantilla",
+ "nombre": "Botón (átomo)",
+ "version": "1",
+ "descripcion": "Primario, secundario, píldora; sombra dura.",
+ "tags": [
+  "átomo",
+  "átomo",
+  "anura",
+  "propuesta"
+ ],
+ "design": "editorial",
+ "uso": "Variante AT-boton del diseño editorial; se elige en options.variants.átomo.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "átomo": "AT-boton"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

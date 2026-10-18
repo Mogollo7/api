@@ -1,0 +1,86 @@
+{
+ "id": "guia_pasos",
+ "tipo": "receta",
+ "version": "1",
+ "nombre": "Guía de pasos numerados",
+ "descripcion": "Guía de seis pasos numerados con un consejo práctico y el tiempo total en una cifra grande. Sirve para tutoriales, instructivos y procedimientos internos.",
+ "tags": [
+  "guía",
+  "guia",
+  "pasos",
+  "paso a paso",
+  "tutorial",
+  "instructivo",
+  "instrucciones",
+  "procedimiento",
+  "manual",
+  "cómo hacer",
+  "consejos",
+  "proceso"
+ ],
+ "formato": "pdf",
+ "estilo": "editorial",
+ "origen": "supermercado",
+ "licencia": "propia",
+ "huecos": {
+  "titulo": {
+   "desc": "Título de la guía (máx. 60 letras)",
+   "defecto": "Cómo preparar un informe en seis pasos"
+  },
+  "objetivo": {
+   "desc": "Para qué sirve la guía, en 1 o 2 frases (máx. 300 letras)",
+   "defecto": "Esta guía resume el proceso para preparar un informe claro y completo, desde reunir los datos hasta entregarlo al equipo."
+  },
+  "pasos": {
+   "desc": "Seis pasos, uno por elemento: acción — explicación (máx. 90 letras cada uno)",
+   "max": 6,
+   "defecto": [
+    "Reunir los datos — usa solo fuentes actualizadas y anota la fecha de cada una",
+    "Definir la pregunta — escribe en una frase qué debe responder el informe",
+    "Ordenar la información — agrupa los datos por tema y descarta lo repetido",
+    "Redactar el resumen — empieza por la conclusión y luego explica cómo llegaste a ella",
+    "Revisar las cifras — compara cada número con su fuente antes de dar por bueno el texto",
+    "Entregar y pedir opiniones — envía la versión final y anota los cambios que propongan"
+   ]
+  },
+  "consejo": {
+   "desc": "Consejo práctico para no perder tiempo (máx. 300 letras)",
+   "defecto": "Escribe el resumen al final, cuando ya conoces las cifras: así evitas cambiar la conclusión dos veces."
+  },
+  "tiempo": {
+   "desc": "Minutos totales que toma seguir la guía (solo el número)",
+   "defecto": "45"
+  },
+  "tiempos": {
+   "desc": "Fases con sus minutos: fase | minutos (2 a 4 filas; la suma es el tiempo total)",
+   "lista": [
+    "fase",
+    "minutos"
+   ],
+   "max": 4,
+   "defecto": [
+    [
+     "Preparar los datos",
+     "10"
+    ],
+    [
+     "Escribir el borrador",
+     "25"
+    ],
+    [
+     "Revisar y entregar",
+     "10"
+    ]
+   ]
+  },
+  "autor": {
+   "desc": "Quién firma la guía",
+   "defecto": "Operaciones"
+  },
+  "fecha": {
+   "desc": "Mes y año",
+   "defecto": "Octubre 2026"
+  }
+ },
+ "markdown": "---\ntitulo: {{titulo}}\nobjetivo: {{objetivo}}\nautor: {{autor}}\nfecha: {{fecha}}\nvertical: PROCESO\n---\n\n# {{titulo}}\n\n## Antes de empezar\n\n{{objetivo}}\n\n## Los seis pasos\n\n{{#pasos}}1. {{.}}\n{{/pasos}}\n> [!CONSEJO] {{consejo}}\n\n## Tiempo total\n\n:::big\n{{tiempo}} | minutos | tiempo total estimado [SIM]\n:::\n\n| Fase | Minutos [SIM] |\n|---|---|\n{{#tiempos}}| {{fase}} | {{minutos}} |\n{{/tiempos}}{grafico: bar}\n"
+}

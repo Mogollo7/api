@@ -1,0 +1,43 @@
+{
+ "id": "editorial",
+ "tipo": "estilo",
+ "nombre": "Editorial",
+ "version": "0.1.0",
+ "descripcion": "Familia visual «brutalismo»: 7 colores por rol, fuentes Anton, Archivo, IBM Plex Mono, contraste mínimo 4.5:1.",
+ "tags": [
+  "brutalismo",
+  "paleta",
+  "tipografia",
+  "anton",
+  "archivo",
+  "ibm plex mono",
+  "_marca",
+  "editorial"
+ ],
+ "uso": "Elige el estilo cuando el usuario no trae uno; si trae una imagen, busca el parecido.",
+ "parametros": {
+  "roles": "color por rol (negro, bosque, hoja, vivo, ocre, crema, arena)",
+  "formatos": "pdf-a4, pptx-16x9"
+ },
+ "ejemplo": {
+  "design": "editorial",
+  "palette": "default"
+ },
+ "paleta": {
+  "negro": "#0B0B0B",
+  "bosque": "#14183A",
+  "hoja": "#2A3B8F",
+  "vivo": "#2D5BFF",
+  "ocre": "#FFD400",
+  "crema": "#FAFAF7",
+  "arena": "#ECECE6"
+ },
+ "fuentes": [
+  "Anton",
+  "Archivo",
+  "IBM Plex Mono"
+ ],
+ "design": "editorial",
+ "origen": "repositorio",
+ "licencia": "SIL Open Font License 1.1"
+}

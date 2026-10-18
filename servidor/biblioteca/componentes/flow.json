@@ -1,0 +1,32 @@
+{
+ "id": "flow",
+ "tipo": "componente",
+ "nombre": "Bloque «flow»",
+ "version": "1.0",
+ "descripcion": "Pasos en tarjetas (proceso lineal).",
+ "tags": [
+  "flow"
+ ],
+ "uso": "Pasos en tarjetas (proceso lineal).",
+ "parametros": {
+  "steps": "list (obligatorio) — [{title,text?,n?,on?}] Máx. 9.",
+  "cols": "num — Columnas 2–4."
+ },
+ "ejemplo": {
+  "type": "flow",
+  "cols": 3,
+  "steps": [
+   {
+    "title": "Uno",
+    "text": "…"
+   },
+   {
+    "title": "Dos",
+    "on": true
+   }
+  ]
+ },
+ "origen": "engine/spec.py",
+ "licencia": "propia",
+ "error_tipico": "Pasarse del límite de longitud (steps ≤ 9): el motor recorta o reduce con aviso."
+}

@@ -1,0 +1,17 @@
+{
+ "id": "reporte_datos", "tipo": "receta", "version": "1", "nombre": "Reporte de datos en Word",
+ "descripcion": "Reporte de datos en Word con resumen, tabla de seis periodos con gráfico de líneas, hallazgos y método. Sirve para analizar una serie de cifras y explicar cómo se obtuvieron.",
+ "tags": ["reporte", "datos", "word", "docx", "tabla", "grafico", "lineas", "tendencia", "hallazgos", "analisis", "metodo", "informe"],
+ "formato": "docx", "estilo": "anura", "origen": "supermercado", "licencia": "propia",
+ "huecos": {
+  "titulo": {"desc": "Título del reporte (máx. 60 letras)", "defecto": "Tendencia de visitas al sitio"},
+  "resumen": {"desc": "Qué muestran los datos, en 2 frases (máx. 300 letras)", "defecto": "Las visitas crecieron cada mes desde abril y septiembre cerró un 25 % arriba de abril, tras bajar un 8 % frente a agosto [SIM]."},
+  "serie_titulo": {"desc": "Título de la tabla (máx. 60 letras)", "defecto": "Visitas por mes (datos de ejemplo [SIM])"},
+  "serie": {"desc": "Seis filas «periodo | valor»; la tabla también se dibuja como gráfico de líneas", "lista": ["periodo", "valor"], "max": 6, "defecto": [["Abril", "412"], ["Mayo", "438"], ["Junio", "451"], ["Julio", "536"], ["Agosto", "560"], ["Septiembre", "515"]]},
+  "hallazgos": {"desc": "De 3 a 5 hallazgos, una frase corta cada uno (máx. 90 letras)", "max": 5, "defecto": ["El mayor salto del periodo fue en julio, tras la campaña de verano [SIM]", "Agosto fue el mes más alto y septiembre bajó un 8 %", "Las visitas desde el móvil ya son más de la mitad del total [SIM]"]},
+  "metodo": {"desc": "Cómo se obtuvieron y procesaron los datos, en un párrafo (máx. 300 letras)", "defecto": "Los datos salen del registro de visitas del sitio, contadas por día y sumadas por mes. Se excluyeron las visitas internas y los accesos repetidos en menos de 30 minutos. Las cifras son de ejemplo [SIM] y se deben reemplazar antes de circular."},
+  "autor": {"desc": "Quién firma el reporte (máx. 60 letras)", "defecto": "Equipo de analítica"},
+  "fecha": {"desc": "Periodo o fecha del reporte (máx. 30 letras)", "defecto": "Octubre 2026"}
+ },
+ "markdown": "---\ntitulo: {{titulo}}\nobjetivo: {{resumen}}\nautor: {{autor}}\nfecha: {{fecha}}\n---\n\n# {{titulo}}\n\n## Resumen\n\n{{resumen}}\n\n## {{serie_titulo}}\n\n| Periodo | Valor |\n|---|---|\n{{#serie}}| {{periodo}} | {{valor}} |\n{{/serie}}{grafico: line}\n\n## Hallazgos\n\n{{#hallazgos}}- {{.}}\n{{/hallazgos}}\n## Método\n\n{{metodo}}"
+}

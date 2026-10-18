@@ -1,0 +1,47 @@
+{
+ "id": "figure",
+ "tipo": "componente",
+ "nombre": "Bloque «figure»",
+ "version": "1.0",
+ "descripcion": "Figura (gráfico o imagen) con columna de cifras laterales (7/10 + 3/10).",
+ "tags": [
+  "figure",
+  "figura",
+  "imagen",
+  "foto"
+ ],
+ "uso": "Figura (gráfico o imagen) con columna de cifras laterales (7/10 + 3/10).",
+ "parametros": {
+  "chart": "obj — Como en chart.",
+  "image": "obj — Como en image.",
+  "title": "markup — Título.",
+  "caption": "markup — Pie.",
+  "side": "list — Cifras: [{v,l}].",
+  "side_note": "markup — Nota bajo las cifras.",
+  "side_title": "markup — Rótulo de la columna."
+ },
+ "ejemplo": {
+  "type": "figure",
+  "chart": {
+   "type": "bar",
+   "data": {
+    "items": [
+     {
+      "l": "A",
+      "v": 3
+     }
+    ]
+   }
+  },
+  "caption": "Figura 2.",
+  "side": [
+   {
+    "v": "0,34",
+    "l": "r de Pearson"
+   }
+  ]
+ },
+ "origen": "engine/spec.py",
+ "licencia": "propia",
+ "error_tipico": "Olvidar un campo obligatorio: el contrato rechaza el documento."
+}

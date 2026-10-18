@@ -1,0 +1,24 @@
+{
+ "id": "anura-gr-scatter",
+ "tipo": "plantilla",
+ "nombre": "Dispersión + tendencia (gráfico)",
+ "version": "1",
+ "descripcion": "Gráfico estándar: ver ESTANDARES.md",
+ "tags": [
+  "gráfico",
+  "molécula",
+  "referencia cine",
+  "propuesta"
+ ],
+ "design": "anura",
+ "uso": "Variante GR-scatter del diseño anura; se elige en options.variants.gráfico.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "gráfico": "GR-scatter"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

@@ -1,0 +1,18 @@
+# BORRADOR de configuración para Soup (QLoRA 4 bits). Las claves NO están verificadas contra tu versión:
+# Soup v0.75 rechaza claves desconocidas, así que valida con `soup --help` / la documentación de la versión instalada y quita o renombra lo que no exista.
+# Objetivo: mejorar la elección de herramienta y la segmentación del modelo pequeño en el conjunto fijo (servidor/evaluacion/casos.json).
+base: Qwen/Qwen2.5-3B-Instruct          # o el modelo de visión elegido en la Fase 1; debe caber en 6 GB con 4 bits
+task: sft                               # tool-calling: formato `messages`; preferencias: usar la plantilla de preferencias de Soup
+data: servidor/entrenamiento/dataset/tool_calling.jsonl
+quantization: 4bit
+lora:
+  r: 16
+  alpha: 32
+  dropout: 0.05
+train:
+  batch_size: 1                         # 6 GB de VRAM
+  grad_accum: 8
+  epochs: 2
+  lr: 2.0e-4
+  max_length: 2048
+output: servidor/entrenamiento/salida

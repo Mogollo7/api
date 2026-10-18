@@ -1,0 +1,24 @@
+{
+ "id": "anura-hj-1",
+ "tipo": "plantilla",
+ "nombre": "Normal (hoja)",
+ "version": "1",
+ "descripcion": "Hoja de flujo con titular, texto y bloques.",
+ "tags": [
+  "hoja",
+  "plantilla",
+  "anura",
+  "propuesta"
+ ],
+ "design": "anura",
+ "uso": "Variante HJ-1 del diseño anura; se elige en options.variants.hoja.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "hoja": "HJ-1"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

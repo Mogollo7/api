@@ -1,0 +1,24 @@
+{
+ "id": "anura-cf-2",
+ "tipo": "plantilla",
+ "nombre": "Columna lateral (cifras)",
+ "version": "1",
+ "descripcion": "Cifras en columna con regla vertical, al lado de una figura.",
+ "tags": [
+  "cifras",
+  "molécula",
+  "referencia cine",
+  "propuesta"
+ ],
+ "design": "anura",
+ "uso": "Variante CF-2 del diseño anura; se elige en options.variants.cifras.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "cifras": "CF-2"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

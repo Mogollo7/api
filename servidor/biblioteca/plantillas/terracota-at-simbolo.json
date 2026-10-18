@@ -1,0 +1,24 @@
+{
+ "id": "terracota-at-simbolo",
+ "tipo": "plantilla",
+ "nombre": "Símbolo (átomo)",
+ "version": "1",
+ "descripcion": "73 formas vectoriales sueltas; nunca en fila.",
+ "tags": [
+  "átomo",
+  "átomo",
+  "fabrica_estilo (recta)",
+  "propuesta"
+ ],
+ "design": "terracota",
+ "uso": "Variante AT-simbolo del diseño terracota; se elige en options.variants.átomo.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "átomo": "AT-simbolo"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

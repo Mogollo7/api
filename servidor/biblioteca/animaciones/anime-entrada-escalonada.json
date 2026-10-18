@@ -1,0 +1,26 @@
+{
+ "id": "anime-entrada-escalonada",
+ "tipo": "animacion",
+ "nombre": "Entrada escalonada (web, anime.js)",
+ "version": "1",
+ "descripcion": "En la salida web animada los hijos de cada sección suben y aparecen uno tras otro al entrar en pantalla. Se activa solo con format web-animada.",
+ "tags": [
+  "web",
+  "anime",
+  "entrada",
+  "escalonado",
+  "scroll"
+ ],
+ "parametros": {
+  "duracion": "700 ms",
+  "escalon": "90 ms",
+  "ease": "outExpo"
+ },
+ "origen": "servidor/video/vendor (anime.js 4.5 · three 0.186 · lottie-web 5.13)",
+ "licencia": "MIT",
+ "ejemplo": {
+  "automatico": true
+ },
+ "uso": "Ya va incluida: el director de video la aplica sola en cifras y barras.",
+ "error_tipico": "Duraciones largas (> 1.5 s) retrasan la escena: el video de la API dura ≤ 120 s."
+}

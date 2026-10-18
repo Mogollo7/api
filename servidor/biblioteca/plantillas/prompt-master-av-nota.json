@@ -1,0 +1,24 @@
+{
+ "id": "prompt-master-av-nota",
+ "tipo": "plantilla",
+ "nombre": "Nota (arena) (aviso)",
+ "version": "1",
+ "descripcion": "Información extra",
+ "tags": [
+  "aviso",
+  "molécula",
+  "anura",
+  "propuesta"
+ ],
+ "design": "prompt-master",
+ "uso": "Variante AV-nota del diseño prompt-master; se elige en options.variants.aviso.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "aviso": "AV-nota"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

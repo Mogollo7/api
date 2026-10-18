@@ -1,0 +1,24 @@
+{
+ "id": "anura-cv-4",
+ "tipo": "plantilla",
+ "nombre": "Cartel (portada)",
+ "version": "1",
+ "descripcion": "Titular apilado que llena el ancho, bloques de acento, foto y código de barras (cartel brutalista de referencia).",
+ "tags": [
+  "portada",
+  "organismo",
+  "referencia cartel",
+  "propuesta"
+ ],
+ "design": "anura",
+ "uso": "Variante CV-4 del diseño anura; se elige en options.variants.portada.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "portada": "CV-4"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

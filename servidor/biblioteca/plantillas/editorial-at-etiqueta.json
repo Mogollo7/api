@@ -1,0 +1,24 @@
+{
+ "id": "editorial-at-etiqueta",
+ "tipo": "plantilla",
+ "nombre": "Etiqueta (chip) (átomo)",
+ "version": "1",
+ "descripcion": "[FUENTE], [INF], SIMULACIÓN…",
+ "tags": [
+  "átomo",
+  "átomo",
+  "anura",
+  "propuesta"
+ ],
+ "design": "editorial",
+ "uso": "Variante AT-etiqueta del diseño editorial; se elige en options.variants.átomo.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "átomo": "AT-etiqueta"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

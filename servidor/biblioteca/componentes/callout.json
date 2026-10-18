@@ -1,0 +1,29 @@
+{
+ "id": "callout",
+ "tipo": "componente",
+ "nombre": "Bloque «callout»",
+ "version": "1.0",
+ "descripcion": "Aviso con etiqueta.",
+ "tags": [
+  "callout",
+  "aviso",
+  "nota",
+  "destacado"
+ ],
+ "uso": "Aviso con etiqueta.",
+ "parametros": {
+  "tone": "str — Tono.",
+  "label": "str — Rótulo.",
+  "title": "markup — Título.",
+  "text": "markup — Texto.",
+  "paras": "list — Varios párrafos."
+ },
+ "ejemplo": {
+  "type": "callout",
+  "tone": "ojo",
+  "text": "Advertencia breve."
+ },
+ "origen": "engine/spec.py",
+ "licencia": "propia",
+ "error_tipico": "Olvidar un campo obligatorio: el contrato rechaza el documento."
+}

@@ -27,7 +27,7 @@ def main():
     a = ap.parse_args()
     reg = Registry(HERE / "designs" / a.design)
     if a.archivo:
-        for vid, est in json.loads(Path(a.archivo).read_text()).items():
+        for vid, est in json.loads(Path(a.archivo).read_text(encoding="utf-8")).items():
             if vid in reg.by_id and est in ("propuesta", "aprobada", "rechazada"):
                 reg.set_state(vid, est)
     for v in a.aprobar:
@@ -46,4 +46,5 @@ def main():
 
 
 if __name__ == "__main__":
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")      # Windows: la consola cp1252 no acepta ✔ → ·
     main()

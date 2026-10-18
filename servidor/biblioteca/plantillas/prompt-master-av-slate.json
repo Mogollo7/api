@@ -1,0 +1,24 @@
+{
+ "id": "prompt-master-av-slate",
+ "tipo": "plantilla",
+ "nombre": "Atención (pizarra) (aviso)",
+ "version": "1",
+ "descripcion": "Aviso con regla interior, como «Riesgo de desbordamiento»",
+ "tags": [
+  "aviso",
+  "molécula",
+  "anura",
+  "propuesta"
+ ],
+ "design": "prompt-master",
+ "uso": "Variante AV-slate del diseño prompt-master; se elige en options.variants.aviso.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "aviso": "AV-slate"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

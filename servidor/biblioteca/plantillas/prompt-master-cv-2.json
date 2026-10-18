@@ -1,0 +1,24 @@
+{
+ "id": "prompt-master-cv-2",
+ "tipo": "plantilla",
+ "nombre": "SaaS: noche con degradado (portada)",
+ "version": "1",
+ "descripcion": "Fondo oscuro con degradado violeta, palabra gigante tenue y titular claro.",
+ "tags": [
+  "portada",
+  "organismo",
+  "guia-prompt-master-v2.pdf (inspirada)",
+  "propuesta"
+ ],
+ "design": "prompt-master",
+ "uso": "Variante CV-2 del diseño prompt-master; se elige en options.variants.portada.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "portada": "CV-2"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

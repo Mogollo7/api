@@ -1,0 +1,26 @@
+{
+ "id": "grafico-line",
+ "tipo": "componente",
+ "nombre": "Gráfico «line»",
+ "version": "1.0",
+ "descripcion": "Gráfico line: tendencia con pocos puntos o series. Máximo 14 elementos.",
+ "tags": [
+  "grafico",
+  "chart",
+  "line"
+ ],
+ "uso": "tendencia con pocos puntos o series",
+ "parametros": {
+  "data": "points:[[x,y,etiqueta?]] o series:[{name,points:[[x,y]..]}]; x puede ser texto/fecha ISO; xrange,yrange,xlabel,ylabel"
+ },
+ "ejemplo": {
+  "type": "chart",
+  "chart": {
+   "type": "line",
+   "data": "…"
+  }
+ },
+ "origen": "engine/charts.py",
+ "licencia": "propia",
+ "error_tipico": "Pasar más de 14 elementos: el motor lo degrada con aviso."
+}

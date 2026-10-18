@@ -1,0 +1,24 @@
+{
+ "id": "anura-dv-b",
+ "tipo": "plantilla",
+ "nombre": "Franja + goteo (divisor)",
+ "version": "1",
+ "descripcion": "Franja de foto con goteos abajo",
+ "tags": [
+  "divisor",
+  "organismo",
+  "anura",
+  "propuesta"
+ ],
+ "design": "anura",
+ "uso": "Variante DV-B del diseño anura; se elige en options.variants.divisor.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "divisor": "DV-B"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

@@ -1,0 +1,17 @@
+{
+ "id": "informe_negocio", "tipo": "receta", "version": "1", "nombre": "Informe de negocio",
+ "descripcion": "Informe de resultados de una página y media: resumen, 3 o 4 cifras clave, tabla con gráfico y medidas. Sirve para ventas, consumo, encuestas o cualquier periodo.",
+ "tags": ["informe", "resultados", "cifras", "ventas", "reporte", "negocio", "kpi", "grafico", "tabla"],
+ "formato": "pdf", "estilo": "anura", "origen": "supermercado", "licencia": "propia",
+ "huecos": {
+  "titulo": {"desc": "Título del informe (máx. 60 letras)", "defecto": "Informe de resultados del trimestre"},
+  "resumen": {"desc": "Qué pasó, en 1 o 2 frases", "defecto": "Las ventas crecieron frente al trimestre anterior y se cumplió la meta en tres de cuatro líneas."},
+  "cifras": {"desc": "2 a 4 cifras clave", "lista": ["valor", "etiqueta", "nota"], "max": 4, "defecto": [["$ 128 M", "ventas del trimestre", "+12 %"], ["1 940", "clientes activos", "+8 %"], ["94 %", "pedidos a tiempo", "meta 90 %"]]},
+  "serie_titulo": {"desc": "Qué muestra la tabla", "defecto": "Ventas por línea"},
+  "serie": {"desc": "Filas «nombre | valor» (3 a 6); la tabla se dibuja también como gráfico", "lista": ["nombre", "valor"], "max": 6, "defecto": [["Línea A", "52"], ["Línea B", "38"], ["Línea C", "24"], ["Línea D", "14"]]},
+  "medidas": {"desc": "Acciones o conclusiones (3 a 6 frases cortas)", "max": 6, "defecto": ["Reforzar la línea A, la de mayor margen", "Revisar precios de la línea D", "Repetir la campaña que funcionó en el segundo mes"]},
+  "autor": {"desc": "Quién firma", "defecto": "Equipo comercial"},
+  "fecha": {"desc": "Periodo o fecha", "defecto": "Octubre 2026"}
+ },
+ "markdown": "---\ntitulo: {{titulo}}\nobjetivo: {{resumen}}\nautor: {{autor}}\nfecha: {{fecha}}\n---\n\n# {{titulo}}\n\n## Resumen\n\n{{resumen}}\n\n:::kpi\n{{#cifras}}{{valor}} | {{etiqueta}} | {{nota}}\n{{/cifras}}:::\n\n## {{serie_titulo}}\n\n| Concepto | Valor |\n|---|---|\n{{#serie}}| {{nombre}} | {{valor}} |\n{{/serie}}{grafico: bar}\n\n## Medidas\n\n{{#medidas}}- {{.}}\n{{/medidas}}"
+}

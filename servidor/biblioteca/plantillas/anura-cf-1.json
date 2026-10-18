@@ -1,0 +1,24 @@
+{
+ "id": "anura-cf-1",
+ "tipo": "plantilla",
+ "nombre": "Tarjetas (cifras)",
+ "version": "1",
+ "descripcion": "2 a 4 tarjetas con cifra grande.",
+ "tags": [
+  "cifras",
+  "molécula",
+  "anura",
+  "propuesta"
+ ],
+ "design": "anura",
+ "uso": "Variante CF-1 del diseño anura; se elige en options.variants.cifras.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "cifras": "CF-1"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

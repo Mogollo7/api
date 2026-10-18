@@ -1,0 +1,23 @@
+{
+ "version": "1",
+ "tags": [
+  "puntos",
+  "recurso",
+  "fondo",
+  "patron",
+  "imagen"
+ ],
+ "origen": "recursos.py",
+ "licencia": "propia (generado por código)",
+ "id": "recurso-puntos-postman",
+ "tipo": "recurso",
+ "nombre": "Puntos puntos-postman",
+ "descripcion": "Recurso gráfico «puntos» 1600×900, colores #7C3AED sobre #F5F3F8.",
+ "uso": "Bloque image con src «recursos/puntos-postman.png»; úsalo de fondo o separador.",
+ "ejemplo": {
+  "type": "image",
+  "src": "recursos/puntos-postman.png",
+  "ratio": "16/9",
+  "alt": "puntos decorativo"
+ }
+}

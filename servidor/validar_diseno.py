@@ -38,7 +38,7 @@ def main():
         res.append((name, bool(ok), detail))
 
     try:
-        m = json.loads((dd / "manifest.json").read_text())
+        m = json.loads((dd / "manifest.json").read_text(encoding="utf-8"))
     except Exception as e:  # noqa: BLE001
         sys.exit(f"✘ manifest.json ilegible: {e}")
     need = ["id", "name", "version", "formats", "palette", "fonts", "page", "templates", "blocks", "image_treatments"]
@@ -46,7 +46,7 @@ def main():
     miss = [f["file"] for f in m.get("fonts", []) if not (dd / f["file"]).exists()]
     nolic = [f["family"] for f in m.get("fonts", []) if not f.get("licencia")]
     chk("2 fuentes existen y declaran licencia", not miss and not nolic, f"faltan archivos {miss}; sin licencia {nolic}")
-    pals = json.loads((dd / "palettes.json").read_text())
+    pals = json.loads((dd / "palettes.json").read_text(encoding="utf-8"))
     bad = []
     for k, p in pals.items():
         if k == "_marca":
@@ -61,7 +61,7 @@ def main():
     dv = [v["id"] for v in reg.data["variantes"] if v["tipo"] == "divisor"]
     have = lambda k, ids: [i for i in ids if (dd / "templates" / f"{k}.{i}.html").exists()]
     chk("4 ≥ 2 portadas y ≥ 2 divisores con plantilla", len(have("cover", cv)) >= 2 and len(have("divider", dv)) >= 2, f"portadas {have('cover', cv)}, divisores {have('divider', dv)}")
-    css = (dd / "bundle.css").read_text() + (dd / "extras.css").read_text()
+    css = (dd / "bundle.css").read_text(encoding="utf-8") + (dd / "extras.css").read_text(encoding="utf-8")
     chk("5 clases CSS del contrato", all(c in css for c in CSS_NEEDS), f"faltan {[c for c in CSS_NEEDS if c not in css]}")
     n = len(m["templates"]["cover"].get("symbols", []))
     chk("6 símbolos de portada entre 3 y 5", 3 <= n <= 5, f"hay {n}")
@@ -87,7 +87,7 @@ def main():
         d = muestras.doc_muestra(a.design, largo, cvv, dvv, imgs.exists())
         with tempfile.TemporaryDirectory() as t:
             p = Path(t) / "d.json"
-            p.write_text(json.dumps(d, ensure_ascii=False))
+            p.write_text(json.dumps(d, ensure_ascii=False), encoding="utf-8")
             return render.run(p, Path(t) / "x.pdf", imgs)
 
     rc = run_doc(False)
@@ -113,4 +113,5 @@ def main():
 
 
 if __name__ == "__main__":
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")      # Windows: la consola cp1252 no acepta ✔ → ·
     main()

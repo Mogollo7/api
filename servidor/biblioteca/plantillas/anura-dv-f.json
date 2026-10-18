@@ -1,0 +1,24 @@
+{
+ "id": "anura-dv-f",
+ "tipo": "plantilla",
+ "nombre": "Tipográfico (divisor)",
+ "version": "1",
+ "descripcion": "Solo número y título gigantes, sin foto",
+ "tags": [
+  "divisor",
+  "organismo",
+  "nueva",
+  "propuesta"
+ ],
+ "design": "anura",
+ "uso": "Variante DV-F del diseño anura; se elige en options.variants.divisor.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "divisor": "DV-F"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

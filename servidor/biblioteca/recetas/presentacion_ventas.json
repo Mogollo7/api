@@ -1,0 +1,106 @@
+{
+ "id": "presentacion_ventas",
+ "tipo": "receta",
+ "version": "1",
+ "nombre": "Presentación de ventas",
+ "descripcion": "Presentación de ventas en cinco diapositivas: resultados en tres cifras, gráfico de cuatro categorías, acciones y cita de cierre. Sirve para presentar resultados comerciales y una propuesta.",
+ "tags": [
+  "presentación ventas",
+  "diapositivas",
+  "slides",
+  "pitch comercial",
+  "deck",
+  "resultados comerciales",
+  "propuesta comercial",
+  "acciones",
+  "cierre",
+  "gráfico de ventas",
+  "cifras",
+  "dirección comercial"
+ ],
+ "formato": "pptx",
+ "estilo": "anura",
+ "origen": "supermercado",
+ "licencia": "propia",
+ "huecos": {
+  "titulo": {
+   "desc": "Título de la presentación (máx. 60 letras)",
+   "defecto": "Resultados y plan comercial del año"
+  },
+  "objetivo": {
+   "desc": "Texto de la portada: qué verá la audiencia (máx. 200 letras)",
+   "defecto": "Resultados del periodo, ventas por categoría y las cuatro acciones para el próximo trimestre."
+  },
+  "cifras": {
+   "desc": "Tres cifras: valor | etiqueta | nota (exactamente 3)",
+   "lista": [
+    "valor",
+    "etiqueta",
+    "nota"
+   ],
+   "max": 3,
+   "defecto": [
+    [
+     "$ 128 M",
+     "ventas del año",
+     "+12 % [SIM]"
+    ],
+    [
+     "1 940",
+     "clientes activos",
+     "+8 % [SIM]"
+    ],
+    [
+     "94 %",
+     "pedidos a tiempo",
+     "meta 90 %"
+    ]
+   ]
+  },
+  "categorias": {
+   "desc": "Cuatro categorías: nombre | valor (exactamente 4; el valor es número)",
+   "lista": [
+    "categoria",
+    "valor"
+   ],
+   "max": 4,
+   "defecto": [
+    [
+     "Línea A",
+     "52"
+    ],
+    [
+     "Línea B",
+     "38"
+    ],
+    [
+     "Línea C",
+     "24"
+    ],
+    [
+     "Línea D",
+     "14"
+    ]
+   ]
+  },
+  "acciones": {
+   "desc": "Cuatro acciones para el próximo trimestre, una frase cada una (máx. 90 letras)",
+   "max": 4,
+   "defecto": [
+    "Reforzar la línea A, la de mayor margen",
+    "Revisar precios de la línea D",
+    "Repetir la campaña que funcionó en el segundo mes",
+    "Abrir dos puntos de venta en la zona norte"
+   ]
+  },
+  "cita": {
+   "desc": "Frase de cierre (máx. 150 letras)",
+   "defecto": "La venta empieza cuando el cliente siente que lo entendemos."
+  },
+  "cita_autor": {
+   "desc": "Quién dice la frase de cierre",
+   "defecto": "Dirección comercial"
+  }
+ },
+ "markdown": "---\ntitulo: {{titulo}}\nobjetivo: {{objetivo}}\nautor: Dirección comercial\nfecha: Octubre 2026\n---\n\n# {{titulo}}\n\n## Resultados del periodo\n\n:::kpi\n{{#cifras}}{{valor}} | {{etiqueta}} | {{nota}}\n{{/cifras}}:::\n\n## Peso de cada línea\n\n| Categoría | Participación [SIM] |\n|---|---|\n{{#categorias}}| {{categoria}} | {{valor}} |\n{{/categorias}}{grafico: bar}\n\n## Cuatro acciones\n\n{{#acciones}}- {{.}}\n{{/acciones}}\n\n## Cierre\n\n> {{cita}}\n> — {{cita_autor}}\n"
+}

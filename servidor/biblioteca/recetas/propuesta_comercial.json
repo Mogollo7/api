@@ -1,0 +1,17 @@
+{
+ "id": "propuesta_comercial", "tipo": "receta", "version": "1", "nombre": "Propuesta comercial",
+ "descripcion": "Propuesta para un cliente: plantea su problema, la solución en tres puntos, la inversión en tabla y los plazos, con un cierre para decidir. Sirve para ofertas de servicios o proyectos.",
+ "tags": ["propuesta", "propuesta comercial", "oferta", "cotización", "presupuesto", "ventas", "cliente", "precio", "proyecto", "servicio"],
+ "formato": "pdf", "estilo": "editorial", "origen": "supermercado", "licencia": "propia",
+ "huecos": {
+  "titulo": {"desc": "Título de la propuesta (máx. 60 letras)", "defecto": "Propuesta de control de inventario"},
+  "cliente": {"desc": "Nombre del cliente o empresa (máx. 60 letras)", "defecto": "Ferretería Los Andes"},
+  "problema": {"desc": "Qué le pasa al cliente, en 2 o 3 frases (máx. 300 letras)", "defecto": "Hoy el conteo de inventario se hace a mano cada mes. Eso toma unas 40 horas del equipo, deja diferencias de hasta 6 % entre el papel y la bodega y retrasa las compras [SIM]."},
+  "solucion": {"desc": "Tres puntos de la solución, una frase corta cada uno (máx. 3)", "max": 3, "defecto": ["Lectores de código en bodega que registran cada movimiento", "Panel con stock mínimo y alertas de compra automáticas", "Capacitación de dos días para el equipo y soporte por tres meses"]},
+  "precio": {"desc": "Filas «concepto | importe» de la inversión (2 a 6)", "lista": ["concepto", "importe"], "max": 6, "defecto": [["Licencia y configuración", "$ 4 800 000 [SIM]"], ["Lectores de código (2)", "$ 2 300 000 [SIM]"], ["Capacitación y soporte, 3 meses", "$ 1 500 000 [SIM]"]]},
+  "plazos": {"desc": "Fases y plazos, una frase por fase (3 a 5)", "max": 5, "defecto": ["Semana 1: instalación y carga de datos", "Semanas 2 y 3: pruebas en bodega y ajustes", "Semana 4: salida en vivo y capacitación del equipo"]},
+  "cierre": {"desc": "Llamado a decidir, en 1 o 2 frases (máx. 300 letras)", "defecto": "Si aprueban la propuesta antes del 30 de octubre, empezamos la instalación la semana siguiente."},
+  "fecha": {"desc": "Fecha de la propuesta (máx. 30 letras)", "defecto": "Octubre 2026"}
+ },
+ "markdown": "---\ntitulo: {{titulo}}\nobjetivo: Propuesta para {{cliente}}\nautor: Equipo comercial\nfecha: {{fecha}}\n---\n\n# {{titulo}}\n\n## El problema\n\n{{problema}}\n\n## La solución\n\n{{#solucion}}- {{.}}\n{{/solucion}}\n## Inversión y plazos\n\n| Concepto | Importe |\n|---|---|\n{{#precio}}| {{concepto}} | {{importe}} |\n{{/precio}}\n\n{{#plazos}}- {{.}}\n{{/plazos}}\n## Siguiente paso\n\n{{cierre}}"
+}

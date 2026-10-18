@@ -1,0 +1,24 @@
+{
+ "id": "anura-gr-stack",
+ "tipo": "plantilla",
+ "nombre": "Apiladas (gráfico)",
+ "version": "1",
+ "descripcion": "Gráfico estándar: ver ESTANDARES.md",
+ "tags": [
+  "gráfico",
+  "molécula",
+  "nueva",
+  "propuesta"
+ ],
+ "design": "anura",
+ "uso": "Variante GR-stack del diseño anura; se elige en options.variants.gráfico.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "gráfico": "GR-stack"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

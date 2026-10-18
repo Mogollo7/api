@@ -1,0 +1,25 @@
+{
+ "id": "anime-contador",
+ "tipo": "animacion",
+ "nombre": "Contador de cifras (web, anime.js)",
+ "version": "1",
+ "descripcion": "Las cifras clave de la web animada cuentan desde 0 hasta su valor al aparecer; respeta prefijo, sufijo y decimales.",
+ "tags": [
+  "web",
+  "anime",
+  "cifra",
+  "contador",
+  "kpi"
+ ],
+ "parametros": {
+  "duracion": "1100 ms",
+  "ease": "outCubic"
+ },
+ "origen": "servidor/video/vendor (anime.js 4.5 · three 0.186 · lottie-web 5.13)",
+ "licencia": "MIT",
+ "ejemplo": {
+  "automatico": true
+ },
+ "uso": "Ya va incluida: el director de video la aplica sola en cifras y barras.",
+ "error_tipico": "Duraciones largas (> 1.5 s) retrasan la escena: el video de la API dura ≤ 120 s."
+}

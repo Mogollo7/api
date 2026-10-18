@@ -1,0 +1,24 @@
+{
+ "id": "salvia-fl-1",
+ "tipo": "plantilla",
+ "nombre": "Tarjetas de proceso (flujo)",
+ "version": "1",
+ "descripcion": "Pasos en cuadrícula",
+ "tags": [
+  "flujo",
+  "organismo",
+  "fabrica_estilo (redonda)",
+  "propuesta"
+ ],
+ "design": "salvia",
+ "uso": "Variante FL-1 del diseño salvia; se elige en options.variants.flujo.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "flujo": "FL-1"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

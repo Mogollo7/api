@@ -162,8 +162,8 @@ def main():
     for inf in infos:
         for p in inf["paleta"][:4]:
             allpal[p["hex"]] += p["pct"]
-    (out / "estructura.json").write_text(json.dumps(infos, ensure_ascii=False, indent=1))
-    (out / "paleta.json").write_text(json.dumps([{"hex": h, "peso": round(v, 1)} for h, v in allpal.most_common(10)], indent=1))
+    (out / "estructura.json").write_text(json.dumps(infos, ensure_ascii=False, indent=1), encoding="utf-8")
+    (out / "paleta.json").write_text(json.dumps([{"hex": h, "peso": round(v, 1)} for h, v in allpal.most_common(10)], indent=1), encoding="utf-8")
     scales = Counter()
     for inf in infos:
         for b in inf["bloques"]:

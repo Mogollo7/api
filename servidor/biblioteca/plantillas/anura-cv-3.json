@@ -1,0 +1,24 @@
+{
+ "id": "anura-cv-3",
+ "tipo": "plantilla",
+ "nombre": "Ventana (portada)",
+ "version": "1",
+ "descripcion": "Foto enmarcada arriba y título gigante debajo.",
+ "tags": [
+  "portada",
+  "organismo",
+  "nueva",
+  "propuesta"
+ ],
+ "design": "anura",
+ "uso": "Variante CV-3 del diseño anura; se elige en options.variants.portada.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "portada": "CV-3"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

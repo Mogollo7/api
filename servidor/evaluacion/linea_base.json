@@ -1,0 +1,15 @@
+{
+ "modelo": "qwen2.5-coder:7b",
+ "fecha": "2026-10-18",
+ "resumen": {
+  "casos": 20,
+  "herramienta": 0.8,
+  "reutilizacion": 0.9,
+  "segmentacion": 0.6,
+  "calidad": 0.825,
+  "sin_error_de_validacion": 0.95,
+  "escalados": 2,
+  "tokens_in": 156072,
+  "tokens_out": 9744
+ }
+}

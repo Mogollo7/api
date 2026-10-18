@@ -1,0 +1,24 @@
+{
+ "id": "prompt-master-at-regla",
+ "tipo": "plantilla",
+ "nombre": "Regla y borde (átomo)",
+ "version": "1",
+ "descripcion": "Regla fina, media y gruesa; radio 0.",
+ "tags": [
+  "átomo",
+  "átomo",
+  "anura",
+  "propuesta"
+ ],
+ "design": "prompt-master",
+ "uso": "Variante AT-regla del diseño prompt-master; se elige en options.variants.átomo.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "átomo": "AT-regla"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

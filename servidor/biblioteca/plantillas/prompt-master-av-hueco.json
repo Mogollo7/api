@@ -1,0 +1,24 @@
+{
+ "id": "prompt-master-av-hueco",
+ "tipo": "plantilla",
+ "nombre": "Hueco (borde) (aviso)",
+ "version": "1",
+ "descripcion": "Bloque no estándar degradado",
+ "tags": [
+  "aviso",
+  "molécula",
+  "anura",
+  "propuesta"
+ ],
+ "design": "prompt-master",
+ "uso": "Variante AV-hueco del diseño prompt-master; se elige en options.variants.aviso.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "aviso": "AV-hueco"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

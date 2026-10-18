@@ -1,0 +1,32 @@
+{
+ "id": "stats",
+ "tipo": "componente",
+ "nombre": "Bloque «stats»",
+ "version": "1.0",
+ "descripcion": "Cifras en columna con regla vertical.",
+ "tags": [
+  "stats"
+ ],
+ "uso": "Cifras en columna con regla vertical.",
+ "parametros": {
+  "items": "list (obligatorio) — [{v,l}]",
+  "title": "markup — Rótulo.",
+  "note": "markup — Nota."
+ },
+ "ejemplo": {
+  "type": "stats",
+  "items": [
+   {
+    "v": "9,0",
+    "l": "moda"
+   },
+   {
+    "v": "8,0",
+    "l": "mediana"
+   }
+  ]
+ },
+ "origen": "engine/spec.py",
+ "licencia": "propia",
+ "error_tipico": "Olvidar un campo obligatorio: el contrato rechaza el documento."
+}

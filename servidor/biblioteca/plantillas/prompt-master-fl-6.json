@@ -1,0 +1,24 @@
+{
+ "id": "prompt-master-fl-6",
+ "tipo": "plantilla",
+ "nombre": "Comparación (flujo)",
+ "version": "1",
+ "descripcion": "Dos opciones con veredicto",
+ "tags": [
+  "flujo",
+  "organismo",
+  "anura",
+  "propuesta"
+ ],
+ "design": "prompt-master",
+ "uso": "Variante FL-6 del diseño prompt-master; se elige en options.variants.flujo.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "flujo": "FL-6"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

@@ -1,0 +1,11 @@
+{
+ "id": "kpi_4", "tipo": "ingrediente", "version": "1", "nombre": "Cuatro cifras clave",
+ "descripcion": "Sección con cuatro tarjetas de cifras clave, cada una con valor, etiqueta y nota. Sirve para resaltar resultados dentro de cualquier documento.",
+ "tags": ["cifras", "kpi", "indicadores", "tarjetas", "números clave", "métricas", "resultados", "estadísticas", "datos destacados", "cuatro cifras"],
+ "origen": "supermercado", "licencia": "propia",
+ "huecos": {
+  "titulo": {"desc": "Título de la sección (máx. 60 letras)", "defecto": "Resultados del mes"},
+  "cifras": {"desc": "Cuatro cifras: valor | etiqueta | nota (la nota máx. 30 letras)", "lista": ["valor", "etiqueta", "nota"], "max": 4, "defecto": [["$ 128 M", "ventas del mes", "+12 % vs. sept. [SIM]"], ["1 940", "clientes activos", "+8 % en el mes [SIM]"], ["94 %", "pedidos a tiempo", "meta 90 % [SIM]"], ["3,1 días", "tiempo de entrega", "antes 4,2 días [SIM]"]]}
+ },
+ "markdown": "## {{titulo}}\n\n:::kpi\n{{#cifras}}{{valor}} | {{etiqueta}} | {{nota}}\n{{/cifras}}:::"
+}

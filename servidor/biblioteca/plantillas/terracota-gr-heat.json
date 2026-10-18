@@ -1,0 +1,24 @@
+{
+ "id": "terracota-gr-heat",
+ "tipo": "plantilla",
+ "nombre": "Mapa de calor (gráfico)",
+ "version": "1",
+ "descripcion": "Gráfico estándar: ver ESTANDARES.md",
+ "tags": [
+  "gráfico",
+  "molécula",
+  "fabrica_estilo (recta)",
+  "propuesta"
+ ],
+ "design": "terracota",
+ "uso": "Variante GR-heat del diseño terracota; se elige en options.variants.gráfico.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "gráfico": "GR-heat"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

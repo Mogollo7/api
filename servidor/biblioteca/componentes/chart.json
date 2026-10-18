@@ -1,0 +1,47 @@
+{
+ "id": "chart",
+ "tipo": "componente",
+ "nombre": "Bloque «chart»",
+ "version": "1.0",
+ "descripcion": "Gráfico estándar en marco con título y pie. Ver tipos.",
+ "tags": [
+  "chart",
+  "gráfico",
+  "barras",
+  "líneas"
+ ],
+ "uso": "Gráfico estándar en marco con título y pie. Ver tipos.",
+ "parametros": {
+  "title": "markup — Título del gráfico (no repitas el titular de la hoja). Máx. 70.",
+  "tag": "markup — Etiqueta mono: fuente o tipo de dato.",
+  "chart": "obj (obligatorio) — {type, data[, legend]}",
+  "caption": "markup — Pie: «Figura N. …».",
+  "sim": "bool — Datos simulados (marco punteado).",
+  "half": "bool — Dos bloques half seguidos van lado a lado."
+ },
+ "ejemplo": {
+  "type": "chart",
+  "title": "Acierto",
+  "chart": {
+   "type": "bar",
+   "data": {
+    "max": 100,
+    "items": [
+     {
+      "l": "A",
+      "v": 40,
+      "hi": true
+     },
+     {
+      "l": "B",
+      "v": 62
+     }
+    ]
+   }
+  },
+  "caption": "Figura 1. Muestra."
+ },
+ "origen": "engine/spec.py",
+ "licencia": "propia",
+ "error_tipico": "Pasarse del límite de longitud (title ≤ 70): el motor recorta o reduce con aviso."
+}

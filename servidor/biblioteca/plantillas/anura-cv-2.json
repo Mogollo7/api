@@ -1,0 +1,24 @@
+{
+ "id": "anura-cv-2",
+ "tipo": "plantilla",
+ "nombre": "Tipográfica (portada)",
+ "version": "1",
+ "descripcion": "Solo tipografía gigante, sin foto ni mascota (la pedida en PROMPT_PDF.md).",
+ "tags": [
+  "portada",
+  "organismo",
+  "nueva",
+  "propuesta"
+ ],
+ "design": "anura",
+ "uso": "Variante CV-2 del diseño anura; se elige en options.variants.portada.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "portada": "CV-2"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

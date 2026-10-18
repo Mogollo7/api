@@ -1,0 +1,25 @@
+{
+ "id": "count-up",
+ "tipo": "animacion",
+ "nombre": "Contador",
+ "version": "1",
+ "descripcion": "Un número sube desde 0 hasta su valor. Para cifras clave en video.",
+ "tags": [
+  "cifra",
+  "numero",
+  "kpi",
+  "contador"
+ ],
+ "parametros": {
+  "duracion": "1.2 s",
+  "decimales": "0",
+  "formato": "texto con prefijo/sufijo"
+ },
+ "origen": "GSAP 3.14.2 (servidor/video/gsap.min.js)",
+ "licencia": "GSAP «no charge» (uso propio; revisar usos prohibidos si se distribuye)",
+ "ejemplo": {
+  "automatico": true
+ },
+ "uso": "Ya va incluida: el director de video la aplica sola en cifras y barras.",
+ "error_tipico": "Duraciones largas (> 1.5 s) retrasan la escena: el video de la API dura ≤ 120 s."
+}

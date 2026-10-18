@@ -1,0 +1,24 @@
+{
+ "id": "prompt-master-fl-5",
+ "tipo": "plantilla",
+ "nombre": "Rangos (flujo)",
+ "version": "1",
+ "descripcion": "Embudo taxonómico",
+ "tags": [
+  "flujo",
+  "organismo",
+  "anura",
+  "propuesta"
+ ],
+ "design": "prompt-master",
+ "uso": "Variante FL-5 del diseño prompt-master; se elige en options.variants.flujo.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "flujo": "FL-5"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

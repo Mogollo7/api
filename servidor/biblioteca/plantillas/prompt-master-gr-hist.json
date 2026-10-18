@@ -1,0 +1,24 @@
+{
+ "id": "prompt-master-gr-hist",
+ "tipo": "plantilla",
+ "nombre": "Histograma (gráfico)",
+ "version": "1",
+ "descripcion": "Gráfico estándar: ver ESTANDARES.md",
+ "tags": [
+  "gráfico",
+  "molécula",
+  "referencia cine",
+  "propuesta"
+ ],
+ "design": "prompt-master",
+ "uso": "Variante GR-hist del diseño prompt-master; se elige en options.variants.gráfico.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "gráfico": "GR-hist"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

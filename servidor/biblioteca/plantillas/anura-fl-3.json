@@ -1,0 +1,24 @@
+{
+ "id": "anura-fl-3",
+ "tipo": "plantilla",
+ "nombre": "Escalera (flujo)",
+ "version": "1",
+ "descripcion": "Opciones de simple a complejo",
+ "tags": [
+  "flujo",
+  "organismo",
+  "anura",
+  "propuesta"
+ ],
+ "design": "anura",
+ "uso": "Variante FL-3 del diseño anura; se elige en options.variants.flujo.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "flujo": "FL-3"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

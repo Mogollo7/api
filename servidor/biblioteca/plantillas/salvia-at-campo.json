@@ -1,0 +1,24 @@
+{
+ "id": "salvia-at-campo",
+ "tipo": "plantilla",
+ "nombre": "Campo de formulario (átomo)",
+ "version": "1",
+ "descripcion": "Entrada con borde duro (web).",
+ "tags": [
+  "átomo",
+  "átomo",
+  "fabrica_estilo (redonda)",
+  "propuesta"
+ ],
+ "design": "salvia",
+ "uso": "Variante AT-campo del diseño salvia; se elige en options.variants.átomo.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "átomo": "AT-campo"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

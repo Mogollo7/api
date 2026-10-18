@@ -1,0 +1,24 @@
+{
+ "id": "editorial-av-nota",
+ "tipo": "plantilla",
+ "nombre": "Nota (arena) (aviso)",
+ "version": "1",
+ "descripcion": "Información extra",
+ "tags": [
+  "aviso",
+  "molécula",
+  "anura",
+  "propuesta"
+ ],
+ "design": "editorial",
+ "uso": "Variante AV-nota del diseño editorial; se elige en options.variants.aviso.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "aviso": "AV-nota"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

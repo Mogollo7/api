@@ -1,0 +1,26 @@
+{
+ "id": "grafico-bar",
+ "tipo": "componente",
+ "nombre": "Gráfico «bar»",
+ "version": "1.0",
+ "descripcion": "Gráfico bar: comparar pocas categorías. Máximo 14 elementos.",
+ "tags": [
+  "grafico",
+  "chart",
+  "bar"
+ ],
+ "uso": "comparar pocas categorías",
+ "parametros": {
+  "data": "items:[{l,v,hi?,err?,hatch?}] o series (agrupadas/apiladas): categories:[..], series:[{name,values:[..]}], mode:'grouped'|'stacked'; max, unit"
+ },
+ "ejemplo": {
+  "type": "chart",
+  "chart": {
+   "type": "bar",
+   "data": "…"
+  }
+ },
+ "origen": "engine/charts.py",
+ "licencia": "propia",
+ "error_tipico": "Pasar más de 14 elementos: el motor lo degrada con aviso."
+}

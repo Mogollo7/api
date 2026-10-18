@@ -1,0 +1,24 @@
+{
+ "id": "prompt-master-at-tipo",
+ "tipo": "plantilla",
+ "nombre": "Tipografía (átomo)",
+ "version": "1",
+ "descripcion": "Anton (títulos), Archivo (texto), IBM Plex Mono (datos).",
+ "tags": [
+  "átomo",
+  "átomo",
+  "anura",
+  "propuesta"
+ ],
+ "design": "prompt-master",
+ "uso": "Variante AT-tipo del diseño prompt-master; se elige en options.variants.átomo.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "átomo": "AT-tipo"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

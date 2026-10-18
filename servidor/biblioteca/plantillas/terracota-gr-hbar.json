@@ -1,0 +1,24 @@
+{
+ "id": "terracota-gr-hbar",
+ "tipo": "plantilla",
+ "nombre": "Barras horizontales (gráfico)",
+ "version": "1",
+ "descripcion": "Gráfico estándar: ver ESTANDARES.md",
+ "tags": [
+  "gráfico",
+  "molécula",
+  "fabrica_estilo (recta)",
+  "propuesta"
+ ],
+ "design": "terracota",
+ "uso": "Variante GR-hbar del diseño terracota; se elige en options.variants.gráfico.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "gráfico": "GR-hbar"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

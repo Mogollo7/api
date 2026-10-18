@@ -1,0 +1,34 @@
+{
+ "id": "kpi",
+ "tipo": "componente",
+ "nombre": "Bloque «kpi»",
+ "version": "1.0",
+ "descripcion": "2 a 4 tarjetas con cifra grande.",
+ "tags": [
+  "kpi",
+  "cifras",
+  "indicadores",
+  "métricas"
+ ],
+ "uso": "2 a 4 tarjetas con cifra grande.",
+ "parametros": {
+  "items": "list (obligatorio) — [{v, l, note?}] Máx. 4."
+ },
+ "ejemplo": {
+  "type": "kpi",
+  "items": [
+   {
+    "v": "62,9 %",
+    "l": "top-1",
+    "note": "[CALC]"
+   },
+   {
+    "v": "86,1 %",
+    "l": "top-3"
+   }
+  ]
+ },
+ "origen": "engine/spec.py",
+ "licencia": "propia",
+ "error_tipico": "Pasarse del límite de longitud (items ≤ 4): el motor recorta o reduce con aviso."
+}

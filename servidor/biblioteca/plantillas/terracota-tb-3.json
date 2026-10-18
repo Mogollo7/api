@@ -1,0 +1,24 @@
+{
+ "id": "terracota-tb-3",
+ "tipo": "plantilla",
+ "nombre": "Ficha (tabla)",
+ "version": "1",
+ "descripcion": "Sin cabecera rellena: etiqueta a la izquierda, valor a la derecha (como «Revisión / Resultado»).",
+ "tags": [
+  "tabla",
+  "molécula",
+  "fabrica_estilo (recta)",
+  "propuesta"
+ ],
+ "design": "terracota",
+ "uso": "Variante TB-3 del diseño terracota; se elige en options.variants.tabla.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "tabla": "TB-3"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

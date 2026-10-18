@@ -1,0 +1,24 @@
+{
+ "id": "editorial-at-campo",
+ "tipo": "plantilla",
+ "nombre": "Campo de formulario (átomo)",
+ "version": "1",
+ "descripcion": "Entrada con borde duro (web).",
+ "tags": [
+  "átomo",
+  "átomo",
+  "anura",
+  "propuesta"
+ ],
+ "design": "editorial",
+ "uso": "Variante AT-campo del diseño editorial; se elige en options.variants.átomo.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "átomo": "AT-campo"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

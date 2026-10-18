@@ -1,0 +1,24 @@
+{
+ "id": "editorial-fg-1",
+ "tipo": "plantilla",
+ "nombre": "Marco con pie (figura)",
+ "version": "1",
+ "descripcion": "Gráfico o imagen en marco duro con pie en caja.",
+ "tags": [
+  "figura",
+  "organismo",
+  "anura",
+  "propuesta"
+ ],
+ "design": "editorial",
+ "uso": "Variante FG-1 del diseño editorial; se elige en options.variants.figura.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "figura": "FG-1"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

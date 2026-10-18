@@ -1,0 +1,24 @@
+{
+ "id": "terracota-fl-5",
+ "tipo": "plantilla",
+ "nombre": "Rangos (flujo)",
+ "version": "1",
+ "descripcion": "Embudo taxonómico",
+ "tags": [
+  "flujo",
+  "organismo",
+  "fabrica_estilo (recta)",
+  "propuesta"
+ ],
+ "design": "terracota",
+ "uso": "Variante FL-5 del diseño terracota; se elige en options.variants.flujo.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "flujo": "FL-5"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

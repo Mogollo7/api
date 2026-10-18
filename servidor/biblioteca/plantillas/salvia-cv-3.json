@@ -1,0 +1,24 @@
+{
+ "id": "salvia-cv-3",
+ "tipo": "plantilla",
+ "nombre": "Portada clara suave (portada)",
+ "version": "1",
+ "descripcion": "Portada con fondo claro, generada por fabrica_estilo.py.",
+ "tags": [
+  "portada",
+  "organismo",
+  "fabrica_estilo",
+  "propuesta"
+ ],
+ "design": "salvia",
+ "uso": "Variante CV-3 del diseño salvia; se elige en options.variants.portada.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "portada": "CV-3"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

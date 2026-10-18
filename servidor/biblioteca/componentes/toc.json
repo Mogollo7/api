@@ -1,0 +1,18 @@
+{
+ "id": "toc",
+ "tipo": "componente",
+ "nombre": "Bloque «toc»",
+ "version": "1.0",
+ "descripcion": "Índice automático con páginas y enlaces (solo uno por documento).",
+ "tags": [
+  "toc"
+ ],
+ "uso": "Índice automático con páginas y enlaces (solo uno por documento).",
+ "parametros": {},
+ "ejemplo": {
+  "type": "toc"
+ },
+ "origen": "engine/spec.py",
+ "licencia": "propia",
+ "error_tipico": "Olvidar un campo obligatorio: el contrato rechaza el documento."
+}

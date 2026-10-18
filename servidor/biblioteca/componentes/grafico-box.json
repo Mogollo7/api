@@ -1,0 +1,26 @@
+{
+ "id": "grafico-box",
+ "tipo": "componente",
+ "nombre": "Gráfico «box»",
+ "version": "1.0",
+ "descripcion": "Gráfico box: dispersión y atípicos por grupo. Máximo 40 elementos.",
+ "tags": [
+  "grafico",
+  "chart",
+  "box"
+ ],
+ "uso": "dispersión y atípicos por grupo",
+ "parametros": {
+  "data": "groups:[{l,lo,q1,med,q3,hi,out:[..]}], xrange, xticks, xlabel"
+ },
+ "ejemplo": {
+  "type": "chart",
+  "chart": {
+   "type": "box",
+   "data": "…"
+  }
+ },
+ "origen": "engine/charts.py",
+ "licencia": "propia",
+ "error_tipico": "Pasar más de 40 elementos: el motor lo degrada con aviso."
+}

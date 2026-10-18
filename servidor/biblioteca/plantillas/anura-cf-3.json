@@ -1,0 +1,24 @@
+{
+ "id": "anura-cf-3",
+ "tipo": "plantilla",
+ "nombre": "Cifra grande (disco) (cifras)",
+ "version": "1",
+ "descripcion": "Una cifra gigante con disco.",
+ "tags": [
+  "cifras",
+  "molécula",
+  "anura",
+  "propuesta"
+ ],
+ "design": "anura",
+ "uso": "Variante CF-3 del diseño anura; se elige en options.variants.cifras.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "cifras": "CF-3"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

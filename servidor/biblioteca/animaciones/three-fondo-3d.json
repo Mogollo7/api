@@ -1,0 +1,25 @@
+{
+ "id": "three-fondo-3d",
+ "tipo": "animacion",
+ "nombre": "Fondo 3D de portada (three.js)",
+ "version": "1",
+ "descripcion": "Icosaedro de alambre girando detrás de la portada web, con el color de acento del diseño. Solo desde la línea de comandos: python servidor/web.py doc.json --animar --fondo3d.",
+ "tags": [
+  "web",
+  "three",
+  "3d",
+  "portada",
+  "fondo"
+ ],
+ "parametros": {
+  "rotacion": "0.003/0.005 rad por cuadro",
+  "opacidad": "0.35"
+ },
+ "origen": "servidor/video/vendor (anime.js 4.5 · three 0.186 · lottie-web 5.13)",
+ "licencia": "MIT",
+ "ejemplo": {
+  "automatico": true
+ },
+ "uso": "Ya va incluida: el director de video la aplica sola en cifras y barras.",
+ "error_tipico": "Duraciones largas (> 1.5 s) retrasan la escena: el video de la API dura ≤ 120 s."
+}

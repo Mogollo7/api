@@ -1,0 +1,24 @@
+{
+ "id": "terracota-av-regla",
+ "tipo": "plantilla",
+ "nombre": "Regla (vivo) (aviso)",
+ "version": "1",
+ "descripcion": "Norma que se debe seguir",
+ "tags": [
+  "aviso",
+  "molécula",
+  "fabrica_estilo (recta)",
+  "propuesta"
+ ],
+ "design": "terracota",
+ "uso": "Variante AV-regla del diseño terracota; se elige en options.variants.aviso.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "aviso": "AV-regla"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

@@ -1,0 +1,23 @@
+{
+ "version": "1",
+ "tags": [
+  "lineas",
+  "recurso",
+  "fondo",
+  "patron",
+  "imagen"
+ ],
+ "origen": "recursos.py",
+ "licencia": "propia (generado por código)",
+ "id": "recurso-lineas-prueba",
+ "tipo": "recurso",
+ "nombre": "Lineas lineas-prueba",
+ "descripcion": "Recurso gráfico «lineas» 1600×900, colores #2F7D5B sobre #F5F3F8.",
+ "uso": "Bloque image con src «recursos/lineas-prueba.png»; úsalo de fondo o separador.",
+ "ejemplo": {
+  "type": "image",
+  "src": "recursos/lineas-prueba.png",
+  "ratio": "16/9",
+  "alt": "lineas decorativo"
+ }
+}

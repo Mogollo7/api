@@ -1,0 +1,15 @@
+{
+ "id": "resumen_video", "tipo": "receta", "version": "1", "nombre": "Resumen en video",
+ "descripcion": "Video corto de un periodo: una frase de contexto, cuatro cifras clave y una frase de cierre. Sirve para comunicar resultados a un equipo o publicarlos en redes.",
+ "tags": ["video", "resumen", "cifras", "resultados", "presentacion", "redes", "corto", "kpi", "periodo", "trimestre", "mensual", "reel"],
+ "formato": "video", "estilo": "editorial", "origen": "supermercado", "licencia": "propia",
+ "huecos": {
+  "titulo": {"desc": "Título del video (máx. 60 letras)", "defecto": "Así fue nuestro trimestre"},
+  "fecha": {"desc": "Periodo que resume (máx. 30 letras)", "defecto": "Julio a septiembre 2026"},
+  "resumen": {"desc": "Qué pasó, en una frase corta (máx. 90 letras)", "defecto": "Crecimos en las tres líneas y cumplimos la meta de entrega."},
+  "cifras": {"desc": "2 a 4 cifras clave; la nota es corta (máx. 30 letras)", "lista": ["valor", "etiqueta", "nota"], "max": 4, "defecto": [["$ 128 M", "ventas", "+12 % [SIM]"], ["1 940", "clientes activos", "+8 % [SIM]"], ["94 %", "pedidos a tiempo", "meta 90 % [SIM]"], ["4,6", "calificación media", "de 5 [SIM]"]]},
+  "cierre": {"desc": "Frase final, una sola línea (máx. 90 letras)", "defecto": "Lo que se mide, se mejora."},
+  "autor": {"desc": "Quién presenta el video (máx. 40 letras)", "defecto": "Equipo comercial"}
+ },
+ "markdown": "---\ntitulo: {{titulo}}\nobjetivo: {{resumen}}\nformato: video\nestilo: editorial\nautor: {{autor}}\nfecha: {{fecha}}\n---\n\n# {{titulo}}\n\n## Qué pasó\n\n{{resumen}}\n\n## Cifras clave\n\n:::kpi\n{{#cifras}}{{valor}} | {{etiqueta}} | {{nota}}\n{{/cifras}}:::\n\n## Cierre\n\n> {{cierre}}\n> — {{autor}}"
+}

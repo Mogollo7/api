@@ -1,0 +1,24 @@
+{
+ "id": "lottie-reproducir",
+ "tipo": "animacion",
+ "nombre": "Animación Lottie (lottie-web)",
+ "version": "1",
+ "descripcion": "lottie-web está en servidor/video/vendor/lottie.min.js (MIT). Aún no hay bloque del contrato que lo use: se incrusta a mano en una página web con lottie.loadAnimation({container, path, loop:true}).",
+ "tags": [
+  "lottie",
+  "animacion",
+  "web",
+  "vector"
+ ],
+ "parametros": {
+  "path": "archivo .json de Lottie",
+  "loop": "true|false"
+ },
+ "origen": "servidor/video/vendor (anime.js 4.5 · three 0.186 · lottie-web 5.13)",
+ "licencia": "MIT",
+ "ejemplo": {
+  "automatico": true
+ },
+ "uso": "Ya va incluida: el director de video la aplica sola en cifras y barras.",
+ "error_tipico": "Duraciones largas (> 1.5 s) retrasan la escena: el video de la API dura ≤ 120 s."
+}

@@ -1,0 +1,116 @@
+{
+ "id": "comparativo",
+ "tipo": "receta",
+ "version": "1",
+ "nombre": "Comparativo de tres opciones",
+ "descripcion": "Comparativo de tres opciones en tabla, con criterios, puntuación en gráfico y una recomendación. Sirve para elegir proveedores, herramientas o alternativas.",
+ "tags": [
+  "comparativo",
+  "comparar",
+  "opciones",
+  "alternativas",
+  "versus",
+  "tabla comparativa",
+  "criterios",
+  "pros y contras",
+  "recomendación",
+  "evaluar proveedores",
+  "decisión",
+  "gráfico"
+ ],
+ "formato": "pdf",
+ "estilo": "anura",
+ "origen": "supermercado",
+ "licencia": "propia",
+ "huecos": {
+  "titulo": {
+   "desc": "Título del comparativo (máx. 60 letras)",
+   "defecto": "Comparativo de tres proveedores de hosting"
+  },
+  "resumen": {
+   "desc": "Qué se compara y cuál conviene, en 1 o 2 frases (máx. 300 letras)",
+   "defecto": "Comparamos tres opciones por precio, puesta en marcha, soporte y seguridad. La opción B ofrece el mejor equilibrio para el volumen actual."
+  },
+  "opcion_a": {
+   "desc": "Nombre de la primera opción (columna de la tabla, máx. 20 letras)",
+   "defecto": "Proveedor A"
+  },
+  "opcion_b": {
+   "desc": "Nombre de la segunda opción (máx. 20 letras)",
+   "defecto": "Proveedor B"
+  },
+  "opcion_c": {
+   "desc": "Nombre de la tercera opción (máx. 20 letras; si son dos, pon «—»)",
+   "defecto": "Proveedor C"
+  },
+  "criterios": {
+   "desc": "Filas de la tabla: criterio | opción A | opción B | opción C (3 a 6 filas)",
+   "lista": [
+    "criterio",
+    "a",
+    "b",
+    "c"
+   ],
+   "max": 6,
+   "defecto": [
+    [
+     "Precio mensual",
+     "12 USD [SIM]",
+     "18 USD [SIM]",
+     "9 USD [SIM]"
+    ],
+    [
+     "Puesta en marcha",
+     "1 día [SIM]",
+     "3 días [SIM]",
+     "1 semana [SIM]"
+    ],
+    [
+     "Soporte",
+     "Chat 24/7",
+     "Chat en horario laboral",
+     "Solo foros"
+    ],
+    [
+     "Escalabilidad",
+     "Alta",
+     "Media",
+     "Baja"
+    ],
+    [
+     "Seguridad",
+     "Cifrado y respaldo diario",
+     "Cifrado",
+     "Cifrado parcial"
+    ]
+   ]
+  },
+  "puntajes": {
+   "desc": "Puntuación de cada opción sobre 10 (2 o 3 filas; el nombre igual que en las columnas)",
+   "lista": [
+    "opcion",
+    "puntos"
+   ],
+   "max": 3,
+   "defecto": [
+    [
+     "Proveedor A",
+     "7"
+    ],
+    [
+     "Proveedor B",
+     "9"
+    ],
+    [
+     "Proveedor C",
+     "6"
+    ]
+   ]
+  },
+  "recomendacion": {
+   "desc": "Recomendación final con su motivo (máx. 300 letras)",
+   "defecto": "Recomendamos el Proveedor B: tiene el mejor puntaje y soporte por chat sin costo adicional. Si el presupuesto es lo primero, el Proveedor C ahorra cerca de un tercio, pero exige más atención técnica."
+  }
+ },
+ "markdown": "---\ntitulo: {{titulo}}\nobjetivo: {{resumen}}\n---\n\n# {{titulo}}\n\n## Resumen\n\n{{resumen}}\n\n## Criterios\n\n| Criterio | {{opcion_a}} | {{opcion_b}} | {{opcion_c}} |\n|---|---|---|---|\n{{#criterios}}| {{criterio}} | {{a}} | {{b}} | {{c}} |\n{{/criterios}}\n\n## Puntuación\n\n| Opción | Puntuación [SIM] |\n|---|---|\n{{#puntajes}}| {{opcion}} | {{puntos}} |\n{{/puntajes}}{grafico: bar}\n\n## Recomendación\n\n{{recomendacion}}\n"
+}

@@ -1,0 +1,24 @@
+{
+ "id": "prompt-master-gr-heat",
+ "tipo": "plantilla",
+ "nombre": "Mapa de calor (gráfico)",
+ "version": "1",
+ "descripcion": "Gráfico estándar: ver ESTANDARES.md",
+ "tags": [
+  "gráfico",
+  "molécula",
+  "referencia cine",
+  "propuesta"
+ ],
+ "design": "prompt-master",
+ "uso": "Variante GR-heat del diseño prompt-master; se elige en options.variants.gráfico.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "gráfico": "GR-heat"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

@@ -1,0 +1,24 @@
+{
+ "id": "anura-at-pila",
+ "tipo": "plantilla",
+ "nombre": "Titular apilado (átomo)",
+ "version": "1",
+ "descripcion": "Palabras una sobre otra rellenando el ancho exacto.",
+ "tags": [
+  "átomo",
+  "átomo",
+  "referencia cartel",
+  "propuesta"
+ ],
+ "design": "anura",
+ "uso": "Variante AT-pila del diseño anura; se elige en options.variants.átomo.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "átomo": "AT-pila"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

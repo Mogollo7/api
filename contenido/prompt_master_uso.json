@@ -1,0 +1,268 @@
+{
+ "contract": "1.0",
+ "design": "prompt-master",
+ "format": "pdf-a4",
+ "palette": "prompt-master",
+ "meta": {
+  "title": "Cómo usar myStyle con tu agente",
+  "author": "Equipo myStyle",
+  "date": "Octubre 2026",
+  "subject": "Guía corta para que cualquier agente cree PDF, presentaciones y videos con myStyle sin empezar de cero.",
+  "header_left": [
+   "Equipo myStyle",
+   "Cómo usar myStyle con tu agente"
+  ],
+  "footer": "Cómo usar myStyle con tu agente"
+ },
+ "document": {
+  "cover": {
+   "vertical": "AGENTES",
+   "title": "Cómo usar myStyle con tu agente",
+   "text": "Guía corta para que cualquier agente cree PDF, presentaciones y videos con myStyle sin empezar de cero.",
+   "variant": "CV-1"
+  },
+  "parts": [
+   {
+    "id": "p1",
+    "title": "Antes de empezar",
+    "desc": "Guía corta para que cualquier agente cree PDF, presentaciones y videos con myStyle sin empezar de cero.",
+    "sections": [
+     {
+      "id": "s1",
+      "title": "Qué hace myStyle por tu agente",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "Tu agente escribe el contenido; myStyle lo **maqueta, lo valida y lo entrega** en el formato que pidas. El motor revisa márgenes, superposición y contraste, así que el agente corrige con avisos concretos en vez de adivinar."
+       },
+       {
+        "type": "kpi",
+        "items": [
+         {
+          "v": "5",
+          "l": "formatos de salida"
+         },
+         {
+          "v": "24",
+          "l": "bloques del contrato"
+         },
+         {
+          "v": "13",
+          "l": "herramientas para el agente"
+         },
+         {
+          "v": "3",
+          "l": "diseños disponibles"
+         }
+        ]
+       },
+       {
+        "type": "callout",
+        "label": "NOTA",
+        "text": "Los formatos son PDF, PowerPoint, Word, Excel y video. El mismo contenido sirve para todos."
+       }
+      ]
+     },
+     {
+      "id": "s2",
+      "title": "Conecta tu agente en cuatro pasos",
+      "blocks": [
+       {
+        "type": "list",
+        "items": [
+         "Enciende la API con `python servidor/api.py --puerto 8765`.",
+         "Conéctala por MCP con `claude mcp add mystyle -- python servidor/mcp_server.py` (OpenCode y Codex usan la misma línea en su configuración).",
+         "Si tu agente no habla MCP, usa `GET /v1/tools` o el archivo `/v1/openapi.json`.",
+         "Para un modelo local, ejecuta `python servidor/director.py \"lo que quieres\" --formato pdf`."
+        ],
+        "ordered": true
+       }
+      ]
+     }
+    ],
+    "divider": "DV-A"
+   },
+   {
+    "id": "p2",
+    "title": "Crear documentos",
+    "desc": "Guía corta para que cualquier agente cree PDF, presentaciones y videos con myStyle sin empezar de cero.",
+    "sections": [
+     {
+      "id": "s3",
+      "title": "El flujo de trabajo en cinco pasos",
+      "blocks": [
+       {
+        "type": "list",
+        "items": [
+         "Buscar un estilo parecido con `search_library`.",
+         "Escribir el contenido en Markdown con cabecera, secciones, listas y tablas.",
+         "Crear el archivo con `create_pdf`, `create_pptx` o `create_video`.",
+         "Leer los avisos del resultado y corregir con `patch`.",
+         "Auditar el PDF con `audit` antes de entregarlo."
+        ],
+        "ordered": true
+       },
+       {
+        "type": "quote",
+        "text": "El agente decide cómo presentar; el motor decide si pasa.",
+        "by": "Regla central de myStyle"
+       }
+      ]
+     },
+     {
+      "id": "s4",
+      "title": "Qué herramienta usar para cada cosa",
+      "blocks": [
+       {
+        "type": "table",
+        "head": [
+         "Herramienta",
+         "Para qué sirve",
+         "Perfil mínimo"
+        ],
+        "rows": [
+         [
+          "search_library",
+          "Encontrar estilos, plantillas y componentes",
+          "Sí"
+         ],
+         [
+          "library_get",
+          "Ver parámetros y un ejemplo correcto",
+          "Sí"
+         ],
+         [
+          "create_pdf",
+          "Crear un PDF A4",
+          "Sí"
+         ],
+         [
+          "create_pptx",
+          "Crear una presentación editable",
+          "Sí"
+         ],
+         [
+          "create_video",
+          "Crear un video MP4",
+          "Sí"
+         ],
+         [
+          "audit",
+          "Revisar márgenes, solapes y contraste",
+          "Sí"
+         ],
+         [
+          "patch",
+          "Corregir un bloque sin rehacer todo",
+          "Sí"
+         ],
+         [
+          "save_style",
+          "Guardar un estilo nuevo",
+          "Sí"
+         ],
+         [
+          "render",
+          "Crear Word o Excel",
+          "No"
+         ]
+        ]
+       }
+      ]
+     },
+     {
+      "id": "s5",
+      "title": "Lo que contiene la biblioteca",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "Cada entrada tiene su ficha de una pantalla: qué es, cuándo usarla, parámetros, un ejemplo correcto y el error típico."
+       },
+       {
+        "type": "chart",
+        "title": "Tipo / Entradas",
+        "chart": {
+         "type": "hbar",
+         "data": {
+          "items": [
+           {
+            "l": "Plantillas",
+            "v": 155.0
+           },
+           {
+            "l": "Componentes",
+            "v": 34.0
+           },
+           {
+            "l": "Animaciones",
+            "v": 5.0
+           },
+           {
+            "l": "Estilos",
+            "v": 3.0
+           }
+          ]
+         }
+        }
+       }
+      ]
+     }
+    ],
+    "divider": "DV-A"
+   },
+   {
+    "id": "p3",
+    "title": "Mejorar con el tiempo",
+    "desc": "Guía corta para que cualquier agente cree PDF, presentaciones y videos con myStyle sin empezar de cero.",
+    "sections": [
+     {
+      "id": "s6",
+      "title": "Corrige sin empezar de cero",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "Cada bloque tiene un identificador estable, así que un parche apunta a él sin depender de su posición. Si pasas el motivo, la corrección queda guardada para casos parecidos."
+       },
+       {
+        "type": "list",
+        "items": [
+         "Cambiar un bloque: operación `set` con el id del bloque.",
+         "Añadir contenido: operación `insert` en la sección.",
+         "Quitar un bloque: operación `delete`.",
+         "Dejar constancia: el campo `motivo` explica qué estaba mal."
+        ]
+       }
+      ]
+     },
+     {
+      "id": "s7",
+      "title": "Cuándo pedir ayuda a Claude",
+      "blocks": [
+       {
+        "type": "p",
+        "text": "Primero trabaja el modelo local y lo valida el motor. Solo se recurre a Claude en dos casos:"
+       },
+       {
+        "type": "list",
+        "items": [
+         "El motor rechaza el resultado tres veces seguidas.",
+         "Tú marcas que no quedó bien y el modelo local no lo corrige en dos intentos."
+        ]
+       },
+       {
+        "type": "big",
+        "value": "3",
+        "caption": "rechazos seguidos y se escala a Claude"
+       },
+       {
+        "type": "p",
+        "text": "Medida de éxito: anotar cada semana cuántas veces hizo falta. Si baja, el sistema funciona."
+       }
+      ]
+     }
+    ],
+    "divider": "DV-A"
+   }
+  ]
+ }
+}

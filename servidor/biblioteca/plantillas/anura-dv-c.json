@@ -1,0 +1,24 @@
+{
+ "id": "anura-dv-c",
+ "tipo": "plantilla",
+ "nombre": "Contorno + cartel (divisor)",
+ "version": "1",
+ "descripcion": "Número en contorno y franja lateral",
+ "tags": [
+  "divisor",
+  "organismo",
+  "anura",
+  "propuesta"
+ ],
+ "design": "anura",
+ "uso": "Variante DV-C del diseño anura; se elige en options.variants.divisor.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "divisor": "DV-C"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

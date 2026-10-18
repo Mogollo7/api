@@ -1,0 +1,24 @@
+{
+ "id": "anura-at-cruz",
+ "tipo": "plantilla",
+ "nombre": "Marca de cruz (átomo)",
+ "version": "1",
+ "descripcion": "Cruz fina de registro, suelta.",
+ "tags": [
+  "átomo",
+  "átomo",
+  "referencia cartel",
+  "propuesta"
+ ],
+ "design": "anura",
+ "uso": "Variante AT-cruz del diseño anura; se elige en options.variants.átomo.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "átomo": "AT-cruz"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

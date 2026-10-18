@@ -1,0 +1,15 @@
+{
+ "id": "acta_reunion", "tipo": "receta", "version": "1", "nombre": "Acta de reunión",
+ "descripcion": "Acta de una reunión con asistentes, decisiones tomadas y tareas con responsable y plazo en tabla. Sirve para dejar constancia de lo acordado y dar seguimiento a los compromisos.",
+ "tags": ["acta", "reunión", "minuta", "asistentes", "decisiones", "tareas", "responsable", "seguimiento", "compromisos", "notas de reunión"],
+ "formato": "docx", "estilo": "anura", "origen": "supermercado", "licencia": "propia",
+ "huecos": {
+  "titulo": {"desc": "Título de la reunión (máx. 60 letras)", "defecto": "Acta del comité comercial"},
+  "fecha": {"desc": "Fecha de la reunión (máx. 30 letras)", "defecto": "14 de octubre de 2026"},
+  "asistentes": {"desc": "Nombre y cargo, uno por fila (2 a 8)", "max": 8, "defecto": ["Carolina Vélez, gerente comercial", "Andrés Molina, jefe de operaciones", "Lucía Pardo, contadora", "Tomás Ruiz, asesor de ventas"]},
+  "decisiones": {"desc": "Lo acordado, una frase por decisión (2 a 6)", "max": 6, "defecto": ["Aprobar el descuento de 5 % para clientes de volumen desde el 1 de noviembre.", "Mantener el precio de la línea B hasta el cierre del trimestre.", "Contratar una persona de apoyo para la bodega antes de diciembre."]},
+  "tareas": {"desc": "Tarea, responsable y plazo, una fila por tarea (2 a 8)", "lista": ["tarea", "responsable", "plazo"], "max": 8, "defecto": [["Enviar la lista de clientes con descuento", "Tomás Ruiz", "21 de octubre"], ["Revisar el margen de la línea B", "Lucía Pardo", "28 de octubre"], ["Publicar la vacante de bodega", "Andrés Molina", "31 de octubre"]]},
+  "proxima": {"desc": "Fecha y tema de la próxima reunión, en 1 frase (máx. 200 letras)", "defecto": "Próxima reunión el 11 de noviembre: revisión de cifras de octubre."}
+ },
+ "markdown": "---\ntitulo: {{titulo}}\nobjetivo: Registro de asistentes, decisiones y tareas\nfecha: {{fecha}}\n---\n\n# {{titulo}}\n\n## Asistentes\n\n{{#asistentes}}- {{.}}\n{{/asistentes}}\n## Decisiones\n\n{{#decisiones}}- {{.}}\n{{/decisiones}}\n## Tareas\n\n| Tarea | Responsable | Plazo |\n|---|---|---|\n{{#tareas}}| {{tarea}} | {{responsable}} | {{plazo}} |\n{{/tareas}}\n## Próxima reunión\n\n{{proxima}}"
+}

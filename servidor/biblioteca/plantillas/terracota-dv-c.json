@@ -1,0 +1,24 @@
+{
+ "id": "terracota-dv-c",
+ "tipo": "plantilla",
+ "nombre": "Divisor color pleno (divisor)",
+ "version": "1",
+ "descripcion": "Divisor con fondo acento, generada por fabrica_estilo.py.",
+ "tags": [
+  "divisor",
+  "organismo",
+  "fabrica_estilo",
+  "propuesta"
+ ],
+ "design": "terracota",
+ "uso": "Variante DV-C del diseño terracota; se elige en options.variants.divisor.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "divisor": "DV-C"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

@@ -1,0 +1,24 @@
+{
+ "id": "anura-at-franja",
+ "tipo": "plantilla",
+ "nombre": "Franja de peligro (átomo)",
+ "version": "1",
+ "descripcion": "Rayas diagonales para marcar zonas.",
+ "tags": [
+  "átomo",
+  "átomo",
+  "referencia cartel",
+  "propuesta"
+ ],
+ "design": "anura",
+ "uso": "Variante AT-franja del diseño anura; se elige en options.variants.átomo.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "átomo": "AT-franja"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

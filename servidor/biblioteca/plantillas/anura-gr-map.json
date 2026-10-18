@@ -1,0 +1,24 @@
+{
+ "id": "anura-gr-map",
+ "tipo": "plantilla",
+ "nombre": "Mapa de puntos (gráfico)",
+ "version": "1",
+ "descripcion": "Gráfico estándar: ver ESTANDARES.md",
+ "tags": [
+  "gráfico",
+  "molécula",
+  "nueva",
+  "propuesta"
+ ],
+ "design": "anura",
+ "uso": "Variante GR-map del diseño anura; se elige en options.variants.gráfico.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "gráfico": "GR-map"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

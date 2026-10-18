@@ -1,0 +1,24 @@
+{
+ "id": "salvia-cf-1",
+ "tipo": "plantilla",
+ "nombre": "Tarjetas (cifras)",
+ "version": "1",
+ "descripcion": "2 a 4 tarjetas con cifra grande.",
+ "tags": [
+  "cifras",
+  "molécula",
+  "fabrica_estilo (redonda)",
+  "propuesta"
+ ],
+ "design": "salvia",
+ "uso": "Variante CF-1 del diseño salvia; se elige en options.variants.cifras.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "cifras": "CF-1"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

@@ -1,0 +1,25 @@
+{
+  "_ayuda": "Conjunto fijo de 20 entradas. Se repite tras cada cambio (modelo, prompt, skill). esperado.herramienta = la que debe crear el archivo; bloques = tipos que deben aparecer en el contrato; buscar = debe consultar la biblioteca antes de crear.",
+  "casos": [
+    {"id": "c01", "tarea": "Informe de una página sobre el consumo de agua en una escuela con 3 cifras clave y una lista de 4 medidas", "formato": "pdf", "estilo": "anura", "bloques": ["kpi", "list"]},
+    {"id": "c02", "tarea": "Guía breve de primeros auxilios con pasos numerados y un aviso de precaución", "formato": "pdf", "estilo": "editorial", "bloques": ["list", "callout"]},
+    {"id": "c03", "tarea": "Reporte de ventas por trimestre con una tabla de 4 filas y un gráfico de barras", "formato": "pdf", "estilo": "anura", "bloques": ["table", "chart"]},
+    {"id": "c04", "tarea": "Ficha de un proyecto de huerta urbana: objetivo, responsables y cronograma en lista", "formato": "pdf", "estilo": "editorial", "bloques": ["list"]},
+    {"id": "c05", "tarea": "Manual de 5 pasos para configurar el correo en el celular, con una cita final", "formato": "pdf", "estilo": "prompt-master", "bloques": ["list", "quote"]},
+    {"id": "c06", "tarea": "Resumen de resultados de una encuesta de satisfacción con una cifra grande de 87 por ciento", "formato": "pdf", "estilo": "anura", "bloques": ["big"]},
+    {"id": "c07", "tarea": "Comparativo de dos proveedores de internet en una tabla", "formato": "pdf", "estilo": "editorial", "bloques": ["table"]},
+    {"id": "c08", "tarea": "Plan de estudio semanal con una tabla de horarios", "formato": "pdf", "estilo": "prompt-master", "bloques": ["table"]},
+    {"id": "c09", "tarea": "Presentación sobre reciclaje en la oficina con 3 cifras y una lista de acciones", "formato": "pptx", "estilo": "anura", "bloques": ["kpi", "list"]},
+    {"id": "c10", "tarea": "Presentación del lanzamiento de un producto con una cita del fundador", "formato": "pptx", "estilo": "editorial", "bloques": ["quote"]},
+    {"id": "c11", "tarea": "Presentación de resultados anuales con un gráfico de barras de 4 categorías", "formato": "pptx", "estilo": "prompt-master", "bloques": ["chart"]},
+    {"id": "c12", "tarea": "Presentación de capacitación en seguridad con pasos numerados", "formato": "pptx", "estilo": "anura", "bloques": ["list"]},
+    {"id": "c13", "tarea": "Presentación de un plan de trabajo trimestral con una tabla de metas", "formato": "pptx", "estilo": "editorial", "bloques": ["table"]},
+    {"id": "c14", "tarea": "Presentación del equipo con una lista de roles y una cifra grande de integrantes", "formato": "pptx", "estilo": "anura", "bloques": ["list", "big"]},
+    {"id": "c15", "tarea": "Video corto de 4 cifras sobre el trimestre de una cafetería", "formato": "video", "estilo": "editorial", "bloques": ["kpi"]},
+    {"id": "c16", "tarea": "Video vertical con una frase inspiradora y una lista de tres hábitos", "formato": "video", "estilo": "anura", "bloques": ["quote", "list"]},
+    {"id": "c17", "tarea": "Video con una cifra grande y un gráfico de barras sobre ahorro de energía", "formato": "video", "estilo": "prompt-master", "bloques": ["big", "chart"]},
+    {"id": "c18", "tarea": "Documento Word con las condiciones de un servicio en lista y una tabla de precios", "formato": "docx", "estilo": "editorial", "bloques": ["list", "table"]},
+    {"id": "c19", "tarea": "Documento Word con el acta de una reunión: asistentes en lista y decisiones", "formato": "docx", "estilo": "anura", "bloques": ["list"]},
+    {"id": "c20", "tarea": "Hoja de Excel con ventas mensuales de 6 meses y un gráfico", "formato": "xlsx", "estilo": "anura", "bloques": ["table", "chart"]}
+  ]
+}

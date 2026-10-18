@@ -1,0 +1,29 @@
+{
+ "id": "fade-up",
+ "tipo": "animacion",
+ "nombre": "Aparecer subiendo",
+ "version": "1",
+ "descripcion": "Entrada suave: el elemento sube unos píxeles mientras aparece. La de uso general para títulos y párrafos.",
+ "tags": [
+  "aparecer",
+  "entrada",
+  "titulo",
+  "suave"
+ ],
+ "parametros": {
+  "duracion": "0.6 s",
+  "distancia": "40 px",
+  "retraso": "0 s"
+ },
+ "origen": "GSAP 3.14.2 (servidor/video/gsap.min.js)",
+ "licencia": "GSAP «no charge» (uso propio; revisar usos prohibidos si se distribuye)",
+ "ejemplo": {
+  "options": {
+   "video": {
+    "entrada": "fade-up"
+   }
+  }
+ },
+ "uso": "Se activa con options.video: {\"options\": {\"video\": {\"entrada\": \"fade-up\"}}}",
+ "error_tipico": "Duraciones largas (> 1.5 s) retrasan la escena: el video de la API dura ≤ 120 s."
+}

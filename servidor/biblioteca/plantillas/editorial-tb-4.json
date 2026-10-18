@@ -1,0 +1,24 @@
+{
+ "id": "editorial-tb-4",
+ "tipo": "plantilla",
+ "nombre": "Matriz de tonos (tabla)",
+ "version": "1",
+ "descripcion": "Celdas con tono F / P / L / —, legible en grises por la letra.",
+ "tags": [
+  "tabla",
+  "molécula",
+  "anura",
+  "propuesta"
+ ],
+ "design": "editorial",
+ "uso": "Variante TB-4 del diseño editorial; se elige en options.variants.tabla.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "tabla": "TB-4"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

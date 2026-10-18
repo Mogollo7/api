@@ -1,0 +1,116 @@
+{
+ "id": "plan_trimestral",
+ "tipo": "receta",
+ "version": "1",
+ "nombre": "Plan de trabajo trimestral",
+ "descripcion": "Plan trimestral con metas en tabla (meta, responsable y mes), tres cifras objetivo y los riesgos principales. Sirve para planificar un trimestre de equipo o de área.",
+ "tags": [
+  "plan trimestral",
+  "plan de trabajo",
+  "metas",
+  "objetivos",
+  "trimestre",
+  "cronograma",
+  "responsables",
+  "riesgos",
+  "planificación",
+  "hoja de ruta",
+  "kpi",
+  "seguimiento"
+ ],
+ "formato": "pptx",
+ "estilo": "editorial",
+ "origen": "supermercado",
+ "licencia": "propia",
+ "huecos": {
+  "titulo": {
+   "desc": "Título del plan (máx. 60 letras)",
+   "defecto": "Plan de trabajo del trimestre"
+  },
+  "objetivo": {
+   "desc": "Qué ordena el plan, en 1 o 2 frases (máx. 300 letras)",
+   "defecto": "Ordenar las metas del trimestre, quién responde por cada una y los riesgos que podrían retrasarlas."
+  },
+  "metas": {
+   "desc": "Filas de la tabla: meta | responsable | mes (3 a 6 filas)",
+   "lista": [
+    "meta",
+    "responsable",
+    "mes"
+   ],
+   "max": 6,
+   "defecto": [
+    [
+     "Cerrar tres acuerdos comerciales nuevos",
+     "Gerencia comercial",
+     "Enero"
+    ],
+    [
+     "Lanzar la línea de servicio express",
+     "Jefatura de logística",
+     "Febrero"
+    ],
+    [
+     "Reducir el tiempo de entrega a 48 horas",
+     "Jefatura de logística",
+     "Marzo"
+    ],
+    [
+     "Revisar precios de la línea de productos",
+     "Gerencia comercial",
+     "Febrero"
+    ],
+    [
+     "Capacitar al equipo en atención al cliente",
+     "Recursos humanos",
+     "Marzo"
+    ]
+   ]
+  },
+  "cifras": {
+   "desc": "Tres cifras objetivo: valor | etiqueta | nota (2 a 3)",
+   "lista": [
+    "valor",
+    "etiqueta",
+    "nota"
+   ],
+   "max": 3,
+   "defecto": [
+    [
+     "+15 %",
+     "ingresos del trimestre",
+     "meta [SIM]"
+    ],
+    [
+     "48 h",
+     "tiempo de entrega",
+     "hoy 72 h [SIM]"
+    ],
+    [
+     "90 %",
+     "clientes satisfechos",
+     "encuesta [SIM]"
+    ]
+   ]
+  },
+  "riesgos": {
+   "desc": "Riesgos y cómo se cubren, una frase cada uno (2 a 5)",
+   "max": 5,
+   "defecto": [
+    "Retraso en la contratación de personal — se cubre con horas extra temporales",
+    "Aumento del costo de los insumos — se revisa el precio cada mes",
+    "Baja respuesta de clientes a la campaña — se prueba primero con un grupo piloto",
+    "Cambios en la normativa de envíos — se consulta con asesoría legal"
+   ]
+  },
+  "autor": {
+   "desc": "Quién presenta el plan",
+   "defecto": "Gerencia general"
+  },
+  "fecha": {
+   "desc": "Trimestre o mes de inicio",
+   "defecto": "Octubre 2026"
+  }
+ },
+ "markdown": "---\ntitulo: {{titulo}}\nobjetivo: {{objetivo}}\nautor: {{autor}}\nfecha: {{fecha}}\n---\n\n# {{titulo}}\n\n## Metas del trimestre\n\n| Meta | Responsable | Mes |\n|---|---|---|\n{{#metas}}| {{meta}} | {{responsable}} | {{mes}} |\n{{/metas}}\n\n## Cifras objetivo\n\n:::kpi\n{{#cifras}}{{valor}} | {{etiqueta}} | {{nota}}\n{{/cifras}}:::\n\n## Riesgos\n\n{{#riesgos}}- {{.}}\n{{/riesgos}}"
+}

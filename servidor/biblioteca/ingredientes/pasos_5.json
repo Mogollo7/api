@@ -1,0 +1,39 @@
+{
+ "id": "pasos_5",
+ "tipo": "ingrediente",
+ "version": "1",
+ "nombre": "Cinco pasos numerados",
+ "descripcion": "Sección con cinco pasos numerados en orden, una frase por paso. Sirve para explicar un proceso corto dentro de cualquier documento.",
+ "tags": [
+  "pasos",
+  "lista numerada",
+  "cinco pasos",
+  "instrucciones",
+  "proceso",
+  "procedimiento",
+  "secuencia",
+  "etapas",
+  "cómo empezar",
+  "pasos en orden"
+ ],
+ "origen": "supermercado",
+ "licencia": "propia",
+ "huecos": {
+  "titulo": {
+   "desc": "Título de la sección (máx. 60 letras)",
+   "defecto": "Cómo empezar en cinco pasos"
+  },
+  "pasos": {
+   "desc": "Cinco pasos en orden, una frase cada uno (máx. 90 letras)",
+   "max": 5,
+   "defecto": [
+    "Define el objetivo en una frase",
+    "Reúne la información disponible",
+    "Asigna a una persona cada tarea",
+    "Revisa el avance cada semana",
+    "Cierra con un resumen de resultados"
+   ]
+  }
+ },
+ "markdown": "## {{titulo}}\n\n{{#pasos}}1. {{.}}\n{{/pasos}}"
+}

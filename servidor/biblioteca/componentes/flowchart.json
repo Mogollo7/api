@@ -1,0 +1,41 @@
+{
+ "id": "flowchart",
+ "tipo": "componente",
+ "nombre": "Bloque «flowchart»",
+ "version": "1.0",
+ "descripcion": "Diagrama de flujo estándar (≤ 14 nodos, ≤ 3 por capa).",
+ "tags": [
+  "flowchart"
+ ],
+ "uso": "Diagrama de flujo estándar (≤ 14 nodos, ≤ 3 por capa).",
+ "parametros": {
+  "nodes": "list (obligatorio) — [{id,label,kind:'start|process|decision|io|end'}] Máx. 14.",
+  "edges": "list — [{from,to,label?}]",
+  "title": "markup — Título.",
+  "caption": "markup — Pie."
+ },
+ "ejemplo": {
+  "type": "flowchart",
+  "nodes": [
+   {
+    "id": "a",
+    "label": "Inicio",
+    "kind": "start"
+   },
+   {
+    "id": "b",
+    "label": "Fin",
+    "kind": "end"
+   }
+  ],
+  "edges": [
+   {
+    "from": "a",
+    "to": "b"
+   }
+  ]
+ },
+ "origen": "engine/spec.py",
+ "licencia": "propia",
+ "error_tipico": "Pasarse del límite de longitud (nodes ≤ 14): el motor recorta o reduce con aviso."
+}

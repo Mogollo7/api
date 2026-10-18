@@ -1,0 +1,24 @@
+{
+ "id": "editorial-gr-box",
+ "tipo": "plantilla",
+ "nombre": "Cajas (gráfico)",
+ "version": "1",
+ "descripcion": "Gráfico estándar: ver ESTANDARES.md",
+ "tags": [
+  "gráfico",
+  "molécula",
+  "referencia cine",
+  "propuesta"
+ ],
+ "design": "editorial",
+ "uso": "Variante GR-box del diseño editorial; se elige en options.variants.gráfico.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "gráfico": "GR-box"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

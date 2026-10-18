@@ -1,0 +1,24 @@
+{
+ "id": "salvia-gr-line",
+ "tipo": "plantilla",
+ "nombre": "Líneas (gráfico)",
+ "version": "1",
+ "descripcion": "Gráfico estándar: ver ESTANDARES.md",
+ "tags": [
+  "gráfico",
+  "molécula",
+  "fabrica_estilo (redonda)",
+  "propuesta"
+ ],
+ "design": "salvia",
+ "uso": "Variante GR-line del diseño salvia; se elige en options.variants.gráfico.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "gráfico": "GR-line"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

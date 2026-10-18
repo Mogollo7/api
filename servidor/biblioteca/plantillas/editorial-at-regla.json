@@ -1,0 +1,24 @@
+{
+ "id": "editorial-at-regla",
+ "tipo": "plantilla",
+ "nombre": "Regla y borde (átomo)",
+ "version": "1",
+ "descripcion": "Regla fina, media y gruesa; radio 0.",
+ "tags": [
+  "átomo",
+  "átomo",
+  "anura",
+  "propuesta"
+ ],
+ "design": "editorial",
+ "uso": "Variante AT-regla del diseño editorial; se elige en options.variants.átomo.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "átomo": "AT-regla"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

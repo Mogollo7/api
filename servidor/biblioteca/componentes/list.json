@@ -1,0 +1,35 @@
+{
+ "id": "list",
+ "tipo": "componente",
+ "nombre": "Bloque «list»",
+ "version": "1.0",
+ "descripcion": "Lista con viñetas o numerada; un ítem puede llevar sublista {t, items}.",
+ "tags": [
+  "list",
+  "lista",
+  "viñetas"
+ ],
+ "uso": "Lista con viñetas o numerada; un ítem puede llevar sublista {t, items}.",
+ "parametros": {
+  "items": "list (obligatorio) — Ítems (texto o {t, items:[…]}). Máx. 14.",
+  "ordered": "bool — Numerada."
+ },
+ "ejemplo": {
+  "type": "list",
+  "ordered": true,
+  "items": [
+   "Primero",
+   {
+    "t": "Segundo",
+    "items": [
+     "detalle a",
+     "detalle b"
+    ]
+   },
+   "Tercero"
+  ]
+ },
+ "origen": "engine/spec.py",
+ "licencia": "propia",
+ "error_tipico": "Pasarse del límite de longitud (items ≤ 14): el motor recorta o reduce con aviso."
+}

@@ -1,0 +1,29 @@
+{
+ "id": "image",
+ "tipo": "componente",
+ "nombre": "Bloque «image»",
+ "version": "1.0",
+ "descripcion": "Foto en dos tintas con pie y crédito. Si no tienes la imagen, escribe `need` y el servidor dibuja «IMAGEN NECESARIA».",
+ "tags": [
+  "image"
+ ],
+ "uso": "Foto en dos tintas con pie y crédito. Si no tienes la imagen, escribe `need` y el servidor dibuja «IMAGEN NECESARIA».",
+ "parametros": {
+  "src": "str — Ruta relativa a la carpeta de imágenes.",
+  "need": "markup — Qué imagen hace falta si no existe.",
+  "caption": "markup — Pie (sirve de texto alternativo).",
+  "alt": "str — Texto alternativo.",
+  "ratio": "str — Proporción, p. ej. 16/9.",
+  "treatment": "str — Tinta.",
+  "items": "list — Hasta 3 imágenes en fila: [{src,caption,…}] Máx. 3."
+ },
+ "ejemplo": {
+  "type": "image",
+  "src": "fauna/rana.jpg",
+  "ratio": "16/9",
+  "caption": "Pie de la imagen."
+ },
+ "origen": "engine/spec.py",
+ "licencia": "propia",
+ "error_tipico": "Pasarse del límite de longitud (items ≤ 3): el motor recorta o reduce con aviso."
+}

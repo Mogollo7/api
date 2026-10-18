@@ -1,0 +1,12 @@
+{
+ "id": "aviso_precaucion", "tipo": "ingrediente", "version": "1", "nombre": "Aviso de precaución",
+ "descripcion": "Sección con un aviso destacado y tres puntos de precaución. Sirve para advertir riesgos antes de un procedimiento o una entrega.",
+ "tags": ["aviso", "precaución", "advertencia", "seguridad", "riesgo", "cuidado", "alerta", "nota importante", "prevención", "recomendaciones"],
+ "origen": "supermercado", "licencia": "propia",
+ "huecos": {
+  "titulo": {"desc": "Título de la sección (máx. 60 letras)", "defecto": "Antes de empezar"},
+  "aviso": {"desc": "Aviso principal en una frase (máx. 300 letras)", "defecto": "Trabaje siempre con el equipo apagado y desconectado de la corriente."},
+  "puntos": {"desc": "Tres puntos de precaución, una frase cada uno (máx. 3)", "max": 3, "defecto": ["Use guantes de cuero al manipular piezas con bordes filosos.", "No use agua caliente ni solventes sobre superficies plásticas.", "Si nota olor a quemado, detenga el trabajo y avise a mantenimiento."]}
+ },
+ "markdown": "## {{titulo}}\n\n> [!NOTA] {{aviso}}\n\n{{#puntos}}- {{.}}\n{{/puntos}}"
+}

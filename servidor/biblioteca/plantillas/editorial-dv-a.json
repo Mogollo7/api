@@ -1,0 +1,24 @@
+{
+ "id": "editorial-dv-a",
+ "tipo": "plantilla",
+ "nombre": "Editorial: amarillo (divisor)",
+ "version": "1",
+ "descripcion": "Fondo amarillo y número negro.",
+ "tags": [
+  "divisor",
+  "organismo",
+  "anura",
+  "propuesta"
+ ],
+ "design": "editorial",
+ "uso": "Variante DV-A del diseño editorial; se elige en options.variants.divisor.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "divisor": "DV-A"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

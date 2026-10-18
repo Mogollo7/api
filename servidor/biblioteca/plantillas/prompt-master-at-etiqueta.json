@@ -1,0 +1,24 @@
+{
+ "id": "prompt-master-at-etiqueta",
+ "tipo": "plantilla",
+ "nombre": "Etiqueta (chip) (átomo)",
+ "version": "1",
+ "descripcion": "[FUENTE], [INF], SIMULACIÓN…",
+ "tags": [
+  "átomo",
+  "átomo",
+  "anura",
+  "propuesta"
+ ],
+ "design": "prompt-master",
+ "uso": "Variante AT-etiqueta del diseño prompt-master; se elige en options.variants.átomo.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "átomo": "AT-etiqueta"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

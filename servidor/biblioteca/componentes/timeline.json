@@ -1,0 +1,32 @@
+{
+ "id": "timeline",
+ "tipo": "componente",
+ "nombre": "Bloque «timeline»",
+ "version": "1.0",
+ "descripcion": "Línea de vida: etapas con duración.",
+ "tags": [
+  "timeline"
+ ],
+ "uso": "Línea de vida: etapas con duración.",
+ "parametros": {
+  "items": "list (obligatorio) — [{code,label,days,vis:'v|h|x',photo}]",
+  "adult": "obj — Etapa final sin duración.",
+  "legend": "list — [[clase,texto]]",
+  "caption": "markup — Pie."
+ },
+ "ejemplo": {
+  "type": "timeline",
+  "items": [
+   {
+    "code": "H",
+    "label": "Huevo",
+    "days": 3,
+    "vis": "h",
+    "photo": "casi nunca"
+   }
+  ]
+ },
+ "origen": "engine/spec.py",
+ "licencia": "propia",
+ "error_tipico": "Olvidar un campo obligatorio: el contrato rechaza el documento."
+}

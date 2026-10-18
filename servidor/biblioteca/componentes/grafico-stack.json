@@ -1,0 +1,26 @@
+{
+ "id": "grafico-stack",
+ "tipo": "componente",
+ "nombre": "Gráfico «stack»",
+ "version": "1.0",
+ "descripcion": "Gráfico stack: composición 100 %. Máximo 8 elementos.",
+ "tags": [
+  "grafico",
+  "chart",
+  "stack"
+ ],
+ "uso": "composición 100 %",
+ "parametros": {
+  "data": "rows:[{l,v:[a,b,c]}], total"
+ },
+ "ejemplo": {
+  "type": "chart",
+  "chart": {
+   "type": "stack",
+   "data": "…"
+  }
+ },
+ "origen": "engine/charts.py",
+ "licencia": "propia",
+ "error_tipico": "Pasar más de 8 elementos: el motor lo degrada con aviso."
+}

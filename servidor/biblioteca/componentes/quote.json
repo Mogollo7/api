@@ -1,0 +1,25 @@
+{
+ "id": "quote",
+ "tipo": "componente",
+ "nombre": "Bloque «quote»",
+ "version": "1.0",
+ "descripcion": "Cita destacada con autor.",
+ "tags": [
+  "quote",
+  "cita",
+  "frase"
+ ],
+ "uso": "Cita destacada con autor.",
+ "parametros": {
+  "text": "markup (obligatorio) — Cita. Máx. 500.",
+  "by": "markup — Autor o fuente."
+ },
+ "ejemplo": {
+  "type": "quote",
+  "text": "Feo es poderoso.",
+  "by": "Manifiesto"
+ },
+ "origen": "engine/spec.py",
+ "licencia": "propia",
+ "error_tipico": "Pasarse del límite de longitud (text ≤ 500): el motor recorta o reduce con aviso."
+}

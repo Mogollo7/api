@@ -1,0 +1,12 @@
+{
+ "id": "cita", "tipo": "ingrediente", "version": "1", "nombre": "Cita con autor",
+ "descripcion": "Sección con una cita destacada en bloque y su autor. Sirve para cerrar un documento o resaltar la frase de un cliente o experto.",
+ "tags": ["cita", "frase", "testimonio", "palabras", "autor", "cierre", "destacado", "reflexión", "opinión", "frase destacada"],
+ "origen": "supermercado", "licencia": "propia",
+ "huecos": {
+  "titulo": {"desc": "Título de la sección (máx. 60 letras)", "defecto": "Palabras del cliente"},
+  "texto": {"desc": "La frase, de 1 o 2 líneas (máx. 200 letras)", "defecto": "Desde que tenemos el panel, sabemos qué comprar antes de quedarnos sin stock."},
+  "autor": {"desc": "Nombre y cargo de quien la dice (máx. 60 letras)", "defecto": "Lucía Pardo, gerente de compras, Ferretería Los Andes"}
+ },
+ "markdown": "## {{titulo}}\n\n> {{texto}}\n> — {{autor}}"
+}

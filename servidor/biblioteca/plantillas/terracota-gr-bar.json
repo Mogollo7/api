@@ -1,0 +1,24 @@
+{
+ "id": "terracota-gr-bar",
+ "tipo": "plantilla",
+ "nombre": "Barras (gráfico)",
+ "version": "1",
+ "descripcion": "Gráfico estándar: ver ESTANDARES.md",
+ "tags": [
+  "gráfico",
+  "molécula",
+  "fabrica_estilo (recta)",
+  "propuesta"
+ ],
+ "design": "terracota",
+ "uso": "Variante GR-bar del diseño terracota; se elige en options.variants.gráfico.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "gráfico": "GR-bar"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

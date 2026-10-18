@@ -1,0 +1,24 @@
+{
+ "id": "anura-gr-bar",
+ "tipo": "plantilla",
+ "nombre": "Barras (gráfico)",
+ "version": "1",
+ "descripcion": "Gráfico estándar: ver ESTANDARES.md",
+ "tags": [
+  "gráfico",
+  "molécula",
+  "nueva",
+  "propuesta"
+ ],
+ "design": "anura",
+ "uso": "Variante GR-bar del diseño anura; se elige en options.variants.gráfico.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "gráfico": "GR-bar"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

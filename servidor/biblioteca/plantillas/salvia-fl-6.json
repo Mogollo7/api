@@ -1,0 +1,24 @@
+{
+ "id": "salvia-fl-6",
+ "tipo": "plantilla",
+ "nombre": "Comparación (flujo)",
+ "version": "1",
+ "descripcion": "Dos opciones con veredicto",
+ "tags": [
+  "flujo",
+  "organismo",
+  "fabrica_estilo (redonda)",
+  "propuesta"
+ ],
+ "design": "salvia",
+ "uso": "Variante FL-6 del diseño salvia; se elige en options.variants.flujo.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "flujo": "FL-6"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

@@ -1,0 +1,40 @@
+{
+ "id": "prompt-master",
+ "tipo": "estilo",
+ "nombre": "Prompt Master · editorial SaaS",
+ "version": "0.1.1",
+ "descripcion": "Familia visual «editorial-saas»: 7 colores por rol, fuentes Archivo, contraste mínimo 4.5:1.",
+ "tags": [
+  "editorial-saas",
+  "paleta",
+  "tipografia",
+  "archivo",
+  "_marca",
+  "prompt-master",
+  "noche"
+ ],
+ "uso": "Elige el estilo cuando el usuario no trae uno; si trae una imagen, busca el parecido.",
+ "parametros": {
+  "roles": "color por rol (negro, bosque, hoja, vivo, ocre, crema, arena)",
+  "formatos": "pdf-a4, pptx-16x9"
+ },
+ "ejemplo": {
+  "design": "prompt-master",
+  "palette": "default"
+ },
+ "paleta": {
+  "negro": "#0B0B0C",
+  "bosque": "#150F26",
+  "hoja": "#5B21B6",
+  "vivo": "#7C3AED",
+  "ocre": "#F2E6F8",
+  "crema": "#FFFFFF",
+  "arena": "#F5F3F8"
+ },
+ "fuentes": [
+  "Archivo"
+ ],
+ "design": "prompt-master",
+ "origen": "repositorio",
+ "licencia": "SIL Open Font License 1.1"
+}

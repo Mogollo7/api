@@ -1,0 +1,26 @@
+{
+ "id": "grafico-map",
+ "tipo": "componente",
+ "nombre": "Gráfico «map»",
+ "version": "1.0",
+ "descripcion": "Gráfico map: ubicar puntos. Máximo 60 elementos.",
+ "tags": [
+  "grafico",
+  "chart",
+  "map"
+ ],
+ "uso": "ubicar puntos",
+ "parametros": {
+  "data": "outline:'colombia'|[[lon,lat]..], points:[{lon,lat,label,v}], size:bool, graticule:2"
+ },
+ "ejemplo": {
+  "type": "chart",
+  "chart": {
+   "type": "map",
+   "data": "…"
+  }
+ },
+ "origen": "engine/charts.py",
+ "licencia": "propia",
+ "error_tipico": "Pasar más de 60 elementos: el motor lo degrada con aviso."
+}

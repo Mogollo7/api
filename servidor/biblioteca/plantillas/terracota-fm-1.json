@@ -1,0 +1,24 @@
+{
+ "id": "terracota-fm-1",
+ "tipo": "plantilla",
+ "nombre": "Ficha de datos (formulario)",
+ "version": "1",
+ "descripcion": "Barra negra con filas para completar (como «Datos del estudiante»).",
+ "tags": [
+  "formulario",
+  "molécula",
+  "fabrica_estilo (recta)",
+  "propuesta"
+ ],
+ "design": "terracota",
+ "uso": "Variante FM-1 del diseño terracota; se elige en options.variants.formulario.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "formulario": "FM-1"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

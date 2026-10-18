@@ -1,0 +1,24 @@
+{
+ "id": "terracota-hj-2",
+ "tipo": "plantilla",
+ "nombre": "Punto clave (hoja)",
+ "version": "1",
+ "descripcion": "Hoja con tarjeta bosque al inicio y etiqueta en la cabecera.",
+ "tags": [
+  "hoja",
+  "plantilla",
+  "fabrica_estilo (recta)",
+  "propuesta"
+ ],
+ "design": "terracota",
+ "uso": "Variante HJ-2 del diseño terracota; se elige en options.variants.hoja.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "hoja": "HJ-2"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

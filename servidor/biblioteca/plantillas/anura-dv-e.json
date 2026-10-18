@@ -1,0 +1,24 @@
+{
+ "id": "anura-dv-e",
+ "tipo": "plantilla",
+ "nombre": "Arco (divisor)",
+ "version": "1",
+ "descripcion": "Foto en arco abajo a la derecha (como la referencia «Cine», sección 01)",
+ "tags": [
+  "divisor",
+  "organismo",
+  "nueva",
+  "propuesta"
+ ],
+ "design": "anura",
+ "uso": "Variante DV-E del diseño anura; se elige en options.variants.divisor.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "divisor": "DV-E"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

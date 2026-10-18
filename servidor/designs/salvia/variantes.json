@@ -1,0 +1,495 @@
+{
+ "_marca": "[CLAUDE-CONSTRUCTOR] Registro de variantes de plantilla. estado: propuesta | aprobada | rechazada. Se cambia con servidor/aprobar.py (o editando este archivo). 'defecto' = la que usa el modo auto.",
+ "variantes": [
+  {
+   "id": "CV-1",
+   "tipo": "portada",
+   "nombre": "SaaS: etiqueta + título pesado",
+   "uso": "Papel blanco, degradado violeta suave, etiqueta con regla y titular de dos líneas.",
+   "estado": "propuesta",
+   "defecto": true,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "organismo"
+  },
+  {
+   "id": "CV-2",
+   "tipo": "portada",
+   "nombre": "SaaS: noche con degradado",
+   "uso": "Fondo oscuro con degradado violeta, palabra gigante tenue y titular claro.",
+   "estado": "propuesta",
+   "defecto": false,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "organismo"
+  },
+  {
+   "id": "DV-A",
+   "tipo": "divisor",
+   "nombre": "SaaS: paso numerado",
+   "uso": "Fondo blanco, numeral gigante y titular pesado, como los pasos de la guía.",
+   "estado": "propuesta",
+   "defecto": true,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "organismo"
+  },
+  {
+   "id": "DV-B",
+   "tipo": "divisor",
+   "nombre": "SaaS: panel oscuro",
+   "uso": "Panel oscuro con degradado violeta y numeral en acento.",
+   "estado": "propuesta",
+   "defecto": false,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "organismo"
+  },
+  {
+   "id": "TB-1",
+   "tipo": "tabla",
+   "nombre": "Estándar",
+   "uso": "Cabecera negra, primera columna en negrita, regla gruesa al final.",
+   "estado": "propuesta",
+   "defecto": true,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "molécula"
+  },
+  {
+   "id": "TB-2",
+   "tipo": "tabla",
+   "nombre": "Compacta",
+   "uso": "Letra menor y relleno corto para tablas largas.",
+   "estado": "propuesta",
+   "defecto": false,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "molécula"
+  },
+  {
+   "id": "TB-3",
+   "tipo": "tabla",
+   "nombre": "Ficha",
+   "uso": "Sin cabecera rellena: etiqueta a la izquierda, valor a la derecha (como «Revisión / Resultado»).",
+   "estado": "propuesta",
+   "defecto": false,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "molécula"
+  },
+  {
+   "id": "TB-4",
+   "tipo": "tabla",
+   "nombre": "Matriz de tonos",
+   "uso": "Celdas con tono F / P / L / —, legible en grises por la letra.",
+   "estado": "propuesta",
+   "defecto": false,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "molécula"
+  },
+  {
+   "id": "AV-nota",
+   "tipo": "aviso",
+   "nombre": "Nota (arena)",
+   "uso": "Información extra",
+   "estado": "propuesta",
+   "defecto": true,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "molécula"
+  },
+  {
+   "id": "AV-clave",
+   "tipo": "aviso",
+   "nombre": "Punto clave (bosque)",
+   "uso": "La idea que hay que llevarse",
+   "estado": "propuesta",
+   "defecto": false,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "molécula"
+  },
+  {
+   "id": "AV-ojo",
+   "tipo": "aviso",
+   "nombre": "Ojo (ocre)",
+   "uso": "Advertencia",
+   "estado": "propuesta",
+   "defecto": false,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "molécula"
+  },
+  {
+   "id": "AV-sim",
+   "tipo": "aviso",
+   "nombre": "Simulación (rayado)",
+   "uso": "Estimación, nunca medición",
+   "estado": "propuesta",
+   "defecto": false,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "molécula"
+  },
+  {
+   "id": "AV-pend",
+   "tipo": "aviso",
+   "nombre": "Dato pendiente (punteado)",
+   "uso": "Falta una cifra",
+   "estado": "propuesta",
+   "defecto": false,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "molécula"
+  },
+  {
+   "id": "AV-regla",
+   "tipo": "aviso",
+   "nombre": "Regla (vivo)",
+   "uso": "Norma que se debe seguir",
+   "estado": "propuesta",
+   "defecto": false,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "molécula"
+  },
+  {
+   "id": "AV-slate",
+   "tipo": "aviso",
+   "nombre": "Atención (pizarra)",
+   "uso": "Aviso con regla interior, como «Riesgo de desbordamiento»",
+   "estado": "propuesta",
+   "defecto": false,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "molécula"
+  },
+  {
+   "id": "AV-hueco",
+   "tipo": "aviso",
+   "nombre": "Hueco (borde)",
+   "uso": "Bloque no estándar degradado",
+   "estado": "propuesta",
+   "defecto": false,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "molécula"
+  },
+  {
+   "id": "CF-1",
+   "tipo": "cifras",
+   "nombre": "Tarjetas",
+   "uso": "2 a 4 tarjetas con cifra grande.",
+   "estado": "propuesta",
+   "defecto": true,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "molécula"
+  },
+  {
+   "id": "CF-2",
+   "tipo": "cifras",
+   "nombre": "Columna lateral",
+   "uso": "Cifras en columna con regla vertical, al lado de una figura.",
+   "estado": "propuesta",
+   "defecto": false,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "molécula"
+  },
+  {
+   "id": "CF-3",
+   "tipo": "cifras",
+   "nombre": "Cifra grande (disco)",
+   "uso": "Una cifra gigante con disco.",
+   "estado": "propuesta",
+   "defecto": false,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "molécula"
+  },
+  {
+   "id": "FG-1",
+   "tipo": "figura",
+   "nombre": "Marco con pie",
+   "uso": "Gráfico o imagen en marco duro con pie en caja.",
+   "estado": "propuesta",
+   "defecto": true,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "organismo"
+  },
+  {
+   "id": "FG-2",
+   "tipo": "figura",
+   "nombre": "Figura + cifras",
+   "uso": "Figura 7/10 y cifras laterales 3/10.",
+   "estado": "propuesta",
+   "defecto": false,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "organismo"
+  },
+  {
+   "id": "FG-3",
+   "tipo": "figura",
+   "nombre": "Imagen con crédito",
+   "uso": "Foto en dos tintas con pie y crédito.",
+   "estado": "propuesta",
+   "defecto": false,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "organismo"
+  },
+  {
+   "id": "GR-bar",
+   "tipo": "gráfico",
+   "nombre": "Barras",
+   "uso": "Gráfico estándar: ver ESTANDARES.md",
+   "estado": "propuesta",
+   "defecto": true,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "molécula"
+  },
+  {
+   "id": "GR-hbar",
+   "tipo": "gráfico",
+   "nombre": "Barras horizontales",
+   "uso": "Gráfico estándar: ver ESTANDARES.md",
+   "estado": "propuesta",
+   "defecto": false,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "molécula"
+  },
+  {
+   "id": "GR-line",
+   "tipo": "gráfico",
+   "nombre": "Líneas",
+   "uso": "Gráfico estándar: ver ESTANDARES.md",
+   "estado": "propuesta",
+   "defecto": false,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "molécula"
+  },
+  {
+   "id": "GR-stack",
+   "tipo": "gráfico",
+   "nombre": "Apiladas",
+   "uso": "Gráfico estándar: ver ESTANDARES.md",
+   "estado": "propuesta",
+   "defecto": false,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "molécula"
+  },
+  {
+   "id": "GR-hist",
+   "tipo": "gráfico",
+   "nombre": "Histograma",
+   "uso": "Gráfico estándar: ver ESTANDARES.md",
+   "estado": "propuesta",
+   "defecto": false,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "molécula"
+  },
+  {
+   "id": "GR-box",
+   "tipo": "gráfico",
+   "nombre": "Cajas",
+   "uso": "Gráfico estándar: ver ESTANDARES.md",
+   "estado": "propuesta",
+   "defecto": false,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "molécula"
+  },
+  {
+   "id": "GR-scatter",
+   "tipo": "gráfico",
+   "nombre": "Dispersión + tendencia",
+   "uso": "Gráfico estándar: ver ESTANDARES.md",
+   "estado": "propuesta",
+   "defecto": false,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "molécula"
+  },
+  {
+   "id": "GR-heat",
+   "tipo": "gráfico",
+   "nombre": "Mapa de calor",
+   "uso": "Gráfico estándar: ver ESTANDARES.md",
+   "estado": "propuesta",
+   "defecto": false,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "molécula"
+  },
+  {
+   "id": "GR-map",
+   "tipo": "gráfico",
+   "nombre": "Mapa de puntos",
+   "uso": "Gráfico estándar: ver ESTANDARES.md",
+   "estado": "propuesta",
+   "defecto": false,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "molécula"
+  },
+  {
+   "id": "FL-1",
+   "tipo": "flujo",
+   "nombre": "Tarjetas de proceso",
+   "uso": "Pasos en cuadrícula",
+   "estado": "propuesta",
+   "defecto": true,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "organismo"
+  },
+  {
+   "id": "FL-2",
+   "tipo": "flujo",
+   "nombre": "Diagrama de flujo",
+   "uso": "Nodos y flechas con decisión",
+   "estado": "propuesta",
+   "defecto": false,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "organismo"
+  },
+  {
+   "id": "FL-3",
+   "tipo": "flujo",
+   "nombre": "Escalera",
+   "uso": "Opciones de simple a complejo",
+   "estado": "propuesta",
+   "defecto": false,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "organismo"
+  },
+  {
+   "id": "FL-4",
+   "tipo": "flujo",
+   "nombre": "Línea de vida",
+   "uso": "Etapas con duración",
+   "estado": "propuesta",
+   "defecto": false,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "organismo"
+  },
+  {
+   "id": "FL-5",
+   "tipo": "flujo",
+   "nombre": "Rangos",
+   "uso": "Embudo taxonómico",
+   "estado": "propuesta",
+   "defecto": false,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "organismo"
+  },
+  {
+   "id": "FL-6",
+   "tipo": "flujo",
+   "nombre": "Comparación",
+   "uso": "Dos opciones con veredicto",
+   "estado": "propuesta",
+   "defecto": false,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "organismo"
+  },
+  {
+   "id": "FM-1",
+   "tipo": "formulario",
+   "nombre": "Ficha de datos",
+   "uso": "Barra negra con filas para completar (como «Datos del estudiante»).",
+   "estado": "propuesta",
+   "defecto": true,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "molécula"
+  },
+  {
+   "id": "HJ-1",
+   "tipo": "hoja",
+   "nombre": "Normal",
+   "uso": "Hoja de flujo con titular, texto y bloques.",
+   "estado": "propuesta",
+   "defecto": true,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "plantilla"
+  },
+  {
+   "id": "HJ-2",
+   "tipo": "hoja",
+   "nombre": "Punto clave",
+   "uso": "Hoja con tarjeta bosque al inicio y etiqueta en la cabecera.",
+   "estado": "propuesta",
+   "defecto": false,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "plantilla"
+  },
+  {
+   "id": "HJ-3",
+   "tipo": "hoja",
+   "nombre": "Tablero",
+   "uso": "Gráficos lado a lado (half) y cifras.",
+   "estado": "propuesta",
+   "defecto": false,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "plantilla"
+  },
+  {
+   "id": "AT-color",
+   "tipo": "átomo",
+   "nombre": "Color por roles",
+   "uso": "Siete roles: negro, bosque, hoja, vivo, ocre, crema, arena.",
+   "estado": "propuesta",
+   "defecto": false,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "átomo"
+  },
+  {
+   "id": "AT-tipo",
+   "tipo": "átomo",
+   "nombre": "Tipografía",
+   "uso": "Anton (títulos), Archivo (texto), IBM Plex Mono (datos).",
+   "estado": "propuesta",
+   "defecto": false,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "átomo"
+  },
+  {
+   "id": "AT-simbolo",
+   "tipo": "átomo",
+   "nombre": "Símbolo",
+   "uso": "73 formas vectoriales sueltas; nunca en fila.",
+   "estado": "propuesta",
+   "defecto": false,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "átomo"
+  },
+  {
+   "id": "AT-regla",
+   "tipo": "átomo",
+   "nombre": "Regla y borde",
+   "uso": "Regla fina, media y gruesa; radio 0.",
+   "estado": "propuesta",
+   "defecto": false,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "átomo"
+  },
+  {
+   "id": "AT-etiqueta",
+   "tipo": "átomo",
+   "nombre": "Etiqueta (chip)",
+   "uso": "[FUENTE], [INF], SIMULACIÓN…",
+   "estado": "propuesta",
+   "defecto": false,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "átomo"
+  },
+  {
+   "id": "AT-boton",
+   "tipo": "átomo",
+   "nombre": "Botón",
+   "uso": "Primario, secundario, píldora; sombra dura.",
+   "estado": "propuesta",
+   "defecto": false,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "átomo"
+  },
+  {
+   "id": "AT-campo",
+   "tipo": "átomo",
+   "nombre": "Campo de formulario",
+   "uso": "Entrada con borde duro (web).",
+   "estado": "propuesta",
+   "defecto": false,
+   "origen": "fabrica_estilo (redonda)",
+   "nivel": "átomo"
+  },
+  {
+   "id": "CV-3",
+   "tipo": "portada",
+   "nombre": "Portada clara suave",
+   "uso": "Portada con fondo claro, generada por fabrica_estilo.py.",
+   "estado": "propuesta",
+   "defecto": false,
+   "origen": "fabrica_estilo",
+   "nivel": "organismo"
+  }
+ ]
+}

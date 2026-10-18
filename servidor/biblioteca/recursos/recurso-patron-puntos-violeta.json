@@ -1,0 +1,22 @@
+{
+ "version": "1",
+ "tags": [
+  "puntos",
+  "recurso",
+  "fondo",
+  "patron",
+  "imagen"
+ ],
+ "origen": "recursos.py",
+ "licencia": "propia (generado por código)",
+ "id": "recurso-patron-puntos-violeta",
+ "tipo": "recurso",
+ "nombre": "Puntos patron-puntos-violeta",
+ "descripcion": "Recurso gráfico «puntos» 1600×900, colores #7C3AED sobre #F5F3F8.",
+ "uso": "Bloque figure con src «recursos/patron-puntos-violeta.png»; úsalo de fondo o separador.",
+ "ejemplo": {
+  "type": "figure",
+  "src": "recursos/patron-puntos-violeta.png",
+  "alt": "puntos decorativo"
+ }
+}

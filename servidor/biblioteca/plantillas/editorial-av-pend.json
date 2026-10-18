@@ -1,0 +1,24 @@
+{
+ "id": "editorial-av-pend",
+ "tipo": "plantilla",
+ "nombre": "Dato pendiente (punteado) (aviso)",
+ "version": "1",
+ "descripcion": "Falta una cifra",
+ "tags": [
+  "aviso",
+  "molécula",
+  "anura",
+  "propuesta"
+ ],
+ "design": "editorial",
+ "uso": "Variante AV-pend del diseño editorial; se elige en options.variants.aviso.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "aviso": "AV-pend"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

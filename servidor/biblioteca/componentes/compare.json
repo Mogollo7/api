@@ -1,0 +1,35 @@
+{
+ "id": "compare",
+ "tipo": "componente",
+ "nombre": "Bloque «compare»",
+ "version": "1.0",
+ "descripcion": "Dos opciones enfrentadas con veredicto.",
+ "tags": [
+  "compare"
+ ],
+ "uso": "Dos opciones enfrentadas con veredicto.",
+ "parametros": {
+  "left": "obj (obligatorio) — {title,sub?,items}",
+  "right": "obj (obligatorio) — {title,sub?,items}",
+  "verdict": "markup — Veredicto."
+ },
+ "ejemplo": {
+  "type": "compare",
+  "left": {
+   "title": "A",
+   "items": [
+    "…"
+   ]
+  },
+  "right": {
+   "title": "B",
+   "items": [
+    "…"
+   ]
+  },
+  "verdict": "A gana."
+ },
+ "origen": "engine/spec.py",
+ "licencia": "propia",
+ "error_tipico": "Olvidar un campo obligatorio: el contrato rechaza el documento."
+}

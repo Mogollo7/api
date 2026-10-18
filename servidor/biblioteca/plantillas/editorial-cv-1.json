@@ -1,0 +1,24 @@
+{
+ "id": "editorial-cv-1",
+ "tipo": "plantilla",
+ "nombre": "Editorial: palabras gigantes + bloque azul (portada)",
+ "version": "1",
+ "descripcion": "Titular apilado negro sobre papel y bloque de acento abajo.",
+ "tags": [
+  "portada",
+  "organismo",
+  "anura",
+  "propuesta"
+ ],
+ "design": "editorial",
+ "uso": "Variante CV-1 del diseño editorial; se elige en options.variants.portada.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "portada": "CV-1"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

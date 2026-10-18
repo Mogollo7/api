@@ -1,0 +1,21 @@
+{
+ "id": "custom",
+ "tipo": "componente",
+ "nombre": "Bloque «custom»",
+ "version": "1.0",
+ "descripcion": "ÚLTIMO RECURSO: fragmento HTML saneado (solo etiquetas y clases permitidas). Úsalo solo si ningún bloque sirve.",
+ "tags": [
+  "custom"
+ ],
+ "uso": "ÚLTIMO RECURSO: fragmento HTML saneado (solo etiquetas y clases permitidas). Úsalo solo si ningún bloque sirve.",
+ "parametros": {
+  "html": "str (obligatorio) — HTML."
+ },
+ "ejemplo": {
+  "type": "custom",
+  "html": "<p class=\"k\">Texto</p>"
+ },
+ "origen": "engine/spec.py",
+ "licencia": "propia",
+ "error_tipico": "Olvidar un campo obligatorio: el contrato rechaza el documento."
+}

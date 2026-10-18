@@ -1,0 +1,24 @@
+{
+ "id": "salvia-gr-hist",
+ "tipo": "plantilla",
+ "nombre": "Histograma (gráfico)",
+ "version": "1",
+ "descripcion": "Gráfico estándar: ver ESTANDARES.md",
+ "tags": [
+  "gráfico",
+  "molécula",
+  "fabrica_estilo (redonda)",
+  "propuesta"
+ ],
+ "design": "salvia",
+ "uso": "Variante GR-hist del diseño salvia; se elige en options.variants.gráfico.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "gráfico": "GR-hist"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

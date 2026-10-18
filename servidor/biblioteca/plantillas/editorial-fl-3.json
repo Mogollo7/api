@@ -1,0 +1,24 @@
+{
+ "id": "editorial-fl-3",
+ "tipo": "plantilla",
+ "nombre": "Escalera (flujo)",
+ "version": "1",
+ "descripcion": "Opciones de simple a complejo",
+ "tags": [
+  "flujo",
+  "organismo",
+  "anura",
+  "propuesta"
+ ],
+ "design": "editorial",
+ "uso": "Variante FL-3 del diseño editorial; se elige en options.variants.flujo.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "flujo": "FL-3"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

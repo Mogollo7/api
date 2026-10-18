@@ -1,0 +1,11 @@
+{
+ "id": "tabla_con_grafico", "tipo": "ingrediente", "version": "1", "nombre": "Tabla con gráfico de barras",
+ "descripcion": "Sección con título, una tabla de cinco filas de concepto y valor, y su gráfico de barras debajo. Sirve para mostrar una comparación de cinco valores.",
+ "tags": ["tabla", "grafico", "barras", "comparacion", "valores", "cifras", "seccion", "datos", "ranking", "columnas"],
+ "origen": "supermercado", "licencia": "propia",
+ "huecos": {
+  "titulo_seccion": {"desc": "Título de la sección (máx. 60 letras)", "defecto": "Ventas por línea de producto"},
+  "filas": {"desc": "Cinco filas «concepto | valor», cada valor un número", "lista": ["concepto", "valor"], "max": 5, "defecto": [["Línea A", "520"], ["Línea B", "380"], ["Línea C", "240"], ["Línea D", "140"], ["Otras", "90"]]}
+ },
+ "markdown": "## {{titulo_seccion}}\n\n| Concepto | Valor |\n|---|---|\n{{#filas}}| {{concepto}} | {{valor}} |\n{{/filas}}{grafico: bar}"
+}

@@ -1,0 +1,24 @@
+{
+ "id": "salvia-av-nota",
+ "tipo": "plantilla",
+ "nombre": "Nota (arena) (aviso)",
+ "version": "1",
+ "descripcion": "Información extra",
+ "tags": [
+  "aviso",
+  "molécula",
+  "fabrica_estilo (redonda)",
+  "propuesta"
+ ],
+ "design": "salvia",
+ "uso": "Variante AV-nota del diseño salvia; se elige en options.variants.aviso.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "aviso": "AV-nota"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

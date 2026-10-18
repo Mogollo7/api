@@ -1,0 +1,24 @@
+{
+ "id": "editorial-cv-2",
+ "tipo": "plantilla",
+ "nombre": "Editorial: bloque completo (portada)",
+ "version": "1",
+ "descripcion": "Fondo de acento con palabras gigantes en papel.",
+ "tags": [
+  "portada",
+  "organismo",
+  "nueva",
+  "propuesta"
+ ],
+ "design": "editorial",
+ "uso": "Variante CV-2 del diseño editorial; se elige en options.variants.portada.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "portada": "CV-2"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

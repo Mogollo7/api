@@ -1,0 +1,23 @@
+{
+ "id": "p",
+ "tipo": "componente",
+ "nombre": "Bloque «p»",
+ "version": "1.0",
+ "descripcion": "Párrafo de texto.",
+ "tags": [
+  "p",
+  "párrafo",
+  "texto"
+ ],
+ "uso": "Párrafo de texto.",
+ "parametros": {
+  "text": "markup (obligatorio) — Texto del párrafo. Máx. 1400."
+ },
+ "ejemplo": {
+  "type": "p",
+  "text": "Texto con **negrita**, *Nombre científico* y una marca [FUENTE]."
+ },
+ "origen": "engine/spec.py",
+ "licencia": "propia",
+ "error_tipico": "Pasarse del límite de longitud (text ≤ 1400): el motor recorta o reduce con aviso."
+}

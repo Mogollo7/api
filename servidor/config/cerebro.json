@@ -1,0 +1,13 @@
+{
+  "_ayuda": "Cambiar de cerebro = cambiar este archivo. endpoint: cualquier servidor compatible con OpenAI (Ollama :11434/v1, LM Studio :1234/v1). Perfil 'minimo' = 8 herramientas para modelos de 1.5B–3B.",
+  "endpoint": "http://127.0.0.1:11434/v1",
+  "modelo": "qwen2.5-coder:7b",
+  "modelo_vision": "",
+  "perfil": "minimo",
+  "max_pasos": 12,
+  "temperatura": 0.2,
+  "mystyle_url": "http://127.0.0.1:8765",
+  "mystyle_key": "",
+  "rechazos_para_escalar": 3,
+  "espera_s": 600
+}

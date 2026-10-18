@@ -1,0 +1,24 @@
+{
+ "id": "terracota-at-tipo",
+ "tipo": "plantilla",
+ "nombre": "Tipografía (átomo)",
+ "version": "1",
+ "descripcion": "Anton (títulos), Archivo (texto), IBM Plex Mono (datos).",
+ "tags": [
+  "átomo",
+  "átomo",
+  "fabrica_estilo (recta)",
+  "propuesta"
+ ],
+ "design": "terracota",
+ "uso": "Variante AT-tipo del diseño terracota; se elige en options.variants.átomo.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "átomo": "AT-tipo"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

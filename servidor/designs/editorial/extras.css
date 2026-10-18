@@ -36,6 +36,9 @@
 .tabw{width:100%}
 .tabw .tab{margin-top:0;font-size:2cqw}
 .tab td,.tab th{overflow-wrap:anywhere}
+.tab th{overflow-wrap:normal;hyphens:none}   /* un encabezado se parte entre palabras, nunca a mitad de palabra */
+.tab.k1 td{overflow-wrap:normal}
+.tab.k1 th,.tab.k1 td:first-child{white-space:nowrap;overflow-wrap:normal}   /* atributos en una línea cuando caben (blocks.attr_class) */
 .tab td.t-f{background:var(--vivo);color:var(--negro);font-weight:800;text-align:center}
 .tab td.t-p{background:var(--ocre);color:var(--negro);font-weight:800;text-align:center}
 .tab td.t-l{background:var(--negro);color:var(--crema);font-weight:800;text-align:center}

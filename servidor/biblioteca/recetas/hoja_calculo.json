@@ -1,0 +1,15 @@
+{
+ "id": "hoja_calculo", "tipo": "receta", "version": "1", "nombre": "Libro de Excel con tabla y gráfico",
+ "descripcion": "Libro de Excel con una hoja de seis meses en tres columnas numéricas, un gráfico de barras y una hoja de notas. Sirve para llevar cifras mensuales y explicarlas.",
+ "tags": ["excel", "xlsx", "hoja", "tabla", "meses", "grafico", "barras", "cifras", "libro", "planilla", "notas", "presupuesto"],
+ "formato": "xlsx", "estilo": "anura", "origen": "supermercado", "licencia": "propia",
+ "huecos": {
+  "titulo": {"desc": "Título del libro (máx. 60 letras)", "defecto": "Ventas y costos del semestre"},
+  "hoja_titulo": {"desc": "Título de la hoja de datos (máx. 60 letras)", "defecto": "Ventas, costos y margen por mes (miles de $) [SIM]"},
+  "filas": {"desc": "Seis filas «mes | ventas | costos | margen»; el margen es ventas menos costos", "lista": ["mes", "ventas", "costos", "margen"], "max": 6, "defecto": [["Abril", "128", "80", "48"], ["Mayo", "134", "84", "50"], ["Junio", "141", "88", "53"], ["Julio", "139", "86", "53"], ["Agosto", "152", "93", "59"], ["Septiembre", "160", "97", "63"]]},
+  "notas": {"desc": "De 2 a 5 notas sobre los datos, una frase corta cada una (máx. 90 letras)", "max": 5, "defecto": ["Cifras en miles de $; el margen es ventas menos costos.", "El margen subió de 48 a 63 en el semestre.", "Datos de ejemplo [SIM]: reemplazar con el cierre contable antes de usar."]},
+  "autor": {"desc": "Quién prepara el libro (máx. 60 letras)", "defecto": "Equipo de finanzas"},
+  "fecha": {"desc": "Periodo o fecha (máx. 30 letras)", "defecto": "Octubre 2026"}
+ },
+ "markdown": "---\ntitulo: {{titulo}}\nautor: {{autor}}\nfecha: {{fecha}}\n---\n\n# {{titulo}}\n\n## {{hoja_titulo}}\n\n| Mes | Ventas | Costos | Margen |\n|---|---|---|---|\n{{#filas}}| {{mes}} | {{ventas}} | {{costos}} | {{margen}} |\n{{/filas}}{grafico: bar}\n\n## Notas\n\n{{#notas}}- {{.}}\n{{/notas}}"
+}

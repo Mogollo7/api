@@ -1,0 +1,24 @@
+{
+ "id": "salvia-av-ojo",
+ "tipo": "plantilla",
+ "nombre": "Ojo (ocre) (aviso)",
+ "version": "1",
+ "descripcion": "Advertencia",
+ "tags": [
+  "aviso",
+  "molécula",
+  "fabrica_estilo (redonda)",
+  "propuesta"
+ ],
+ "design": "salvia",
+ "uso": "Variante AV-ojo del diseño salvia; se elige en options.variants.aviso.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "aviso": "AV-ojo"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

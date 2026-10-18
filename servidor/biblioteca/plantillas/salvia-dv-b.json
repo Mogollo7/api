@@ -1,0 +1,24 @@
+{
+ "id": "salvia-dv-b",
+ "tipo": "plantilla",
+ "nombre": "SaaS: panel oscuro (divisor)",
+ "version": "1",
+ "descripcion": "Panel oscuro con degradado violeta y numeral en acento.",
+ "tags": [
+  "divisor",
+  "organismo",
+  "fabrica_estilo (redonda)",
+  "propuesta"
+ ],
+ "design": "salvia",
+ "uso": "Variante DV-B del diseño salvia; se elige en options.variants.divisor.",
+ "ejemplo": {
+  "options": {
+   "variants": {
+    "divisor": "DV-B"
+   }
+  }
+ },
+ "origen": "repositorio",
+ "licencia": "propia"
+}

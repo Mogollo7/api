@@ -33,16 +33,20 @@ def font_css(design_dir: Path, manifest: dict) -> str:
     return "\n".join(out)
 
 
-def root_css(roles: dict) -> str:
+def root_css(roles: dict, manifest: dict = None) -> str:
+    """Variables de color por rol y de fuente. Un diseño puede declarar `font_roles: {display, body, mono}` (familias de su `fonts`); sin él, Anton / Archivo / IBM Plex Mono."""
     v = ";".join(f"--{k}:{c}" for k, c in roles.items())
-    return (":root{" + v + ';--font-display:"Anton",Impact,"Arial Narrow",sans-serif;'
-            '--font-body:"Archivo",system-ui,sans-serif;--font-mono:"IBM Plex Mono",ui-monospace,monospace;'
+    fr = (manifest or {}).get("font_roles") or {}
+    disp = f'"{fr["display"]}",system-ui,sans-serif' if fr.get("display") else '"Anton",Impact,"Arial Narrow",sans-serif'
+    body = f'"{fr["body"]}",system-ui,sans-serif' if fr.get("body") else '"Archivo",system-ui,sans-serif'
+    mono = f'"{fr["mono"]}",system-ui,sans-serif' if fr.get("mono") else '"IBM Plex Mono",ui-monospace,monospace'
+    return (":root{" + v + f";--font-display:{disp};--font-body:{body};--font-mono:{mono};"
             "--sombra-dura:8px 8px 0 var(--negro);--fondo:var(--negro)}")
 
 
 class Symbols:
     def __init__(self, design_dir: Path):
-        self.cat = json.loads((design_dir / "simbolos.json").read_text())["simbolos"]
+        self.cat = json.loads((design_dir / "simbolos.json").read_text(encoding="utf-8"))["simbolos"]
         self.used = []
 
     def use(self, sid: str):

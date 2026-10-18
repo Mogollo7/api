@@ -1,0 +1,78 @@
+<!doctype html><!-- [CLAUDE-CONSTRUCTOR] Frontend mínimo de la API: diseño, paleta (de la lista o propia), galería de variantes con el motor real, prompt y vista previa. -->
+<html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ANURA · API</title>
+<style>
+body{font:15px/1.4 system-ui,sans-serif;margin:0;background:#f5eae4;color:#111}
+main{max-width:1200px;margin:auto;padding:1rem;display:grid;gap:1rem;grid-template-columns:1fr 1fr}
+section{border:2px solid #111;background:#fff;box-shadow:4px 4px 0 #111;padding:1rem;min-width:0}
+h1{margin:1rem;font:900 2rem Impact,sans-serif;text-transform:uppercase}h2{margin:0 0 .5rem;font-size:1rem;text-transform:uppercase}
+label{display:block;margin:.5rem 0 .1rem;font-size:.8rem;text-transform:uppercase}small{display:block;color:#555;margin-top:.4rem}
+select,textarea,button,input[type=file]{font:inherit;width:100%;box-sizing:border-box;border:2px solid #111;border-radius:0;padding:.4rem;background:#fff}
+button{background:#fe0032;color:#fff;font-weight:700;cursor:pointer;margin-top:.6rem}button.s{background:#fff;color:#111}
+pre{white-space:pre-wrap;max-height:22rem;overflow:auto;background:#f5eae4;padding:.5rem}
+.roles{display:grid;grid-template-columns:repeat(auto-fill,minmax(11rem,1fr));gap:.4rem}
+.r{border:2px solid #111;padding:.3rem;display:grid;grid-template-columns:2.6rem 1fr;gap:.1rem .4rem;font-size:.75rem;margin:0;text-transform:none}
+.r input{width:2.6rem;height:2.6rem;padding:0;border:0;grid-row:span 2}.r b{text-transform:uppercase}
+.av{font-size:.8rem;margin:.4rem 0;color:#b00020}.ok{color:#0a7a2f}
+iframe{width:100%;height:36rem;border:2px solid #111}.full{grid-column:1/-1}
+dl{margin:0 0 .6rem;display:grid;grid-template-columns:auto 1fr;gap:.2rem .8rem;font-size:.85rem}dt{font-weight:700;text-transform:uppercase}dd{margin:0}
+@media(max-width:800px){main{grid-template-columns:1fr}}
+</style>
+<h1>ANURA · API</h1>
+<main>
+<section class="full"><h2>1 · Diseño y paleta</h2>
+<label>Diseño</label><select id="d"></select>
+<label>Paleta de partida</label><select id="p"></select>
+<label>Mi paleta · cada color es un rol (se usa en la galería, el prompt y el render)</label>
+<div class="roles" id="roles"></div>
+<div id="av" class="av"></div>
+<button class="s" id="sv">Guardar mi paleta en este navegador</button>
+<small>Reglas: solo estos 7 roles; texto con contraste ≥ 4,5:1; los colores de serie deben distinguirse en escala de grises; «vivo» y «ocre» nunca como texto sobre crema/arena.</small></section>
+
+<section class="full"><h2>2 · Variantes, dibujadas con el motor real y tu paleta</h2>
+<dl><dt>portada</dt><dd>primera hoja del documento</dd><dt>divisor</dt><dd>hoja de apertura de cada parte</dd><dt>hoja</dt><dd>hoja de contenido (normal, punto clave, tablero)</dd>
+<dt>bloque</dt><dd>pieza dentro de una hoja: tabla, gráfico, cifras, aviso…</dd><dt>átomo</dt><dd>elemento mínimo: color, tipografía, regla, botón, símbolo…</dd>
+<dt>estado</dt><dd>propuesta · aprobada · rechazada; «Exportar aprobaciones» baja el archivo para <code>aprobar.py</code></dd></dl>
+<iframe id="gal" title="Galería de variantes"></iframe></section>
+
+<section><h2>3 · Prompt maestro</h2>
+<div id="vs"></div>
+<label>Modo</label><select id="m"><option>B</option><option>A</option></select>
+<label><input type="checkbox" id="s" style="width:auto"> Corto</label>
+<button id="gp">Generar prompt</button><pre id="out" hidden></pre><button id="cp" class="s" hidden>Copiar</button></section>
+
+<section><h2>4 · Vista previa (JSON de contenido → PDF)</h2>
+<input type="file" id="f" accept=".json"><textarea id="j" rows="5" placeholder="Pega aquí el JSON del documento o carga un archivo"></textarea>
+<label><input type="checkbox" id="up" checked style="width:auto"> Usar mi paleta</label>
+<button id="gr">Renderizar</button><pre id="inf" hidden></pre></section>
+<section class="full" id="pv" hidden><iframe id="pdf" title="PDF" style="height:48rem"></iframe></section>
+</main>
+<script>
+const $=i=>document.getElementById(i),J=(u,o)=>fetch(u,o).then(async r=>{if(!r.ok)throw await r.json().catch(()=>({}));return r.json()});
+const ROL={negro:'texto y fondos oscuros',bosque:'fondo oscuro verde',hoja:'verde medio: series y detalles',vivo:'acento fuerte (no como texto sobre claro)',ocre:'acento cálido (no como texto sobre claro)',crema:'papel, fondo claro',arena:'papel alterno, bandas'};
+const KEY='anura-mi-paleta';let base={},pals={},cur={},t;
+function paint(){$('roles').innerHTML=Object.keys(base).map(k=>`<label class="r"><input type="color" data-k="${k}" value="${cur[k]}"><b>${k}</b><span>${ROL[k]||''}</span></label>`).join('');
+ document.querySelectorAll('#roles input').forEach(i=>i.oninput=()=>{cur[i.dataset.k]=i.value;sync()})}
+function sync(){clearTimeout(t);t=setTimeout(async()=>{
+ const c=await J('/v1/paleta',{method:'POST',body:JSON.stringify({design:$('d').value,palette:cur})}).catch(e=>({avisos:[{causa:e.error}]}));
+ $('av').innerHTML=c.avisos.length?c.avisos.map(a=>`⚠ ${a.bloque||''}: ${a.causa}`).join('<br>'):'<span class="ok">✔ contraste y grises correctos</span>';
+ const r=await fetch('/v1/galeria',{method:'POST',body:JSON.stringify({design:$('d').value,palette:cur})});$('gal').srcdoc=await r.text()},500)}
+async function load(){const m=await J('/v1/designs/'+$('d').value);base=m.paleta;pals=m.paletas;cur={...base};
+ $('p').innerHTML='<option value="">default</option>'+Object.keys(pals).map(x=>`<option>${x}</option>`).join('');
+ try{const s=JSON.parse(localStorage.getItem(KEY));if(s&&s.d==$('d').value){cur={...base,...s.p};$('p').insertAdjacentHTML('beforeend','<option value="__mia" selected>mi paleta guardada</option>')}}catch{}
+ paint();sync();
+ const g={};m.variantes.forEach(v=>(g[v.tipo]??=[]).push(v));
+ $('vs').innerHTML=Object.entries(g).map(([t,vs])=>`<label>${t}</label><select data-t="${t}"><option value="">auto</option>${vs.map(v=>`<option value="${v.id}">${v.id} · ${v.nombre} (${v.estado}) — ${v.uso}</option>`)}</select>`).join('')}
+J('/v1/designs').then(ds=>{$('d').innerHTML=ds.map(d=>`<option value="${d.id}">${d.name} v${d.version}</option>`).join('');load()});
+$('d').onchange=load;
+$('p').onchange=()=>{if($('p').value==='__mia')return;cur={...base,...(pals[$('p').value]||{})};paint();sync()};
+$('sv').onclick=()=>{try{localStorage.setItem(KEY,JSON.stringify({d:$('d').value,p:cur}));alert('Guardada')}catch{alert('No se pudo guardar')}};
+$('gp').onclick=async()=>{const v={};document.querySelectorAll('#vs select').forEach(s=>s.value&&(v[s.dataset.t]=s.value));
+ const r=await fetch('/v1/prompt',{method:'POST',body:JSON.stringify({design:$('d').value,palette:cur,variants:v,mode:$('m').value,short:$('s').checked})});
+ $('out').textContent=await r.text();$('out').hidden=$('cp').hidden=false};
+$('cp').onclick=()=>navigator.clipboard.writeText($('out').textContent);
+$('f').onchange=async e=>$('j').value=await e.target.files[0].text();
+$('gr').onclick=async()=>{let b;try{b=JSON.parse($('j').value)}catch{return alert('JSON inválido')}
+ b.design??=$('d').value;if($('up').checked)b.palette=cur;const r=await J('/v1/render',{method:'POST',body:JSON.stringify(b)}).catch(e=>e);
+ $('inf').hidden=false;$('inf').textContent=JSON.stringify({estado:r.estado,paginas:r.paginas,errores:r.errores,avisos:r.avisos,error:r.error},null,1);
+ if(r.pdf){$('pdf').src=r.pdf;$('pv').hidden=false}};
+</script></html>

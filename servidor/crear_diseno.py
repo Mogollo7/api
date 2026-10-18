@@ -26,14 +26,14 @@ def main():
     if dst.exists():
         sys.exit(f"ya existe {dst}")
     shutil.copytree(src, dst, ignore=shutil.ignore_patterns(".cache", "__pycache__"))
-    m = json.loads((dst / "manifest.json").read_text())
+    m = json.loads((dst / "manifest.json").read_text(encoding="utf-8"))
     m.update({"id": a.id, "name": a.nombre or a.id, "version": "0.1.0", "base": a.base})
     m["_marca"] = f"[CLAUDE-CONSTRUCTOR] Diseño '{a.id}' creado desde '{a.base}'. Edita y valida con servidor/validar_diseno.py."
-    (dst / "manifest.json").write_text(json.dumps(m, ensure_ascii=False, indent=2))
-    v = json.loads((dst / "variantes.json").read_text())
+    (dst / "manifest.json").write_text(json.dumps(m, ensure_ascii=False, indent=2), encoding="utf-8")
+    v = json.loads((dst / "variantes.json").read_text(encoding="utf-8"))
     for x in v["variantes"]:
         x["estado"] = "propuesta"
-    (dst / "variantes.json").write_text(json.dumps(v, ensure_ascii=False, indent=1))
+    (dst / "variantes.json").write_text(json.dumps(v, ensure_ascii=False, indent=1), encoding="utf-8")
     (dst / "LEEME_DISENO.md").write_text(f"# Diseño {a.id} (desde {a.base})\n\nPasos: 1) paleta en palettes.json y roles en manifest.json · 2) fuentes en fonts/ (con licencia en el manifiesto) · 3) plantillas en templates/ "
                                          f"(portada y divisor) y sus estilos en extras.css · 4) variantes.json (una fila por plantilla) · 5) `python servidor/validar_diseno.py {a.id}` hasta que todo sea ✔ · "
                                          f"6) `python servidor/galeria.py --design {a.id}` para aprobar variantes.\nContrato de clases y campos: designs/LEEME.md.\n", encoding="utf-8")
@@ -41,4 +41,5 @@ def main():
 
 
 if __name__ == "__main__":
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")      # Windows: la consola cp1252 no acepta ✔ → ·
     main()

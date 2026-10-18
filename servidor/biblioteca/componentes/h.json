@@ -1,0 +1,23 @@
+{
+ "id": "h",
+ "tipo": "componente",
+ "nombre": "Bloque «h»",
+ "version": "1.0",
+ "descripcion": "Subtítulo de sección (etiqueta con regla). No repitas el titular de la sección.",
+ "tags": [
+  "h",
+  "subtítulo",
+  "etiqueta"
+ ],
+ "uso": "Subtítulo de sección (etiqueta con regla). No repitas el titular de la sección.",
+ "parametros": {
+  "text": "markup (obligatorio) — Subtítulo corto. Máx. 80."
+ },
+ "ejemplo": {
+  "type": "h",
+  "text": "Interpretación"
+ },
+ "origen": "engine/spec.py",
+ "licencia": "propia",
+ "error_tipico": "Pasarse del límite de longitud (text ≤ 80): el motor recorta o reduce con aviso."
+}
