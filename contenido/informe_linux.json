@@ -119,7 +119,7 @@
                 "nocredit": true,
                 "nobox": true,
                 "ratio": "832/310",
-                "caption": "Entorno de la práctica: Kali GNU/Linux Rolling 2026.2 con kernel 6.19.14 [FUENTE]."
+                "caption": "Entorno de la práctica: Kali GNU/Linux Rolling 2026.2 con kernel 6.19.14."
               }
             ]
           },
@@ -168,30 +168,26 @@
                     "/srv/soporte"
                   ]
                 ],
-                "caption": "Tabla 1. Cuentas, grupos y directorios del escenario; UID y GID leídos con `id` [FUENTE]."
+                "caption": "Tabla 1. Cuentas, grupos y directorios del escenario; UID y GID leídos con `id`."
               },
               {
                 "type": "kpi",
                 "items": [
                   {
                     "v": "3",
-                    "l": "grupos",
-                    "note": "[FUENTE]"
+                    "l": "grupos"
                   },
                   {
                     "v": "3",
-                    "l": "usuarios",
-                    "note": "[FUENTE]"
+                    "l": "usuarios"
                   },
                   {
                     "v": "3",
-                    "l": "directorios",
-                    "note": "[FUENTE]"
+                    "l": "directorios"
                   },
                   {
                     "v": "1",
-                    "l": "archivo privado",
-                    "note": "[FUENTE]"
+                    "l": "archivo privado"
                   }
                 ]
               }
@@ -273,7 +269,7 @@
                 "type": "code",
                 "lang": "bash",
                 "code": "-rw-rw---- 1 root sistemas 0 oct 18 16:37 privado_sistemas.txt",
-                "caption": "Salida de `ls -l` sobre el archivo privado [FUENTE]."
+                "caption": "Salida de `ls -l` sobre el archivo privado."
               },
               {
                 "type": "table",
@@ -319,7 +315,7 @@
                     "archivo"
                   ]
                 ],
-                "caption": "Tabla 3. Campos de la línea de `ls -l` [FUENTE]."
+                "caption": "Tabla 3. Campos de la línea de `ls -l`."
               }
             ]
           },
@@ -330,7 +326,7 @@
             "blocks": [
               {
                 "type": "p",
-                "text": "Al pedir acceso, el sistema compara la cuenta con el propietario y el grupo del recurso, y aplica **solo un** juego de permisos: el primero que coincide. El superusuario `root` no está sujeto a esta comprobación, por eso las pruebas usan `sudo -u` para actuar como cada cuenta. [SIN FUENTE]"
+                "text": "Al pedir acceso, el sistema compara la cuenta con el propietario y el grupo del recurso, y aplica **solo un** juego de permisos: el primero que coincide. El superusuario `root` no está sujeto a esta comprobación, por eso las pruebas usan `sudo -u` para actuar como cada cuenta."
               },
               {
                 "type": "flowchart",
@@ -410,7 +406,7 @@
                     "to": "g"
                   }
                 ],
-                "caption": "Figura 1. Regla de coincidencia del modelo de permisos POSIX [SIN FUENTE]."
+                "caption": "Figura 1. Regla de coincidencia del modelo de permisos POSIX."
               }
             ]
           }
@@ -493,7 +489,7 @@
                     "ejecuta el comando como otra cuenta"
                   ]
                 ],
-                "caption": "Tabla 4. Comandos usados en la práctica [SIN FUENTE]."
+                "caption": "Tabla 4. Comandos usados en la práctica."
               }
             ]
           },
@@ -518,7 +514,7 @@
                 "treatment": "original",
                 "nocredit": true,
                 "ratio": "832/644",
-                "caption": "Salida de `id` para ana, bruno y carla: cada UID y GID coincide con su grupo [FUENTE].",
+                "caption": "Salida de `id` para ana, bruno y carla: cada UID y GID coincide con su grupo.",
                 "nobox": true
               }
             ]
@@ -538,7 +534,7 @@
                 "treatment": "original",
                 "nocredit": true,
                 "ratio": "832/472",
-                "caption": "Búsqueda con `grep -E` en `/etc/passwd` y `/etc/group` [FUENTE].",
+                "caption": "Búsqueda con `grep -E` en `/etc/passwd` y `/etc/group`.",
                 "nobox": true
               },
               {
@@ -570,7 +566,7 @@
                 "treatment": "original",
                 "nocredit": true,
                 "ratio": "832/213",
-                "caption": "Resultado de `ls -ld`: `drwxrwx---`, propietario `root`, grupo del departamento [FUENTE].",
+                "caption": "Resultado de `ls -ld`: `drwxrwx---`, propietario `root`, grupo del departamento.",
                 "nobox": true
               }
             ]
@@ -596,7 +592,7 @@
                 "treatment": "original",
                 "nocredit": true,
                 "ratio": "832/162",
-                "caption": "`ls -l`: permisos `-rw-rw----`, tamaño 0 antes de las pruebas [FUENTE].",
+                "caption": "`ls -l`: permisos `-rw-rw----`, tamaño 0 antes de las pruebas.",
                 "nobox": true
               },
               {
@@ -606,7 +602,7 @@
                 "nocredit": true,
                 "nobox": true,
                 "ratio": "832/149",
-                "caption": "`stat` con `sudo`: modo `660`, propietario `root`, grupo `sistemas` y 72 bytes tras las pruebas de ana [FUENTE]."
+                "caption": "`stat` con `sudo`: modo `660`, propietario `root`, grupo `sistemas` y 72 bytes tras las pruebas de ana."
               }
             ]
           },
@@ -631,7 +627,7 @@
                 "treatment": "original",
                 "nocredit": true,
                 "ratio": "832/267",
-                "caption": "Ana escribe y lee el archivo; a Bruno el sistema le responde «Permiso denegado» [FUENTE].",
+                "caption": "Ana escribe y lee el archivo; a Bruno el sistema le responde «Permiso denegado».",
                 "nobox": true
               }
             ]
@@ -652,7 +648,7 @@
                 "nocredit": true,
                 "nobox": true,
                 "ratio": "832/179",
-                "caption": "Carla, del grupo soporte, intenta leer el archivo y recibe «Permiso denegado» [FUENTE]."
+                "caption": "Carla, del grupo soporte, intenta leer el archivo y recibe «Permiso denegado»."
               },
               {
                 "type": "image",
@@ -661,7 +657,7 @@
                 "nocredit": true,
                 "nobox": true,
                 "ratio": "832/134",
-                "caption": "Bruno intenta listar `/srv/sistemas` y recibe «Permiso denegado» [FUENTE]."
+                "caption": "Bruno intenta listar `/srv/sistemas` y recibe «Permiso denegado»."
               }
             ]
           }
@@ -697,7 +693,7 @@
                     "escribir y leer el archivo",
                     "permitido (`rw-` de grupo)",
                     {
-                      "t": "permitido [FUENTE]",
+                      "t": "permitido",
                       "tone": "f"
                     }
                   ],
@@ -707,7 +703,7 @@
                     "leer el archivo",
                     "denegado (resto `---`)",
                     {
-                      "t": "denegado [FUENTE]",
+                      "t": "denegado",
                       "tone": "f"
                     }
                   ],
@@ -717,7 +713,7 @@
                     "leer el archivo",
                     "denegado (resto `---`)",
                     {
-                      "t": "denegado [FUENTE]",
+                      "t": "denegado",
                       "tone": "f"
                     }
                   ],
@@ -727,12 +723,12 @@
                     "listar /srv/sistemas",
                     "denegado (resto `---`)",
                     {
-                      "t": "denegado [FUENTE]",
+                      "t": "denegado",
                       "tone": "f"
                     }
                   ]
                 ],
-                "caption": "Tabla 5. Pruebas de acceso y su resultado [FUENTE]."
+                "caption": "Tabla 5. Pruebas de acceso y su resultado."
               }
             ]
           },
