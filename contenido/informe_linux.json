@@ -793,7 +793,8 @@
                 "treatment": "negroverde",
                 "ratio": "16/7",
                 "pos": "50% 25%",
-                "caption": "La reacción típica ante un «Permiso denegado»."
+                "caption": "La reacción típica ante un «Permiso denegado».",
+                "nocredit": true
               },
               {
                 "type": "callout",

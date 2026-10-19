@@ -6,11 +6,6 @@
    "bloque": "paleta vivo / crema",
    "causa": "solo 2 puntos de claridad (L*) de diferencia: se confunden en escala de grises",
    "ajuste": "no los uses juntos como series distintas; añade borde negro o diferencia la claridad"
-  },
-  {
-   "bloque": "informe_linux/permiso-denegado.jpg",
-   "causa": "imagen usada sin fila en creditos.csv",
-   "ajuste": "añade autor y licencia al CSV"
   }
  ],
  "auditoria": {
@@ -289,5 +284,5 @@
   "DV-B"
  ],
  "paginas": 25,
- "segundos": 4.0
+ "segundos": 4.1
 }
