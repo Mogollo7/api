@@ -589,15 +589,6 @@
                 "ratio": "832/162",
                 "caption": "`ls -l`: permisos `-rw-rw----`, tamaño 0 antes de las pruebas [FUENTE].",
                 "nobox": true
-              },
-              {
-                "type": "image",
-                "src": "informe_linux/marco-sim-stat.png",
-                "treatment": "original",
-                "nocredit": true,
-                "ratio": "832/188",
-                "caption": "Reconstrucción de `stat`: modo `660`, propietario `root`, grupo `sistemas`. Los 72 bytes salen de 3 líneas de 24 bytes [CALC].",
-                "nobox": true
               }
             ]
           },
@@ -629,30 +620,30 @@
           },
           {
             "id": "s12",
-            "title": "Pruebas reconstruidas",
+            "title": "Pruebas con otras cuentas",
             "tema": "Evidencia",
             "blocks": [
               {
                 "type": "p",
-                "text": "Estas dos pruebas no se ejecutaron en la práctica. Las imágenes son reconstrucciones de lo que el sistema debe responder con los permisos configurados; sustitúyelas por capturas reales cuando se ejecuten."
+                "text": "Se repitió el acceso con carla, del grupo soporte, y con bruno sobre el directorio completo, para confirmar que el `770` del directorio y el `660` del archivo cierran el paso a otros departamentos."
               },
               {
                 "type": "image",
-                "src": "informe_linux/marco-sim-carla.png",
+                "src": "informe_linux/marco-carla.png",
                 "treatment": "original",
                 "nocredit": true,
-                "ratio": "832/188",
-                "caption": "Reconstrucción: carla, del grupo soporte, no puede leer el archivo.",
-                "nobox": true
+                "nobox": true,
+                "ratio": "832/179",
+                "caption": "Carla, del grupo soporte, intenta leer el archivo y recibe «Permiso denegado» [FUENTE]."
               },
               {
                 "type": "image",
-                "src": "informe_linux/marco-sim-bruno-ls.png",
+                "src": "informe_linux/marco-bruno-ls.png",
                 "treatment": "original",
                 "nocredit": true,
-                "ratio": "832/188",
-                "caption": "Reconstrucción: bruno no puede listar el directorio de Sistemas.",
-                "nobox": true
+                "nobox": true,
+                "ratio": "832/134",
+                "caption": "Bruno intenta listar `/srv/sistemas` y recibe «Permiso denegado» [FUENTE]."
               }
             ]
           }
@@ -708,28 +699,22 @@
                     "leer el archivo",
                     "denegado (resto `---`)",
                     {
-                      "t": "denegado (reconstruido)",
-                      "tone": "l"
+                      "t": "denegado [FUENTE]",
+                      "tone": "f"
                     }
                   ],
                   [
                     "bruno",
                     "redes",
-                    "entrar en /srv/sistemas",
+                    "listar /srv/sistemas",
                     "denegado (resto `---`)",
                     {
-                      "t": "denegado (reconstruido)",
-                      "tone": "l"
+                      "t": "denegado [FUENTE]",
+                      "tone": "f"
                     }
                   ]
                 ],
-                "caption": "Tabla 5. Lo comprobado [FUENTE] y lo reconstruido."
-              },
-              {
-                "type": "callout",
-                "tone": "sim",
-                "label": "Reconstruido",
-                "text": "Las filas de carla y de la entrada de bruno no se ejecutaron: muestran el resultado que corresponde a los permisos y están rotuladas como reconstruidas. Sustitúyelas por capturas reales."
+                "caption": "Tabla 5. Pruebas de acceso y su resultado [FUENTE]."
               }
             ]
           },
@@ -784,7 +769,7 @@
                 "items": [
                   "Solo se usó el modelo básico de propietario, grupo y resto.",
                   "Cada cuenta tiene un único grupo; no se probó una persona en varios grupos.",
-                  "La comprobación real cubre a ana y bruno; las pruebas de carla y de la entrada al directorio son reconstrucciones.",
+                  "La comprobación de acceso cubre a ana, bruno y carla sobre el archivo y el directorio de Sistemas; no se probaron los directorios de Redes y Soporte.",
                   "Los permisos se verificaron con `ls` y con pruebas de lectura y escritura, no con una auditoría del sistema."
                 ]
               },
@@ -852,8 +837,8 @@
                 "ordered": true,
                 "items": [
                   "Las cuentas de usuario y los grupos primarios pedidos por la actividad quedaron configurados.",
-                  "El modo `770` en los directorios deja a las personas ajenas a cada área sin permisos sobre ellos. Esa conclusión se apoya en los permisos de `ls -ld`; la entrada de otra cuenta solo tiene reconstrucción.",
-                  "Las pruebas con `sudo -u` confirmaron que ana accede al archivo de su área y que a bruno se le denegó el acceso por pertenecer al grupo redes."
+                  "El modo `770` en los directorios deja a las personas ajenas a cada área sin permisos sobre ellos: bruno no pudo listar `/srv/sistemas` y los permisos de `ls -ld` lo confirman.",
+                  "Las pruebas con `sudo -u` confirmaron que ana accede al archivo de su área y que a bruno y a carla se les denegó el acceso por pertenecer a otros grupos."
                 ]
               },
               {
