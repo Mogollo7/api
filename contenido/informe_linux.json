@@ -61,7 +61,12 @@
       "image": "portada.jpg",
       "need": "Foto para la portada, en horizontal o vertical: sala de servidores, cables de red o una pantalla con terminal (sin texto legible).",
       "alt": "Foto de portada pendiente",
-      "treatment": "negroverde"
+      "treatment": "negroverde",
+      "header": [
+        "INFORME PRÁCTICO",
+        "Samuel Usma Brand",
+        "Juan Sebastián Martínez Galeano"
+      ]
     },
     "parts": [
       {
