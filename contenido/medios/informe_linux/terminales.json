@@ -39,5 +39,15 @@
     "nombre": "marco-bruno-ls",
     "titulo": "brand@brandmachine: ~",
     "origen": "captura-bruno-ls.png"
+  },
+  {
+    "nombre": "marco-stat",
+    "titulo": "brand@brandmachine: ~",
+    "origen": "captura-stat.png"
+  },
+  {
+    "nombre": "marco-entorno",
+    "titulo": "brand@brandmachine: ~",
+    "origen": "captura-entorno.png"
   }
 ]

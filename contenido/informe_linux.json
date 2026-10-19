@@ -111,6 +111,15 @@
                 "tone": "clave",
                 "label": "Punto clave",
                 "text": "El permiso no se da a personas sueltas: se da a un **grupo**, y las personas entran por pertenecer a él."
+              },
+              {
+                "type": "image",
+                "src": "informe_linux/marco-entorno.png",
+                "treatment": "original",
+                "nocredit": true,
+                "nobox": true,
+                "ratio": "832/310",
+                "caption": "Entorno de la práctica: Kali GNU/Linux Rolling 2026.2 con kernel 6.19.14 [FUENTE]."
               }
             ]
           },
@@ -589,6 +598,15 @@
                 "ratio": "832/162",
                 "caption": "`ls -l`: permisos `-rw-rw----`, tamaño 0 antes de las pruebas [FUENTE].",
                 "nobox": true
+              },
+              {
+                "type": "image",
+                "src": "informe_linux/marco-stat.png",
+                "treatment": "original",
+                "nocredit": true,
+                "nobox": true,
+                "ratio": "832/149",
+                "caption": "`stat` con `sudo`: modo `660`, propietario `root`, grupo `sistemas` y 72 bytes tras las pruebas de ana [FUENTE]."
               }
             ]
           },
