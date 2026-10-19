@@ -233,14 +233,9 @@
    "pagina": 24
   },
   {
-   "id": "s17",
+   "id": "s18",
    "n": "17",
    "pagina": 25
-  },
-  {
-   "id": "s18",
-   "n": "18",
-   "pagina": 26
   }
  ],
  "correcciones_contraste": [
@@ -293,6 +288,6 @@
   "CV-4",
   "DV-B"
  ],
- "paginas": 26,
- "segundos": 4.2
+ "paginas": 25,
+ "segundos": 8.1
 }

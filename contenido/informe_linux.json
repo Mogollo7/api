@@ -838,37 +838,6 @@
             ]
           },
           {
-            "id": "s17",
-            "title": "Siguientes pasos de simple a complejo",
-            "tema": "Continuidad",
-            "blocks": [
-              {
-                "type": "ladder",
-                "items": [
-                  {
-                    "title": "Completar la evidencia",
-                    "text": "Capturar las pruebas de carla y de la entrada al directorio.",
-                    "cost": "costo: bajo"
-                  },
-                  {
-                    "title": "Varios grupos por persona",
-                    "text": "Probar una cuenta con grupos adicionales con `usermod -aG`.",
-                    "cost": "costo: bajo"
-                  },
-                  {
-                    "title": "Permisos finos",
-                    "text": "Estudiar las listas de control de acceso (ACL) con `setfacl` para casos que el modelo octal no cubre.",
-                    "cost": "costo: medio"
-                  }
-                ]
-              },
-              {
-                "type": "p",
-                "text": "Estos pasos son propuestas del equipo para ampliar la práctica. [INF]"
-              }
-            ]
-          },
-          {
             "id": "s18",
             "title": "Conclusiones",
             "tema": "Síntesis",
